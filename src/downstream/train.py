@@ -25,6 +25,15 @@ class TrainCfg:
     seed: int = 42
 
 
+def _compute_metrics(eval_pred):
+    """Per-epoch validation accuracy + macro-F1 (so we get baseline-style curves)."""
+    from sklearn.metrics import accuracy_score, f1_score
+    logits, labels = eval_pred
+    preds = logits.argmax(-1)
+    return {"accuracy": accuracy_score(labels, preds),
+            "f1_macro": f1_score(labels, preds, average="macro", zero_division=0)}
+
+
 def _datasets(train_df, tok, cfg):
     from datasets import Dataset
     df = train_df.sample(frac=1.0, random_state=cfg.seed).reset_index(drop=True)
@@ -76,7 +85,7 @@ def train(train_df: pd.DataFrame, out_dir: str, cfg: TrainCfg = TrainCfg()):
     )
     import inspect
     tk = dict(model=model, args=args, train_dataset=ds_tr, eval_dataset=ds_val,
-              data_collator=DataCollatorWithPadding(tok))
+              data_collator=DataCollatorWithPadding(tok), compute_metrics=_compute_metrics)
     # `tokenizer` was renamed to `processing_class` in recent transformers
     if "processing_class" in inspect.signature(Trainer.__init__).parameters:
         tk["processing_class"] = tok
@@ -86,4 +95,9 @@ def train(train_df: pd.DataFrame, out_dir: str, cfg: TrainCfg = TrainCfg()):
     trainer.train()
     trainer.save_model(out_dir)
     tok.save_pretrained(out_dir)
+
+    # save the full log history (train loss per step + val loss/acc/F1 per epoch)
+    import json, os
+    with open(os.path.join(out_dir, "history.json"), "w", encoding="utf-8") as f:
+        json.dump(trainer.state.log_history, f, indent=2)
     return out_dir
