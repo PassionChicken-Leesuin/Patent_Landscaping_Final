@@ -22,8 +22,10 @@ RUBRIC_PATH = RUBRIC_DIR / f"{DOMAIN}_v2.json"
 # ---- deterministic scoring knobs (Stage C). FIXED — do not gold-tune. ----
 TAU_POS = 0.75      # final_score >= -> positive
 TAU_NEG = 0.25      # final_score <= -> easy_negative
-EX_TRIGGER = 0.70   # exclusion_risk >= -> override to hard_negative + cap score
-EX_CAP = 0.40       # score ceiling when exclusion overrides
+EX_CAP = 0.40       # score ceiling when exclusion is CONFIRMED (stance=="hard_negative")
+# NOTE: a confirmed exclusion is the model's categorical exclusion_stance=="hard_negative",
+# NOT a numeric risk threshold. The old EX_TRIGGER=0.70 collided with the model's
+# "possible_exclusion" hedge (risk 0.7) and over-rejected true positives — removed.
 
 # ---- model tiering (cost lever) ----
 # high-frequency Node A -> cheap model ; low-frequency Node B -> (optional) stronger model

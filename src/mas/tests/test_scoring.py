@@ -31,15 +31,20 @@ def run():
     r = score_and_type({"core_score": 0.80, "route": "hard_negative", "core_stance": "unrelated"})
     _check("hard_negative flag overrides band", r["candidate_type"] == "hard_negative")
 
-    # exclusion override: caps score AND flags hard_negative even if route=boundary
+    # CONFIRMED exclusion (stance==hard_negative): caps score AND flags hard_negative
     r = score_and_type({"core_score": 0.88, "route": "boundary", "core_stance": "related",
-                        "exclusion_risk": 0.9})
-    _check("exclusion caps score", r["final_score"] == MC.EX_CAP)
-    _check("exclusion -> hard_negative", r["candidate_type"] == "hard_negative")
+                        "exclusion_stance": "hard_negative"})
+    _check("confirmed exclusion caps score", r["final_score"] == MC.EX_CAP)
+    _check("confirmed exclusion -> hard_negative", r["candidate_type"] == "hard_negative")
+
+    # POSSIBLE exclusion (model 'maybe') must NOT force hard_negative — strong core stays positive
+    r = score_and_type({"core_score": 0.85, "route": "boundary", "core_stance": "related",
+                        "exclusion_stance": "possible_exclusion", "exclusion_risk": 0.7})
+    _check("possible_exclusion does NOT reject strong positive", r["candidate_type"] == "positive")
 
     # boundary (mid score, no exclusion)
     r = score_and_type({"core_score": 0.5, "route": "boundary", "core_stance": "related",
-                        "exclusion_risk": 0.0})
+                        "exclusion_stance": "not_excluded"})
     _check("boundary type", r["candidate_type"] == "boundary")
 
     # abstain

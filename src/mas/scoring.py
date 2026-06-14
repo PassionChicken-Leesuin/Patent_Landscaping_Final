@@ -21,15 +21,17 @@ def route_after_relevance(state: dict) -> str:
 
 def score_and_type(state: dict) -> dict:
     core = float(state["core_score"])
-    ex = float(state.get("exclusion_risk") or 0.0)
     route = state.get("route")
     stance = state.get("core_stance")
+    ex_stance = state.get("exclusion_stance")   # not_excluded | possible_exclusion | hard_negative
 
-    score = core
-    if ex >= MC.EX_TRIGGER:
-        score = min(score, MC.EX_CAP)        # look-alikes are capped
+    # A CONFIRMED exclusion is the model's categorical 'hard_negative' stance, NOT a numeric
+    # risk threshold. (exclusion_risk=0.7 == "possible_exclusion" is the model's "maybe" hedge;
+    # treating that as a confirmed exclusion wrongly rejected genuine autonomous-driving patents.)
+    confirmed_excl = (ex_stance == "hard_negative")
+    score = min(core, MC.EX_CAP) if confirmed_excl else core
 
-    if route == "hard_negative" or ex >= MC.EX_TRIGGER:
+    if route == "hard_negative" or confirmed_excl:
         ctype = "hard_negative"
     elif route == "abstain_candidate" or stance == "abstain":
         ctype = "abstain"
