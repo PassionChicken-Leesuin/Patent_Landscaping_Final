@@ -15,7 +15,9 @@ RANKED_CSV = MAS_OUT_DIR / "mas_ranked_scores.csv"
 
 # ---- domain (single) ----
 DOMAIN = "autonomous_driving"
-RUBRIC_PATH = RUBRIC_DIR / f"{DOMAIN}_v1.json"
+# v2 = grounded in Bergeaud & Verluise (2023), the paper that built the gold set.
+# Decisive axis: automate driving (SEED) vs assist a human driver (NOT_SEED).
+RUBRIC_PATH = RUBRIC_DIR / f"{DOMAIN}_v2.json"
 
 # ---- deterministic scoring knobs (Stage C). FIXED — do not gold-tune. ----
 TAU_POS = 0.75      # final_score >= -> positive

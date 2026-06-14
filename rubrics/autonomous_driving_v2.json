@@ -1,0 +1,43 @@
+{
+  "domain": "autonomous_driving",
+  "version": "v2",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE — the paper that built this gold set. Self-driving is defined at the FUNCTIONAL APPLICATION level (a set of tasks), not by keywords.",
+  "definition": "Self-driving / autonomous vehicles: technology that enables a vehicle to make its OWN driving decisions and operate the dynamic driving task with reduced or NO human control (automate driving). The defining functional task is 'enabling cars to make autonomous decisions'.",
+  "primary_decision_axis": {
+    "name": "automate_vs_assist",
+    "rule": "The SAME underlying technology (camera, lidar, lane detection, control, V2X, CV) can serve EITHER automated driving OR human-driver assistance. ACCEPT (SEED) only if the vehicle itself drives / decides. REJECT (NOT_SEED) if a HUMAN driver stays in control and the invention merely assists, warns, or improves comfort — even if identical sensors/algorithms are used. This single distinction is why the gold set is hard (human inter-annotator and model F1 ~79%, vs ~90% for other domains)."
+  },
+  "in_scope_tasks": [
+    {"task_id": "T1", "desc": "the vehicle makes autonomous driving DECISIONS / controls the dynamic driving task itself (SAE L3-L5, self-driving, driverless)"},
+    {"task_id": "T2", "desc": "environment perception (object/lane/sign detection, sensor fusion, lidar/radar/camera) explicitly FOR automated driving / an autonomous vehicle"},
+    {"task_id": "T3", "desc": "motion/trajectory/path planning, behavior & decision planning for a self-driving vehicle"},
+    {"task_id": "T4", "desc": "localization / HD-map / SLAM used by an autonomous vehicle to drive itself"},
+    {"task_id": "T5", "desc": "V2X / connected-vehicle communication that enables or coordinates automated driving"},
+    {"task_id": "T6", "desc": "teleoperation / remote driving of an autonomous vehicle (human not physically driving)"}
+  ],
+  "key_technical_signals": [
+    "autonomous vehicle", "self-driving", "automated driving", "driverless", "ego vehicle",
+    "autonomous decision", "drives itself", "without driver intervention", "SAE level 3/4/5",
+    "trajectory planning", "motion planning", "autonomous navigation", "self-driving controller"
+  ],
+  "out_of_scope_confusables": [
+    "ADAS / driver-assistance where the HUMAN keeps control: lane-departure WARNING, blind-spot ALERT, forward-collision WARNING, parking ASSIST, adaptive cruise as an assist feature",
+    "driver monitoring / drowsiness / attention systems (about the human, not autonomous driving)",
+    "general automotive engineering with no autonomous decision-making (powertrain, brakes, steering hardware, suspension, body, HVAC)",
+    "generic computer vision / object detection not applied to driving a vehicle",
+    "generic robotics / unmanned AERIAL / underwater / industrial robots / mowers (not on-road self-driving cars)",
+    "infotainment, human-driver navigation maps, insurance / telematics / data-logging that merely mentions autonomous vehicles"
+  ],
+  "hard_negative_patterns": [
+    "uses driving-perception or control tech but the HUMAN driver remains in control (assist/warn only) -> reject",
+    "obstacle / collision WARNING for a human-driven vehicle -> reject",
+    "same CV/lidar/control method described generically, vehicle only as an example, no autonomous driving -> reject",
+    "non-road autonomous robot (drone, UAV, AUV, mower, warehouse robot) -> reject",
+    "vehicle component (brake, motor, steering) with no autonomous-driving decision -> reject"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "the vehicle clearly AUTOMATES driving / makes autonomous decisions, with a concrete mechanism",
+    "0.6_0.75": "driving-automation plausibly implied but the automate-vs-assist boundary is unclear, or mixed assist/autonomy signals -> boundary",
+    "0.0_0.25": "human driver stays in control (assist/warn only), OR no autonomous-driving signal, OR only a confusable/out-of-domain signal"
+  }
+}

@@ -7,11 +7,17 @@ from __future__ import annotations
 import json
 
 RELEVANCE_SYSTEM = (
-    "You are the Relevance & Route agent for patent landscaping on title+abstract only.\n"
+    "You are the Relevance & Route agent for autonomous-driving patent landscaping on "
+    "title+abstract only.\n"
+    "The domain is defined at the FUNCTIONAL-APPLICATION level: a patent is relevant only if "
+    "the VEHICLE ITSELF makes driving decisions / drives itself (automate driving). The SAME "
+    "sensing/CV/control technology is NOT relevant when a HUMAN driver stays in control and the "
+    "invention merely assists, warns, or adds comfort (driver assistance). This automate-vs-assist "
+    "distinction is the decisive axis.\n"
     "Extract evidence, judge core relevance, assign a route. Output JSON only.\n"
     "Do NOT assume or guess any ground-truth label. Score using the rubric's score_anchors.\n"
-    'If relevance is uncertain (task implied but mechanism unclear), set route="boundary", '
-    'not "easy_positive".'
+    'If relevance is uncertain (automation implied but mechanism/control unclear), set '
+    'route="boundary", not "easy_positive".'
 )
 
 EXCLUSION_SYSTEM = (
@@ -19,17 +25,26 @@ EXCLUSION_SYSTEM = (
     "Decide whether it should be EXCLUDED as out-of-scope. Output JSON only. Do NOT use labels."
 )
 
-# one hard boundary example (self-driving vs driver-assist)
+# contrasting PAIR: same lane technology, automate (SEED) vs assist (NOT_SEED).
+# This is the decisive boundary per Bergeaud & Verluise (2023) — teach it explicitly.
 RELEVANCE_FEWSHOT = (
-    "EXAMPLE (hard_negative):\n"
+    "EXAMPLE A (hard_negative — driver assistance, human in control):\n"
     'Title: "Lane departure warning system for a vehicle"\n'
     'Abstract: "A system warns the human driver with an alert when the vehicle drifts out of '
     'its lane; the driver remains in full control of steering and braking."\n'
-    "-> functional_evidence: [] (no autonomous-driving task performed)\n"
-    '-> technical_evidence: [{"source":"abstract","exact_text":"warns the human driver",'
-    '"mapped_task":"confusable:driver-assistance","status":"present","strength":2}]\n'
-    '-> core_stance: "unrelated", core_score: 0.18, route: "hard_negative"\n'
-    "(reason: ADAS that keeps the human in control; no self-driving decision making)"
+    '-> functional_evidence: []   technical_evidence: [{"source":"abstract",'
+    '"exact_text":"warns the human driver","mapped_task":"confusable:driver-assistance",'
+    '"status":"present","strength":2}]\n'
+    '-> core_stance: "unrelated", core_score: 0.15, route: "hard_negative"\n'
+    "(reason: ADAS — human keeps control, no autonomous driving decision)\n\n"
+    "EXAMPLE B (easy_positive — same lane tech, but the VEHICLE drives itself):\n"
+    'Title: "Lane-keeping control for an autonomous vehicle"\n'
+    'Abstract: "An autonomous vehicle detects lane boundaries and autonomously steers to keep '
+    'the ego vehicle centered, controlling the dynamic driving task without driver input."\n'
+    '-> functional_evidence: [{"source":"abstract","exact_text":"autonomously steers ... without '
+    'driver input","mapped_task":"T1","status":"present","strength":3}]\n'
+    '-> core_stance: "related", core_score: 0.92, route: "easy_positive"\n'
+    "(reason: the vehicle itself performs the driving task — automate, not assist)"
 )
 
 
