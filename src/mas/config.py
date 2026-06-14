@@ -1,0 +1,34 @@
+"""MAS configuration — single-domain (autonomous driving).
+
+Thresholds are FIXED and must NOT be tuned on the gold set (fair-comparison
+condition vs Snorkel). See MAS spec §0, §5, §12.
+"""
+from __future__ import annotations
+from pathlib import Path
+
+# ---- paths ----
+ROOT = Path(__file__).resolve().parents[2]
+RUBRIC_DIR = ROOT / "rubrics"
+MAS_OUT_DIR = ROOT / "DataSet" / "mas"
+AUDIT_JSONL = MAS_OUT_DIR / "mas_audit.jsonl"
+RANKED_CSV = MAS_OUT_DIR / "mas_ranked_scores.csv"
+
+# ---- domain (single) ----
+DOMAIN = "autonomous_driving"
+RUBRIC_PATH = RUBRIC_DIR / f"{DOMAIN}_v1.json"
+
+# ---- deterministic scoring knobs (Stage C). FIXED — do not gold-tune. ----
+TAU_POS = 0.75      # final_score >= -> positive
+TAU_NEG = 0.25      # final_score <= -> easy_negative
+EX_TRIGGER = 0.70   # exclusion_risk >= -> override to hard_negative + cap score
+EX_CAP = 0.40       # score ceiling when exclusion overrides
+
+# ---- model tiering (cost lever) ----
+# high-frequency Node A -> cheap model ; low-frequency Node B -> (optional) stronger model
+LLM_FAST = "gpt-4o-mini"     # or "claude-haiku-4-5", "gemini-2.0-flash-001"
+LLM_STRONG = "gpt-4o-mini"   # set to a stronger model if desired; Node B is rare
+LLM_TEMPERATURE = 0.0
+LLM_PROVIDER = "openai"      # "openai" | "anthropic" | "google"
+
+# ---- pilot / calibration ----
+PILOT_SIZE = 80              # sampled from candidate pool (never gold)

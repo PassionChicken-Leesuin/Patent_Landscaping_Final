@@ -1,0 +1,39 @@
+{
+  "domain": "autonomous_driving",
+  "version": "v1",
+  "definition": "Technologies that enable a vehicle to perceive its environment and drive itself with reduced or no human control — i.e. autonomous / self-driving vehicles and the perception, localization, planning, and control that make automated driving possible.",
+  "in_scope_tasks": [
+    {"task_id": "T1", "desc": "autonomous / self-driving vehicle control (the vehicle drives itself; SAE L3-L5 automated driving)"},
+    {"task_id": "T2", "desc": "environment perception for driving: object/lane/traffic-sign detection, sensor fusion (LiDAR/radar/camera) for automated driving"},
+    {"task_id": "T3", "desc": "motion planning, trajectory generation, path/decision planning for an automated vehicle"},
+    {"task_id": "T4", "desc": "localization / HD-mapping / SLAM used for automated driving"},
+    {"task_id": "T5", "desc": "V2X / connected-vehicle communication that supports automated driving"},
+    {"task_id": "T6", "desc": "teleoperation or remote driving of an autonomous vehicle"}
+  ],
+  "key_technical_signals": [
+    "autonomous vehicle", "self-driving", "automated driving", "driverless",
+    "trajectory planning", "motion planning", "path planning",
+    "sensor fusion", "lidar", "object detection for driving", "lane detection",
+    "ego vehicle", "SAE level", "autonomous navigation", "self-driving controller"
+  ],
+  "out_of_scope_confusables": [
+    "ADAS / driver-assistance that keeps the human driver in control (lane-keep warning, blind-spot alert, adaptive cruise as assist)",
+    "general vehicle/automotive engineering not about autonomy (powertrain, steering hardware, suspension, body)",
+    "generic computer vision / object detection not applied to driving",
+    "generic robotics / unmanned ground vehicles not road vehicles",
+    "in-cabin infotainment, navigation maps for human drivers, insurance/telematics",
+    "traffic infrastructure or driver-monitoring without vehicle autonomy"
+  ],
+  "hard_negative_patterns": [
+    "driver-assistance feature that only warns or assists while the human keeps driving",
+    "obstacle/collision warning for a human-driven vehicle",
+    "vehicle component (brake, steering, motor) with no autonomous-driving decision making",
+    "object recognition described generically with a vehicle only as an example",
+    "insurance / data-logging / telematics mentioning autonomous vehicles but not implementing driving"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "explicitly performs an in_scope_task with a concrete mechanism (the vehicle drives/plans/perceives autonomously)",
+    "0.6_0.75": "automated-driving task implied but mechanism unclear, or mixed assist/autonomy signals -> boundary",
+    "0.0_0.25": "no autonomous-driving signal, or only a confusable signal (driver-assist / generic vehicle / generic CV)"
+  }
+}

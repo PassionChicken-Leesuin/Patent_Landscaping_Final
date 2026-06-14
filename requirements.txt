@@ -1,6 +1,10 @@
-# ── Local pipeline (dedup + EDA). Runs on Python 3.11–3.14, no GPU needed ──
+# ── Local stack: data pipeline + MAS labeling. Verified on Python 3.14 (.venv) ──
 pandas>=2.0
 numpy>=1.24
+openai>=2.0          # MAS structured-output client (chat.completions.parse)
+python-dotenv>=1.0   # load 10 OPENAI_API_KEY_1..10 from .env
+pydantic>=2.6        # structured-output schemas
+langgraph>=0.2       # optional spec-faithful graph wrapper (src/mas/graph.py)
 
 # ── Snorkel baseline arm (run in Colab/Kaggle, Python 3.10/3.11) ──
 # snorkel 0.10 does NOT support Python 3.14 — use a 3.10/3.11 env.
