@@ -15,6 +15,12 @@ LEAKAGE_DIR = DATA_DIR / "leakage"
 TRAINING_CSV = DATA_DIR / "Training_Set.csv"
 EVAL_CSV = DATA_DIR / "Evaluation_Set.csv"
 
+# out-of-domain anti-seed negatives (other Bergeaud domains). Every row here is a
+# NOT_SEED for autonomous driving. computervision = HARD negative (overlaps driving CV).
+NEG_DIR = DATA_DIR / "학습용 음성"
+NEG_HARD_DOMAINS = {"computervision"}          # semantically near autonomous driving
+NEG_CLEAN_CSV = PROCESSED_DIR / "negatives_pool.csv"
+
 # pipeline outputs
 TRAINING_CLEAN_CSV = PROCESSED_DIR / "training_clean.csv"          # candidate pool, leakage removed
 EVAL_PROCESSED_CSV = PROCESSED_DIR / "eval_processed.csv"          # gold, text split into title/abstract

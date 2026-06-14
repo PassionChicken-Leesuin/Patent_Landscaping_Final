@@ -13,6 +13,7 @@ Design notes
 from __future__ import annotations
 import re
 from collections import defaultdict, Counter
+from pathlib import Path
 
 import pandas as pd
 
@@ -106,6 +107,41 @@ def find_leakage(train: pd.DataFrame, ev: pd.DataFrame,
     return res
 
 
+def build_negative_pool(ev: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Load the 5 out-of-domain CSVs into a unified NOT_SEED negative pool.
+
+    All rows are negatives for autonomous driving. We tag source_domain and
+    hardness (computervision = hard), dedup by family_id, and drop any family_id
+    that leaks into the autonomous-driving eval set.
+    """
+    import glob
+    if ev is None:
+        ev = load_eval()
+    eval_fams = set(ev["family_id"].astype(str))
+
+    frames = []
+    for fp in sorted(glob.glob(str(C.NEG_DIR / "*.csv"))):
+        dom = Path(fp).stem.replace("training_", "")
+        d = pd.read_csv(fp, encoding="utf-8-sig", dtype=str).fillna("")
+        text_col = "text"
+        keep = pd.DataFrame({
+            "family_id": d["family_id"].astype(str),
+            "source_domain": dom,
+            "in_domain_is_seed": d.get("is_seed", ""),
+            "text": d[text_col].str.replace(r"\s+", " ", regex=True).str.strip(),
+            "hardness": "hard" if dom in C.NEG_HARD_DOMAINS else "easy",
+        })
+        frames.append(keep)
+
+    neg = pd.concat(frames, ignore_index=True)
+    neg = neg.drop_duplicates(subset="family_id").reset_index(drop=True)
+    before = len(neg)
+    neg = neg[~neg["family_id"].isin(eval_fams)].reset_index(drop=True)   # drop eval leaks
+    neg.attrs["eval_leaks_removed"] = before - len(neg)
+    neg["label"] = 0                                                       # NOT_SEED
+    return neg
+
+
 def build_clean_training(train: pd.DataFrame, leaked: pd.DataFrame) -> pd.DataFrame:
     drop_ids = set(leaked["train_patent_id"]) if len(leaked) else set()
     clean = train[~train["patent_id"].isin(drop_ids)].reset_index(drop=True)
@@ -121,10 +157,13 @@ def run(write: bool = True) -> dict:
     ev = load_eval()
     leaked = find_leakage(train, ev)
     clean = build_clean_training(train, leaked)
+    negatives = build_negative_pool(ev)
 
     if write:
         leaked.to_csv(C.LEAKED_IDS_CSV, index=False, encoding="utf-8")
         clean.to_csv(C.TRAINING_CLEAN_CSV, index=False, encoding="utf-8")
         ev.to_csv(C.EVAL_PROCESSED_CSV, index=False, encoding="utf-8")
+        negatives.to_csv(C.NEG_CLEAN_CSV, index=False, encoding="utf-8")
 
-    return {"train_raw": train, "eval": ev, "leaked": leaked, "train_clean": clean}
+    return {"train_raw": train, "eval": ev, "leaked": leaked,
+            "train_clean": clean, "negatives": negatives}

@@ -52,6 +52,13 @@ def main():
     hr("CLEAN TRAINING (leakage removed)")
     print(f"{len(train):,} -> {len(clean):,}  (dropped {len(train)-len(clean)})")
 
+    neg = out["negatives"]
+    hr("NEGATIVE POOL (out-of-domain anti-seed, 5 other Bergeaud domains)")
+    print(f"total negatives: {len(neg):,}  (eval-leaks removed: {neg.attrs.get('eval_leaks_removed', 0)})")
+    print("\nby source_domain (hardness):")
+    g = neg.groupby(["source_domain", "hardness"]).size()
+    print(g.to_string())
+
     hr("TEXT LENGTH (clean training, char count of title+abstract)")
     lens = clean["text"].str.len()
     print(lens.describe().to_string())
