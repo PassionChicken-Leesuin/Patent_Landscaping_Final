@@ -74,10 +74,15 @@ def train(train_df: pd.DataFrame, out_dir: str, cfg: TrainCfg = TrainCfg()):
         metric_for_best_model="eval_loss", greater_is_better=False,
         logging_steps=50, seed=cfg.seed, report_to="none",
     )
-    trainer = WeightedTrainer(
-        model=model, args=args, train_dataset=ds_tr, eval_dataset=ds_val,
-        tokenizer=tok, data_collator=DataCollatorWithPadding(tok),
-    )
+    import inspect
+    tk = dict(model=model, args=args, train_dataset=ds_tr, eval_dataset=ds_val,
+              data_collator=DataCollatorWithPadding(tok))
+    # `tokenizer` was renamed to `processing_class` in recent transformers
+    if "processing_class" in inspect.signature(Trainer.__init__).parameters:
+        tk["processing_class"] = tok
+    else:
+        tk["tokenizer"] = tok
+    trainer = WeightedTrainer(**tk)
     trainer.train()
     trainer.save_model(out_dir)
     tok.save_pretrained(out_dir)
