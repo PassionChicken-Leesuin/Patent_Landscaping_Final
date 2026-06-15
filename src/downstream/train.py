@@ -97,7 +97,10 @@ def train(train_df: pd.DataFrame, out_dir: str, cfg: TrainCfg = TrainCfg()):
     tok.save_pretrained(out_dir)
 
     # save the full log history (train loss per step + val loss/acc/F1 per epoch)
-    import json, os
+    import json, os, dataclasses
     with open(os.path.join(out_dir, "history.json"), "w", encoding="utf-8") as f:
         json.dump(trainer.state.log_history, f, indent=2)
+    # save the exact hyperparameters used (reproducibility)
+    with open(os.path.join(out_dir, "train_config.json"), "w", encoding="utf-8") as f:
+        json.dump(dataclasses.asdict(cfg), f, indent=2)
     return out_dir
