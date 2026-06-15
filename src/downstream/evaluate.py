@@ -59,14 +59,22 @@ def report_from_probs(y: np.ndarray, p: np.ndarray, eval_df: pd.DataFrame,
     }
     bl = {}
     if "expansion_level" in eval_df.columns:
+        lvl_series = eval_df["expansion_level"].values
         for lvl in ["SEED", "ANTISEED-manual", "ANTISEED-AF"]:
-            m = (eval_df["expansion_level"] == lvl).values
+            m = (lvl_series == lvl)
             if m.sum() == 0:
                 continue
             if lvl == "SEED":
                 bl[lvl] = {"n": int(m.sum()), "recall(TP rate)": recall_score(y[m], yhat[m], zero_division=0)}
             else:
                 bl[lvl] = {"n": int(m.sum()), "specificity(TN rate)": float((yhat[m] == 0).mean())}
+        # threshold-free discrimination of SEED against EACH negative type separately.
+        # SEED vs ANTISEED-manual = the hard automate-vs-assist boundary (the crux).
+        seed_m = (lvl_series == "SEED")
+        for neg_lvl, key in [("ANTISEED-manual", "auc_seed_vs_hard"), ("ANTISEED-AF", "auc_seed_vs_easy")]:
+            sub = seed_m | (lvl_series == neg_lvl)
+            if seed_m.sum() and (lvl_series == neg_lvl).sum():
+                res[key] = roc_auc_score(y[sub], p[sub])
     res["by_expansion_level"] = bl
     return res
 
@@ -80,7 +88,8 @@ def evaluate(model_dir: str, eval_df: pd.DataFrame, threshold: float = 0.5,
 
 def print_report(res: dict, arm: str = ""):
     print(f"\n=== EVAL {arm} (n={res['n']}, thr={res.get('threshold')}) ===")
-    for k in ["accuracy", "precision", "recall", "macro_f1", "auc", "average_precision"]:
+    for k in ["accuracy", "precision", "recall", "macro_f1", "auc", "average_precision",
+              "auc_seed_vs_hard", "auc_seed_vs_easy"]:
         if k in res:
             print(f"  {k:18s}: {res[k]:.4f}")
     print(f"  confusion [[TN,FP],[FN,TP]]: {res['confusion']}")
