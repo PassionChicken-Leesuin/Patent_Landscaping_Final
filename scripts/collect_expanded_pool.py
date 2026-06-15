@@ -20,37 +20,43 @@ import time
 from pathlib import Path
 from collections import defaultdict
 
-# ---------------- search query ----------------
-# CPC group prefixes (match cpc_group startswith). Grouped by subtopic for reporting.
-CPC_TARGETS = {
-    "self_driving":     ["B60W60"],                          # autonomous road vehicles
-    "drive_control":    ["B60W30"],                          # ACC, lane-keep, collision-avoid
-    "veh_state":        ["B60W40", "B60W50"],                # road/driver state estimation
-    "cruise":           ["B60K31"],                          # (older) cruise control
-    "auto_steering":    ["B62D15"],                          # automatic steering
-    "auton_nav":        ["G05D1"],                           # autonomous navigation (land/air/sea)
-    "traffic_v2x_anti": ["G08G1"],                           # road traffic ctrl / anti-collision
-    "veh_radar_lidar":  ["G01S13/93", "G01S17/93"],          # vehicle anti-collision sensing
-    "driving_scene_cv": ["G06V20/56", "G06V20/58", "G06V20/59"],
-    "v2x_comms":        ["H04W4/40", "H04W4/44", "H04W4/46"],
-    # NB: dedicated aircraft classes (B64*) dropped — they over-collected conventional
-    # aviation (~23% vs gold's ~8%). Genuinely autonomous aerial is still caught by
-    # auton_nav (G05D1) + the keyword intersection, keeping the road focus of the gold set.
-}
-ALL_PREFIXES = [(sub, p) for sub, ps in CPC_TARGETS.items() for p in ps]
+# ---------------- search query (Bergeaud & Verluise S2 Appendix, Self-Driving Vehicle) ----------------
+# Official CPC list used by the gold-set authors to select candidates. Matched by
+# cpc_group startswith. We follow their list verbatim for fidelity to the gold definition.
+CPC_PREFIXES = sorted(set("""
+G08G1/02 G08G1/0967 G08G1/0968 G08G1/00 G08G1/01 G08G1/09 G08G1/127 G08G1/16 G08G1/164 G08G1/20 G08G1/161 G08G1/22
+G01S7/003 G01S7/00 G01S7/02 G01S7/52 G01S7/48
+G07B15/063
+G07C5/00 G07C5/12 G07C5/01 G07C5/02 G07C5/03 G07C5/04 G07C5/05 G07C5/06 G07C5/07 G07C5/08
+E01F E01F9/00 E01F9/40
+H04W36/00 H04W76/50 H04W4/44 H04W4/46
+B61L3/00 B61L25/00
+G05D1/0011 G05D1/0027 G05D1/0287 G05D1/0297 G05D1/00 G05D1/0257 G05D1/0088 G05D1/021 G05D1/0212 G05D1/0276 G05D1/02
+G01S13/93 G01S13/00 G01S13/86 G01S13/87 G01S13/931
+G01S15/88 G01S15/93 G01S15/00 G01S15/025 G01S15/87 G01S15/931
+G01S17/88 G01S17/93 G01S17/00 G01S17/023 G01S17/06 G01S17/87 G01S17/936
+G06K9/00 G06K9/00362 G06K9/00785 G06K9/00791
+B60L2240/70 B60L2240/60 B60L2240/62
+B60W2420/52 B60W2420/42 B60W30/16 B60W2050/008 B60W2550/402 B60W2550/408 B60W30/00 B60W40/00 B60W30/095 B60W50/0097
+B60Y2400/3017 B60Y2400/3015
+B60R19/00 G01S2013/9332 G06T1/0007 G06T1/0014 G06T1/20 H04N5/335 B60S1/56
+G01C21/00 G01C21/26 G01C21/34
+F16D2500/31 F16D2500/508
+B60G17/015 B60G17/016 B60G17/0195 B60G2800/00 B60K28/04 G05D2201/0212
+""".split()))
+CPC_TARGETS = {"bergeaud_sdv": CPC_PREFIXES}
+ALL_PREFIXES = [("bergeaud_sdv", p) for p in CPC_PREFIXES]
 
-# keyword vocabulary (>=1 must appear in title+abstract) — autonomous-driving signal
+# Official keyword list (>=1 must appear in title+abstract). We intersect CPC AND keyword
+# to keep the pool tractable and gold-text-similar (Bergeaud's union over all rules is ~137k).
 KEYWORDS = [
-    "autonomous", "self-driving", "self driving", "driverless", "automated driving",
-    "automated vehicle", "autonomous vehicle", "autonomous driving", "autonomous navigation",
-    "adas", "driver assistance", "advanced driver", "cruise control", "adaptive cruise",
-    "lane keeping", "lane departure", "lane detection", "lane centering", "lane following",
-    "collision avoidance", "collision warning", "blind spot", "parking assist", "autopilot",
-    "auto-pilot", "unmanned aerial", "unmanned ground", "unmanned vehicle", " uav ", " ugv ",
-    "drone", "vehicle-to-vehicle", "vehicle to vehicle", "vehicle-to-everything", " v2x",
-    " v2v", " v2i", "platooning", "ego vehicle", "ego-vehicle", "sensor fusion", "lidar",
-    "point cloud", "occupancy grid", "trajectory planning", "motion planning", "path planning",
-    "traffic sign", "obstacle detection", "automated guided vehicle",
+    "self-driving vehicle", "autopilot", "driverless vehicle", "autonomous vehicle",
+    "automated vehicle", "vehicle connectivity", "vehicle-to-vehicle communication",
+    "fleet management", "vehicle lidar", "vehicle sonar", "vehicle radar", "vehicle camera",
+    "object detection", "obstacle detection", "object classification", "cruise control",
+    "pedestrian detection", "environment mapping", "surround view", "blind spot detection",
+    "park assistance", "lane departure", "traffic sign recognition", "drive assist system",
+    "trajectory generation", "reactive control", "path trajectory planning", "manoeuvres planning",
 ]
 KW_RE = re.compile("|".join(re.escape(k) for k in KEYWORDS), re.I)
 
@@ -62,6 +68,7 @@ def _q(s: str) -> str:
 def stream_cpc(path: Path):
     """patent_id -> set of matched subtopics (only for CPC-matching patents)."""
     matched: dict[str, set] = defaultdict(set)
+    pref_tuple = tuple(CPC_PREFIXES)                 # C-optimized multi-prefix startswith
     t0 = time.time(); n = 0
     with open(path, encoding="utf-8") as f:
         f.readline()
@@ -70,11 +77,8 @@ def stream_cpc(path: Path):
             p = line.rstrip("\n").split("\t")
             if len(p) < 7:
                 continue
-            grp = _q(p[6])
-            for sub, pref in ALL_PREFIXES:
-                if grp.startswith(pref):
-                    matched[_q(p[0])].add(sub)
-                    break
+            if _q(p[6]).startswith(pref_tuple):
+                matched[_q(p[0])].add("bergeaud_sdv")
     print(f"  cpc: scanned {n:,} rows in {time.time()-t0:.0f}s -> {len(matched):,} CPC-matched patents", flush=True)
     return matched
 

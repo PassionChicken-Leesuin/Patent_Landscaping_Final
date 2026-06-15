@@ -1,278 +1,254 @@
 train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
-11855799,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
-9221396,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-10809720,66433249,SEED,1,1.0,1.0,Bi-directional autonomous vehicle
-12423765,63854035,SEED,1,1.0,1.0,Dynamic autonomous vehicle servicing and management
-11919510,65910728,SEED,1,1.0,1.0,Obstacle avoidance in autonomous vehicles
-9945951,56133228,SEED,1,1.0,1.0,Object detecting apparatus and vehicle collision avoidance control apparatus
-10642284,70461557,SEED,1,1.0,1.0,Location determination using ground structures
-11971720,67297133,SEED,1,1.0,1.0,Method for preventing a collision between an autonomous vehicle and a user in a 
-11059493,72748824,SEED,1,1.0,1.0,Systems and methods for estimating velocity of an autonomous vehicle and state i
-12397805,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-11872998,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-12273217,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
-10192442,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-11908328,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-12354481,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-11636765,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-11254309,70728633,SEED,1,1.0,1.0,Cruise control system and method for vehicle
-11169528,68464717,SEED,1,1.0,1.0,Initial trajectory generator for motion planning system of autonomous vehicles
-10078789,57775125,ANTISEED-manual,0,1.0,1.0,Vehicle parking assist system with vision-based parking space detection
-10394248,57040618,ANTISEED-manual,0,1.0,1.0,"Charging pile, method and device for recognizing the charging pile"
-9925980,55454012,ANTISEED-manual,0,1.0,1.0,Vehicle collision avoidance system with enhanced pedestrian avoidance
-10147069,57883828,ANTISEED-manual,0,1.0,0.1875,System and method for piece picking or put-away with a mobile manipulation robot
-10867279,57883828,ANTISEED-manual,0,1.0,0.1875,System and method for piece picking or put-away with a mobile manipulation robot
-9940604,57883828,ANTISEED-manual,0,1.0,0.1875,System and method for piece picking or put-away with a mobile manipulation robot
-9785911,57883828,ANTISEED-manual,0,1.0,0.1875,System and method for piece-picking or put-away with a mobile manipulation robot
-9519882,57883828,ANTISEED-manual,0,1.0,1.0,Autonomous mobile bin storage and retrieval system
-10796562,72664220,ANTISEED-manual,0,1.0,1.0,Autonomous home security devices
-9633564,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-11011061,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
-11077844,72660487,SEED,1,1.0,1.0,System and method for increasing passenger satisfaction in a vehicle having an a
-9304515,54334694,SEED,1,1.0,1.0,Regional operation modes for autonomous vehicles
-10817731,63833130,SEED,1,1.0,1.0,Image-based pedestrian detection
-10471963,61434708,SEED,1,1.0,1.0,System and method for transitioning between an autonomous and manual driving mod
-10108867,63833130,SEED,1,1.0,1.0,Image-based pedestrian detection
+9754192,54930899,ANTISEED-manual,0,1.0,1.0,Object detection utilizing geometric information fused with image data
+11988518,73745906,SEED,1,1.0,1.0,Updating high definition maps based on lane closure and lane opening
 12174034,73745906,SEED,1,1.0,1.0,Updating high definition maps based on lane closure and lane opening
-11221622,72513647,SEED,1,1.0,1.0,Self-driving vehicle systems and methods
-10866113,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
-11755020,68426874,SEED,1,1.0,1.0,Responsive vehicle control
-10816987,68426874,SEED,1,1.0,1.0,Responsive vehicle control
-9944392,55401622,SEED,1,1.0,1.0,Unmanned aerial vehicle for hazard detection
-11914367,70970203,SEED,1,1.0,1.0,Sun-aware routing and controls of an autonomous vehicle
-12002103,64815719,SEED,1,1.0,1.0,Vehicle-to-vehicle incident information collection
-10295359,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
-12467761,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
-9534918,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
-10474160,64734386,SEED,1,1.0,1.0,High resolution 3D point clouds generation from downsampled low resolution LIDAR
-9915951,59087810,SEED,1,1.0,1.0,Detection of overhanging objects
-10152053,63036396,SEED,1,1.0,1.0,Passenger classification-based autonomous vehicle routing
+9607226,53189592,ANTISEED-manual,0,1.0,1.0,Methods and systems for object detection using multiple sensors
+12214724,67213901,SEED,1,1.0,1.0,Systems and methods for deploying warning devices from an autonomous vehicle
+11366476,67213901,SEED,1,1.0,1.0,Systems and methods for deploying warning devices from an autonomous vehicle
+11518395,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+9868446,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+9555740,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+9221396,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+10509413,60675543,SEED,1,1.0,1.0,Ground reference determination for autonomous vehicle operations
+9676330,49768336,SEED,1,1.0,1.0,Roadside object detection apparatus
+10299216,66541164,SEED,1,1.0,1.0,Self-driving vehicle actions in response to a low battery
+10831188,64453589,SEED,1,1.0,1.0,Redundant pose generation system
+11740626,64453589,SEED,1,1.0,1.0,Redundant pose generation system
 10444754,57046607,SEED,1,1.0,1.0,Remote assistance for an autonomous vehicle in low confidence situations
 9465388,57046607,SEED,1,1.0,1.0,Remote assistance for an autonomous vehicle in low confidence situations
 10802478,65996161,SEED,1,1.0,1.0,Hitch assist system and method for autonomously maneuvering a vehicle in a user-
+9633564,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
+11011061,50339677,SEED,1,1.0,1.0,Determining changes in a driving environment based on vehicle behavior
+11077844,72660487,SEED,1,1.0,1.0,System and method for increasing passenger satisfaction in a vehicle having an a
+10203698,65084719,SEED,1,1.0,1.0,System and method for providing a map to autonomous vehicles via a cloud-based s
+10843622,65011805,SEED,1,1.0,1.0,Control system of autonomous vehicle and control method thereof
+10981497,65011805,SEED,1,1.0,1.0,Control system of autonomous vehicle and control method thereof
+8874360,49117515,SEED,1,1.0,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
+9202382,49117515,SEED,1,1.0,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
+10275663,64097909,SEED,1,1.0,1.0,Indoor navigation method and system
+10821973,67140090,SEED,1,1.0,1.0,Navigation system with parking facility navigation mechanism and method of opera
+10328934,59629887,SEED,1,1.0,1.0,Temporal data associations for operating autonomous vehicles
 9008961,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
-10304335,58688150,ANTISEED-manual,0,1.0,1.0,Detecting available parking spaces
-11390277,70848548,SEED,1,1.0,1.0,Systems and methods for self-driving vehicle collision prevention
+10866113,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
+10816987,68426874,SEED,1,1.0,1.0,Responsive vehicle control
+11755020,68426874,SEED,1,1.0,1.0,Responsive vehicle control
+10055652,58688510,SEED,1,1.0,1.0,Pedestrian detection and motion prediction with rear-facing camera
+9983301,57018051,SEED,1,1.0,1.0,Automated vehicle radar system to determine yaw-rate of a target vehicle
+10036648,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
+9507345,54265027,SEED,1,1.0,1.0,Vehicle control system and method
+11436874,72661646,SEED,1,1.0,1.0,Autonomous vehicle and diagnosis method therefor
+10528048,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+9582002,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+9265187,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+10890912,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+11221622,72513647,SEED,1,1.0,1.0,Self-driving vehicle systems and methods
+10796562,72664220,ANTISEED-manual,0,1.0,1.0,Autonomous home security devices
+10803544,67069569,ANTISEED-manual,0,1.0,1.0,Systems and methods for enhancing machine vision object recognition through accu
+10339622,67069569,ANTISEED-manual,0,1.0,1.0,Systems and methods for enhancing machine vision object recognition through accu
+12467761,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
+10295359,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
+9734416,56976127,ANTISEED-manual,0,1.0,1.0,"Object detection method, information processing device, and storage medium"
+9097800,53718899,ANTISEED-manual,0,1.0,1.0,Solid object detection system using laser and radar sensor fusion
+9534918,50826242,SEED,1,1.0,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
+9955436,58778366,SEED,1,1.0,1.0,Systems and methods for improving fixed access point coverage using vehicle rout
+11400925,63445408,SEED,1,1.0,1.0,Planning for unknown objects by an autonomous vehicle
+10471963,61434708,SEED,1,1.0,1.0,System and method for transitioning between an autonomous and manual driving mod
+10768063,72290196,ANTISEED-manual,0,1.0,1.0,Systems and methods for using piezoelectric sensors to ensure securement of encl
+8823799,40429439,SEED,1,1.0,1.0,Method and system for evaluating brightness values in sensor images of image-eva
+10108867,63833130,SEED,1,1.0,1.0,Image-based pedestrian detection
+10562531,60157374,SEED,1,1.0,1.0,Adaptive cruise control apparatus and method thereof
+11938932,70848548,SEED,1,1.0,1.0,Systems and methods for self-driving vehicle collision prevention
 11221621,72513647,SEED,1,1.0,1.0,Self-driving vehicle systems and methods
-11366476,67213901,SEED,1,1.0,1.0,Systems and methods for deploying warning devices from an autonomous vehicle
-12214724,67213901,SEED,1,1.0,1.0,Systems and methods for deploying warning devices from an autonomous vehicle
-11988518,73745906,SEED,1,1.0,1.0,Updating high definition maps based on lane closure and lane opening
+10809720,66433249,SEED,1,1.0,1.0,Bi-directional autonomous vehicle
+12423765,63854035,SEED,1,1.0,1.0,Dynamic autonomous vehicle servicing and management
+10438493,61243203,SEED,1,1.0,1.0,Hybrid trip planning for autonomous vehicles
+10726280,59786660,SEED,1,1.0,1.0,Traffic signal analysis system
+11462022,59786660,SEED,1,1.0,1.0,Traffic signal analysis system
+9983591,58585146,SEED,1,1.0,1.0,Autonomous driving at intersections based on perception data
+12007779,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
+11853073,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
+11934194,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
+11036233,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
+9964952,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
+9589179,53400362,ANTISEED-manual,0,1.0,1.0,Object detection techniques
+10451433,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
 10095236,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
+11815903,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
+12174640,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
 9864378,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
 9679206,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
 9563199,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
 9201421,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
-11345341,67402844,SEED,1,1.0,0.375,"Information processing apparatus, information processing method and computer rea"
-9610949,53270353,SEED,1,1.0,1.0,Individual driving preference adapted computerized assist or autonomous driving 
-10048686,58663740,SEED,1,1.0,1.0,Methods and apparatus to autonomously navigate a vehicle by selecting sensors fr
 10962981,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
 10474159,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
-9507345,54265027,SEED,1,1.0,1.0,Vehicle control system and method
-11400912,65040772,SEED,1,1.0,1.0,Coasting management control of a vehicle with a road speed governor
-11436874,72661646,SEED,1,1.0,1.0,Autonomous vehicle and diagnosis method therefor
-9955436,58778366,SEED,1,1.0,1.0,Systems and methods for improving fixed access point coverage using vehicle rout
-8874360,49117515,SEED,1,1.0,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
-9202382,49117515,SEED,1,1.0,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
-10086870,58158034,ANTISEED-manual,0,1.0,1.0,Trailer parking assist system for vehicle
-10222224,52110439,SEED,1,1.0,0.2,System for locating a parking space based on a previously parked space
-10726280,59786660,SEED,1,1.0,1.0,Traffic signal analysis system
-11462022,59786660,SEED,1,1.0,1.0,Traffic signal analysis system
-9983591,58585146,SEED,1,1.0,1.0,Autonomous driving at intersections based on perception data
-10036648,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
+10652074,62585146,SEED,1,1.0,1.0,IEEE802.11p protocol based vehicle-to-roadside and vehicle-to-vehicle communicat
+10576984,64904033,SEED,1,1.0,1.0,Second stop position for intersection turn
+11914367,70970203,SEED,1,1.0,1.0,Sun-aware routing and controls of an autonomous vehicle
+11390277,70848548,SEED,1,1.0,1.0,Systems and methods for self-driving vehicle collision prevention
+10156850,64605223,SEED,1,1.0,1.0,Object motion prediction and vehicle control systems and methods for autonomous 
+11482011,67905445,ANTISEED-manual,0,1.0,1.0,Acceleration of data processing for object detection
+11887377,67905445,ANTISEED-manual,0,1.0,1.0,Acceleration of data processing for object detection
 12123735,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
 11692841,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
 9528850,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
 9188985,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
 11231292,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
-10451433,54434570,SEED,1,1.0,1.0,Suggesting a route based on desired amount of driver interaction
-11938932,70848548,SEED,1,1.0,1.0,Systems and methods for self-driving vehicle collision prevention
-10528048,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-9582002,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-9265187,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-10890912,53174111,SEED,1,1.0,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-11457335,69720326,SEED,1,1.0,1.0,Link identity determination and signaling
-10652074,62585146,SEED,1,1.0,1.0,IEEE802.11p protocol based vehicle-to-roadside and vehicle-to-vehicle communicat
-10576984,64904033,SEED,1,1.0,1.0,Second stop position for intersection turn
-12174640,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
-11815903,54609194,SEED,1,1.0,1.0,Assisted perception for autonomous vehicles
-10509413,60675543,SEED,1,1.0,1.0,Ground reference determination for autonomous vehicle operations
-10562531,60157374,SEED,1,1.0,1.0,Adaptive cruise control apparatus and method thereof
-11934194,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
-11853073,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
-10843622,65011805,SEED,1,1.0,1.0,Control system of autonomous vehicle and control method thereof
-10981497,65011805,SEED,1,1.0,1.0,Control system of autonomous vehicle and control method thereof
-10449927,63679177,SEED,1,1.0,1.0,Steering system having anti-theft capabilities
-10156850,64605223,SEED,1,1.0,1.0,Object motion prediction and vehicle control systems and methods for autonomous 
-10299216,66541164,SEED,1,1.0,1.0,Self-driving vehicle actions in response to a low battery
-10831188,64453589,SEED,1,1.0,1.0,Redundant pose generation system
-11740626,64453589,SEED,1,1.0,1.0,Redundant pose generation system
-10203698,65084719,SEED,1,1.0,1.0,System and method for providing a map to autonomous vehicles via a cloud-based s
-11036233,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
-12007779,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
-9964952,62046456,SEED,1,1.0,1.0,Adaptive vehicle motion control system
-10054940,47605340,SEED,1,1.0,1.0,Method and system for assisting a driver
-9969390,60081897,SEED,1,1.0,1.0,Lane keeping control apparatus
-10275663,64097909,SEED,1,1.0,1.0,Indoor navigation method and system
-10821973,67140090,SEED,1,1.0,1.0,Navigation system with parking facility navigation mechanism and method of opera
-10328934,59629887,SEED,1,1.0,1.0,Temporal data associations for operating autonomous vehicles
-9983301,57018051,SEED,1,1.0,1.0,Automated vehicle radar system to determine yaw-rate of a target vehicle
-9555740,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-9681272,54336100,SEED,1,1.0,1.0,Facilitating mesh networks of connected movable objects
-10694348,54336100,SEED,1,1.0,1.0,Facilitating mesh networks of connected movable objects
-9489839,55455280,SEED,1,1.0,1.0,Tracking a vehicle using an unmanned aerial vehicle
-10438493,61243203,SEED,1,1.0,1.0,Hybrid trip planning for autonomous vehicles
-11400925,63445408,SEED,1,1.0,1.0,Planning for unknown objects by an autonomous vehicle
-10397019,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
+9098753,53189592,ANTISEED-manual,0,1.0,1.0,Methods and systems for object detection using multiple sensors
+11030476,70848337,ANTISEED-manual,0,1.0,1.0,System and method for detecting and tracking objects
+10380693,53882673,ANTISEED-manual,0,1.0,1.0,Systems and methods for generating data that is representative of an insurance p
 11714417,68464717,SEED,1,1.0,1.0,Initial trajectory generator for motion planning system of autonomous vehicles
-11518395,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-9868446,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
-11276311,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-10854079,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-10235882,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-10950130,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-12367772,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-11257371,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-11257370,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-11763678,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-11749111,65721952,ANTISEED-manual,0,0.9841,1.0,Early warning and collision avoidance
-10850722,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
-10095234,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
-10281920,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
+12273217,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
+11855799,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
+10397019,58691034,SEED,1,1.0,1.0,Autonomous vehicle platform and safety architecture
+9681272,54336100,SEED,1,1.0,1.0,Facilitating mesh networks of connected movable objects
+11113555,63585514,ANTISEED-manual,0,1.0,1.0,"Object detection apparatus, traffic monitoring system, method of controlling an "
+11919510,65910728,SEED,1,1.0,1.0,Obstacle avoidance in autonomous vehicles
+11971720,67297133,SEED,1,1.0,1.0,Method for preventing a collision between an autonomous vehicle and a user in a 
+11059493,72748824,SEED,1,1.0,1.0,Systems and methods for estimating velocity of an autonomous vehicle and state i
+11872998,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+12397805,54932261,SEED,1,1.0,1.0,Cross-validating sensors of an autonomous vehicle
+9304515,54334694,SEED,1,1.0,1.0,Regional operation modes for autonomous vehicles
+10817731,63833130,SEED,1,1.0,1.0,Image-based pedestrian detection
+9915951,59087810,SEED,1,1.0,1.0,Detection of overhanging objects
+10694348,54336100,SEED,1,1.0,1.0,Facilitating mesh networks of connected movable objects
+11169528,68464717,SEED,1,1.0,1.0,Initial trajectory generator for motion planning system of autonomous vehicles
+10152053,63036396,SEED,1,1.0,1.0,Passenger classification-based autonomous vehicle routing
 10234864,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
 11685360,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
-11348066,57883828,ANTISEED-manual,0,0.9375,0.1875,System and method for piece picking or put-away with a mobile manipulation robot
+10850722,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
+10281920,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
+10095234,63445408,SEED,1,0.9375,1.0,Planning for unknown objects by an autonomous vehicle
 8989945,42340971,SEED,1,0.9048,0.1,System validation
-11814085,67770544,SEED,1,0.8644,1.0,System for grid-based merge cut-in prediction and method thereof
-9858480,55455280,SEED,1,0.8571,1.0,Tracking a vehicle using an unmanned aerial vehicle
 10474161,64734386,SEED,1,0.8545,0.8462,High resolution 3D point clouds generation from upsampled low resolution lidar 3
-10816995,66857738,SEED,1,0.8431,0.9091,GPS based high precision timestamp generation circuit for an autonomous driving 
-11420741,64736168,ANTISEED-manual,0,0.8235,1.0,Methods and apparatuses related to transformable remote controllers
-10800640,59812109,ANTISEED-manual,0,0.7679,0.1111,Multi-field scanning tools in materials handling vehicles
+11287513,65031374,SEED,1,0.8049,0.7,Radar device for a motor vehicle and method for controlling the device
 11447377,59812109,ANTISEED-manual,0,0.7679,0.1111,Multi-field scanning tools in materials handling vehicles
+10800640,59812109,ANTISEED-manual,0,0.7679,0.1111,Multi-field scanning tools in materials handling vehicles
 11661324,59812109,ANTISEED-manual,0,0.7679,0.1111,Multi-field scanning tools in materials handling vehicles
 10671082,64734386,SEED,1,0.7544,0.375,High resolution 3D point clouds generation based on CNN and CRF models
-10145696,58722534,SEED,1,0.7353,0.8333,Method for classifying target using path history data during V2V communication
 10699142,63714970,SEED,1,0.7297,0.6,Systems and methods for traffic signal light detection
+10997421,64741843,ANTISEED-manual,0,0.7286,1.0,Neuromorphic system for real-time visual activity recognition
 11624628,50826242,SEED,1,0.726,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
 11210537,67617927,SEED,1,0.7231,0.7778,Object detection and detection confidence suitable for autonomous driving
 12072442,67617927,SEED,1,0.7231,0.7778,Object detection and detection confidence suitable for autonomous driving
 11188092,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
-9367065,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
-9811091,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
-10663975,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
-10663976,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
 11726493,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
-10565880,65721952,ANTISEED-manual,0,0.7031,1.0,Early warning and collision avoidance
+9367065,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
+10663976,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
+10663975,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
+9811091,51223805,SEED,1,0.7065,1.0,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
 12291194,66433249,SEED,1,0.6857,1.0,Bi-directional autonomous vehicle
 10627830,57882165,SEED,1,0.6567,1.0,Suboptimal immediate navigational response based on long term planning
-11198432,55454012,ANTISEED-manual,0,0.6415,1.0,Vehicle collision avoidance system with enhanced pedestrian avoidance
 10088840,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
-10739766,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
-11989016,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
-11385634,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
 10359777,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
-11247768,66166154,SEED,1,0.6111,0.8333,Flight control system for an aircraft
-10782703,57882165,SEED,1,0.6026,0.0909,Constraint relaxation in a navigational system
-9977430,57882165,SEED,1,0.6026,0.0714,Machine learning navigational engine with imposed constraints
-10606278,57882165,SEED,1,0.6026,0.0909,Constraint relaxation in a navigational system
-10845816,57882165,SEED,1,0.6026,0.0833,Prioritized constraints for a navigational system
-10795375,57882165,SEED,1,0.6026,0.0769,Navigating a vehicle based on predictive aggression of other vehicle
-10649462,57882165,SEED,1,0.6026,0.0909,Constraint augmentation in a navigational system
+10739766,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
+11385634,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
+11989016,53186772,ANTISEED-manual,0,0.6119,0.9333,Automated storage and retrieval system with integral secured personnel access zo
 10698414,57882165,SEED,1,0.6026,1.0,Suboptimal immediate navigational response based on long term planning
+10782703,57882165,SEED,1,0.6026,0.0909,Constraint relaxation in a navigational system
+10606278,57882165,SEED,1,0.6026,0.0909,Constraint relaxation in a navigational system
+10795375,57882165,SEED,1,0.6026,0.0769,Navigating a vehicle based on predictive aggression of other vehicle
+10845816,57882165,SEED,1,0.6026,0.0833,Prioritized constraints for a navigational system
+9977430,57882165,SEED,1,0.6026,0.0714,Machine learning navigational engine with imposed constraints
+10649462,57882165,SEED,1,0.6026,0.0909,Constraint augmentation in a navigational system
 9990548,59786660,SEED,1,0.5962,1.0,Traffic signal analysis system
 10530653,59562531,ANTISEED-manual,0,0.5918,0.1818,Multi-mode mobile access point for utilization in a communication network of mov
 10667326,59562531,ANTISEED-manual,0,0.5918,0.2857,Systems and methods to use fixed access points as delay-tolerant nodes in a netw
-10536497,59562531,ANTISEED-manual,0,0.5741,0.35,Systems and methods for communication using a transport channel with improved mu
 10143040,59562531,ANTISEED-manual,0,0.5741,0.3684,Systems and methods to improve the multimedia content distribution in a network 
+10536497,59562531,ANTISEED-manual,0,0.5741,0.35,Systems and methods for communication using a transport channel with improved mu
 10999731,59562531,ANTISEED-manual,0,0.566,0.4375,Systems and methods for real-time handling and processing of data in a network o
-9720410,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
 12510890,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
 11650584,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
 11016482,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
+9720410,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
 10241508,57046607,SEED,1,0.5645,0.5,Remote assistance for autonomous vehicles in predetermined situations
 10708823,58778366,SEED,1,0.561,0.3077,"Systems and methods for cooperative, dynamic, and balanced access to the infrast"
 10554527,59562531,ANTISEED-manual,0,0.5574,0.2941,Systems and methods for efficiently monitoring and measurement of the performanc
 10321291,59562531,ANTISEED-manual,0,0.5556,0.4,Systems and methods for the flexible access and management of monitoring applica
 10239526,56937587,SEED,1,0.5526,1.0,Adaptive cruise control system
 10586458,61243203,SEED,1,0.5522,1.0,Hybrid trip planning for autonomous vehicles
+10933869,64605223,SEED,1,0.5517,0.6364,Autonomous vehicle motion control systems and methods
 12043253,64605223,SEED,1,0.5517,0.6364,Autonomous vehicle motion control systems and methods
 11667283,64605223,SEED,1,0.5517,0.6364,Autonomous vehicle motion control systems and methods
-10933869,64605223,SEED,1,0.5517,0.6364,Autonomous vehicle motion control systems and methods
 10913456,52628744,SEED,1,0.5395,1.0,Method and system for adaptive cruise control and vehicle
 10843722,62046456,SEED,1,0.5357,0.0769,Systems and methods for controlling an input device of an autonomous vehicle
 11186271,72660487,SEED,1,0.5349,0.5333,System and method for modifying driving behavior of an autonomous vehicle based 
-9288938,53174111,SEED,1,0.5323,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-10123473,53174111,SEED,1,0.5323,1.0,Robotic platform and method for performing multiple functions in agricultural sy
 12349615,53174111,SEED,1,0.5323,1.0,Robotic platform and method for performing multiple functions in agricultural sy
-12071144,64605223,SEED,1,0.5303,0.6667,Object interaction prediction systems and methods for autonomous vehicles
-10562538,64605223,SEED,1,0.5303,0.6667,Object interaction prediction systems and methods for autonomous vehicles
+10123473,53174111,SEED,1,0.5323,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+9288938,53174111,SEED,1,0.5323,1.0,Robotic platform and method for performing multiple functions in agricultural sy
 10882535,64605223,SEED,1,0.5303,0.6667,Object interaction prediction systems and methods for autonomous vehicles
-9056395,50187024,SEED,1,0.5303,0.5,Construction zone sign detection using light detection and ranging
-9193355,50187024,SEED,1,0.5303,0.5,Construction zone sign detection using light detection and ranging
-10718624,52110439,SEED,1,0.5273,0.2308,Vehicular parking assist system that determines a parking space based in part on
+10562538,64605223,SEED,1,0.5303,0.6667,Object interaction prediction systems and methods for autonomous vehicles
+12071144,64605223,SEED,1,0.5303,0.6667,Object interaction prediction systems and methods for autonomous vehicles
 10637925,59562531,ANTISEED-manual,0,0.5273,0.4118,Systems and methods for communicating and storing data in a network of moving th
 9037340,51899640,SEED,1,0.5273,0.5385,System and method for modifying adaptive cruise control set points
+11548403,62046456,SEED,1,0.5263,0.2857,Autonomous vehicle paletization system
 11021075,62046456,SEED,1,0.5263,0.2857,Autonomous vehicle paletization system
-10095239,62046456,SEED,1,0.5263,0.2857,Autonomous vehicle paletization system
 10730531,62046456,SEED,1,0.5254,0.5,Machine-learning based vehicle motion control system
 9283681,48041362,ANTISEED-manual,0,0.5204,0.0833,Robotic vehicle systems for inspecting remote locations
 11307845,59562531,ANTISEED-manual,0,0.5179,0.3846,Systems and methods for updating network nodes
-9392743,53174111,SEED,1,0.5172,0.1333,Agricultural autonomous vehicle platform with articulated base
 10395441,62046456,SEED,1,0.5172,0.3333,Vehicle management system
+9392743,53174111,SEED,1,0.5172,0.1333,Agricultural autonomous vehicle platform with articulated base
 10756909,59562531,ANTISEED-manual,0,0.5085,0.3684,Systems and methods for self and automated management of certificates in a netwo
 10365654,62046456,SEED,1,0.5085,0.1818,System for safe passenger departure from autonomous vehicle
-11572065,55454012,ANTISEED-manual,0,0.5082,1.0,Vehicle collision avoidance system with enhanced pedestrian avoidance
-11802831,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
-9234618,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
-10508986,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
-10735518,59562531,ANTISEED-manual,0,0.5,0.1739,Systems and methods for self-organized fleets of autonomous vehicles for optimal
-9958379,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
-10171967,59562531,ANTISEED-manual,0,0.5,0.0952,"Fast discovery, service-driven, and context-based connectivity for networks of a"
 10712745,62046456,SEED,1,0.5,0.0667,Systems and methods for communicating autonomous vehicle scenario evaluation and
+9958379,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
+10735518,59562531,ANTISEED-manual,0,0.5,0.1739,Systems and methods for self-organized fleets of autonomous vehicles for optimal
+10171967,59562531,ANTISEED-manual,0,0.5,0.0952,"Fast discovery, service-driven, and context-based connectivity for networks of a"
+10508986,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
+9234618,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
 10710602,67213901,SEED,1,0.5,0.3846,Systems and methods for a vehicle controller safety monitor
-10795356,62046456,SEED,1,0.5,0.1538,Systems and methods for determining when to release control of an autonomous veh
 10209716,62046456,SEED,1,0.5,0.0667,Systems and methods for communicating autonomous vehicle scenario evaluation and
 10261514,62046456,SEED,1,0.5,0.0667,Systems and methods for communicating autonomous vehicle scenario evaluation and
+10795356,62046456,SEED,1,0.5,0.1538,Systems and methods for determining when to release control of an autonomous veh
+11802831,53718899,ANTISEED-manual,0,0.5,0.0588,Characterizing optically reflective features via hyper-spectral sensor
+9146898,48224263,SEED,1,0.4925,0.3636,Driver assist system with algorithm switching
 10187751,59562531,ANTISEED-manual,0,0.4915,0.3333,Systems and methods for vehicular positioning using adaptive wireless fingerprin
 10859384,62046456,SEED,1,0.4915,0.1,Lightweight vehicle localization systems and methods
 11129031,58778366,SEED,1,0.4884,0.4348,Systems and methods for improving coverage and throughput of mobile access point
-9170117,55401622,SEED,1,0.4872,0.375,Unmanned aerial vehicle navigation assistance
+10198657,63258045,SEED,1,0.4875,0.875,All-weather thermal-image pedestrian detection method
+11500081,68764087,ANTISEED-manual,0,0.4865,0.8333,Object detection device and object detection system
 10546560,62046456,SEED,1,0.4828,0.0833,Systems and methods for presenting virtual content in a vehicle
+10198655,61283600,ANTISEED-manual,0,0.4776,0.4375,Object detection using recurrent neural network and concatenated feature map
+10452946,61283600,ANTISEED-manual,0,0.4776,0.4375,Object detection using recurrent neural network and concatenated feature map
+11062167,61283600,ANTISEED-manual,0,0.4776,0.4375,Object detection using recurrent neural network and concatenated feature map
 10618519,62046456,SEED,1,0.4762,0.1667,Systems and methods for autonomous vehicle lane change control
 10545507,62046456,SEED,1,0.4762,0.0,Cellular device location discovery systems and methods for autonomous vehicles
 11378980,62046456,SEED,1,0.4762,0.0,Cellular device location discovery systems and methods for autonomous vehicles
 10852721,62046456,SEED,1,0.4754,0.1111,Autonomous vehicle hybrid simulation testing
 10336326,59523504,SEED,1,0.4717,0.25,Lane detection systems and methods
 10493622,62046456,SEED,1,0.4697,0.0714,Systems and methods for communicating future vehicle actions to be performed by 
-11787402,55454012,ANTISEED-manual,0,0.4677,1.0,Vehicle collision avoidance system with enhanced pedestrian avoidance
 10388162,58778366,SEED,1,0.4667,0.3913,Systems and methods for utilizing mobile access points as fixed access points in
 10769947,58778366,SEED,1,0.4667,0.3182,Mobile access point operable as a fixed access point in a network of moving thin
-11048272,62046456,SEED,1,0.459,0.0909,Autonomous vehicle collision mitigation systems and methods
-10386856,62046456,SEED,1,0.459,0.0909,Autonomous vehicle collision mitigation systems and methods
+9889828,51623473,ANTISEED-manual,0,0.4651,0.6429,"Deceleration end location storage system, drive assist system, drive assist meth"
 11789461,62046456,SEED,1,0.459,0.0909,Autonomous vehicle collision mitigation systems and methods
-10812996,59562531,ANTISEED-manual,0,0.4561,0.3,"Methods and systems for communication among nodes for the internet of things, in"
-11003184,59562531,ANTISEED-manual,0,0.4561,0.08,Cloud-aided and collaborative data learning among autonomous vehicles to optimiz
-10405215,59562531,ANTISEED-manual,0,0.4561,0.0476,Self-organized fleets of autonomous vehicles to optimize future mobility and cit
+10386856,62046456,SEED,1,0.459,0.0909,Autonomous vehicle collision mitigation systems and methods
+11048272,62046456,SEED,1,0.459,0.0909,Autonomous vehicle collision mitigation systems and methods
 11260875,62046456,SEED,1,0.4561,0.0769,Systems and methods for road surface dependent motion planning
-11840143,68136472,SEED,1,0.4545,0.0833,Cruise control for controlling a straddle-type vehicle during cornering
-10621860,59562531,ANTISEED-manual,0,0.4531,0.4,Systems and methods for characterizing and managing driving behavior in the cont
-10498600,59562531,ANTISEED-manual,0,0.4531,0.25,"Systems and methods for real-time, selective and event-driven data model to feed"
+10812996,59562531,ANTISEED-manual,0,0.4561,0.3,"Methods and systems for communication among nodes for the internet of things, in"
+10405215,59562531,ANTISEED-manual,0,0.4561,0.0476,Self-organized fleets of autonomous vehicles to optimize future mobility and cit
+11003184,59562531,ANTISEED-manual,0,0.4561,0.08,Cloud-aided and collaborative data learning among autonomous vehicles to optimiz
 11133986,59562531,ANTISEED-manual,0,0.4531,0.25,"Systems and methods for real-time, selective and event-driven data model to feed"
+10498600,59562531,ANTISEED-manual,0,0.4531,0.25,"Systems and methods for real-time, selective and event-driven data model to feed"
+10621860,59562531,ANTISEED-manual,0,0.4531,0.4,Systems and methods for characterizing and managing driving behavior in the cont
 10421396,62046456,SEED,1,0.4516,0.0,Systems and methods for signaling intentions to riders
 10809719,62046456,SEED,1,0.45,0.0667,Systems and methods of controlling an autonomous vehicle using an enhanced traje
 10691138,59562531,ANTISEED-manual,0,0.4483,0.2222,Systems and methods for managing fleets of autonomous vehicles to optimize elect
-10994730,63855695,ANTISEED-manual,0,0.4474,0.6667,Traveling assistance method and traveling assistance device
-9134731,53270353,SEED,1,0.4462,0.5,Locality adapted computerized assisted or autonomous driving of vehicles
+10650255,51935914,SEED,1,0.4478,0.0909,Vehicular vision system with object detection
+9501720,51863388,ANTISEED-manual,0,0.4471,0.2,Object detection apparatus
 10614715,62046456,SEED,1,0.4462,0.0769,Systems and methods for communicating autonomous vehicle confidence levels
+9134731,53270353,SEED,1,0.4462,0.5,Locality adapted computerized assisted or autonomous driving of vehicles
+10521676,62783131,SEED,1,0.4444,0.875,"Lane detection device, lane departure determination device, lane detection metho"
+11467281,66246904,SEED,1,0.4444,0.5,Object detection device
 10674332,59562531,ANTISEED-manual,0,0.4444,0.3333,Systems and methods for the data-driven and distributed interoperability between
-10424135,62046456,SEED,1,0.4426,0.3333,Vehicle management system
+11847870,62046456,SEED,1,0.4426,0.3333,Vehicle management system
 10249110,62046456,SEED,1,0.4426,0.3333,Vehicle management system
-11062535,62046456,SEED,1,0.4426,0.3333,Vehicle management system
 9811086,62046456,SEED,1,0.4426,0.3333,Vehicle management system
+12505707,62046456,SEED,1,0.4426,0.3333,Vehicle management system
+11062535,62046456,SEED,1,0.4426,0.3333,Vehicle management system
+10424135,62046456,SEED,1,0.4426,0.3333,Vehicle management system
 10303959,57882165,SEED,1,0.4416,0.0714,Controlling host vehicle based on a predicted state of a parked vehicle
-11012513,59562531,ANTISEED-manual,0,0.4407,0.0,Data-driven managed services built on top of networks of autonomous vehicles
 12055945,62046456,SEED,1,0.4407,0.0667,Systems and methods for controlling an autonomous vehicle with occluded sensor z
 11625045,62046456,SEED,1,0.4407,0.0667,Systems and methods for controlling an autonomous vehicle with occluded sensor z
+11012513,59562531,ANTISEED-manual,0,0.4407,0.0,Data-driven managed services built on top of networks of autonomous vehicles
 10055653,57882165,SEED,1,0.4384,0.0625,Controlling host vehicle based on detected spacing between stationary vehicles
 11269334,62046456,SEED,1,0.4355,0.0,Systems and methods for automated testing of autonomous vehicles
 10466705,62046456,SEED,1,0.4355,0.0,Systems and methods for automated testing of autonomous vehicles
@@ -281,69 +257,58 @@ train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title
 10327160,58778366,SEED,1,0.4348,0.2917,Systems and methods for managing network controllers and their network interacti
 10433243,59360945,SEED,1,0.434,0.5,Systems and methods for integrating and exploiting the availability of multiple 
 11395218,59360945,SEED,1,0.434,0.6111,Systems and methods for providing cellular communication in a network of moving 
-10055651,58158034,ANTISEED-manual,0,0.4333,0.1818,Vehicle vision system with enhanced lane tracking
+11682196,64605223,SEED,1,0.4308,0.3571,Autonomous vehicle lane boundary detection systems and methods
 10659382,62046456,SEED,1,0.4308,0.3333,Vehicle security system
 10243867,62046456,SEED,1,0.4308,0.3333,Vehicle security system
-11080537,64605223,SEED,1,0.4308,0.3571,Autonomous vehicle lane boundary detection systems and methods
 11972606,64605223,SEED,1,0.4308,0.3571,Autonomous vehicle lane boundary detection systems and methods
-11682196,64605223,SEED,1,0.4308,0.3571,Autonomous vehicle lane boundary detection systems and methods
+11080537,64605223,SEED,1,0.4308,0.3571,Autonomous vehicle lane boundary detection systems and methods
 11148651,66240060,SEED,1,0.427,0.6,"Multiple-circuit, hydraulically open brake system, in particular for a highly au"
-11580207,62046456,SEED,1,0.4262,0.1111,Third-party vehicle operator sign-in
-12093362,62046456,SEED,1,0.4262,0.1111,Third-party vehicle operator sign-in
 10678260,59629887,SEED,1,0.4262,0.1818,Calibration methods for autonomous vehicle operations
+12093362,62046456,SEED,1,0.4262,0.1111,Third-party vehicle operator sign-in
+11580207,62046456,SEED,1,0.4262,0.1111,Third-party vehicle operator sign-in
 10839426,59562531,ANTISEED-manual,0,0.4247,0.3684,Systems and methods for managing digital advertising campaigns in a network of m
 10268203,60675543,SEED,1,0.4242,0.4444,Calibration validation for autonomous vehicle operations
 11377045,64605223,SEED,1,0.4219,0.2667,Distinct user and item delivery for autonomous vehicles
-9676389,56080466,ANTISEED-manual,0,0.4211,0.0,Systems and methods for mimicking a leading vehicle
-9150220,56080466,ANTISEED-manual,0,0.4211,0.0,Systems and methods for mimicking a leading vehicle
-10179588,54265027,SEED,1,0.4211,0.5,Autonomous vehicle control system
 11392135,57882165,SEED,1,0.4198,0.0,Systems and methods for navigating lane merges and lane splits
 12242287,57882165,SEED,1,0.4198,0.0,Systems and methods for navigating lane merges and lane splits
 11960293,57882165,SEED,1,0.4198,0.0,Systems and methods for navigating lane merges and lane splits
 10739782,57882165,SEED,1,0.4198,0.0,Systems and methods for navigating lane merges and lane splits
 12449803,53186772,ANTISEED-manual,0,0.4189,0.9333,Automated storage and retrieval system with integral secured personnel access zo
-10573178,59360945,SEED,1,0.4186,0.5263,"Systems and methods for tracking and fault detection, for example among autonomo"
 10490068,59360945,SEED,1,0.4186,0.5,"Systems and methods for achieving road action consensus, for example among auton"
 11386779,59360945,SEED,1,0.4186,0.5,"Systems and methods for achieving road action consensus, for example among auton"
+10573178,59360945,SEED,1,0.4186,0.5263,"Systems and methods for tracking and fault detection, for example among autonomo"
 11343327,59360945,SEED,1,0.4167,0.5263,"Systems and methods for managing vehicle OBD data in a network of moving things,"
-10176596,60675543,SEED,1,0.4154,0.4,Calibration verification methods for autonomous vehicle operations
 11216355,62046456,SEED,1,0.4154,0.1,Autonomous vehicle testing systems and methods
 10599546,62046456,SEED,1,0.4154,0.1,Autonomous vehicle testing systems and methods
+10176596,60675543,SEED,1,0.4154,0.4,Calibration verification methods for autonomous vehicle operations
 11790613,68421171,ANTISEED-manual,0,0.4143,0.0,Image output device
 10562624,59386386,ANTISEED-manual,0,0.4138,0.3,Vehicle vision system using aerial camera
-11243547,62046456,SEED,1,0.4127,0.0909,Systems and methods for remote inspection of a vehicle
 11960301,62046456,SEED,1,0.4127,0.0909,Systems and methods for remote inspection of a vehicle
+11243547,62046456,SEED,1,0.4127,0.0909,Systems and methods for remote inspection of a vehicle
 10782701,57884949,SEED,1,0.4091,0.625,Autonomous vehicle and method of controlling the same
-10701726,58385836,SEED,1,0.4091,0.3846,"Method and apparatus for sending V2X service, and method and apparatus for confi"
 11835951,64605223,SEED,1,0.4085,0.6364,Object motion prediction and autonomous vehicle control
 11112796,64605223,SEED,1,0.4085,0.6364,Object motion prediction and autonomous vehicle control
 10114106,57018051,SEED,1,0.4062,0.2222,"Automated vehicle radar system with auto-alignment for azimuth, elevation, and v"
-10943355,62046456,SEED,1,0.4058,0.0,Systems and methods for detecting an object velocity
 9199641,50187024,SEED,1,0.4058,0.3333,Construction zone object detection using light detection and ranging
 11593950,62046456,SEED,1,0.4058,0.1,System and method for movement detection
+10943355,62046456,SEED,1,0.4058,0.0,Systems and methods for detecting an object velocity
+8996228,50187024,SEED,1,0.4058,0.3333,Construction zone object detection using light detection and ranging
 10127465,57882165,SEED,1,0.4051,0.0714,Controlling host vehicle based on detected movement of a target vehicle
 9254846,48470712,SEED,1,0.4035,0.2222,Predictive reasoning for controlling speed of a vehicle
-9381917,48470712,SEED,1,0.4035,0.2222,Predictive reasoning for controlling speed of a vehicle
 9561797,48470712,SEED,1,0.4035,0.2222,Predictive reasoning for controlling speed of a vehicle
+9381917,48470712,SEED,1,0.4035,0.2222,Predictive reasoning for controlling speed of a vehicle
 11801851,62046456,SEED,1,0.403,0.6,Vehicle control system
-11104352,62046456,SEED,1,0.403,0.6,Vehicle control system
 11269325,62046456,SEED,1,0.403,0.3,System and methods to enable user control of an autonomous vehicle
-10407047,48224263,SEED,1,0.403,0.1429,Vehicle control system with target vehicle trajectory tracking
-10220857,62046456,SEED,1,0.403,0.6,Vehicle control system
-8849495,48224263,SEED,1,0.4028,0.1429,Vehicle vision system with yaw rate determination
-11537127,64605223,SEED,1,0.4,0.4286,Systems and methods for vehicle motion planning based on uncertainty
 10813074,59360945,SEED,1,0.4,0.6111,Systems and methods for managing resource utilization in a network of moving thi
+11537127,64605223,SEED,1,0.4,0.4286,Systems and methods for vehicle motion planning based on uncertainty
 10986476,58778366,SEED,1,0.4,0.28,Systems and methods for efficiently collecting and communicating sensor data in 
 10431082,63714970,SEED,1,0.4,0.2308,Systems and methods for emergency vehicle response in an autonomous vehicle
 10163017,63714970,SEED,1,0.3962,0.6,Systems and methods for vehicle signal light detection
 10223844,72513647,SEED,1,0.3846,1.0,Self-driving vehicle systems and methods
-11219041,56487288,SEED,1,0.3824,1.0,Resource allocation method and road side unit
 10809722,67140090,SEED,1,0.381,0.6667,Navigation system with route prediction mechanism and method of operation thereo
 10471804,72513647,SEED,1,0.3714,1.0,Self-driving vehicle systems and methods
 10282625,72513647,SEED,1,0.3714,1.0,Self-driving vehicle systems and methods
-9815459,56163306,SEED,1,0.371,1.0,Collision avoidance support device
 9693297,59360945,SEED,1,0.3654,0.6111,"Systems and methods for delay tolerant networking in a network of moving things,"
-10521665,55455280,SEED,1,0.3636,1.0,Tracking a vehicle using an unmanned aerial vehicle
 10967789,65634802,SEED,1,0.3623,1.0,Safe driving assistance device
 10278216,59360945,SEED,1,0.3556,0.6111,Systems and methods in a network controller for managing mobility in a network o
 10019014,63106106,SEED,1,0.3538,0.8571,Lane-keeping system for automated vehicles
@@ -352,17 +317,13 @@ train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title
 10919492,72290196,ANTISEED-manual,0,0.3469,0.6667,Systems and methods of using piezoelectric sensors for theft detection of enclos
 10993126,59360945,SEED,1,0.3462,0.6471,Systems and methods for allocating network controllers in a network of moving th
 10768282,69160242,ANTISEED-manual,0,0.339,1.0,Method and system for laser phase tracking for internal reflection subtraction i
-11710303,64605223,SEED,1,0.3382,0.6667,Systems and methods for prioritizing object prediction for autonomous vehicles
 10216189,64605223,SEED,1,0.3382,0.6667,Systems and methods for prioritizing object prediction for autonomous vehicles
-10496087,58497624,ANTISEED-AF,0,0.3382,0.875,Mobile terminal and method of controlling the same
 11099569,64605223,SEED,1,0.3382,0.6667,Systems and methods for prioritizing object prediction for autonomous vehicles
-10477449,59360945,SEED,1,0.3333,0.6471,"Systems and methods for route selection in a network of moving things, for examp"
-10506548,54144965,ANTISEED-manual,0,0.3333,0.6,Method and apparatus for transmitting buffer status report for bi-directional tr
+11710303,64605223,SEED,1,0.3382,0.6667,Systems and methods for prioritizing object prediction for autonomous vehicles
 10342067,59360945,SEED,1,0.3333,0.6,Systems and methods for vehicular positioning based on wireless fingerprinting d
+10477449,59360945,SEED,1,0.3333,0.6471,"Systems and methods for route selection in a network of moving things, for examp"
 10360021,59360945,SEED,1,0.3273,0.6111,Systems and methods for reliable software update in a network of moving things i
 10992514,59360945,SEED,1,0.32,0.6471,"Systems and methods for adaptable synchronization in a network of moving things,"
-11092458,67140090,SEED,1,0.3191,0.6667,Navigation system with operation obstacle alert mechanism and method of operatio
-9761142,50098724,SEED,1,0.3088,1.0,Driver assistant system using influence mapping for conflict avoidance path dete
 10659975,59360945,SEED,1,0.3,0.6111,Systems and methods for providing underground services in a network of moving th
 11190965,59360945,SEED,1,0.2941,0.6111,Systems and methods for predictive connection selection in a network of moving t
 11073390,67807499,SEED,1,0.2936,1.0,Lidar system and autonomous driving system using the same
@@ -370,474 +331,493 @@ train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title
 11644833,72513647,SEED,1,0.2895,1.0,Self-driving vehicle systems and methods
 12147229,72513647,SEED,1,0.2895,1.0,Self-driving vehicle systems and methods
 10986515,59360945,SEED,1,0.2857,0.6316,Systems and methods for context-aware and profile-based security in a network of
+9721154,52688732,ANTISEED-manual,0,0.2778,0.7143,"Object detection apparatus, object detection method, and object detection system"
 11126178,68426874,SEED,1,0.2778,0.6667,Vehicle control
-12179792,68426874,SEED,1,0.2778,0.6667,Vehicle control
 10562520,71892951,SEED,1,0.2759,0.6667,Control device for vehicle and control method for vehicle
 10091733,59360945,SEED,1,0.2727,0.6471,"Systems and methods for power management in a network of moving things, for exam"
-10766492,63855695,ANTISEED-manual,0,0.2727,0.6667,Driving assistance method and driving assistance device
 10744976,72513647,SEED,1,0.2703,1.0,Self-driving vehicle systems and methods
-10471954,56163306,SEED,1,0.2676,1.0,Collision avoidance support device
 11117467,72518039,ANTISEED-manual,0,0.2653,0.625,Method for operating a self-driving motor vehicle
-10214206,58158034,ANTISEED-manual,0,0.2593,0.8333,Parking assist system for vehicle
-10493952,72513647,SEED,1,0.2586,1.0,Self-driving vehicle systems and methods
+9886649,51406433,ANTISEED-manual,0,0.2619,0.6667,Object detection device and vehicle using same
 10479319,72513647,SEED,1,0.2586,1.0,Self-driving vehicle systems and methods
+10493952,72513647,SEED,1,0.2586,1.0,Self-driving vehicle systems and methods
+12128894,56937587,SEED,1,0.2553,0.75,Adaptive cruise control
 12162486,68136472,SEED,1,0.2537,1.0,Controller and control method
 10474154,72513647,SEED,1,0.25,1.0,Self-driving vehicle systems and methods
 11828845,39786299,ANTISEED-manual,0,0.2471,0.6667,Obstacle detection device and obstacle detection method
-11500375,70728633,SEED,1,0.2459,0.625,Method and apparatus for vehicle control
 11254311,56937587,SEED,1,0.2459,0.6,Lateral adaptive cruise control
-12024209,70728633,SEED,1,0.2459,0.625,Method and apparatus for vehicle control
 10481606,72513647,SEED,1,0.2453,1.0,Self-driving vehicle systems and methods
+9984297,52688732,ANTISEED-manual,0,0.2444,0.7143,Moving object detection device and object detection method
 9650044,70728633,SEED,1,0.2407,0.75,Control system and method for host vehicle
-12258046,54265027,SEED,1,0.2407,0.6667,Vehicle and control method thereof
-11377113,72518039,ANTISEED-manual,0,0.2373,0.6667,Method for operating an at least partially autonomous motor vehicle and motor ve
+11170512,61686436,ANTISEED-manual,0,0.2364,0.625,"Image processing apparatus and method, and image processing system"
 11104379,70728633,SEED,1,0.2353,0.75,Travel control system and method for vehicle
-9635248,58497624,ANTISEED-AF,0,0.2353,0.7778,Mobile device and method for controlling the same
-11866067,57884949,SEED,1,0.234,0.6,System and method for generating and controlling driving paths in autonomous veh
-9771073,70728633,SEED,1,0.2333,0.6667,Adaptive cruise control system in vehicle and method thereof
 10576992,57884949,SEED,1,0.2321,0.6667,Method and apparatus for controlling driving mode of autonomous driving vehicle
-10496891,58503277,ANTISEED-manual,0,0.2297,0.6667,Driver assistance system and method for object detection and notification
 11076273,59360945,SEED,1,0.2297,0.6111,"Systems and methods for controlling data transfer in a network of moving things,"
+10496891,58503277,ANTISEED-manual,0,0.2297,0.6667,Driver assistance system and method for object detection and notification
 11300956,54265027,SEED,1,0.2292,0.8333,Autonomous vehicle control system and method
-10520942,54265027,SEED,1,0.2292,0.8333,Autonomous vehicle control system and method
 12135550,54265027,SEED,1,0.2292,0.8333,Autonomous vehicle control system and method
 10377342,72513647,SEED,1,0.2292,1.0,Self-driving vehicle systems and methods
-12317248,52672255,SEED,1,0.2286,0.6,Method and apparatus for resource allocation in V2X
-10683014,70728633,SEED,1,0.2281,0.625,"Vehicle control system, vehicle control method, and vehicle control program"
 11221624,72518039,ANTISEED-manual,0,0.2281,0.625,Method and device for operating an automated vehicle
 10513262,72518039,ANTISEED-manual,0,0.2273,1.0,Method for operating a motor vehicle and motor vehicle
+10279734,67213901,SEED,1,0.2267,0.6364,Systems and methods for external warning by an autonomous vehicle
 12427976,57629361,SEED,1,0.2264,0.6,Traveling control apparatus
 11579307,56020770,ANTISEED-manual,0,0.2258,1.0,Method and apparatus for detecting obstacle
 11235752,42185874,SEED,1,0.225,0.75,Vehicle control device
 11066096,71892951,SEED,1,0.225,0.6667,Vehicle steering control method and vehicle steering control device
 9180890,56937587,SEED,1,0.2241,0.6,Smart adaptive cruise control
-12151682,56937587,SEED,1,0.2222,0.6667,Adaptive cruise control method and system
-12254772,64659192,SEED,1,0.2222,0.7143,"Signal processing device, signal processing method, and mobile device"
-9296392,70728633,SEED,1,0.2203,0.75,Cruise control system and method for vehicles
-11801873,57884949,SEED,1,0.2203,0.6667,Apparatus for controlling autonomous driving of a vehicle and method thereof
-11159925,61160560,ANTISEED-manual,0,0.2182,0.6154,Method and apparatus for transmitting V2X data in wireless communication system
-12172651,51060539,ANTISEED-manual,0,0.2182,0.6,Method and system for evaluating a driving behavior
-11787401,56163306,SEED,1,0.2174,1.0,Collision avoidance support device
-11987248,42185874,SEED,1,0.2162,0.75,Vehicle control device
-11052925,64949790,SEED,1,0.2159,0.8182,Target vehicle speed generation method and target vehicle speed generation devic
+10733423,61686436,ANTISEED-manual,0,0.2222,1.0,"Image processing apparatus, image processing method, and storage medium"
+12033395,52688732,ANTISEED-manual,0,0.2203,0.75,"Object detection device, travel control system, and travel control method"
+9434384,70728633,SEED,1,0.2167,0.625,Vehicle cruise control apparatus and method
+10380424,59314961,ANTISEED-manual,0,0.2159,1.0,Object detection device and object detection method
 9902396,57629361,SEED,1,0.2154,0.6,Vehicle control apparatus
-11267484,70728633,SEED,1,0.2143,0.625,"Vehicle control system, vehicle control method, and vehicle control program"
-11034347,56163306,SEED,1,0.2143,1.0,Collision avoidance support device
-12194993,56163306,SEED,1,0.2143,1.0,Collision avoidance support device
-11242053,42185874,SEED,1,0.2143,0.75,Vehicle control device
-9254802,72518039,ANTISEED-manual,0,0.2131,0.75,Method for operating a safety system of a motor vehicle and motor vehicle
-11307591,70728633,SEED,1,0.2121,0.625,"Vehicle control system, vehicle control method, and vehicle control program"
-11613251,52110439,SEED,1,0.2121,0.75,Parking assist system
-12447991,64740754,SEED,1,0.2111,0.625,Vehicle lane change control method and vehicle lane change control device
-12384368,44800230,SEED,1,0.2083,0.6,Adaptive cruise control
-11247665,62251705,ANTISEED-manual,0,0.2083,0.6667,Method for operating a driver assistance system of a motor vehicle and motor veh
-12258049,54265027,SEED,1,0.2075,0.625,Method and system for analyzing the control of a vehicle
+11379699,65312177,ANTISEED-manual,0,0.2154,0.8333,Object detection method and apparatus for object detection
+11709261,65031374,SEED,1,0.2152,0.6,"Radar device for vehicle, controlling method of radar device and radar system fo"
+11004214,61686436,ANTISEED-manual,0,0.2143,1.0,"Image processing apparatus, image processing method, and storage medium"
+9569675,52688732,ANTISEED-manual,0,0.2105,0.625,"Three-dimensional object detection device, and three-dimensional object detectio"
+10082564,59314961,ANTISEED-manual,0,0.2088,0.625,"Object detection device, sensing device, movable body device, and object detecti"
+11480978,72518039,ANTISEED-manual,0,0.2083,0.625,Method and device for operating an automated vehicle
 11524707,54265027,SEED,1,0.2075,0.625,Method and system for analyzing the control of a vehicle
 11378951,57884949,SEED,1,0.2069,0.8571,Method for monitoring and controlling autonomous vehicle
-9168955,50269487,SEED,1,0.2059,1.0,Smart parking assist system of vehicle and control method thereof
+9898668,58503277,ANTISEED-manual,0,0.2063,0.8333,System and method of object detection
 9352690,56020770,ANTISEED-manual,0,0.2059,0.6667,Apparatus and method for detecting obstacle adaptively to vehicle speed
-11247667,62528539,ANTISEED-manual,0,0.2055,0.625,Electronic parking assistance device for a motor vehicle
-10328948,54265027,SEED,1,0.2037,0.8333,"Vehicle control system, vehicle control method and vehicle control program"
-9956990,60081897,SEED,1,0.2034,0.6,Lane keeping assist apparatus
-9994253,60081897,SEED,1,0.2034,0.6,Lane keeping assist apparatus
-10576966,68161352,SEED,1,0.2031,0.6667,Control system for hybrid vehicle
+10289918,67469370,SEED,1,0.2059,0.8571,Method and apparatus for detecting a speed of an object
+9283910,65312177,ANTISEED-manual,0,0.2051,1.0,Object detection apparatus and object detection method
 11535264,72518039,ANTISEED-manual,0,0.2029,0.8333,Method for operating a motor vehicle
 10755581,59360945,SEED,1,0.2024,0.6471,"Systems and methods for port management in a network of moving things, for examp"
-12073732,38509605,ANTISEED-manual,0,0.2022,0.7143,"Action control device and action control method, and program"
-12043291,47605340,SEED,1,0.2,0.625,Method and device for assisting a driver of a vehicle
-11358572,70728633,SEED,1,0.2,0.6667,Brake control system and method for autonomous vehicle control
-12091082,60081897,SEED,1,0.2,0.6667,Lane keeping control apparatus for vehicle
-11137775,55455280,SEED,1,0.2,0.6,Unmanned aerial vehicle
+9189685,59314961,ANTISEED-manual,0,0.2022,0.6,Object detection device
 10640127,67402844,SEED,1,0.2,0.8333,Information processing apparatus and information processing method
-11073838,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
-10509400,68161352,SEED,1,0.2,0.625,Control system for and control method of autonomous driving vehicle
-10286908,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
-11789460,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
 11262757,57884949,SEED,1,0.2,0.625,Autonomous driving apparatus and method for autonomous driving of a vehicle
-10384718,52110439,SEED,1,0.1972,0.75,Vehicle parking assist
-11866072,57884949,SEED,1,0.1967,0.625,Method and device for controlling autonomous driving
-9776509,60157374,SEED,1,0.1964,0.6,Method and apparatus for adaptive cruise control in a road vehicle
+8913786,57358080,ANTISEED-manual,0,0.2,0.7143,"Driving support system, driving support program, and driving support method"
+10286908,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
+10509400,68161352,SEED,1,0.2,0.625,Control system for and control method of autonomous driving vehicle
+11789460,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
+11041941,52688732,ANTISEED-manual,0,0.2,0.6667,Method and device for calibrating a radar object detection system
+11358572,70728633,SEED,1,0.2,0.6667,Brake control system and method for autonomous vehicle control
+11073838,72513647,SEED,1,0.2,1.0,Self-driving vehicle systems and methods
+9689985,59314961,ANTISEED-manual,0,0.198,0.7143,Laser radar device and object detection method
+11713039,57358080,ANTISEED-manual,0,0.1972,0.8333,Driving support system and method
+10852392,65031374,SEED,1,0.1967,0.6,Self-calibration device and self-calibration method for vehicle radar
+10345807,70728633,SEED,1,0.1964,0.6667,Control system for and control method of autonomous driving vehicle
 11392129,54265027,SEED,1,0.1964,0.7143,"Vehicle control system, vehicle control method, and storage medium"
+9953225,61686436,ANTISEED-manual,0,0.1961,0.7143,Image processing apparatus and image processing method
+10417503,61686436,ANTISEED-manual,0,0.1961,0.7143,Image processing apparatus and image processing method
+8442713,71892951,SEED,1,0.1948,0.6,Steering method for vehicle and apparatus thereof
+10769480,65312177,ANTISEED-manual,0,0.1944,0.6667,Object detection method and system
 10392017,68161352,SEED,1,0.1944,0.6,Vehicle control system
-12263862,52110439,SEED,1,0.1944,0.6,Vehicular parking assist system
-10401854,54265027,SEED,1,0.1935,0.6667,Vehicle and a control method thereof
+9135506,67469370,SEED,1,0.194,0.7143,Method and apparatus for object detection
+10132919,59314961,ANTISEED-manual,0,0.1939,0.7143,"Object detecting device, radar device, and object detection method"
 10824157,57629361,SEED,1,0.1935,0.6,Vehicle control apparatus
+11465622,56937587,SEED,1,0.1935,0.6,Predictive adaptive cruise control
+10401854,54265027,SEED,1,0.1935,0.6667,Vehicle and a control method thereof
+10046715,53189592,ANTISEED-manual,0,0.1932,0.6667,Systems and methods for object detection
+10921424,32290165,SEED,1,0.1932,0.75,On-vehicle radar system
 11364880,54265027,SEED,1,0.193,0.6667,Vehicle and control method thereof
-12384369,42185874,SEED,1,0.1923,0.75,Vehicle control device
-9873434,68161352,SEED,1,0.1923,0.6,Vehicle control system
+10157468,52688732,ANTISEED-manual,0,0.193,1.0,"Object detection device, object detection method, and object detection system"
+9849880,70728633,SEED,1,0.193,1.0,Method and system for vehicle cruise control
 10983523,57358080,ANTISEED-manual,0,0.1923,0.7143,Autonomous driving support apparatus and method
+10967864,42185874,SEED,1,0.1918,0.75,Vehicle control device
 9096229,70728633,SEED,1,0.1918,0.875,Method and system for controlling a vehicle cruise control
-11117579,42185874,SEED,1,0.1912,1.0,Vehicle speed control device
-10430653,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
-11019270,55455280,SEED,1,0.1912,0.6,Unmanned aerial vehicle
-12371015,57629361,SEED,1,0.1912,0.6,Vehicle control apparatus
-9710710,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
-11535272,68161352,SEED,1,0.1912,0.7143,Vehicle system for autonomous control in response to abnormality
-9434384,48664023,SEED,1,0.1912,0.625,Vehicle cruise control apparatus and method
 8301326,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
 11501526,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
-12403905,52628744,SEED,1,0.191,0.6,System and method for downhill headway control for cruise control
+10347128,62003369,ANTISEED-manual,0,0.1912,0.625,System and method for vehicle-to-vehicle communication
+11113563,67469370,SEED,1,0.1912,0.8571,Apparatus for detecting object and method thereof
+9710710,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
+11535272,68161352,SEED,1,0.1912,0.7143,Vehicle system for autonomous control in response to abnormality
+10430653,65011805,SEED,1,0.1912,0.75,System and method for autonomous vehicle control
+11380202,62003369,ANTISEED-manual,0,0.1912,0.625,System and method for vehicle-to-vehicle communication
 10632993,37805416,SEED,1,0.191,0.6667,Travel control apparatus for vehicle
-11634065,64740754,SEED,1,0.191,0.6667,Control method and control device
-12065142,57629361,SEED,1,0.1905,0.8,Vehicle traveling control apparatus
-11926038,67402844,SEED,1,0.1905,0.8333,Information processing apparatus and information processing method
-11505194,64740754,SEED,1,0.1905,0.7143,Vehicle travel control method and travel control device
+11892540,32290165,SEED,1,0.191,1.0,Vehicle-mounted radar system
+12403905,52628744,SEED,1,0.191,0.6,System and method for downhill headway control for cruise control
 11069242,63855695,ANTISEED-manual,0,0.1905,0.6667,Traveling assistance method of traveling assistance device and traveling assista
+11698456,59681248,ANTISEED-manual,0,0.1905,1.0,Object detection system
 10269242,59676740,SEED,1,0.19,1.0,Autonomous police vehicle
 11858512,68136472,SEED,1,0.1899,1.0,Controller and control method
-10845802,72518039,ANTISEED-manual,0,0.1892,0.8333,Method for operating a motor vehicle
+10643338,59314961,ANTISEED-manual,0,0.1895,1.0,Object detection device and object detection method
+12050290,59681248,ANTISEED-manual,0,0.1889,1.0,Object detection system
 12331573,59314961,ANTISEED-manual,0,0.1889,0.6667,"Obstacle detection device, and method"
-11062609,67402844,SEED,1,0.1887,0.8333,Information processing apparatus and information processing method
 10379543,65011805,SEED,1,0.1887,0.6364,Vehicle and control method thereof and autonomous driving system using the same
-11338826,52110439,SEED,1,0.1884,0.75,Parking assist system
+10438360,61686436,ANTISEED-manual,0,0.1887,0.75,"Video processing apparatus, video processing method, and storage medium"
+9940509,65312177,ANTISEED-manual,0,0.1884,1.0,Object detection method and object detection apparatus
+11555913,60682981,ANTISEED-manual,0,0.1884,0.6667,Object recognition device and object recognition method
 11225257,63855695,ANTISEED-manual,0,0.1875,0.6667,Driving assistance method and driving assistance device
 10351137,57884949,SEED,1,0.1875,0.6667,Apparatus and method for controlling autonomous vehicle lane changes
-11318930,63855695,ANTISEED-manual,0,0.1875,0.6667,Parking assistance device and parking assistance method
+11062603,68764087,ANTISEED-manual,0,0.1867,0.625,Object detection device for vehicle and object detection system for vehicle
+11305764,49768336,SEED,1,0.1867,0.75,Object detection apparatus
 10843696,42185874,SEED,1,0.1867,1.0,Vehicle speed control device
-12258006,49160797,ANTISEED-manual,0,0.1857,1.0,Object detection device
-9959763,58463793,SEED,1,0.1852,1.0,System and method for coordinating V2X and standard vehicles
+11314972,67469370,SEED,1,0.1857,0.625,Object detection apparatus and method for vehicle
+12032061,39786299,ANTISEED-manual,0,0.1856,0.6667,Obstacle detection device and obstacle detection method
+12072414,39786299,ANTISEED-manual,0,0.1856,0.6667,Obstacle detection device and obstacle detection method
 11529972,42185874,SEED,1,0.1846,0.8,Autonomous vehicle speed control device
+11378950,68161352,SEED,1,0.1846,0.6667,Remote system for an autonomous vehicle
 10768628,53189592,ANTISEED-manual,0,0.1845,0.6154,Systems and methods for object detection at various ranges using multiple range 
-11970092,38509605,ANTISEED-manual,0,0.1842,0.625,"In-vehicle control apparatus, control program, and device control method"
+10839681,71892951,SEED,1,0.1842,0.6364,Control device and method for controlling autonomous driving vehicle
+11535278,71892951,SEED,1,0.1842,0.7778,Control method and control device for autonomous vehicle
+11914028,49160797,ANTISEED-manual,0,0.1842,0.6,Object detection device for vehicle
+10960877,59314961,ANTISEED-manual,0,0.1839,1.0,Object detection device and object detection method
 10906532,57884949,SEED,1,0.1833,0.75,Autonomous vehicle and method for controlling the same
-11305776,72518039,ANTISEED-manual,0,0.1831,0.6667,"Method for operating a driver assistance apparatus of a motor vehicle, driver as"
+10395103,65312177,ANTISEED-manual,0,0.1831,0.8333,"Object detection method, object detection apparatus, and program"
+10371815,65312177,ANTISEED-manual,0,0.1831,0.625,"Radar module, transport apparatus, and object detection method"
+9213909,65312177,ANTISEED-manual,0,0.1831,0.8333,"Object detection method, object detection apparatus, and program"
+10877135,67469370,SEED,1,0.1831,0.7143,Object detection apparatus and object detecting method
 12258009,70728633,SEED,1,0.1831,0.8571,"Cruise control method and system, and vehicle"
-12030515,57629361,SEED,1,0.1831,0.6,Vehicle control apparatus
 9333971,52628744,SEED,1,0.1828,0.6667,Adaptive cruise control system for vehicle using V2V communication and control m
 8983750,63796687,ANTISEED-manual,0,0.1828,0.6,Driving support apparatus for vehicle
+11308717,59314961,ANTISEED-manual,0,0.1818,1.0,Object detection device and object detection method
+11226409,39871679,SEED,1,0.1818,0.6667,In-vehicle radar device
 11292492,63855695,ANTISEED-manual,0,0.1818,0.6667,Driving assistance method and driving assistance device
-11878688,57629361,SEED,1,0.1818,0.6,Vehicle control apparatus
-10997438,65312177,ANTISEED-manual,0,0.1818,0.6667,Obstacle detection method and apparatus
+11954918,52688732,ANTISEED-manual,0,0.1818,0.625,"Object detection device, object detection method, and storage medium"
 10124784,70728633,SEED,1,0.1803,0.7778,Method and system for controlling shifting of a vehicle in cruise control
 11167759,52628744,SEED,1,0.1798,0.7273,Method and apparatus for controlling a vehicle including an adaptive cruise cont
-10953869,64740754,SEED,1,0.1798,0.625,"Automated driving control device, vehicle, and automated driving control method"
+9367749,65312177,ANTISEED-manual,0,0.1795,0.6,Object detection apparatus
 11485378,68161352,SEED,1,0.1795,0.6,Vehicle control system
-9862272,62251705,ANTISEED-manual,0,0.1795,0.6154,Method for operating a longitudinal driver assistance system of a motor vehicle 
+10043067,41568683,SEED,1,0.1791,0.6,System and method for detecting pedestrians using a single normal camera
+12025728,67469370,SEED,1,0.1791,0.6,Radar apparatus and method for detecting object based on multiple modes
+12326501,59681248,ANTISEED-manual,0,0.1789,1.0,Object detection system
+10386840,54265027,SEED,1,0.1774,0.6667,Cruise control system and method
+10101446,60682981,ANTISEED-manual,0,0.1774,1.0,Object detection device and object detection method
+9171230,65312177,ANTISEED-manual,0,0.1772,0.7143,"Object detection method, object detection apparatus and image pickup apparatus"
 9902393,68161352,SEED,1,0.1772,0.6,Vehicle control system
-11648911,48226412,SEED,1,0.1772,0.8333,Vehicle system and vehicle control method
-10345807,68161352,SEED,1,0.1765,0.625,Control system for and control method of autonomous driving vehicle
-12497097,63796687,ANTISEED-manual,0,0.1758,0.75,Automatic driving support apparatus
+10984555,56094138,ANTISEED-manual,0,0.1772,0.8333,Object detection device and vehicle
+9964641,35810049,ANTISEED-manual,0,0.1765,0.75,Object detection device
+9373027,49160797,ANTISEED-manual,0,0.1758,1.0,Object detection device
 12311940,52628744,SEED,1,0.1758,0.75,Adaptive cruise control system and method
-11433921,52110439,SEED,1,0.1757,0.75,Parking assist system
-12067788,41568683,SEED,1,0.1753,0.625,Method and system for detecting and classifying lanes
-12217512,67402844,SEED,1,0.1746,0.8333,Information processing apparatus and information processing method
-11338801,56163306,SEED,1,0.1746,0.75,Collision avoidance device
-10589641,72518039,ANTISEED-manual,0,0.1739,1.0,Method for operating a motor vehicle and motor vehicle
-9862415,60081897,SEED,1,0.1739,0.6,Lane keeping assist apparatus
-11235735,57629361,SEED,1,0.1739,0.6,Vehicle control apparatus
-11364897,52110439,SEED,1,0.1733,0.75,Parking assist system
-12030493,39092766,SEED,1,0.1731,0.6,Cruise control system and a method for controlling a powertrain
+11422231,53086477,ANTISEED-manual,0,0.1746,0.625,Method for operating a vehicle radar system
+11093801,59314961,ANTISEED-manual,0,0.1739,1.0,Object detection device and object detection method
+9921303,60326539,ANTISEED-manual,0,0.1739,0.6667,Object detection apparatus and method
+9383445,59681248,ANTISEED-manual,0,0.1735,1.0,Object detection system
+10635920,61686436,ANTISEED-manual,0,0.1731,0.75,"Information processing apparatus, information processing method and storage medi"
+11511774,57884949,SEED,1,0.1724,0.75,Method and apparatus for controlling autonomous driving vehicle
 11327499,66106817,SEED,1,0.1724,0.75,Vehicle control system
-12187310,54265027,SEED,1,0.1724,0.8333,"Vehicle control device, vehicle control method, and vehicle control system"
 12367767,60157374,SEED,1,0.1719,0.625,Platooning control apparatus and method thereof
-11648936,57884949,SEED,1,0.1714,0.7143,Method and apparatus for controlling vehicle
-12472950,47525265,SEED,1,0.1711,0.625,Control device for vehicle and control method for vehicle
-11975709,42185874,SEED,1,0.1711,0.75,Vehicle control device
-9412272,56110864,SEED,1,0.1702,0.625,Apparatus and method for controlling traffic signals
-10268192,72513647,SEED,1,0.1698,1.0,Self-driving vehicle systems and methods
+9591274,59314961,ANTISEED-manual,0,0.1717,0.7143,"Three-dimensional object detection device, and three-dimensional object detectio"
+10192107,65312177,ANTISEED-manual,0,0.1714,1.0,Object detection method and object detection apparatus
+10671063,42185874,SEED,1,0.1714,0.75,Vehicle control device
+9842283,58503277,ANTISEED-manual,0,0.1714,0.8571,Target object detection system and a method for target object detection
+8855874,52628744,SEED,1,0.1707,0.6,Method and device for controlling a vehicle cruise control
+10670697,65312177,ANTISEED-manual,0,0.1707,0.625,"Signal processing apparatus, signal processing method, and object detection syst"
+10866316,39786299,ANTISEED-manual,0,0.1705,0.6667,Object detection apparatus and object detection method
+8818704,67140090,SEED,1,0.1702,0.6154,Navigation system with road object detection mechanism and method of operation t
 10274950,72513647,SEED,1,0.1698,1.0,Self-driving vehicle systems and methods
-10507843,54265027,SEED,1,0.1692,0.8333,"Vehicle control system, vehicle control method, and vehicle control program"
-11079769,65312177,ANTISEED-manual,0,0.1692,0.7143,Autonomous vehicle object detection method and apparatus
-10925059,61160560,ANTISEED-manual,0,0.1692,0.6154,Method and apparatus for transmitting sidelink signal in wireless communication 
+10268192,72513647,SEED,1,0.1698,1.0,Self-driving vehicle systems and methods
 10852727,54265027,SEED,1,0.1692,0.7143,System and method for control of an autonomous vehicle
-11815906,65312177,ANTISEED-manual,0,0.1692,0.7143,Autonomous vehicle object detection method and apparatus
+10925059,61160560,ANTISEED-manual,0,0.1692,0.6154,Method and apparatus for transmitting sidelink signal in wireless communication 
+10737718,68161352,SEED,1,0.1692,0.625,Steering control system and method for autonomous vehicle
 9786181,65011805,SEED,1,0.169,0.8571,Autonomous vehicle and control method thereof
-8954194,65011805,SEED,1,0.169,0.625,Remote vehicle control system and method
-8880275,48226412,SEED,1,0.169,0.625,Autonomous underwater vehicle control system and method
-10347130,65011805,SEED,1,0.169,0.7143,Vehicle and control method thereof
-9873427,72518039,ANTISEED-manual,0,0.169,0.625,Device and method for controlling a motor vehicle
-12249158,65312177,ANTISEED-manual,0,0.1688,0.6,Object detection method
-10663578,67469370,SEED,1,0.1688,0.7143,Apparatus and method for detecting target
-9522700,47525265,SEED,1,0.1687,0.75,Driving support apparatus for vehicle and driving support method
-11386720,38509605,ANTISEED-manual,0,0.1685,0.7143,"Vehicle control device, vehicle control method, and vehicle control program"
+10755384,58503277,ANTISEED-manual,0,0.169,0.8333,Object detection method and object detection system
+10521682,65312177,ANTISEED-manual,0,0.169,0.7143,Apparatus and method for controlling object detection
+10884103,66671970,SEED,1,0.169,0.6,Calibration system for vehicle radar system
+10699169,65312177,ANTISEED-manual,0,0.1688,0.625,Machine learning-based object detection method and apparatus
+10627228,49160797,ANTISEED-manual,0,0.1687,1.0,Object detection device
+12352887,65031374,SEED,1,0.1687,0.75,Vehicle radar device and control method
 10583832,16798699,ANTISEED-manual,0,0.1685,0.8333,Obstacle detection system for a work vehicle
 11460311,69847987,ANTISEED-manual,0,0.1684,0.6,"Path planning method, system and device for autonomous driving"
 11753008,52628744,SEED,1,0.1683,0.7273,System and method for adaptive cruise control with proximate vehicle detection
 10752246,52628744,SEED,1,0.1683,0.7273,System and method for adaptive cruise control with proximate vehicle detection
+10002290,59314961,ANTISEED-manual,0,0.1683,0.7143,Learning device and learning method for object detection
+9672634,70848337,ANTISEED-manual,0,0.1667,0.8571,System and a method for tracking objects
 10303181,72513647,SEED,1,0.1667,1.0,Self-driving vehicle systems and methods
-9457717,52110439,SEED,1,0.1667,0.75,Parking assist system
-12461526,60949346,SEED,1,0.1667,0.625,"Autonomous mobile body control device, autonomous mobile body, and autonomous mo"
-11875576,68811096,SEED,1,0.1667,0.6,Traffic sign recognition method based on lightweight neural network
 10679312,63854035,SEED,1,0.1667,1.0,Dynamic autonomous vehicle servicing and management
 11242066,65011805,SEED,1,0.1667,0.75,Vehicle control apparatus and vehicle control system and vehicle control method 
-11035684,69847987,ANTISEED-manual,0,0.1648,0.6667,"Path planning system and method for robot, robot and medium"
-8452513,52628744,SEED,1,0.1647,0.7,System and method for validating adaptive cruise control operations
-11334075,70729985,SEED,1,0.1647,0.6,Apparatus and method for controlling autonomous vehicle
+10520942,65011805,SEED,1,0.1667,0.8571,Autonomous vehicle control system and method
+12151682,52628744,SEED,1,0.1667,0.75,Adaptive cruise control method and system
+9031286,65312177,ANTISEED-manual,0,0.1667,0.6667,Object detection device and object detection method
+12153122,59681248,ANTISEED-manual,0,0.1649,0.75,Foreign-object detection system
+9558546,59314961,ANTISEED-manual,0,0.1649,0.7143,"Three-dimensional object detection device, and three-dimensional object detectio"
+9689978,39871679,SEED,1,0.1647,0.6667,In-vehicle radar apparatus
 9014941,52628744,SEED,1,0.1647,0.7,System and method for validating adaptive cruise control operations
-11964392,69847987,ANTISEED-manual,0,0.1646,0.6,Method and system for specifying nodes for robot path planning
-10017105,48226412,SEED,1,0.1644,0.8333,Vehicle control system and method
-11169521,65011805,SEED,1,0.1644,0.6667,Safety control system and method for autonomous vehicle
+11334075,70729985,SEED,1,0.1647,0.6,Apparatus and method for controlling autonomous vehicle
+10049577,49768336,SEED,1,0.1646,0.75,Object detection apparatus
+11768287,49768336,SEED,1,0.1646,0.75,Object detection apparatus
 9227604,63855695,ANTISEED-manual,0,0.1642,0.6667,Travel control device and travel control method
-10518777,72518039,ANTISEED-manual,0,0.1642,1.0,"Method for operating a motor vehicle, and motor vehicle"
-10266132,72518039,ANTISEED-manual,0,0.1642,0.6667,"Method for operating driver assistance systems in a motor vehicle, and motor veh"
-12190603,57629361,SEED,1,0.1642,0.8,Vehicle traveling control apparatus
-11643071,63855695,ANTISEED-manual,0,0.1639,0.6667,Parking assistance device and parking assistance method
+10875503,70728633,SEED,1,0.1642,0.6,System and method for anti-theft control for autonomous vehicle
 9965959,49539600,SEED,1,0.1639,0.6,Lane departure warning apparatus
-12311933,63796687,ANTISEED-manual,0,0.163,0.6,Driving support apparatus and driving support method
-11269347,72518039,ANTISEED-manual,0,0.1625,0.75,"Method for operating a partially autonomous or autonomous motor vehicle, and mot"
-10464420,42185874,SEED,1,0.1625,0.6,Emergency vehicle control device
-10588474,47519810,ANTISEED-manual,0,0.1622,1.0,Robot cleaner
-10755573,56163306,SEED,1,0.1622,0.75,Collision avoidance device
-11235782,54265027,SEED,1,0.1613,0.8333,"Vehicle control system, vehicle control method, and vehicle control program"
-11796657,59562967,ANTISEED-manual,0,0.1605,0.7778,"Control device, control method, program, and storage medium"
+9776509,52628744,SEED,1,0.1628,0.7,Method and apparatus for adaptive cruise control in a road vehicle
+9393960,42185874,SEED,1,0.1625,0.6,Vehicle cruise control device
+11402484,63111468,ANTISEED-manual,0,0.1625,0.7,"Object detection device, in-vehicle radar system, monitoring radar system, objec"
+12384368,56937587,SEED,1,0.1622,0.75,Adaptive cruise control
+11947016,59314961,ANTISEED-manual,0,0.1616,0.625,Object detection device and method of operating the same
+11906612,59314961,ANTISEED-manual,0,0.1616,1.0,Object detection device and object detection method
+10527719,39786299,ANTISEED-manual,0,0.1613,0.6667,Object detection apparatus and object detection method
+12211285,58503277,ANTISEED-manual,0,0.16,0.8333,Object detection system and object detection method
+10614326,58503277,ANTISEED-manual,0,0.16,0.6,System and method for vehicle control based on object and color detection
 11338722,68161352,SEED,1,0.16,0.8333,Control system for autonomous vehicle lighting
-11192485,48226412,SEED,1,0.16,0.625,"Vehicle control system, vehicle control method, and storage medium"
-9533682,72518039,ANTISEED-manual,0,0.16,0.6667,"Method for operating a motor vehicle when changing lanes, and motor vehicle"
-9475194,60949346,SEED,1,0.16,0.625,"Autonomous mobile device, autonomous movement system, and autonomous movement me"
-11884300,68161352,SEED,1,0.16,1.0,Control system for autonomous vehicle
-10899343,63855695,ANTISEED-manual,0,0.16,0.6667,Parking assistance method and parking assistance device
-10965099,59562967,ANTISEED-manual,0,0.1596,0.7,"Light control device, control method, program and storage medium"
-10328937,62251705,ANTISEED-manual,0,0.1596,0.6154,Method for operating a motor vehicle using a longitudinal driver assistance syst
-10054455,68136472,SEED,1,0.1594,0.6667,"Vehicle controller, vehicle control method, and vehicle control program"
-12311539,67402844,SEED,1,0.1594,0.7143,Information processing apparatus and control method
 10082791,48226412,SEED,1,0.1594,0.7143,Autonomous vehicle control system and method
-8996272,48664023,SEED,1,0.1587,0.625,Cruise control system and method thereof
-10761531,68161352,SEED,1,0.1585,0.7143,Guidance control system for autonomous-traveling vehicle
-12145611,68161352,SEED,1,0.1585,0.625,System and method for switching control of autonomous vehicle
-11897465,42185874,SEED,1,0.1585,0.75,Vehicle control device
+12007475,49768336,SEED,1,0.1591,0.75,Object detection apparatus
+9921304,49768336,SEED,1,0.1585,0.75,Object detection apparatus
 11427212,68161352,SEED,1,0.1579,0.8333,Autonomous driving control system for vehicle
-9304513,65634802,SEED,1,0.1579,0.75,Driving assistance device
-12511994,48226412,SEED,1,0.1579,0.6,Vehicle control system and method for generating speed limit signal
-10696297,63796687,ANTISEED-manual,0,0.1573,1.0,Driving support apparatus
-11364901,63796687,ANTISEED-manual,0,0.1573,1.0,Driving support apparatus
-10106154,63796687,ANTISEED-manual,0,0.1573,1.0,Driving support apparatus
-11926260,62528539,ANTISEED-manual,0,0.1573,0.75,Method for operating a parking assistance function of a motor vehicle
-11987238,63796687,ANTISEED-manual,0,0.1573,1.0,Driving support apparatus
-11738744,63796687,ANTISEED-manual,0,0.1573,1.0,Driving support apparatus
-12386365,67402844,SEED,1,0.1562,0.7143,"Information processing system, information processing method, and program"
-10065679,47525265,SEED,1,0.1558,0.7143,Driving support device for vehicle
-11110919,47299850,SEED,1,0.1556,0.7273,Cruise control system and cruise control method for mild hybrid electric vehicle
-11377024,63855695,ANTISEED-manual,0,0.1552,0.8333,"Travel assistance device, travel assistance system, and travel assistance method"
+9589193,52688732,ANTISEED-manual,0,0.1579,0.625,Three-dimensional object detection device and three-dimensional object detection
+10495741,59681248,ANTISEED-manual,0,0.1579,0.6,Object detection device and object detection system
+10431088,49768336,SEED,1,0.1573,0.75,Object detection apparatus
+10558213,68161352,SEED,1,0.1571,0.625,Control system for and control method of autonomous driving vehicle
+10509399,68161352,SEED,1,0.1571,0.625,Control system for and control method of autonomous driving vehicle
+11619736,49160797,ANTISEED-manual,0,0.1566,1.0,Object detection device
+11467278,70848337,ANTISEED-manual,0,0.1566,0.7143,System and method of detecting objects
+10019636,49768336,SEED,1,0.1566,0.75,Object detection apparatus
+12032055,49768336,SEED,1,0.1566,0.6,Moving object detection apparatus
+11294045,49768336,SEED,1,0.1566,0.75,Object detection apparatus
+9616887,64949790,SEED,1,0.1562,0.7,Driving assistance device for vehicle and driving assistance method for vehicle
+10789492,49768336,SEED,1,0.1562,0.6,Specific object detection apparatus
+11024042,65312177,ANTISEED-manual,0,0.1558,0.8333,Moving object detection apparatus and moving object detection method
+9460352,51689492,ANTISEED-manual,0,0.1558,0.8,Lane boundary line recognition device
+9552514,58503277,ANTISEED-manual,0,0.1558,0.7143,Moving object detection method and system
 10775799,60157374,SEED,1,0.1549,0.625,Autonomous cruise control apparatus and method
-11548492,57629361,SEED,1,0.1549,0.8,Vehicle traveling control apparatus
-11230290,45042821,ANTISEED-manual,0,0.1549,0.7143,"Vehicle control device, vehicle control method, and program"
-10384629,56163306,SEED,1,0.1549,0.75,Collision avoidance device
-11968037,61160560,ANTISEED-manual,0,0.1549,0.6154,Method and apparatus for transmitting or receiving wireless signal in wireless c
-11163299,38509605,ANTISEED-manual,0,0.1548,0.625,"Control device, control method, and program recording medium"
-10692381,62528539,ANTISEED-manual,0,0.1538,0.7143,Parking assistance apparatus for a motor vehicle
-8902053,49694478,SEED,1,0.1538,0.625,Method and system for lane departure warning
-10635103,69204961,ANTISEED-manual,0,0.1538,0.6,Device and method for controlling a vehicle
-12032062,39786299,ANTISEED-manual,0,0.1538,0.6,Obstacle detection apparatus
-10421398,63855695,ANTISEED-manual,0,0.1538,0.6667,Driving-assistance device and driving-assistance method
-11807236,60157374,SEED,1,0.1538,0.6,Coordinating apparatus and method between adaptive cruise control and predictive
-9834213,60081897,SEED,1,0.1538,0.6,Lane keeping assist apparatus
-10625732,57884949,SEED,1,0.1538,0.6667,"Apparatus and method for controlling autonomous driving of vehicle, and vehicle "
 10752242,54265027,SEED,1,0.1538,0.7143,System and method for control of an autonomous vehicle
-10532770,72518039,ANTISEED-manual,0,0.1538,0.6667,Method for operating a driver assistance system of a motor vehicle and motor veh
+8902053,49694478,SEED,1,0.1538,0.625,Method and system for lane departure warning
+10625732,57884949,SEED,1,0.1538,0.6667,"Apparatus and method for controlling autonomous driving of vehicle, and vehicle "
+10823846,60682981,ANTISEED-manual,0,0.1538,1.0,Object detection method and object detection device
+12032062,39786299,ANTISEED-manual,0,0.1538,0.6,Obstacle detection apparatus
+11807236,60157374,SEED,1,0.1538,0.6,Coordinating apparatus and method between adaptive cruise control and predictive
+11024051,49160797,ANTISEED-manual,0,0.1531,1.0,Object detection device
 9821803,48226412,SEED,1,0.1529,0.8571,Vehicle speed and coasting control method and system
-11932244,57884949,SEED,1,0.1528,0.75,Apparatus and method for controlling autonomous driving of vehicle
-11285939,50269487,SEED,1,0.1524,0.8889,Smart parking assist system and control method thereof
-11472374,66106817,SEED,1,0.1522,0.75,Vehicle control system
+11151395,52688732,ANTISEED-manual,0,0.1525,0.8571,"Roadside object detection device, roadside object detection method, and roadside"
+8896482,60682981,ANTISEED-manual,0,0.1522,0.6,Object detection method
 10900792,72513647,SEED,1,0.1522,1.0,Self-driving vehicle systems and methods
+10380741,58503277,ANTISEED-manual,0,0.1519,0.6667,System and method for a deep learning machine for object detection
 8938352,70728633,SEED,1,0.1519,0.6,Method and device for controlling a cruise control governor in a vehicle
-11877215,54239371,ANTISEED-manual,0,0.1519,0.625,"V2X message transmission method, device, and system"
-11897360,64659192,SEED,1,0.1519,0.7143,"Information processing device, information processing method, and program"
-11269324,57884949,SEED,1,0.1515,0.8571,Method and apparatus for controlling autonomous vehicle
+9208385,58503277,ANTISEED-manual,0,0.1519,0.75,System and method for moving object detection and processing
 10780884,48664023,SEED,1,0.1515,0.625,Vehicle cruise control apparatus and vehicle cruise control method
+11269324,57884949,SEED,1,0.1515,0.8571,Method and apparatus for controlling autonomous vehicle
+12386049,57946379,ANTISEED-manual,0,0.1512,0.6,Ultrasonic object detection device
+9239960,49160797,ANTISEED-manual,0,0.1512,0.6,Three-dimensional object detection device
+10295666,49160797,ANTISEED-manual,0,0.1512,1.0,Object detection device
+9430701,58503277,ANTISEED-manual,0,0.1512,0.8333,Object detection system and method
+9440646,47605340,SEED,1,0.1507,0.625,System and method for responding to driver behavior
 9855945,47605340,SEED,1,0.1507,0.625,System and method for responding to driver behavior
+11377094,47605340,SEED,1,0.1507,0.625,System and method for responding to driver behavior
 9296382,47605340,SEED,1,0.1507,0.625,System and method for responding to driver behavior
-11625905,70848337,ANTISEED-manual,0,0.15,0.75,System and method for tracking occluded objects
-9248742,72518039,ANTISEED-manual,0,0.15,0.6,Motor vehicle comprising a driver assistance device and method for operating a m
-9911330,63855695,ANTISEED-manual,0,0.1493,0.6667,Driving assistance device and driving assistance method
-10875503,65011805,SEED,1,0.1493,0.6,System and method for anti-theft control for autonomous vehicle
+9505402,47605340,SEED,1,0.1507,0.625,System and method for responding to driver behavior
+10852430,43363518,ANTISEED-manual,0,0.1505,0.75,Object detection device
+12352854,57946379,ANTISEED-manual,0,0.1505,0.75,Object detection device
+9864057,49160797,ANTISEED-manual,0,0.15,0.75,Ultrasonic object detection device
+9669833,52628744,SEED,1,0.1494,0.7778,Method and system for operating adaptive cruise control system
+11693108,49768336,SEED,1,0.1494,0.6,Moving object detection apparatus
+10274593,16417748,ANTISEED-manual,0,0.1494,1.0,Object detection device and object detection method
+10345443,60157374,SEED,1,0.1493,0.625,Vehicle cruise control apparatus and vehicle cruise control method
+10044100,11756399,ANTISEED-manual,0,0.1489,0.6667,On-vehicle radar device
+9652857,63111468,ANTISEED-manual,0,0.1486,0.625,Object detection apparatus detection method and program
+10041791,49768336,SEED,1,0.1485,0.6,Object detection apparatus method
 11222472,58497624,ANTISEED-AF,0,0.1481,0.6667,XR device and method for controlling the same
+11312394,42185874,SEED,1,0.1481,0.75,Vehicle control device
+9886773,60326539,ANTISEED-manual,0,0.1481,0.6667,Object detection apparatus and object detection method
+11163061,60326539,ANTISEED-manual,0,0.1481,0.6667,Object detection apparatus and object detection method
+10479354,16798699,ANTISEED-manual,0,0.1477,0.8333,Obstacle detection system for a work vehicle
+10451720,65312177,ANTISEED-manual,0,0.1477,1.0,Object detection apparatus and object detection method
 10830893,39786299,ANTISEED-manual,0,0.1477,0.625,"Obstacle detection device, traveling apparatus, obstacle detection system, and o"
-12204338,67402844,SEED,1,0.1471,1.0,"Information processing apparatus, information processing method, and program"
-10479368,39092766,SEED,1,0.1471,0.6,"Method and device for operating a driver assistance system, and driver assistanc"
-11675360,67402844,SEED,1,0.1471,1.0,"Information processing apparatus, information processing method, and program"
-11453391,60157374,SEED,1,0.1471,0.6,Method and apparatus for off road adaptive cruise control
+9424462,59314961,ANTISEED-manual,0,0.1475,1.0,Object detection device and object detection method
 12286120,53370044,ANTISEED-AF,0,0.1471,0.6,Vehicle and method of controlling a vehicle
-9623873,67402844,SEED,1,0.1467,0.8571,"Information processing apparatus, information processing method, and computer pr"
-9994230,67402844,SEED,1,0.1467,0.8571,"Information processing apparatus, information processing method, and computer pr"
-9346355,22043855,SEED,1,0.1463,0.75,Motorcycle cruise control system
-11435755,72518039,ANTISEED-manual,0,0.1463,0.7143,Vehicle and method for autonomously operating a vehicle
+11453391,60157374,SEED,1,0.1471,0.6,Method and apparatus for off road adaptive cruise control
+10872250,52110439,SEED,1,0.1467,0.6,Vehicle parking enforcement system
+11538255,52110439,SEED,1,0.1467,0.6,Vehicle parking enforcement system
+11169521,70728633,SEED,1,0.1467,0.6667,Safety control system and method for autonomous vehicle
+9075133,63111468,ANTISEED-manual,0,0.1463,0.6,"Object detection and tracking support system, control method, and program"
+10041787,49160797,ANTISEED-manual,0,0.1461,1.0,Object detection device
 10843669,68161352,SEED,1,0.1461,0.8333,Sensor control system for autonomous vehicle
-11458998,61686436,ANTISEED-manual,0,0.1452,0.6,"Information processing apparatus, information processing method and non-transito"
-12214778,63855695,ANTISEED-manual,0,0.1452,0.6667,Parking assistance method and parking assistance device
-11964775,67402844,SEED,1,0.1449,0.75,"Mobile object, information processing apparatus, information processing method, "
-11250707,56163306,SEED,1,0.1447,0.6,Collision avoidance assistance device
+11209542,43363518,ANTISEED-manual,0,0.1461,0.75,Object detection device
+8909452,63796687,ANTISEED-manual,0,0.1461,0.75,Vehicle driving support apparatus
+8717225,16417748,ANTISEED-manual,0,0.1458,0.7143,Object detection device for vehicle and object detection method for vehicle
+11427213,72518039,ANTISEED-manual,0,0.1449,0.7143,"Method for operating an autonomous vehicle, and autonomous vehicle"
+10683012,68161352,SEED,1,0.1447,0.625,System delay estimation method for autonomous vehicle control
 10754345,72518039,ANTISEED-manual,0,0.1447,0.75,Method for operating a self-driving motor vehicle and self-driving motor vehicle
-10647320,48226412,SEED,1,0.1446,0.625,Method and a system for controlling vehicle speed
+10227075,68161352,SEED,1,0.1447,0.625,System delay estimation method for autonomous vehicle control
+11265508,38509605,ANTISEED-manual,0,0.1446,0.625,"Recording control device, recording control system, recording control method, an"
 11420632,59562967,ANTISEED-manual,0,0.1446,0.7,"Output device, control method, program and storage medium"
-11866036,62251705,ANTISEED-manual,0,0.1444,0.6667,"Driver assistance system for a motor vehicle, motor vehicle and method for opera"
-11708072,69847987,ANTISEED-manual,0,0.1443,0.6,"System, method and device for planning driving path for vehicle"
-11592829,38509605,ANTISEED-manual,0,0.1443,0.625,"Control device and control method, program, and mobile object"
-12032061,59314961,ANTISEED-manual,0,0.1442,0.6667,Obstacle detection device and obstacle detection method
-12072414,59314961,ANTISEED-manual,0,0.1442,0.6667,Obstacle detection device and obstacle detection method
-11132898,72513647,SEED,1,0.1429,0.6667,Systems and methods for self-driving vehicle traffic management
-10730517,66243650,SEED,1,0.1429,0.6667,Driving system and vehicle
-12319282,63855695,ANTISEED-manual,0,0.1429,0.7143,Travel assistance method and travel assistance device for vehicle
-11067987,63855695,ANTISEED-manual,0,0.1429,0.6667,Driving assistance method and driving assistance device
-11693427,58497624,ANTISEED-AF,0,0.1429,0.6364,Plurality of autonomous mobile robots and controlling method for the same
-11137773,58497624,ANTISEED-AF,0,0.1429,0.6364,Plurality of autonomous mobile robots and controlling method for the same
-12099366,25225029,SEED,1,0.1429,0.6667,System for obstacle detection
+11061111,65312177,ANTISEED-manual,0,0.1446,0.625,"Signal processing apparatus, signal processing method, and object detection syst"
+11307580,52110439,SEED,1,0.1446,0.6,Autonomous vehicle parking system
+11170272,16417748,ANTISEED-manual,0,0.1444,0.625,"Object detection device, object detection method, and computer program for objec"
+9036453,15537941,ANTISEED-manual,0,0.1444,1.0,Obstacle detection device
 10737695,52628744,SEED,1,0.1429,0.6364,System and method for adaptive cruise control for low speed following
-10576980,63855695,ANTISEED-manual,0,0.1429,0.6667,Travel control device and travel control method
-10683007,56163306,SEED,1,0.1429,1.0,Collision avoidance support device
-10752245,47299850,SEED,1,0.1415,0.7273,Auto cruise control method and system for hybrid electric vehicle
+11067987,63855695,ANTISEED-manual,0,0.1429,0.6667,Driving assistance method and driving assistance device
+12099366,25225029,SEED,1,0.1429,0.6667,System for obstacle detection
+10730517,66243650,SEED,1,0.1429,0.6667,Driving system and vehicle
+10922817,58356913,ANTISEED-manual,0,0.1429,0.6667,Perception device for obstacle detection and tracking and a perception method fo
+9165390,60682981,ANTISEED-manual,0,0.1429,0.7143,Object detection frame display device and object detection frame display method
+10607093,58503277,ANTISEED-manual,0,0.1429,0.7143,Object detection system and method thereof
+10616425,41259079,ANTISEED-AF,0,0.1429,0.6667,Image forming apparatus and image forming method
+11132898,72513647,SEED,1,0.1429,0.6667,Systems and methods for self-driving vehicle traffic management
+12386074,18832127,SEED,1,0.1415,1.0,Object detection device
+10528044,64740754,SEED,1,0.1414,0.7143,"Vehicle control device, vehicle control method, and vehicle control program"
 9862290,66106817,SEED,1,0.1413,0.6,Vehicle seat control system
+11435469,58503277,ANTISEED-manual,0,0.1412,0.7143,Moving object detection system and method
 10275669,70848337,ANTISEED-manual,0,0.1412,0.6667,System and method for detecting objects in an automotive environment
-11915501,56976127,ANTISEED-manual,0,0.141,0.6364,"Object detection method and apparatus, electronic device, and storage medium"
-10580303,56163306,SEED,1,0.141,0.75,Collision avoidance device
-11899456,67402844,SEED,1,0.1408,0.7143,"Information processing device, information processing method, and program"
-12253854,67402844,SEED,1,0.1408,0.625,"Information processing device, information processing method, and program class"
-10856118,61160560,ANTISEED-manual,0,0.1408,0.6923,Method and apparatus for transmitting information using V2X communication in a w
-11409289,67402844,SEED,1,0.1408,0.7143,"Information processing device, information processing method, and program"
+11175391,35810049,ANTISEED-manual,0,0.1412,0.75,Object detection device
+11465639,66106817,SEED,1,0.1412,0.75,Vehicle control system
+10354160,57822864,SEED,1,0.141,0.8333,Pedestrian detection device and pedestrian detection method
+11052917,65031374,SEED,1,0.1408,0.6,Vehicle control device provided in vehicle and method for controlling vehicle
 10471961,39092766,SEED,1,0.1406,0.6667,Cruise control device and cruise control method for vehicles
+10580161,52688732,ANTISEED-manual,0,0.1404,0.6667,"Imaging system, object detection device and method of operating same"
+9092676,63716739,ANTISEED-manual,0,0.1404,0.8333,Object detector and object detection method
+12298407,68764087,ANTISEED-manual,0,0.14,0.625,"Object detection system, transport vehicle, and object detection device"
 11312396,57748624,ANTISEED-manual,0,0.14,0.6667,Vehicle control system
-12412401,42977118,SEED,1,0.1395,0.6667,Traffic sign recognition device and traffic sign recognition method
-11317205,67402844,SEED,1,0.1392,0.75,"Information processing apparatus, information processing method, program, and mo"
-12001226,67402844,SEED,1,0.1389,0.8571,"Information processing apparatus, control method, and program"
-11327495,57748624,ANTISEED-manual,0,0.1386,0.6667,Vehicle control system
-11745763,63855695,ANTISEED-manual,0,0.1385,0.8333,Vehicle travel assistance method and vehicle travel assistance device
-12151683,66106817,SEED,1,0.1383,0.75,Vehicle control system
-10140528,39786299,ANTISEED-manual,0,0.1379,0.6667,Lane detection apparatus and lane detection method
-12258033,52688732,ANTISEED-manual,0,0.1379,0.8333,Object detection system and object detection method
-9824584,63796687,ANTISEED-manual,0,0.1376,0.6,Driving support apparatus for vehicle
+11994633,16417748,ANTISEED-manual,0,0.1398,0.8333,"Object detection device, object detection method, and control device"
+10493988,52628744,SEED,1,0.1398,0.7,System and method for adaptive cruise control for defensive driving
+9771073,52628744,SEED,1,0.1398,0.7778,Adaptive cruise control system in vehicle and method thereof
+12411235,67779852,ANTISEED-manual,0,0.1398,0.6364,"Object detection device, object detection method, and computer-readable storage "
+9594966,58356913,ANTISEED-manual,0,0.1398,0.7143,Obstacle detection device and obstacle detection method
+9783127,49160797,ANTISEED-manual,0,0.1395,0.6,Three-dimensional object detection device
+10657392,63111468,ANTISEED-manual,0,0.1395,0.8571,"Object detection device, object detection method, and program"
+10759440,57358080,ANTISEED-manual,0,0.1392,0.7143,Safe driving support apparatus and method
+11403699,58497624,ANTISEED-AF,0,0.1392,0.6,Multimedia device and method for controlling the same
+9616852,58423756,ANTISEED-manual,0,0.1392,0.625,"Image processing apparatus, image-capturing method, and vehicle"
+12475711,18832127,SEED,1,0.1386,1.0,Object detection device
+11912259,52628744,SEED,1,0.1386,0.6,Controller and control method for braking in an adaptive cruise control
+12313737,60326539,ANTISEED-manual,0,0.1379,0.6667,Object detection apparatus and object detection method
+9744915,63855695,ANTISEED-manual,0,0.1379,0.6667,Travel control device and travel control method
+9852632,63855695,ANTISEED-manual,0,0.1379,0.6667,Driving assistance device and driving assistance method
 10839234,58503277,ANTISEED-manual,0,0.1375,0.75,System and method for three-dimensional (3D) object detection
-11280281,62251705,ANTISEED-manual,0,0.137,0.6667,Operating method for a driver assistance system and motor vehicle
+11385638,72518039,ANTISEED-manual,0,0.137,0.75,Method for operating a safety system for a motor vehicle and safety system
 9903942,15537941,ANTISEED-manual,0,0.1368,1.0,Obstacle detection device
-12419477,47519810,ANTISEED-manual,0,0.1364,1.0,Robot cleaner
-11836991,61686436,ANTISEED-manual,0,0.1364,0.7143,Image processing apparatus and image processing method
+10996317,39786299,ANTISEED-manual,0,0.1368,0.6667,Object detection apparatus and object detection method
+9862320,52688732,ANTISEED-manual,0,0.1364,0.625,"Three-dimensional object detection device, and three-dimensional object detectio"
+11643114,67402844,SEED,1,0.1364,0.7143,"Information processing device, information processing method and information pro"
 10980016,61160560,ANTISEED-manual,0,0.1358,0.6,Method for transmitting or receiving downlink control information in wireless co
-12263842,63855695,ANTISEED-manual,0,0.1356,0.8333,Vehicle travel assistance method and vehicle travel assistance device
-11960296,60949346,SEED,1,0.1354,0.625,Method and apparatus for autonomous mobile device
-12280798,69847987,ANTISEED-manual,0,0.1346,0.625,System and method for trajectory planning
 11170222,58497624,ANTISEED-AF,0,0.1346,0.6667,XR device and method for controlling the same
-10000236,42185874,SEED,1,0.134,0.75,Vehicle control device
-11807107,48226412,SEED,1,0.1333,0.7143,Vehicle system and longitudinal vehicle control method
-12099354,72513647,SEED,1,0.1333,0.75,Systems and methods for monitoring a self-driving vehicle
-8912923,62528539,ANTISEED-manual,0,0.1333,0.625,Method and device for parking assistance for a vehicle
-11796999,72513647,SEED,1,0.1333,0.75,Systems and methods for monitoring a self-driving vehicle
-12353214,54265027,SEED,1,0.1333,1.0,Vehicle control system and control method
+12280798,69847987,ANTISEED-manual,0,0.1346,0.625,System and method for trajectory planning
+9041588,60682981,ANTISEED-manual,0,0.1341,1.0,Object detection device and object detection method
 11119476,72513647,SEED,1,0.1333,0.75,Systems and methods for monitoring a self driving vehicle
-10839216,58503277,ANTISEED-manual,0,0.1333,0.625,"System, method and apparatus for object identification"
-11532157,58503277,ANTISEED-manual,0,0.1333,0.625,"System, method and apparatus for object identification"
-11869249,58503277,ANTISEED-manual,0,0.1333,0.625,"System, method and apparatus for object identification"
-12077184,66106817,SEED,1,0.1327,0.75,Vehicle control system
-11866050,39092766,SEED,1,0.1324,0.6,Method and device for operating a vehicle assistance system
-9293043,63796687,ANTISEED-manual,0,0.1321,1.0,Driving support apparatus
-8892342,63796687,ANTISEED-manual,0,0.1321,1.0,Driving support apparatus
-11878701,47525265,SEED,1,0.1319,0.6667,"Method and device for controlling an autonomous driving vehicle, and an autonomo"
-12428039,68136472,SEED,1,0.1316,0.8,Travel controller and travel control method
-10481613,62201848,ANTISEED-manual,0,0.1316,0.625,Method and device for operating a vehicle
+10332266,42977118,SEED,1,0.1333,0.7778,Method and device for traffic sign recognition
+10054683,39786299,ANTISEED-manual,0,0.1333,0.6,Obstacle detection apparatus
+9542625,59314961,ANTISEED-manual,0,0.1333,0.7143,Multi range object detection device and method
+12099354,72513647,SEED,1,0.1333,0.75,Systems and methods for monitoring a self-driving vehicle
+11796999,72513647,SEED,1,0.1333,0.75,Systems and methods for monitoring a self-driving vehicle
+9152887,16417748,ANTISEED-manual,0,0.1327,0.8333,"Object detection device, object detection method, and object detection program"
+11948461,64659192,SEED,1,0.1325,0.7143,"Information processing device, information processing method, and program"
+8878935,11893963,ANTISEED-manual,0,0.1321,0.75,In-vehicle camera and in-vehicle camera system
 11479245,65011805,SEED,1,0.1316,0.6667,Semi-autonomous vehicle control system and method of controlling a semi-autonomo
-11767057,56163306,SEED,1,0.131,0.6,Collision avoidance support apparatus
-12227226,56163306,SEED,1,0.131,0.6,Collision avoidance support apparatus
-10839681,47525265,SEED,1,0.131,0.6,Control device and method for controlling autonomous driving vehicle
-9849880,47299850,SEED,1,0.1304,0.7778,Method and system for vehicle cruise control
-9159235,62251705,ANTISEED-manual,0,0.1304,0.6364,Method of operating a driver assistance system of a motor vehicle
-12367670,55455280,SEED,1,0.1299,0.625,Object tracking by an unmanned aerial vehicle using visual sensors
-11295458,55455280,SEED,1,0.1299,0.625,Object tracking by an unmanned aerial vehicle using visual sensors
-11861892,55455280,SEED,1,0.1299,0.625,Object tracking by an unmanned aerial vehicle using visual sensors
-12019441,45042821,ANTISEED-manual,0,0.1299,0.7143,"Display control system, display control device and display control method"
-10803307,39009119,ANTISEED-manual,0,0.1294,0.6,"Vehicle control apparatus, vehicle, vehicle control method, and storage medium"
+9152856,41363827,ANTISEED-AF,0,0.1316,0.6667,Pedestrian detection system and method
+10803603,58503277,ANTISEED-manual,0,0.1313,0.7143,Moving object detection system and method
+10860024,68161352,SEED,1,0.131,1.0,Control system for an autonomous vehicle
+12240447,52688732,ANTISEED-manual,0,0.1304,0.625,Object detection device and driving assistance system
+11125857,52688732,ANTISEED-manual,0,0.1304,0.7143,Moving object detection system and moving object detection method
+11442453,67402844,SEED,1,0.129,1.0,"Information processing apparatus, information processing method and information "
 10255648,72513647,SEED,1,0.129,1.0,Self-driving vehicle systems and methods
-9669833,39092766,SEED,1,0.129,0.7778,Method and system for operating adaptive cruise control system
+11136044,42185874,SEED,1,0.129,0.75,Vehicle control device
+10997436,39786299,ANTISEED-manual,0,0.1287,0.6667,Object detection apparatus and object detection method
 11097736,72513647,SEED,1,0.1286,0.6,Systems and methods for traction detection and control in a self-driving vehicle
 11945443,72513647,SEED,1,0.1286,0.6,Systems and methods for traction detection and control in a self-driving vehicle
+10913452,65011805,SEED,1,0.1286,0.6667,Method and a vehicle control system for controlling an autonomous vehicle
 12403942,16798699,ANTISEED-manual,0,0.1284,0.8,System for obstacle detection
-11500384,69847987,ANTISEED-manual,0,0.1284,0.6667,Method and system for path planning of wave glider
+9360867,47525265,SEED,1,0.1282,0.6,Apparatus and method for controlling driving device of self-driving vehicle
 9053635,60157374,SEED,1,0.1282,0.8571,Cruise control apparatus and control method thereof
-10650252,60682981,ANTISEED-manual,0,0.1282,0.6667,Lane detection device and lane detection method
-12114241,45042821,ANTISEED-manual,0,0.1282,1.0,"Display control device, display control method, and display control program"
+11594009,63111468,ANTISEED-manual,0,0.1279,0.8571,"Object detection device, method, and program"
+11104352,66106817,SEED,1,0.1277,0.75,Vehicle control system
+10220857,66106817,SEED,1,0.1277,0.75,Vehicle control system
 10240938,72513647,SEED,1,0.1273,1.0,Self-driving vehicle systems and methods
-12125224,61686436,ANTISEED-manual,0,0.127,0.6667,"Depth information processing method, apparatus, and storage medium"
 12420792,48664023,SEED,1,0.1268,0.6667,"Vehicle control apparatus, vehicle control method, and adaptive cruise control s"
+9910151,23603080,ANTISEED-manual,0,0.1266,0.75,Radar object detection system
 11014494,67402844,SEED,1,0.1266,0.625,"Information processing apparatus, information processing method, and mobile body"
-11086332,64097909,SEED,1,0.125,0.8,Navigation method and system
-10234874,66106817,SEED,1,0.125,0.6,Autonomous vehicle control system
-12263838,49539600,SEED,1,0.125,0.6,Lane departure suppression device
+10176390,58503277,ANTISEED-manual,0,0.1264,0.6,Method and system for moving object detection with single camera
+12197237,55377486,ANTISEED-manual,0,0.1264,0.625,"Management system, management method, and storage medium"
+10019637,58503277,ANTISEED-manual,0,0.1264,0.6,Method and system for moving object detection with single camera
+10745008,40233786,SEED,1,0.1264,0.6,Driving support device and driving support method
 11107224,58497624,ANTISEED-AF,0,0.125,0.6667,XR device and method for controlling the same
-10000207,34909379,SEED,1,0.125,0.7143,Vehicle hitch detection system and method
+10371810,11756399,ANTISEED-manual,0,0.125,1.0,Radar device
+9889797,43312747,ANTISEED-manual,0,0.125,1.0,Driving support device
 11767026,69847987,ANTISEED-manual,0,0.125,0.8571,Method and system for path planning
-10220839,34909379,SEED,1,0.125,0.7143,Vehicle hitch detection system and method
-12509106,48664023,SEED,1,0.125,0.625,Vehicle control apparatus and method thereof
+11029150,18832127,SEED,1,0.125,0.75,Object distance detection device
+9848114,11893963,ANTISEED-manual,0,0.125,1.0,Vehicle camera system
+10142535,11893963,ANTISEED-manual,0,0.125,1.0,Vehicle camera system
+10298832,11893963,ANTISEED-manual,0,0.125,1.0,Vehicle camera system
+8971578,63796687,ANTISEED-manual,0,0.125,1.0,Driving support apparatus
+12442905,43363518,ANTISEED-manual,0,0.1237,0.75,Object detection device
 9528461,51406433,ANTISEED-manual,0,0.1235,0.7273,Obstacle detection device for vehicle and misacceleration mitigation device usin
-10685239,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
-11752869,45042821,ANTISEED-manual,0,0.1233,0.75,"Outside information display control device, outside information display control "
-12243428,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
-11610406,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
-12416920,67402844,SEED,1,0.1233,0.8333,Information processing apparatus and information processing method
 11074462,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
-11560227,63793895,ANTISEED-manual,0,0.1231,0.75,Unmanned aerial vehicle
+11610406,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
+10685239,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
+12243428,34909379,SEED,1,0.1233,0.625,System and method for lateral vehicle detection
+12066533,63111468,ANTISEED-manual,0,0.1222,0.8571,"Object detection system, object detection method and object detection device"
+11940557,63111468,ANTISEED-manual,0,0.122,0.8571,"Object detection device, object detection system, and object detection method"
 11119503,57884949,SEED,1,0.122,0.6,Method for controlling vehicle in autonomous driving system and apparatus thereo
+8867790,63111468,ANTISEED-manual,0,0.122,0.8571,"Object detection device, object detection method, and program"
+11719815,43363518,ANTISEED-manual,0,0.122,0.75,Object detection device
 10794714,72513647,SEED,1,0.1216,1.0,Self-driving vehicle systems and methods
-11967140,34909379,SEED,1,0.12,0.625,System and method for vehicle wheel detection
-11501513,34909379,SEED,1,0.12,0.625,System and method for vehicle wheel detection
+12352864,16417748,ANTISEED-manual,0,0.1212,1.0,Object detection device and object detection method
+9298987,67402844,SEED,1,0.1212,0.8571,"Information processing apparatus, information processing method, program, and in"
 10671873,34909379,SEED,1,0.12,0.625,System and method for vehicle wheel detection
-10249195,49539600,SEED,1,0.1194,0.6667,Lane departure warning device and method
-12103525,49539600,SEED,1,0.1194,0.6,Lane departure avoidance device
-10643475,49539600,SEED,1,0.1194,0.6667,Lane departure warning device and method
+11501513,34909379,SEED,1,0.12,0.625,System and method for vehicle wheel detection
+10656270,63111468,ANTISEED-manual,0,0.1196,0.8571,"Object detection device, object detection method, and program"
 10466057,72513647,SEED,1,0.1194,1.0,Self-driving vehicle systems and methods
-11332130,56133228,SEED,1,0.119,0.6,Collision avoidance control method and apparatus for vehicle
-9594966,39786299,ANTISEED-manual,0,0.1188,0.6667,Obstacle detection device and obstacle detection method
+10249195,49539600,SEED,1,0.1194,0.6667,Lane departure warning device and method
+10643475,49539600,SEED,1,0.1194,0.6667,Lane departure warning device and method
 8788121,49117515,SEED,1,0.1186,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
-10540896,63855695,ANTISEED-manual,0,0.1184,0.6667,Driving assistance device and driving assistance method
-11958495,45042821,ANTISEED-manual,0,0.1184,0.75,"Vehicle display control device, vehicle display system, vehicle display control "
-11987258,45042821,ANTISEED-manual,0,0.1184,0.75,"Vehicle display control device, vehicle display system, vehicle display control "
-12325443,45042821,ANTISEED-manual,0,0.1184,0.75,"Vehicle display control device, vehicle display system, vehicle display control "
-11145212,63793895,ANTISEED-manual,0,0.1181,0.6,Unmanned aerial vehicle systems
-11493923,69847987,ANTISEED-manual,0,0.1176,0.6667,Path planning method and system for lawn mower
-11625044,69847987,ANTISEED-manual,0,0.1172,0.6667,Method and system for real-time path planning
-11367217,63678378,ANTISEED-manual,0,0.1169,0.625,"Image processing method and apparatus, and related device"
+12504525,66627684,ANTISEED-manual,0,0.1184,0.75,Object detection device
+11276193,11737356,ANTISEED-manual,0,0.1184,0.75,Information processing device
+11994583,43363518,ANTISEED-manual,0,0.1183,0.75,Object detection device
+10373470,35030147,ANTISEED-manual,0,0.117,0.6667,Object detection
 9824590,48990393,SEED,1,0.1165,0.6429,Lane departure warning system and method for controlling the same
-12125378,59562967,ANTISEED-manual,0,0.1165,0.8,"Server device, information processing method, information processing program and"
 9266533,52628744,SEED,1,0.1161,1.0,Adaptive cruise control system and method for vehicle
-11827272,49539600,SEED,1,0.1159,0.6,Lane departure prevention device
-11801853,45042821,ANTISEED-manual,0,0.1154,0.8571,"Onboard display control device, onboard display device, display control method, "
-12157488,45042821,ANTISEED-manual,0,0.1154,0.8571,"Onboard display control device, onboard display device, display control method, "
-11763675,67402844,SEED,1,0.1154,0.8333,Information processing apparatus and information processing method
+10976436,15537941,ANTISEED-manual,0,0.1158,1.0,Obstacle detection device
+10902742,56303036,SEED,1,0.1154,0.625,Method and device for evaluating driving behavior
+10959194,61160560,ANTISEED-manual,0,0.1154,0.6154,Method and apparatus for transmitting sidelink signal in wireless communication 
 10762365,42977118,SEED,1,0.1149,0.7778,Method and device for traffic sign recognition
+12008843,72513647,SEED,1,0.1148,0.75,Systems and methods for maintaining a self-driving vehicle
 10049505,72513647,SEED,1,0.1148,0.75,Systems and methods for maintaining a self-driving vehicle
 10943413,72513647,SEED,1,0.1148,0.75,Systems and methods for maintaining a self-driving vehicle
+11587369,72513647,SEED,1,0.1148,0.75,Systems and methods for maintaining a self-driving vehicle
 10573096,72513647,SEED,1,0.1148,0.75,Systems and methods for maintaining a self-driving vehicle
-11702078,59562967,ANTISEED-manual,0,0.1146,0.6,"Vehicle control device, vehicle control method, and storage medium"
 9834207,70848337,ANTISEED-manual,0,0.1146,0.7,"Method and system for detecting, tracking and estimating stationary roadside obj"
-11247696,59562967,ANTISEED-manual,0,0.1134,0.6,"Information processing device, information processing method, and recording medi"
+10018710,57946379,ANTISEED-manual,0,0.1143,0.75,Object detection device
+10373014,53681132,ANTISEED-manual,0,0.1143,0.7143,Object detection method and image search system
+11067992,69847987,ANTISEED-manual,0,0.1143,0.6,Path planning method and system for self-driving of autonomous system
+11487007,66627684,ANTISEED-manual,0,0.1139,0.75,Object detection device
+10401867,57884949,SEED,1,0.1125,0.6667,"Autonomous vehicle, in particular feed mixing vehicle, and method for controllin"
+11003961,51699419,ANTISEED-AF,0,0.1125,0.75,"Image processing system, image processing method, and program storage medium"
+10074021,63585514,ANTISEED-manual,0,0.1125,0.6,"Object detection apparatus, object detection method, and program"
+10180491,43363518,ANTISEED-manual,0,0.1124,0.75,Object detection device
+12146944,35030147,ANTISEED-manual,0,0.1122,0.75,Sensor based object detection
+11508158,47525265,SEED,1,0.1121,0.6667,Electronic device and method for vehicle driving assistance
 9035797,58067456,SEED,1,0.1121,0.625,Intelligent traffic alerting and control system
-11055996,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10665099,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10163344,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10102746,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10922971,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10762781,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
-10726722,43312747,ANTISEED-manual,0,0.1098,0.6,Driving support device and driving support method
+11698638,69847987,ANTISEED-manual,0,0.1111,0.6,System and method for predictive path planning in autonomous vehicles
+11300959,69847987,ANTISEED-manual,0,0.1111,0.6,System and method for predictive path planning in autonomous vehicles
+11860274,43363518,ANTISEED-manual,0,0.1111,0.75,Object detection device
+9626868,43363518,ANTISEED-manual,0,0.1098,0.75,Object detection device
+10926715,11893963,ANTISEED-manual,0,0.1094,1.0,Vehicle camera system
+12498720,48625431,ANTISEED-manual,0,0.1094,0.6667,"Vehicle control apparatus, vehicle control method, and program thereof"
 10527731,15537941,ANTISEED-manual,0,0.1089,1.0,Obstacle detection device
-12481025,60326539,ANTISEED-manual,0,0.1089,0.6667,Object sensing device and object sensing method
-10089881,43312747,ANTISEED-manual,0,0.1084,1.0,Driving support device
-11624831,39786299,ANTISEED-manual,0,0.1068,0.7143,Obstacle detection method and apparatus and storage medium
-11987242,49539600,SEED,1,0.1067,0.6,Lane departure prevention device
-11417088,63678378,ANTISEED-manual,0,0.1067,0.625,"Information processing device, information processing method, program, and infor"
-12246716,59562967,ANTISEED-manual,0,0.1053,0.6,"Control device of vehicle, control method, and storage medium"
+11815596,43363518,ANTISEED-manual,0,0.1087,0.75,Object detection device
+12326502,43363518,ANTISEED-manual,0,0.1087,0.75,Object detection device
+11726203,43363518,ANTISEED-manual,0,0.1087,0.75,Object detection device
+12386065,43363518,ANTISEED-manual,0,0.1087,0.75,Object detection device
+11327173,43363518,ANTISEED-manual,0,0.1087,0.75,Object detection device
+10152890,69162785,ANTISEED-manual,0,0.1078,0.6667,On-vehicle camera device
+11131769,63111468,ANTISEED-manual,0,0.1075,0.6667,"Object detection device, object detection method and vehicle control system"
+12253598,43363518,ANTISEED-manual,0,0.1075,0.75,Object detection device
+10503984,43363518,ANTISEED-manual,0,0.1075,0.75,Object detection device
+11961306,57946379,ANTISEED-manual,0,0.1058,0.75,Object detection device
 11935210,51699419,ANTISEED-AF,0,0.1053,0.625,System and method for fisheye image processing
+10871555,11743636,ANTISEED-manual,0,0.1053,1.0,Ultrasonic sensor
 12190465,51699419,ANTISEED-AF,0,0.1053,0.625,System and method for fisheye image processing
-12246711,43312747,ANTISEED-manual,0,0.1042,1.0,Driving support device
+10360436,18832127,SEED,1,0.104,1.0,Object detection device
+12511759,52688732,ANTISEED-manual,0,0.1039,0.6667,"Moving object detection device, moving object detection method, system, and stor"
+10452932,11737356,ANTISEED-manual,0,0.1034,0.75,Information processing device
 10796402,51699419,ANTISEED-AF,0,0.102,0.625,System and method for fisheye image processing
-11571100,47519810,ANTISEED-manual,0,0.1013,0.6667,Intelligent robot cleaner
-10838067,23603080,ANTISEED-manual,0,0.0899,1.0,Object detection system
-10295667,23603080,ANTISEED-manual,0,0.0899,1.0,Object detection system
-11199850,59562967,ANTISEED-manual,0,0.0882,0.7,"Estimation device, control method, program and storage medium"
-12352851,35030147,ANTISEED-manual,0,0.0818,0.6,Sensor fusion for object detection
-10712750,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
-10730729,7946962,ANTISEED-AF,0,0.0,0.6667,Scissor-lift
-12283185,21803630,SEED,1,0.0,0.6,Road traffic control system
-10311721,21803630,SEED,1,0.0,0.75,Traffic control system
-11657717,32896215,ANTISEED-AF,0,0.0,0.6667,"Information processing apparatus, information processing method, and recording m"
-9618615,34792618,ANTISEED-manual,0,0.0,0.6667,Obstacle detection device for vehicle
-10308168,62627139,SEED,1,0.0,0.6,Autonomous vehicle service lights
+11754709,43363518,ANTISEED-manual,0,0.102,0.75,Object detection device
+10464557,67402844,SEED,1,0.1013,0.8333,Information processing apparatus and information processing method
+9330320,63111468,ANTISEED-manual,0,0.0989,0.6364,"Object detection apparatus, object detection method, object detection program an"
+9182488,18055879,ANTISEED-manual,0,0.0957,0.6667,Method and device for detecting target object
+10032375,41322406,ANTISEED-manual,0,0.0909,0.6667,"Apparatus, system, and method for providing traffic information"
+10520324,59562967,ANTISEED-manual,0,0.0899,0.6364,"Route search device, control method, program and storage medium"
+9053384,63678378,ANTISEED-manual,0,0.0729,0.6667,"Feature extraction unit, feature extraction method, feature extraction program, "
+10097740,49222463,ANTISEED-manual,0,0.0725,1.0,In-vehicle camera
 9606539,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
-11796998,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
-12265386,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
-9841768,62627139,SEED,1,0.0,0.6,Autonomous travelling service vehicle
-11993284,62627139,SEED,1,0.0,0.6,Autonomous winter service vehicle
-10019005,62627139,SEED,1,0.0,0.6,Autonomous vehicle control system
 11231287,62627139,SEED,1,0.0,1.0,Autonomous vehicle service system
-12367689,32896215,ANTISEED-AF,0,0.0,0.6667,"Information processing apparatus, information processing method, and recording m"
-8346480,54394908,SEED,1,0.0,0.625,Navigation and control system for autonomous vehicles
-10692304,54394908,SEED,1,0.0,0.625,Autonomous communication and control system for vehicles
-8050863,54394908,SEED,1,0.0,0.625,Navigation and control system for autonomous vehicles
-11086321,47882978,ANTISEED-manual,0,0.0,0.6,"Vehicle control apparatus, vehicle control method, and recording medium"
+10712750,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
+10137903,62627139,SEED,1,0.0,0.6,Autonomous vehicle diagnostic system
+10095239,62627139,SEED,1,0.0,0.6,Autonomous vehicle paletization system
+10019005,62627139,SEED,1,0.0,0.6,Autonomous vehicle control system
+12265386,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
+11796998,62627139,SEED,1,0.0,0.6667,Autonomous vehicle fleet service and system
+10179588,62627139,SEED,1,0.0,0.6,Autonomous vehicle control system
+10171775,62627139,SEED,1,0.0,0.6,Autonomous vehicle vision system
+10152892,62627139,SEED,1,0.0,0.6,Autonomous vehicle notification system
+10234874,62627139,SEED,1,0.0,0.6,Autonomous vehicle control system
+9893697,61148062,ANTISEED-manual,0,0.0,1.0,System and method for selective volume adjustment in a vehicle
 11470463,47882978,ANTISEED-manual,0,0.0,0.6,"Vehicle control apparatus, vehicle recording medium, and vehicle control method"
-10717406,57963520,SEED,1,0.0,0.9,Autonomous vehicle having an external shock-absorbing energy dissipation padding
+9618615,34792618,ANTISEED-manual,0,0.0,0.6667,Obstacle detection device for vehicle
+10296003,62627139,SEED,1,0.0,0.6,Autonomous vehicle research system
+10730729,7946962,ANTISEED-AF,0,0.0,0.6667,Scissor-lift
+8346480,54394908,SEED,1,0.0,0.625,Navigation and control system for autonomous vehicles
+8050863,54394908,SEED,1,0.0,0.625,Navigation and control system for autonomous vehicles
 10099705,54394908,SEED,1,0.0,0.7143,Control system for autonomous-capable vehicles
+10692304,54394908,SEED,1,0.0,0.625,Autonomous communication and control system for vehicles
+11067688,34792618,ANTISEED-manual,0,0.0,0.6667,Obstacle detection apparatus for vehicles
+10948592,34792618,ANTISEED-manual,0,0.0,0.6667,Obstacle detection apparatus for vehicles
+10717406,57963520,SEED,1,0.0,0.9,Autonomous vehicle having an external shock-absorbing energy dissipation padding
