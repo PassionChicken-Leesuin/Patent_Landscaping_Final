@@ -29,6 +29,11 @@ LABELED = {
     "snorkel": C.PROCESSED_DIR / "snorkel_labeled_pool.csv",
     "mas": C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv",
 }
+# unified labeling: the labeler labeled the FULL candidate_all (expanded pool + OOD)
+LABELED_UNIFIED = {
+    "snorkel": C.PROCESSED_DIR / "snorkel_labeled_all.csv",
+    "mas": C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv",
+}
 
 
 def main():
@@ -41,17 +46,20 @@ def main():
     ap.add_argument("--neg-pos-ratio", type=float, default=None,
                     help="cap total negatives to ratio*positives, in-domain first (e.g. 1.0). Overrides --ood-n.")
     ap.add_argument("--tag", default="", help="suffix for output dir / metrics (e.g. 'equalN')")
+    ap.add_argument("--unified", action="store_true",
+                    help="use the unified labeled set (expanded pool + OOD labeled together)")
     ap.add_argument("--epochs", type=int, default=4)
     ap.add_argument("--max-len", type=int, default=256)
     args = ap.parse_args()
 
-    negatives = pd.read_csv(C.NEG_CLEAN_CSV, dtype=str).fillna("")
-    labeled = pd.read_csv(LABELED[args.arm], dtype=str).fillna("")
-
-    if args.arm == "snorkel":
-        part = B.from_snorkel(labeled)
+    if args.unified:
+        labeled = pd.read_csv(LABELED_UNIFIED[args.arm], dtype=str).fillna("")
+        part, negatives = B.from_labeled_all(labeled, args.arm, include_hard_neg=not args.no_hard_neg)
     else:
-        part = B.from_mas(labeled, include_hard_neg=not args.no_hard_neg)
+        negatives = pd.read_csv(C.NEG_CLEAN_CSV, dtype=str).fillna("")
+        labeled = pd.read_csv(LABELED[args.arm], dtype=str).fillna("")
+        part = B.from_snorkel(labeled) if args.arm == "snorkel" else \
+            B.from_mas(labeled, include_hard_neg=not args.no_hard_neg)
 
     train_df = B.assemble(part, negatives, use_inpool_neg=not args.no_inpool_neg,
                           ood_n=args.ood_n, neg_pos_ratio=args.neg_pos_ratio)

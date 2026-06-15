@@ -128,6 +128,9 @@ def assemble(labeled_pool_part: pd.DataFrame, negatives: pd.DataFrame,
 
     if neg_pos_ratio is not None:
         target_neg = int(round(neg_pos_ratio * len(pos)))
+        # in-domain negatives first; downsample them if they already exceed the target
+        if len(inpool_neg) > target_neg:
+            inpool_neg = inpool_neg.sample(n=target_neg, random_state=seed)
         ood_take = max(0, target_neg - len(inpool_neg))
     elif ood_n is not None:
         ood_take = int(ood_n)
