@@ -22,7 +22,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 from src import config as C
 from src.downstream.evaluate import predict_proba
 
-MODELS = ["snorkel_uni", "mas_uni"]
+MODELS = ["snorkel_noood", "mas_noood"]
 THRESHOLDS = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 
 

@@ -34,3 +34,6 @@ DataSet/expanded/
 # Regenerable in Colab via scripts.build_candidate_all / run_snorkel
 DataSet/processed/candidate_all.csv
 DataSet/processed/snorkel_labeled_all.csv
+
+# Presentation files
+*.pptx

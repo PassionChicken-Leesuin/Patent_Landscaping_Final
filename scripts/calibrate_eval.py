@@ -27,18 +27,18 @@ from src.downstream.train import TrainCfg
 from src.downstream.evaluate import predict_proba, tune_threshold, report_from_probs, print_report
 from src.downstream import plots
 
-# (model-dir suffix, arm, unified-labeled file)
+# (model-dir suffix, arm, unified-labeled file) — Bergeaud pool, no-OOD training
 ARMS = [
-    ("snorkel_uni", "snorkel", C.PROCESSED_DIR / "snorkel_labeled_all.csv"),
-    ("mas_uni", "mas", C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv"),
+    ("snorkel_noood", "snorkel", C.PROCESSED_DIR / "snorkel_labeled_all.csv"),
+    ("mas_noood", "mas", C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv"),
 ]
 
 
 def rebuild_val_split(arm: str, labeled_path, cfg: TrainCfg) -> pd.DataFrame:
-    """Recreate the exact validation split the unified run used (from_labeled_all + default assemble)."""
+    """Recreate the exact validation split the unified --ood-n 0 run used."""
     labeled = pd.read_csv(labeled_path, dtype=str).fillna("")
     part, ood = B.from_labeled_all(labeled, arm)
-    train_df = B.assemble(part, ood)                              # default (all-OOD), seed=42 — matches --unified --tag uni
+    train_df = B.assemble(part, ood, ood_n=0)                    # no OOD — matches --ood-n 0
     train_df["label"] = train_df["label"].astype(int)
     df = train_df.sample(frac=1.0, random_state=cfg.seed).reset_index(drop=True)
     n_val = int(len(df) * cfg.val_frac)
