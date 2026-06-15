@@ -75,12 +75,15 @@ def train(train_df: pd.DataFrame, out_dir: str, cfg: TrainCfg = TrainCfg()):
                 weight=cw.to(out.logits.device) if cw is not None else None)
             return (loss, out) if return_outputs else loss
 
+    # NOTE: save_strategy="no" — do NOT checkpoint every epoch. Per-epoch checkpoints
+    # (~440MB each x 4 epochs x 20 models) overflow the Colab disk and cascade into
+    # "No space left on device" / "no usable temporary directory". We still evaluate each
+    # epoch (for the train/val curves) and save only the FINAL model via save_model() below.
     args = TrainingArguments(
         output_dir=out_dir, num_train_epochs=cfg.epochs,
         per_device_train_batch_size=cfg.batch_size, per_device_eval_batch_size=32,
         learning_rate=cfg.lr, weight_decay=cfg.weight_decay, warmup_ratio=cfg.warmup_ratio,
-        eval_strategy="epoch", save_strategy="epoch", load_best_model_at_end=True,
-        metric_for_best_model="eval_loss", greater_is_better=False,
+        eval_strategy="epoch", save_strategy="no", load_best_model_at_end=False,
         logging_steps=50, seed=cfg.seed, report_to="none",
     )
     import inspect

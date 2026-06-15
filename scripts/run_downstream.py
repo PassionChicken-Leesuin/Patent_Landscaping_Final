@@ -85,6 +85,18 @@ def main():
         print(B.summary(train_df))
 
     name = spec.model_name(args.arm, args.tag)
+
+    # A binary classifier needs both classes. Some positive-dominated pools (CPC∩keyword)
+    # yield ZERO in-pool negatives for the Snorkel arm -> the noood config is degenerate
+    # (100% positive). Skip it cleanly (no crash, no model) so the notebook continues; the
+    # MAS arm and both *_ood configs still train. This is itself a finding worth reporting.
+    n_pos = int((train_df["label"] == 1).sum())
+    n_neg = int((train_df["label"] == 0).sum())
+    if n_pos == 0 or n_neg == 0:
+        print(f"\n[SKIP] {name}: single-class train set (pos={n_pos}, neg={n_neg}); "
+              f"cannot fine-tune a binary classifier. Skipping (degenerate config).")
+        return
+
     out_dir = str(C.ROOT / "outputs" / f"scibert_{name}")
     cfg = TrainCfg(epochs=args.epochs, max_len=args.max_len)
     train(train_df, out_dir, cfg)
