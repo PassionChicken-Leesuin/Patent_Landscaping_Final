@@ -69,41 +69,55 @@ def load_eval() -> pd.DataFrame:
 
 # ---------------------------------------------------------------- leakage
 def find_leakage(train: pd.DataFrame, ev: pd.DataFrame,
-                 threshold: float = C.LEAKAGE_JACCARD_THRESHOLD) -> pd.DataFrame:
-    """Return rows of training patents that are near-duplicates of an eval patent.
+                 abs_threshold: float = C.LEAKAGE_ABS_THRESHOLD,
+                 title_threshold: float = C.LEAKAGE_TITLE_THRESHOLD) -> pd.DataFrame:
+    """Return ALL training patents that are family members of an eval patent.
 
-    Match on abstract token-set Jaccard via an inverted index (efficient).
+    A train patent is flagged if (abstract Jaccard >= abs_threshold) OR (title Jaccard >=
+    title_threshold) with any eval patent. Title-awareness + a lower abstract threshold
+    catch cross-jurisdiction family members (EP/WO<->US) whose abstracts are translated/
+    amended and so score lower on raw abstract Jaccard. We flag EVERY matching train row
+    (not just the single best), since a gold family can have multiple US members in the pool.
     """
-    train_sets = train["abstract"].map(tokens).tolist()
+    train_abs = train["abstract"].map(tokens).tolist()
+    train_tit = train["title"].map(tokens).tolist()
     inv: dict[str, list[int]] = defaultdict(list)
-    for i, s in enumerate(train_sets):
+    for i, s in enumerate(train_abs):
         for w in s:
             inv[w].append(i)
+    tinv: dict[str, list[int]] = defaultdict(list)
+    for i, s in enumerate(train_tit):
+        for w in s:
+            tinv[w].append(i)
 
-    hits = []
+    flagged: dict[int, dict] = {}
     for _, ev_row in ev.iterrows():
-        es = tokens(ev_row["abstract"])
-        if len(es) < C.MIN_TOKENS:
-            continue
+        es = tokens(ev_row["abstract"]); ts = tokens(ev_row["title"])
         cand = Counter()
         for w in es:
             for i in inv.get(w, ()):
                 cand[i] += 1
-        best, best_i = 0.0, -1
-        for i, shared in cand.most_common(40):
-            jac = shared / len(es | train_sets[i])
-            if jac > best:
-                best, best_i = jac, i
-        if best >= threshold:
-            hits.append({
-                "train_patent_id": train.iloc[best_i]["patent_id"],
-                "eval_family_id": ev_row["family_id"],
-                "eval_expansion_level": ev_row["expansion_level"],
-                "eval_label": ev_row["label"],
-                "jaccard": round(best, 4),
-                "train_title": train.iloc[best_i]["title"][:80],
-            })
-    res = pd.DataFrame(hits).sort_values("jaccard", ascending=False).reset_index(drop=True)
+        for w in ts:
+            for i in tinv.get(w, ()):
+                cand[i] += 1
+        for i, _ in cand.most_common(80):
+            ja = len(es & train_abs[i]) / len(es | train_abs[i]) if (es and train_abs[i]) else 0.0
+            jt = len(ts & train_tit[i]) / len(ts | train_tit[i]) if (ts and train_tit[i]) else 0.0
+            if ja >= abs_threshold or jt >= title_threshold:
+                prev = flagged.get(i)
+                score = max(ja, jt)
+                if prev is None or score > prev["_score"]:
+                    flagged[i] = {
+                        "train_patent_id": train.iloc[i]["patent_id"],
+                        "eval_family_id": ev_row["family_id"],
+                        "eval_expansion_level": ev_row["expansion_level"],
+                        "eval_label": ev_row["label"],
+                        "abs_jaccard": round(ja, 4), "title_jaccard": round(jt, 4),
+                        "train_title": str(train.iloc[i]["title"])[:80], "_score": score,
+                    }
+    res = pd.DataFrame(list(flagged.values()))
+    if len(res):
+        res = res.drop(columns="_score").sort_values("abs_jaccard", ascending=False).reset_index(drop=True)
     return res
 
 

@@ -70,6 +70,43 @@ def from_mas(ranked: pd.DataFrame, include_hard_neg: bool = True) -> pd.DataFram
     return rows
 
 
+def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True):
+    """Unified-framework split: one labeled set (autonomous pool + OOD, with `source`)
+    -> (pool_part, ood_negatives), so the existing assemble() can reuse the OOD-mix knobs.
+
+    pool_part      : autonomous_pool rows -> text/label/group (positives + in-domain negs)
+    ood_negatives  : ood_* rows the LABELER marked NOT_SEED -> text/source_domain
+    """
+    df = df.copy()
+    df["text"] = _ensure_text(df)
+    src = df.get("source", pd.Series(["autonomous_pool"] * len(df)))
+
+    if arm == "snorkel":
+        lab = df["snorkel_label"].astype(int)
+        is_pos, is_neg, is_hard = (lab == POS), (lab == NEG), pd.Series(False, index=df.index)
+    else:
+        ct = df["candidate_type"]
+        is_pos = ct == "positive"
+        is_hard = ct == "hard_negative"
+        is_neg = ct.isin(["easy_negative"] + (["hard_negative"] if include_hard_neg else []))
+
+    is_ood = src.str.startswith("ood_")
+    auto = ~is_ood
+
+    pos = df[is_pos & auto]
+    inpool_neg = df[is_neg & auto]
+    pool_part = pd.concat([
+        pd.DataFrame({"text": pos["text"].values, "label": POS, "group": "pool_pos"}),
+        pd.DataFrame({"text": inpool_neg["text"].values, "label": NEG,
+                      "group": ["pool_neg_hard" if h else "pool_neg" for h in is_hard[is_neg & auto]]}),
+    ], ignore_index=True)
+
+    ood_rows = df[is_neg & is_ood]
+    ood_negatives = pd.DataFrame({"text": ood_rows["text"].values,
+                                  "source_domain": src[is_neg & is_ood].str.replace("ood_", "", regex=False).values})
+    return pool_part, ood_negatives
+
+
 def assemble(labeled_pool_part: pd.DataFrame, negatives: pd.DataFrame,
              use_inpool_neg: bool = True, drop_dup_text: bool = True,
              ood_n=None, neg_pos_ratio=None, seed: int = 42) -> pd.DataFrame:

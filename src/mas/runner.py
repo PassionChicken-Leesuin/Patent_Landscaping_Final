@@ -60,14 +60,14 @@ def _backoff(attempt: int, base: float = 1.5, cap: float = 30.0) -> float:
 # ----------------------------------------------------------------- driver
 def run_pool(rows: list[dict], rubric: dict, pool: KeyPool,
              workers: int = 40, max_attempts: int = 6,
-             audit_path=MC.AUDIT_JSONL, log_every: int = 200) -> dict:
+             audit_path=MC.AUDIT_JSONL, log_every: int = 200, append: bool = False) -> dict:
     MC.MAS_OUT_DIR.mkdir(parents=True, exist_ok=True)
     lock = threading.Lock()
     agg = Usage()
     results: list[dict] = []
     failures: list[dict] = []
     t0 = time.time()
-    audit_f = open(audit_path, "w", encoding="utf-8")
+    audit_f = open(audit_path, "a" if append else "w", encoding="utf-8")
 
     def work(idx: int, row: dict):
         state0 = {
@@ -147,10 +147,11 @@ def write_ranked_csv(results: list[dict], path=MC.RANKED_CSV) -> str:
                 "record_id": r["record_id"], "patent_id": r.get("patent_id", ""),
                 "domain": dom, "title": r.get("title", ""),
                 "abstract": r.get("abstract", ""), "candidate_type": r.get("candidate_type"),
+                "source": r.get("source", ""),
             })
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["rank", "score", "record_id", "patent_id",
-                                          "domain", "title", "abstract", "candidate_type"])
+                                          "domain", "title", "abstract", "candidate_type", "source"])
         w.writeheader()
         w.writerows(rows)
     return str(path)

@@ -40,5 +40,11 @@ EVAL_TEXT = "text"                       # 'Title\n\nAbstract'
 EVAL_LABEL = "cats.SEED"                 # 1 = SEED (positive), 0 = NOT_SEED
 
 # ---- leakage detection ----
-LEAKAGE_JACCARD_THRESHOLD = 0.7          # abstract token-set Jaccard >= this => near-duplicate
-MIN_TOKENS = 5                           # ignore ultra-short abstracts
+# Conservative, title-aware family detection. Cross-jurisdiction family members (EP/WO<->US)
+# have translated/amended abstracts that score low on raw Jaccard, so we lower the abstract
+# threshold and add a title check. Over-removing training candidates is cheap; under-removing
+# leaks gold test patents into training. (rule D: abs>=0.4 OR title>=0.6)
+LEAKAGE_ABS_THRESHOLD = 0.4
+LEAKAGE_TITLE_THRESHOLD = 0.6
+LEAKAGE_JACCARD_THRESHOLD = 0.7          # (legacy, unused)
+MIN_TOKENS = 5
