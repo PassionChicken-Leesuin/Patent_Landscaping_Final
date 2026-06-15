@@ -70,7 +70,8 @@ def from_mas(ranked: pd.DataFrame, include_hard_neg: bool = True) -> pd.DataFram
     return rows
 
 
-def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True):
+def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True,
+                     hard_neg_only: bool = False):
     """Unified-framework split: one labeled set (autonomous pool + OOD, with `source`)
     -> (pool_part, ood_negatives), so the existing assemble() can reuse the OOD-mix knobs.
 
@@ -97,11 +98,15 @@ def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True):
     # (do not override the labeler with a source prior). Only the NEGATIVE side is split by
     # source, so the in-domain-vs-OOD negative mix can be controlled in the ablation.
     pos = df[is_pos]
-    inpool_neg = df[is_neg & auto]
+    # hard_neg_only (MAS): train positive vs HARD negative only (sharpest automate-vs-assist
+    # boundary). For Snorkel there is no hard/easy split, so this is a no-op (all in-domain NOT_SEED).
+    inpool_mask = (is_hard if (hard_neg_only and arm == "mas") else is_neg) & auto
+    inpool_neg = df[inpool_mask]
+    is_hard_sel = is_hard[inpool_mask]
     pool_part = pd.concat([
         pd.DataFrame({"text": pos["text"].values, "label": POS, "group": "pool_pos"}),
         pd.DataFrame({"text": inpool_neg["text"].values, "label": NEG,
-                      "group": ["pool_neg_hard" if h else "pool_neg" for h in is_hard[is_neg & auto]]}),
+                      "group": ["pool_neg_hard" if h else "pool_neg" for h in is_hard_sel]}),
     ], ignore_index=True)
 
     ood_rows = df[is_neg & is_ood]

@@ -48,13 +48,16 @@ def main():
     ap.add_argument("--tag", default="", help="suffix for output dir / metrics (e.g. 'equalN')")
     ap.add_argument("--unified", action="store_true",
                     help="use the unified labeled set (expanded pool + OOD labeled together)")
+    ap.add_argument("--hard-neg-only", action="store_true",
+                    help="(unified, MAS) negatives = in-domain HARD negatives only (positive vs hard-neg)")
     ap.add_argument("--epochs", type=int, default=4)
     ap.add_argument("--max-len", type=int, default=256)
     args = ap.parse_args()
 
     if args.unified:
         labeled = pd.read_csv(LABELED_UNIFIED[args.arm], dtype=str).fillna("")
-        part, negatives = B.from_labeled_all(labeled, args.arm, include_hard_neg=not args.no_hard_neg)
+        part, negatives = B.from_labeled_all(labeled, args.arm, include_hard_neg=not args.no_hard_neg,
+                                             hard_neg_only=args.hard_neg_only)
     else:
         negatives = pd.read_csv(C.NEG_CLEAN_CSV, dtype=str).fillna("")
         labeled = pd.read_csv(LABELED[args.arm], dtype=str).fillna("")
