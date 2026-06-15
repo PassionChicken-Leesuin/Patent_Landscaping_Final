@@ -1,6 +1,6 @@
 """Threshold calibration + ROC/PR diagnostics for the trained UNIFIED models.
 
-NO retraining — loads outputs/scibert_{snorkel_uni,mas_uni}. The 0.5 threshold is
+NO retraining — loads outputs/scibert_{snorkel,mas}_{noood,ood}. The 0.5 threshold is
 conservative (recall suppressed); we pick the macro-F1-optimal threshold on the
 VALIDATION split (never the gold set) and re-report on gold.
 
@@ -27,18 +27,23 @@ from src.downstream.train import TrainCfg
 from src.downstream.evaluate import predict_proba, tune_threshold, report_from_probs, print_report
 from src.downstream import plots
 
-# (model-dir suffix, arm, unified-labeled file) — Bergeaud pool, no-OOD training
+# (model-dir suffix, arm, unified-labeled file, ood_n used at train time) — Bergeaud pool.
+# ood_n=0 -> no-OOD training; ood_n=None -> all OOD negatives included.
+SNORKEL_LABELED = C.PROCESSED_DIR / "snorkel_labeled_all.csv"
+MAS_LABELED = C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv"
 ARMS = [
-    ("snorkel_noood", "snorkel", C.PROCESSED_DIR / "snorkel_labeled_all.csv"),
-    ("mas_noood", "mas", C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv"),
+    ("snorkel_noood", "snorkel", SNORKEL_LABELED, 0),
+    ("mas_noood", "mas", MAS_LABELED, 0),
+    ("snorkel_ood", "snorkel", SNORKEL_LABELED, None),
+    ("mas_ood", "mas", MAS_LABELED, None),
 ]
 
 
-def rebuild_val_split(arm: str, labeled_path, cfg: TrainCfg) -> pd.DataFrame:
-    """Recreate the exact validation split the unified --ood-n 0 run used."""
+def rebuild_val_split(arm: str, labeled_path, cfg: TrainCfg, ood_n=0) -> pd.DataFrame:
+    """Recreate the exact validation split the unified run used (match its --ood-n)."""
     labeled = pd.read_csv(labeled_path, dtype=str).fillna("")
     part, ood = B.from_labeled_all(labeled, arm)
-    train_df = B.assemble(part, ood, ood_n=0)                    # no OOD — matches --ood-n 0
+    train_df = B.assemble(part, ood, ood_n=ood_n)               # match the training ood mix
     train_df["label"] = train_df["label"].astype(int)
     df = train_df.sample(frac=1.0, random_state=cfg.seed).reset_index(drop=True)
     n_val = int(len(df) * cfg.val_frac)
@@ -52,11 +57,11 @@ def main():
     y = eval_df["label"].values
 
     curves, summary = {}, {}
-    for name, arm, labeled_path in ARMS:
+    for name, arm, labeled_path, ood_n in ARMS:
         model_dir = str(C.ROOT / "outputs" / f"scibert_{name}")
         if not Path(model_dir, "config.json").exists():
             print(f"[{name}] model not found at {model_dir} — skip"); continue
-        val = rebuild_val_split(arm, labeled_path, cfg)
+        val = rebuild_val_split(arm, labeled_path, cfg, ood_n=ood_n)
         pv = predict_proba(model_dir, val["text"].tolist(), max_len=cfg.max_len)
         thr, vf1 = tune_threshold(val["label"].values, pv)
         pe = predict_proba(model_dir, eval_df["text"].tolist(), max_len=cfg.max_len)

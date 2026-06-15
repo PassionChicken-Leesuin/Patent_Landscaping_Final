@@ -3,7 +3,7 @@ threshold is lowered (no gold tuning, just the operating-point curve).
 
   python -m scripts.threshold_sweep
 
-Loads outputs/scibert_{snorkel_uni,mas_uni}; needs cells 3-4 only if you also want the
+Loads outputs/scibert_{snorkel,mas}_{noood,ood}; needs cells 3-4 only if you also want the
 score histograms (it just predicts on the gold set, which is in the repo).
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 from src import config as C
 from src.downstream.evaluate import predict_proba
 
-MODELS = ["snorkel_noood", "mas_noood"]
+MODELS = ["snorkel_noood", "mas_noood", "snorkel_ood", "mas_ood"]
 THRESHOLDS = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 
 
