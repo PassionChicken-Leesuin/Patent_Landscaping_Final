@@ -93,7 +93,10 @@ def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True):
     is_ood = src.str.startswith("ood_")
     auto = ~is_ood
 
-    pos = df[is_pos & auto]
+    # Framework-consistent: positives = whatever the LABELER marked SEED, regardless of source
+    # (do not override the labeler with a source prior). Only the NEGATIVE side is split by
+    # source, so the in-domain-vs-OOD negative mix can be controlled in the ablation.
+    pos = df[is_pos]
     inpool_neg = df[is_neg & auto]
     pool_part = pd.concat([
         pd.DataFrame({"text": pos["text"].values, "label": POS, "group": "pool_pos"}),
