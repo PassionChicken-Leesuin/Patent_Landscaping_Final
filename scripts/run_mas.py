@@ -51,8 +51,10 @@ def rebuild_ranked_from_audit(input_df: pd.DataFrame):
     results = []
     for line in open(MC.AUDIT_JSONL, encoding="utf-8"):
         r = json.loads(line)
-        sc = score_and_type(r)
         rid = r["record_id"]
+        if rid not in meta.index:        # audit entry no longer in the candidate set (e.g. removed as leak)
+            continue
+        sc = score_and_type(r)
         title = meta.loc[rid, "title"] if rid in meta.index else ""
         abstract = meta.loc[rid, "abstract"] if rid in meta.index else ""
         source = meta.loc[rid, "source"] if (rid in meta.index and "source" in meta.columns) else ""
