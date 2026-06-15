@@ -27,3 +27,6 @@ wandb/
 DataSet/mas/*
 # ...except the ranked label file, which Colab needs for the MAS downstream arm
 !DataSet/mas/mas_ranked_scores.csv
+
+# Expanded-pool raw intermediate (regenerable from USPTO bulk via collect_expanded_pool.py)
+DataSet/expanded/

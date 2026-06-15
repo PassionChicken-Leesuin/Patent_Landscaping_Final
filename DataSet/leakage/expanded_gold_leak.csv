@@ -1,0 +1,84 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,jaccard,train_title
+9221396,54932261,SEED,1,1.0,Cross-validating sensors of an autonomous vehicle
+11059493,72748824,SEED,1,1.0,Systems and methods for estimating velocity of an autonomous vehicle and state i
+11971720,67297133,SEED,1,1.0,Method for preventing a collision between an autonomous vehicle and a user in a 
+10642284,70461557,SEED,1,1.0,Location determination using ground structures
+9945951,56133228,SEED,1,1.0,Object detecting apparatus and vehicle collision avoidance control apparatus
+11919510,65910728,SEED,1,1.0,Obstacle avoidance in autonomous vehicles
+10694348,54336100,SEED,1,1.0,Facilitating mesh networks of connected movable objects
+11855799,58691034,SEED,1,1.0,Autonomous vehicle platform and safety architecture
+11714417,68464717,SEED,1,1.0,Initial trajectory generator for motion planning system of autonomous vehicles
+11254309,70728633,SEED,1,1.0,Cruise control system and method for vehicle
+9944392,55401622,SEED,1,1.0,Unmanned aerial vehicle for hazard detection
+11914367,70970203,SEED,1,1.0,Sun-aware routing and controls of an autonomous vehicle
+10816987,68426874,SEED,1,1.0,Responsive vehicle control
+10866113,50826242,SEED,1,1.0,Determining and displaying auto drive lanes in an autonomous vehicle
+12002103,64815719,SEED,1,1.0,Vehicle-to-vehicle incident information collection
+10652074,62585146,SEED,1,1.0,IEEE802.11p protocol based vehicle-to-roadside and vehicle-to-vehicle communicat
+10576984,64904033,SEED,1,1.0,Second stop position for intersection turn
+11221622,72513647,SEED,1,1.0,Self-driving vehicle systems and methods
+10156850,64605223,SEED,1,1.0,Object motion prediction and vehicle control systems and methods for autonomous 
+10796562,72664220,ANTISEED-manual,0,1.0,Autonomous home security devices
+9983591,58585146,SEED,1,1.0,Autonomous driving at intersections based on perception data
+11462022,59786660,SEED,1,1.0,Traffic signal analysis system
+10222224,52110439,SEED,1,1.0,System for locating a parking space based on a previously parked space
+10048686,58663740,SEED,1,1.0,Methods and apparatus to autonomously navigate a vehicle by selecting sensors fr
+9610949,53270353,SEED,1,1.0,Individual driving preference adapted computerized assist or autonomous driving 
+11345341,67402844,SEED,1,1.0,"Information processing apparatus, information processing method and computer rea"
+10471963,61434708,SEED,1,1.0,System and method for transitioning between an autonomous and manual driving mod
+9964952,62046456,SEED,1,1.0,Adaptive vehicle motion control system
+10509413,60675543,SEED,1,1.0,Ground reference determination for autonomous vehicle operations
+10821973,67140090,SEED,1,1.0,Navigation system with parking facility navigation mechanism and method of opera
+10275663,64097909,SEED,1,1.0,Indoor navigation method and system
+9969390,60081897,SEED,1,1.0,Lane keeping control apparatus
+10054940,47605340,SEED,1,1.0,Method and system for assisting a driver
+9202382,49117515,SEED,1,1.0,Autonomous vehicle and method for coordinating the paths of multiple autonomous 
+9955436,58778366,SEED,1,1.0,Systems and methods for improving fixed access point coverage using vehicle rout
+9489839,55455280,SEED,1,1.0,Tracking a vehicle using an unmanned aerial vehicle
+11400925,63445408,SEED,1,1.0,Planning for unknown objects by an autonomous vehicle
+10438493,61243203,SEED,1,1.0,Hybrid trip planning for autonomous vehicles
+12423765,63854035,SEED,1,1.0,Dynamic autonomous vehicle servicing and management
+10809720,66433249,SEED,1,1.0,Bi-directional autonomous vehicle
+10562531,60157374,SEED,1,1.0,Adaptive cruise control apparatus and method thereof
+10108867,63833130,SEED,1,1.0,Image-based pedestrian detection
+9304515,54334694,SEED,1,1.0,Regional operation modes for autonomous vehicles
+11077844,72660487,SEED,1,1.0,System and method for increasing passenger satisfaction in a vehicle having an a
+11011061,50339677,SEED,1,1.0,Determining changes in a driving environment based on vehicle behavior
+10152053,63036396,SEED,1,1.0,Passenger classification-based autonomous vehicle routing
+10474160,64734386,SEED,1,1.0,High resolution 3D point clouds generation from downsampled low resolution LIDAR
+9915951,59087810,SEED,1,1.0,Detection of overhanging objects
+10802478,65996161,SEED,1,1.0,Hitch assist system and method for autonomously maneuvering a vehicle in a user-
+12214724,67213901,SEED,1,1.0,Systems and methods for deploying warning devices from an autonomous vehicle
+12174034,73745906,SEED,1,1.0,Updating high definition maps based on lane closure and lane opening
+10394248,57040618,ANTISEED-manual,0,1.0,"Charging pile, method and device for recognizing the charging pile"
+9925980,55454012,ANTISEED-manual,0,1.0,Vehicle collision avoidance system with enhanced pedestrian avoidance
+11436874,72661646,SEED,1,1.0,Autonomous vehicle and diagnosis method therefor
+9465388,57046607,SEED,1,1.0,Remote assistance for an autonomous vehicle in low confidence situations
+10451433,54434570,SEED,1,1.0,Suggesting a route based on desired amount of driver interaction
+10474159,54609194,SEED,1,1.0,Assisted perception for autonomous vehicles
+10449927,63679177,SEED,1,1.0,Steering system having anti-theft capabilities
+9983301,57018051,SEED,1,1.0,Automated vehicle radar system to determine yaw-rate of a target vehicle
+11740626,64453589,SEED,1,1.0,Redundant pose generation system
+10299216,66541164,SEED,1,1.0,Self-driving vehicle actions in response to a low battery
+10981497,65011805,SEED,1,1.0,Control system of autonomous vehicle and control method thereof
+10203698,65084719,SEED,1,1.0,System and method for providing a map to autonomous vehicles via a cloud-based s
+11457335,69720326,SEED,1,1.0,Link identity determination and signaling
+10328934,59629887,SEED,1,1.0,Temporal data associations for operating autonomous vehicles
+10890912,53174111,SEED,1,1.0,Robotic platform and method for performing multiple functions in agricultural sy
+11390277,70848548,SEED,1,1.0,Systems and methods for self-driving vehicle collision prevention
+10304335,58688150,ANTISEED-manual,0,1.0,Detecting available parking spaces
+10078789,57775125,ANTISEED-manual,0,1.0,Vehicle parking assist system with vision-based parking space detection
+10086870,58158034,ANTISEED-manual,0,1.0,Trailer parking assist system for vehicle
+11400912,65040772,SEED,1,1.0,Coasting management control of a vehicle with a road speed governor
+9785911,57883828,ANTISEED-manual,0,1.0,System and method for piece-picking or put-away with a mobile manipulation robot
+9507345,54265027,SEED,1,1.0,Vehicle control system and method
+11763678,65721952,ANTISEED-manual,0,0.9841,Early warning and collision avoidance
+8989945,42340971,SEED,1,0.9048,System validation
+11814085,67770544,SEED,1,0.8644,System for grid-based merge cut-in prediction and method thereof
+10816995,66857738,SEED,1,0.8431,GPS based high precision timestamp generation circuit for an autonomous driving 
+11420741,64736168,ANTISEED-manual,0,0.8235,Methods and apparatuses related to transformable remote controllers
+11447377,59812109,ANTISEED-manual,0,0.7679,Multi-field scanning tools in materials handling vehicles
+10145696,58722534,SEED,1,0.7353,Method for classifying target using path history data during V2V communication
+10699142,63714970,SEED,1,0.7297,Systems and methods for traffic signal light detection
+11210537,67617927,SEED,1,0.7231,Object detection and detection confidence suitable for autonomous driving
+10663976,51223805,SEED,1,0.7065,Modifying behavior of autonomous vehicles based on sensor blind spots and limita
