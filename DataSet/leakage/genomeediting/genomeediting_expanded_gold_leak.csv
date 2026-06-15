@@ -1,0 +1,157 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
+11661611,66328332,SEED,1,1.0,1.0,Genetic modification of cytokine inducible SH2-containing protein (CISH) gene
+10137206,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+10350304,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+11732251,63919534,SEED,1,1.0,0.4545,Anti-CRISPR polynucleotides and polypeptides and methods of use
+10888627,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+11904023,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+11241505,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+10894092,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+10369233,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+10576167,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+10363321,68060763,SEED,1,1.0,0.2222,Nucleic acid products and methods of administration thereof
+11666665,56092326,SEED,1,1.0,1.0,RNA-guided systems for in vivo gene editing
+10886006,59786177,ANTISEED-manual,0,1.0,1.0,Methods for variant detection
+10155938,57128245,SEED,1,1.0,1.0,Coexpression of CAS9 and TREX2 for targeted mutagenesis
+12084691,65016062,ANTISEED-manual,0,1.0,1.0,Modulating human Cas9-specific host immune response
+11208640,65016062,ANTISEED-manual,0,1.0,1.0,Modulating human Cas9-specific host immune response
+12116619,55273505,SEED,1,1.0,1.0,CRISPR mediated in vivo modeling and genetic screening of tumor growth and metas
+10704060,52008753,SEED,1,1.0,1.0,RNA-guided gene editing and gene regulation
+11286478,58668960,SEED,1,1.0,1.0,Cpf1 complexes with reduced indel activity
+11180751,58668960,SEED,1,1.0,0.0,CRISPR enzymes and systems
+11932867,63918677,SEED,1,1.0,1.0,Methods of treating rheumatoid arthritis using RNA-guided genome editing of HLA 
+12234454,58668960,SEED,1,1.0,0.0,Crispr enzymes and systems
+9879283,54356656,SEED,1,1.0,1.0,CRISPR oligonucleotides and gene editing
+10286084,53879230,SEED,1,1.0,1.0,Compositions for the inactivation of virus replication and methods of making and
+12215318,58668960,SEED,1,1.0,0.0,Crispr enzymes and systems
+12036287,67301195,SEED,1,1.0,1.0,Nanoparticles comprising protein-polynucleotide complexes and for delivering pro
+11235070,67301195,SEED,1,1.0,1.0,Nanoparticles comprising protein-polynucleotide complexes and for delivering pro
+11279926,57442215,SEED,1,1.0,1.0,Methods and compositions for generating CRISPR/Cas guide RNAs
+12344838,58668960,SEED,1,1.0,1.0,CPF1 complexes with reduced indel activity
+12415001,56092326,SEED,1,1.0,1.0,RNA-guided systems for in vivo gene editing
+11643668,57546388,SEED,1,1.0,1.0,CRISPR/Cas9 complex for genomic editing
+12428631,60041921,SEED,1,1.0,1.0,CRISPR/Cas9-based repressors for silencing gene targets in vivo and methods of u
+11306324,60263004,SEED,1,1.0,1.0,AAV delivery of nucleobase editors
+12152242,68294247,SEED,1,1.0,0.6667,CRISPR therapy
+12441814,68073163,SEED,1,1.0,1.0,Compositions and methods for enhancing donor oligonucleotide-based gene editing
+11427819,57128245,SEED,1,1.0,1.0,Coexpression of CAS9 and TREX2 for targeted mutagenesis
+10738290,55910297,SEED,1,1.0,1.0,RNA-guided gene editing system and uses thereof
+10745714,52008753,SEED,1,1.0,1.0,RNA-guided gene editing and gene regulation
+11685935,50943292,SEED,1,1.0,0.875,Compact scaffold of Cas9 in the type II CRISPR system
+10687520,63580959,SEED,1,1.0,1.0,Generation and correction of a humanized mouse model with a deletion of dystroph
+11674128,62487913,SEED,1,0.9896,1.0,Engineering of a minimal SaCas9 CRISPR/Cas system for gene editing and transcrip
+11840711,58668960,SEED,1,0.9655,0.0,Type VI CRISPR orthologs and systems
+12378566,51493053,SEED,1,0.8644,0.7692,Plant genome modification using guide RNA/Cas endonuclease systems and methods o
+11667903,57750540,SEED,1,0.8333,1.0,Tracking and manipulating cellular RNA via nuclear delivery of CRISPR/CAS9
+10577630,53371970,SEED,1,0.8182,0.5,"Delivery and use of the CRISPR-Cas systems, vectors and compositions for hepatic"
+12251450,53371970,SEED,1,0.8182,0.6842,"Delivery, use and therapeutic applications of the CRISPR-Cas systems and composi"
+11407985,53371970,SEED,1,0.8182,0.5789,"Delivery, use and therapeutic applications of the CRISPR-Cas systems and composi"
+10946108,53371970,SEED,1,0.8182,0.8889,"Delivery, use and therapeutic applications of the CRISPR-Cas systems and composi"
+11591581,53371970,SEED,1,0.806,0.35,Compositions and methods of use of CRISPR-Cas systems in nucleotide repeat disor
+12018275,53371970,SEED,1,0.7941,0.5,"Delivery and use of the CRISPR-CAS systems, vectors and compositions for hepatic"
+9925248,52587370,SEED,1,0.7627,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+9981020,52587370,SEED,1,0.7627,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+10612044,58763546,SEED,1,0.74,1.0,DNA methylation editing kit and DNA methylation editing method
+11591623,58763546,SEED,1,0.74,1.0,DNA methylation editing kit and DNA methylation editing method
+10124042,68060763,SEED,1,0.7333,0.2,Methods and products for nucleic acid production and delivery
+9770489,68060763,SEED,1,0.7333,0.2,Methods and products for nucleic acid production and delivery
+12201675,68060763,SEED,1,0.7333,0.2,Methods and products for nucleic acid production and delivery
+10450585,66328332,SEED,1,0.6923,0.0,Delivery methods and compositions for nuclease-mediated genome engineering
+12410435,53371970,SEED,1,0.68,0.35,Compositions and methods of use of CRISPR-Cas systems in nucleotide repeat disor
+10851357,53371970,SEED,1,0.68,0.35,Compositions and methods of use of CRISPR-Cas systems in nucleotide repeat disor
+11795443,64184201,SEED,1,0.6667,0.3333,Uses of adenosine base editors
+11242525,52829478,SEED,1,0.6667,0.5,CRISPR/CAS-related methods and compositions for treating sickle cell disease
+11555207,57546388,SEED,1,0.6667,0.2857,CRISPR/Cas9 complex for introducing a functional polypeptide into cells of blood
+10711285,53371970,SEED,1,0.6562,0.2609,"Optimized CRISPR-Cas double nickase systems, methods and compositions for sequen"
+11597949,53371970,SEED,1,0.6562,0.2609,"Optimized CRISPR-Cas double nickase systems, methods and compositions for sequen"
+10619154,66328332,SEED,1,0.6429,0.0769,Nuclease-mediated regulation of gene expression
+9957501,66328332,SEED,1,0.6429,0.0769,Nuclease-mediated regulation of gene expression
+11021696,66328332,SEED,1,0.6429,0.0769,Nuclease-mediated regulation of gene expression
+10117899,66328332,SEED,1,0.6429,0.0,Delivery methods and compositions for nuclease-mediated genome engineering in he
+10669551,38624400,SEED,1,0.6296,1.0,Zinc finger nuclease-mediated homologous recombination
+11028388,52829478,SEED,1,0.625,0.4706,CRISPR/Cas-related methods and compositions for treating Usher syndrome and reti
+12460231,52829478,SEED,1,0.625,0.4706,Crispr/CAS-related methods and compositions for treating primary open angle glau
+11021719,63524356,SEED,1,0.619,0.5,Methods and compositions for assessing CRISPER/Cas-mediated disruption or excisi
+10590437,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10415060,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10752918,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+12006508,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9376669,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+11332759,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10752917,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10724053,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9487768,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9657282,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9758797,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9464285,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+9447395,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10752919,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+11332758,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+11339409,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+11339410,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10767195,68060763,SEED,1,0.6136,0.0,Methods and products for expressing proteins in cells
+10435677,66328332,SEED,1,0.6,0.0,Genetically modified human cell with a corrected mutant sickle cell mutation
+10662410,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+10472611,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+12227757,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+9605277,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+9605278,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+11692203,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+11466293,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+11708586,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+9422577,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+12391961,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+10982229,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+10829738,68060763,SEED,1,0.6,0.0,Methods and products for transfecting cells
+11866697,58668960,SEED,1,0.5946,0.0,"Systems, methods, and compositions for targeted nucleic acid editing"
+12297436,58668960,SEED,1,0.5946,0.0,"Systems, methods, and compositions for targeted nucleic acid editing"
+12163148,64105017,SEED,1,0.5882,1.0,Directed editing of cellular RNA via nuclear delivery of CRISPR/Cas9
+11453891,64105017,SEED,1,0.5882,1.0,Directed editing of cellular RNA via nuclear delivery of CRISPR/CAS9
+11298411,52587370,SEED,1,0.5362,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+12503492,71603074,SEED,1,0.5294,0.75,CRISPR-Cas-based composition for gene correction
+12215326,58668960,SEED,1,0.5263,0.0,RNA-targeting system
+9970030,54140655,SEED,1,0.5238,1.0,Methods for increasing CAS9-mediated engineering efficiency
+11291710,52587370,SEED,1,0.48,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+8945839,53371970,SEED,1,0.4783,0.2273,CRISPR-Cas systems and methods for altering expression of gene products
+11866794,63524356,SEED,1,0.4722,0.05,Cas-ready mouse embryonic stem cells and mice and uses thereof
+11130999,63524356,SEED,1,0.4722,0.05,Cas-ready mouse embryonic stem cells and mice and uses thereof
+9434776,44816934,SEED,1,0.4595,0.0,Methods and compositions for gene inactivation
+11648267,44816934,SEED,1,0.4595,0.0,Methods and compositions for gene inactivation
+11352647,61197453,SEED,1,0.4474,0.8,Crispr enzymes and systems
+11718846,58239796,SEED,1,0.4429,0.375,Genomic sequence modification method for specifically converting nucleic acid ba
+10655123,58239796,SEED,1,0.4429,0.375,Genomic sequence modification method for specifically converting nucleic acid ba
+12435321,68294799,SEED,1,0.439,0.3,CRISPR/Cas12J enzyme and system
+9650617,55910297,SEED,1,0.4348,0.1429,CRISPR hybrid DNA/RNA polynucleotides and methods of use
+9580701,55910297,SEED,1,0.4348,0.1429,CRISPR hybrid DNA/RNA polynucleotides and methods of use
+11459588,55910297,SEED,1,0.4348,0.0667,Methods of use of CRISPR CPF1 hybrid DNA/RNA polynucleotides
+10988781,55910297,SEED,1,0.4348,0.0625,Method of target cleaving using CRISPR hybrid DNA/RNA polynucleotides
+10519468,55910297,SEED,1,0.4348,0.0714,Cells containing CRISPR hybrid DNA/RNA polynucleotides
+9688972,55910297,SEED,1,0.4348,0.1429,CRISPR hybrid DNA/RNA polynucleotides and methods of use
+11236364,55910297,SEED,1,0.4348,0.1429,CRISPR hybrid DNA/RNA polynucleotides and methods of use
+12215378,64661393,ANTISEED-manual,0,0.4286,0.0,RNA identity method using RNAse H digestion and size fractionating
+9717759,44816934,SEED,1,0.425,0.0833,Modification of CXCR4 using engineered zinc finger proteins
+11285175,44816934,SEED,1,0.425,0.0,Targeted disruption of the MHC cell receptor
+10500229,44816934,SEED,1,0.425,0.0,Targeted disruption of the MHC cell receptor
+11220693,58239796,SEED,1,0.4125,0.44,Method for converting monocot plant genome sequence in which nucleic acid base i
+10422003,64661393,ANTISEED-manual,0,0.4118,0.0833,Methods for detection of RNase activity
+10787654,57288342,ANTISEED-manual,0,0.4118,0.3333,Methods and compositions for sequence guiding Cas9 targeting
+11667904,58668960,SEED,1,0.4043,0.0,CRISPR-associated systems and components
+11273209,52587370,SEED,1,0.3065,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+12251429,52587370,SEED,1,0.3065,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+11298410,52587370,SEED,1,0.3065,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+10988777,55878361,SEED,1,0.2921,0.6429,Method for inducing CCR5Δ32 deletion by using CRISPR-Cas9 genome editing techniq
+11285193,52587370,SEED,1,0.2794,1.0,Methods and compositions for RNA-guided treatment of HIV infection
+10557151,52282678,SEED,1,0.2471,0.6667,Somatic human cell line mutations
+11091798,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+12091709,61197453,SEED,1,0.1528,0.8,Crispr enzymes and systems
+12264359,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+12371737,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+10648020,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+12410468,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+11634755,61197453,SEED,1,0.1528,0.8,Crispr enzymes and systems
+11773432,61197453,SEED,1,0.1528,0.8,CRISPR enzymes and systems
+11781172,61197453,SEED,1,0.1528,0.8,Crispr enzymes and systems
+11149316,48670502,ANTISEED-manual,0,0.14,0.75,Methods for detecting inactivation of the homologous recombination pathway (BRCA
+11091808,48670502,ANTISEED-manual,0,0.14,0.75,Methods for detecting inactivation of the homologous recombination pathway (BRCA
+9963689,57504391,SEED,1,0.0,0.625,Cas9 crystals and methods of use thereof
+8859562,27772701,ANTISEED-manual,0,0.0,1.0,Use of RNAI inhibiting PARP activity for the manufacture of a medicament for the

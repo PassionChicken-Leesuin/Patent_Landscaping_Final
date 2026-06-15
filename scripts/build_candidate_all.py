@@ -7,6 +7,7 @@ Output: DataSet/processed/candidate_all.csv
   columns: record_id, patent_id, domain, title, abstract, text, source
 """
 from __future__ import annotations
+import argparse
 import sys
 from pathlib import Path
 
@@ -18,32 +19,40 @@ except Exception:
 
 import pandas as pd
 from src import config as C
-
-EXPANDED = C.PROCESSED_DIR / "training_expanded_clean.csv"
-OUT = C.PROCESSED_DIR / "candidate_all.csv"
+from src import domains as D
 
 
 def main():
-    exp = pd.read_csv(EXPANDED, dtype=str).fillna("")
-    neg = pd.read_csv(C.NEG_CLEAN_CSV, dtype=str).fillna("")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--domain", default=D.AUTONOMOUS, help="domain key (default: self-driving)")
+    args = ap.parse_args()
+    spec = D.get(args.domain)
+    expanded = spec.pool_clean
+    neg_csv = C.NEG_CLEAN_CSV if spec.legacy else spec.negatives_pool
+    out = spec.candidate_all
+    out.parent.mkdir(parents=True, exist_ok=True)
 
-    # expanded autonomous-driving pool (already has title/abstract/text/patent_id)
+    exp = pd.read_csv(expanded, dtype=str).fillna("")
+    neg = pd.read_csv(neg_csv, dtype=str).fillna("")
+
+    # in-domain candidate pool (already has title/abstract/text/patent_id)
     a = pd.DataFrame({
         "record_id": exp["patent_id"], "patent_id": exp["patent_id"],
-        "domain": C.DOMAIN, "title": exp["title"], "abstract": exp["abstract"],
+        "domain": args.domain, "title": exp["title"], "abstract": exp["abstract"],
         "text": exp["text"], "source": "autonomous_pool",
     })
     # OOD negatives — only combined 'text' is available; feed it as the abstract so MAS/LFs see it
     b = pd.DataFrame({
         "record_id": neg["family_id"], "patent_id": "",
-        "domain": C.DOMAIN, "title": "", "abstract": neg["text"],
+        "domain": args.domain, "title": "", "abstract": neg["text"],
         "text": neg["text"], "source": "ood_" + neg["source_domain"],
     })
 
     allc = pd.concat([a, b], ignore_index=True)
-    allc.to_csv(OUT, index=False, encoding="utf-8")
+    allc.to_csv(out, index=False, encoding="utf-8")
+    OUT = out
 
-    print(f"autonomous_pool: {len(a):,}   OOD: {len(b):,}   total: {len(allc):,}")
+    print(f"domain: {args.domain} | in-domain pool: {len(a):,}   OOD: {len(b):,}   total: {len(allc):,}")
     print("by source:")
     print(allc["source"].value_counts().to_string())
     print(f"\nsaved -> {OUT.relative_to(C.ROOT)}")

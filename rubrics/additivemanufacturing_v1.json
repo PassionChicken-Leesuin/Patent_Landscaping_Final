@@ -1,0 +1,62 @@
+{
+  "domain": "additivemanufacturing",
+  "version": "v1",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE — S2 Appendix annotation guidelines, keywords (S2.3.1) and CPC classes (S2.3.2) for Additive Manufacturing. The domain is defined at the FUNCTIONAL-APPLICATION level (a set of tasks), not by keyword presence.",
+  "definition": "Additive Manufacturing: technology whose invention actually performs one of the defining Additive Manufacturing tasks (e.g. Create a 3D printable model with computer-aided design; Examine a stereolithography file for errors and inconsistency; Convert a model into a series of thin layers (slicing)). A patent is SEED only if its title+abstract clearly discusses doing one or more of the in-scope tasks below.",
+  "primary_decision_axis": {
+    "name": "performs_task_vs_mentions_or_adjacent",
+    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Additive Manufacturing in-scope task with a concrete mechanism. REJECT (NOT_SEED) if it merely MENTIONS the domain, uses a related/adjacent technology for a DIFFERENT purpose, applies the domain's tools to another field, or belongs to a different technology entirely. Keyword presence alone is NOT sufficient — the functional task must be present."
+  },
+  "in_scope_tasks": [
+    {
+      "task_id": "T1",
+      "desc": "Create a 3D printable model with computer-aided design"
+    },
+    {
+      "task_id": "T2",
+      "desc": "Examine a stereolithography file for errors and inconsistency"
+    },
+    {
+      "task_id": "T3",
+      "desc": "Convert a model into a series of thin layers (slicing)"
+    },
+    {
+      "task_id": "T4",
+      "desc": "Manufacture materials for 3D printing"
+    },
+    {
+      "task_id": "T5",
+      "desc": "Print a 3D model (additive layer-by-layer fabrication)"
+    }
+  ],
+  "key_technical_signals": [
+    "3d-printing",
+    "3d printing",
+    "stereolithography",
+    "additive manufacturing",
+    "three-dimensional objects",
+    "three dimensional object",
+    "rapid prototyping",
+    "additive material manufacturing",
+    "three dimensional printing material",
+    "3d-printing materials",
+    "photolithography",
+    "fuse deposition mode",
+    "fused deposition modeling"
+  ],
+  "out_of_scope_confusables": [
+    "Patents from an ADJACENT/other Bergeaud domain (Self-driving Vehicle, Blockchain, Computer Vision, Genome Editing, Hydrogen Storage) that share vocabulary but do not perform a Additive Manufacturing task.",
+    "Generic patents that merely MENTION Additive Manufacturing terms without doing the task (e.g. listing it as background, prior art, or one possible application).",
+    "Using Additive Manufacturing-adjacent components/methods for a different end (no in-scope task)."
+  ],
+  "hard_negative_patterns": [
+    "domain keyword present but the invention does NOT perform a Additive Manufacturing task -> reject",
+    "the domain is named only as an example/application, the real contribution is elsewhere -> reject",
+    "an adjacent-domain invention that overlaps in terminology -> reject"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "the invention clearly PERFORMS a Additive Manufacturing in-scope task with a concrete mechanism",
+    "0.6_0.75": "domain task plausibly implied but the mechanism/scope is unclear, or mixed signals -> boundary",
+    "0.0_0.25": "merely mentions the domain, an adjacent-field/different-purpose use, or no domain signal at all"
+  }
+}

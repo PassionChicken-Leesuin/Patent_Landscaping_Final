@@ -16,18 +16,26 @@ try:
 except Exception:
     pass
 
+import argparse
 import numpy as np
 import pandas as pd
 from sklearn.metrics import precision_score, recall_score, f1_score
 from src import config as C
+from src import domains as D
 from src.downstream.evaluate import predict_proba
 
-MODELS = ["snorkel_noood", "mas_noood", "snorkel_ood", "mas_ood"]
 THRESHOLDS = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 
 
 def main():
-    ev = pd.read_csv(C.EVAL_PROCESSED_CSV, dtype=str).fillna("")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--domain", default=D.AUTONOMOUS, help="domain key (default: self-driving)")
+    args = ap.parse_args()
+    spec = D.get(args.domain)
+    MODELS = [spec.model_name(a, t) for t in ("noood", "ood") for a in ("snorkel", "mas")]
+
+    eval_path = C.EVAL_PROCESSED_CSV if spec.legacy else spec.eval_processed
+    ev = pd.read_csv(eval_path, dtype=str).fillna("")
     y = ev["label"].astype(int).values
     lvl = ev["expansion_level"].values
 

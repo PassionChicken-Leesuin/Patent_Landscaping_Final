@@ -21,6 +21,7 @@ except Exception:
 
 import pandas as pd
 from src import config as C
+from src import domains as D
 from src.downstream import build_trainset as B
 from src.downstream.train import train, TrainCfg
 from src.downstream.evaluate import evaluate, print_report
@@ -38,6 +39,7 @@ LABELED_UNIFIED = {
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--domain", default=D.AUTONOMOUS, help="domain key (default: self-driving)")
     ap.add_argument("--arm", choices=["snorkel", "mas"], required=True)
     ap.add_argument("--no-inpool-neg", action="store_true", help="use only out-of-domain negatives")
     ap.add_argument("--no-hard-neg", action="store_true", help="(mas) drop hard_negative from training")
@@ -56,19 +58,22 @@ def main():
     ap.add_argument("--max-len", type=int, default=256)
     args = ap.parse_args()
 
+    spec = D.get(args.domain)
+    labeled_unified = {"snorkel": spec.snorkel_labeled, "mas": spec.mas_ranked}
+
     if args.unified and args.easy_neg_n is not None and args.arm == "mas":
         # hard-centric: all pos + all hard neg + easy downsampled to --easy-neg-n
-        labeled = pd.read_csv(LABELED_UNIFIED["mas"], dtype=str).fillna("")
+        labeled = pd.read_csv(labeled_unified["mas"], dtype=str).fillna("")
         train_df = B.assemble_mas_he(labeled, easy_n=args.easy_neg_n)
         train_df["label"] = train_df["label"].astype(int)
         print(B.summary(train_df))
         part = negatives = None  # already assembled
     elif args.unified:
-        labeled = pd.read_csv(LABELED_UNIFIED[args.arm], dtype=str).fillna("")
+        labeled = pd.read_csv(labeled_unified[args.arm], dtype=str).fillna("")
         part, negatives = B.from_labeled_all(labeled, args.arm, include_hard_neg=not args.no_hard_neg,
                                              hard_neg_only=args.hard_neg_only)
     else:
-        negatives = pd.read_csv(C.NEG_CLEAN_CSV, dtype=str).fillna("")
+        negatives = pd.read_csv(C.NEG_CLEAN_CSV if spec.legacy else spec.negatives_pool, dtype=str).fillna("")
         labeled = pd.read_csv(LABELED[args.arm], dtype=str).fillna("")
         part = B.from_snorkel(labeled) if args.arm == "snorkel" else \
             B.from_mas(labeled, include_hard_neg=not args.no_hard_neg)
@@ -79,12 +84,13 @@ def main():
         train_df["label"] = train_df["label"].astype(int)
         print(B.summary(train_df))
 
-    name = f"{args.arm}{('_' + args.tag) if args.tag else ''}"
+    name = spec.model_name(args.arm, args.tag)
     out_dir = str(C.ROOT / "outputs" / f"scibert_{name}")
     cfg = TrainCfg(epochs=args.epochs, max_len=args.max_len)
     train(train_df, out_dir, cfg)
 
-    eval_df = pd.read_csv(C.EVAL_PROCESSED_CSV, dtype=str).fillna("")
+    eval_df = pd.read_csv(C.EVAL_PROCESSED_CSV if spec.legacy else spec.eval_processed,
+                          dtype=str).fillna("")
     eval_df["label"] = eval_df["label"].astype(int)
     res = evaluate(out_dir, eval_df, max_len=args.max_len)
     print_report(res, arm=name)

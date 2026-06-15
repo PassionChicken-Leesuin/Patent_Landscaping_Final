@@ -26,17 +26,19 @@ from src.downstream import build_trainset as B
 from src.downstream.train import TrainCfg
 from src.downstream.evaluate import predict_proba, tune_threshold, report_from_probs, print_report
 from src.downstream import plots
+from src import domains as D
 
-# (model-dir suffix, arm, unified-labeled file, ood_n used at train time) — Bergeaud pool.
-# ood_n=0 -> no-OOD training; ood_n=None -> all OOD negatives included.
-SNORKEL_LABELED = C.PROCESSED_DIR / "snorkel_labeled_all.csv"
-MAS_LABELED = C.ROOT / "DataSet" / "mas" / "mas_ranked_scores.csv"
-ARMS = [
-    ("snorkel_noood", "snorkel", SNORKEL_LABELED, 0),
-    ("mas_noood", "mas", MAS_LABELED, 0),
-    ("snorkel_ood", "snorkel", SNORKEL_LABELED, None),
-    ("mas_ood", "mas", MAS_LABELED, None),
-]
+
+def build_arms(spec):
+    """(model-name, arm, unified-labeled file, ood_n used at train time) for a domain.
+    ood_n=0 -> no-OOD training; ood_n=None -> all OOD negatives included."""
+    sn, ms = spec.snorkel_labeled, spec.mas_ranked
+    return [
+        (spec.model_name("snorkel", "noood"), "snorkel", sn, 0),
+        (spec.model_name("mas", "noood"), "mas", ms, 0),
+        (spec.model_name("snorkel", "ood"), "snorkel", sn, None),
+        (spec.model_name("mas", "ood"), "mas", ms, None),
+    ]
 
 
 def rebuild_val_split(arm: str, labeled_path, cfg: TrainCfg, ood_n=0) -> pd.DataFrame:
@@ -51,8 +53,16 @@ def rebuild_val_split(arm: str, labeled_path, cfg: TrainCfg, ood_n=0) -> pd.Data
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--domain", default=D.AUTONOMOUS, help="domain key (default: self-driving)")
+    args = ap.parse_args()
+    spec = D.get(args.domain)
+    ARMS = build_arms(spec)
+
     cfg = TrainCfg()
-    eval_df = pd.read_csv(C.EVAL_PROCESSED_CSV, dtype=str).fillna("")
+    eval_path = C.EVAL_PROCESSED_CSV if spec.legacy else spec.eval_processed
+    eval_df = pd.read_csv(eval_path, dtype=str).fillna("")
     eval_df["label"] = eval_df["label"].astype(int)
     y = eval_df["label"].values
 
@@ -83,9 +93,11 @@ def main():
         print(f"{name:12s} {d['auc']:.3f} {d.get('auc_seed_vs_hard', float('nan')):.3f}     | "
               f"{d['macro_f1']:.3f} {d['recall']:.3f} | {s['tuned_threshold']:.2f}  "
               f"{t['macro_f1']:.3f}    {t['recall']:.3f}")
-    with open(C.ROOT / "outputs" / "metrics_calibrated.json", "w", encoding="utf-8") as f:
+    tag = "" if spec.legacy else f"_{args.domain}"
+    out = C.ROOT / "outputs" / f"metrics_calibrated{tag}.json"
+    with open(out, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
-    print("\nsaved -> outputs/metrics_calibrated.json, roc_pr.png, scorehist_*.png")
+    print(f"\nsaved -> {out.relative_to(C.ROOT)}, roc_pr.png, scorehist_*.png")
 
 
 if __name__ == "__main__":

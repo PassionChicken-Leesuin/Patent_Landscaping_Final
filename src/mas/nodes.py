@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from src.mas.schemas import RelevanceOut, ExclusionOut
 from src.mas.prompts import (
-    RELEVANCE_SYSTEM, EXCLUSION_SYSTEM,
+    build_relevance_system, EXCLUSION_SYSTEM,
     render_relevance_prompt, render_exclusion_prompt,
 )
 from src.mas.scoring import route_after_relevance, score_and_type
@@ -19,7 +19,7 @@ from src.mas.llm import StructuredLLM, Usage
 
 def relevance_route(llm: StructuredLLM, state: dict, usage: Usage | None = None) -> dict:
     user = render_relevance_prompt(state["rubric"], state["title"], state["abstract"])
-    out, pt, ct = llm.parse(RELEVANCE_SYSTEM, user, RelevanceOut)
+    out, pt, ct = llm.parse(build_relevance_system(state["rubric"]), user, RelevanceOut)
     if usage is not None:
         usage.add(pt, ct)
     return out.model_dump()

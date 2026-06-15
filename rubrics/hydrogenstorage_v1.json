@@ -1,0 +1,62 @@
+{
+  "domain": "hydrogenstorage",
+  "version": "v1",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE — S2 Appendix annotation guidelines, keywords (S2.3.1) and CPC classes (S2.3.2) for Hydrogen Storage. The domain is defined at the FUNCTIONAL-APPLICATION level (a set of tasks), not by keyword presence.",
+  "definition": "Hydrogen Storage: technology whose invention actually performs one of the defining Hydrogen Storage tasks (e.g. Hydrogen production and compression; Generate power from hydrogen gas; Design vessel containment resistant to hydrogen permeation and corrosion (incl. thermal management)). A patent is SEED only if its title+abstract clearly discusses doing one or more of the in-scope tasks below.",
+  "primary_decision_axis": {
+    "name": "performs_task_vs_mentions_or_adjacent",
+    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Hydrogen Storage in-scope task with a concrete mechanism. REJECT (NOT_SEED) if it merely MENTIONS the domain, uses a related/adjacent technology for a DIFFERENT purpose, applies the domain's tools to another field, or belongs to a different technology entirely. Keyword presence alone is NOT sufficient — the functional task must be present."
+  },
+  "in_scope_tasks": [
+    {
+      "task_id": "T1",
+      "desc": "Hydrogen production and compression"
+    },
+    {
+      "task_id": "T2",
+      "desc": "Generate power from hydrogen gas"
+    },
+    {
+      "task_id": "T3",
+      "desc": "Design vessel containment resistant to hydrogen permeation and corrosion (incl. thermal management)"
+    },
+    {
+      "task_id": "T4",
+      "desc": "Manufacture a fuel cell using hydrogen"
+    },
+    {
+      "task_id": "T5",
+      "desc": "Provide hydrogen to a hydrogen-powered device (fill, tank)"
+    }
+  ],
+  "key_technical_signals": [
+    "hydrogen fuel cell",
+    "hydrogen storage",
+    "liquid hydrogen",
+    "solid-state hydrogen",
+    "compressed hydrogen",
+    "dehydrogenation reaction",
+    "hydrogen gas",
+    "hydrogen fuel",
+    "hydrogen storage material",
+    "hydrogen-powered device",
+    "metal hydride",
+    "hydrogen production",
+    "fuel cell"
+  ],
+  "out_of_scope_confusables": [
+    "Patents from an ADJACENT/other Bergeaud domain (Self-driving Vehicle, Additive Manufacturing, Blockchain, Computer Vision, Genome Editing) that share vocabulary but do not perform a Hydrogen Storage task.",
+    "Generic patents that merely MENTION Hydrogen Storage terms without doing the task (e.g. listing it as background, prior art, or one possible application).",
+    "Using Hydrogen Storage-adjacent components/methods for a different end (no in-scope task)."
+  ],
+  "hard_negative_patterns": [
+    "domain keyword present but the invention does NOT perform a Hydrogen Storage task -> reject",
+    "the domain is named only as an example/application, the real contribution is elsewhere -> reject",
+    "an adjacent-domain invention that overlaps in terminology -> reject"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "the invention clearly PERFORMS a Hydrogen Storage in-scope task with a concrete mechanism",
+    "0.6_0.75": "domain task plausibly implied but the mechanism/scope is unclear, or mixed signals -> boundary",
+    "0.0_0.25": "merely mentions the domain, an adjacent-field/different-purpose use, or no domain signal at all"
+  }
+}

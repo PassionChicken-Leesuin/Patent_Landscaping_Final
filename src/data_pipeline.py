@@ -162,6 +162,50 @@ def build_clean_training(train: pd.DataFrame, leaked: pd.DataFrame) -> pd.DataFr
     return clean
 
 
+# ---------------------------------------------------------------- multi-domain
+# The 5 added domains have ONE gold CSV each (same shape as Evaluation_Set: family_id,
+# expansion_level, is_seed, text). It is the eval benchmark. The candidate pool is collected
+# fresh from the bulk (collect_expanded_pool --domain), and OOD negatives = every OTHER
+# domain's gold set. Self-driving keeps the legacy run() above untouched.
+
+def load_gold(spec) -> pd.DataFrame:
+    """Load a domain gold benchmark -> eval schema (family_id, expansion_level, title,
+    abstract, text, label). label = is_seed (present in every gold file)."""
+    df = pd.read_csv(spec.gold_csv, encoding="utf-8-sig", dtype=str).fillna("")
+    text = df[C.EVAL_TEXT].str.replace(r"\s+", " ", regex=True).str.strip()
+    titles, abstracts = zip(*df[C.EVAL_TEXT].map(split_eval_text)) if len(df) else ([], [])
+    return pd.DataFrame({
+        "family_id": df["family_id"].astype(str),
+        "expansion_level": df.get("expansion_level", ""),
+        "title": titles, "abstract": abstracts, "text": text,
+        "label": df["is_seed"].astype(int),
+    })
+
+
+def build_ood_pool_for(spec, registry) -> pd.DataFrame:
+    """OOD negatives for `spec` = ALL rows of every OTHER domain's gold set (each row is a
+    NOT_SEED for this domain). Dedup by family_id; drop any family_id that leaks into this
+    domain's own gold."""
+    own = load_gold(spec)
+    own_fams = set(own["family_id"].astype(str))
+    frames = []
+    for key in spec.ood_domains(registry):
+        other = registry[key]
+        d = pd.read_csv(other.gold_csv, encoding="utf-8-sig", dtype=str).fillna("")
+        frames.append(pd.DataFrame({
+            "family_id": d["family_id"].astype(str),
+            "source_domain": key,
+            "text": d[C.EVAL_TEXT].str.replace(r"\s+", " ", regex=True).str.strip(),
+            "hardness": "easy",
+        }))
+    neg = pd.concat(frames, ignore_index=True).drop_duplicates(subset="family_id").reset_index(drop=True)
+    before = len(neg)
+    neg = neg[~neg["family_id"].isin(own_fams)].reset_index(drop=True)
+    neg.attrs["eval_leaks_removed"] = before - len(neg)
+    neg["label"] = 0
+    return neg
+
+
 # ---------------------------------------------------------------- driver
 def run(write: bool = True) -> dict:
     C.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)

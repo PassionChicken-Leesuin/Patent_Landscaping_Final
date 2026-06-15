@@ -1,0 +1,261 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
+10056634,56108529,ANTISEED-manual,0,1.0,1.0,Systems and methods for fuel desulfurization
+11072525,60675924,SEED,1,1.0,1.0,System and method for supplying a lighter-than-air vehicle with hydrogen gas
+RE49947,60675924,SEED,1,1.0,1.0,System and method for supplying a lighter-than-air vehicle with hydrogen gas
+10297849,50288032,SEED,1,1.0,1.0,"Method and system for producing carbon dioxide, purified hydrogen and electricit"
+10059225,59678739,SEED,1,1.0,1.0,Fuel cell vehicle and control method for fuel cell vehicle
+11661338,65811431,SEED,1,1.0,1.0,Activated magnesium boride materials for hydrogen storage
+11964251,72941941,ANTISEED-manual,0,1.0,1.0,Fuel-reforming device and fuel-reforming method
+12447458,72941941,ANTISEED-manual,0,1.0,1.0,Fuel-reforming device and fuel-reforming method
+9187835,49261035,ANTISEED-manual,0,1.0,0.6667,Electrochemical systems and methods using metal and ligand
+9187834,49261035,ANTISEED-manual,0,1.0,1.0,Electrochemical hydroxide systems and methods using metal oxidation
+11092290,71122623,SEED,1,1.0,1.0,Method for measuring fluid level in liquid hydrogen tank and liquid hydrogen sto
+8950195,45350697,ANTISEED-manual,0,1.0,1.0,Continuous flow thermodynamic pump
+9205420,47020447,ANTISEED-AF,0,1.0,1.0,"Nanostructures, systems, and methods for photocatalysis"
+8961819,45934325,SEED,1,0.9833,1.0,High-capacity complex hydrogen storage materials and a process of releasing hydr
+9541001,46025653,ANTISEED-manual,0,0.9615,1.0,"Drive unit, method for providing power, and use of a drive unit"
+11060195,55590249,ANTISEED-manual,0,0.9512,1.0,Reactant flow channels for electrolyzer applications
+9644277,55590249,ANTISEED-manual,0,0.9512,1.0,Reactant flow channels for electrolyzer applications
+12227855,55590249,ANTISEED-manual,0,0.9512,1.0,Reactant flow channels for electrolyzer applications
+10472246,54833127,ANTISEED-manual,0,0.6271,1.0,Method and apparatus for producing sodium borohydride
+10158138,56108529,ANTISEED-manual,0,0.5556,1.0,Systems and methods for fuel desulfurization
+9911989,37683865,SEED,1,0.525,0.7778,Fuel cell system with partial recycling of anode exhaust
+10060577,55218377,SEED,1,0.4906,0.7778,Fuel gas storage tank with supporting filter tube(s)
+10923751,56108529,ANTISEED-manual,0,0.4762,1.0,Systems and methods for fuel desulfurization
+10850980,56117829,SEED,1,0.4268,0.75,System and process for generating hydrogen gas
+9102528,42784499,SEED,1,0.4118,0.5714,Hydrogen generation systems and methods utilizing sodium silicide and sodium sil
+9845239,42784499,SEED,1,0.4118,0.5714,Hydrogen generation systems and methods utilizing sodium silicide and sodium sil
+10396388,40933827,SEED,1,0.2857,0.6667,System and method for storing and releasing energy
+9640827,58994195,ANTISEED-manual,0,0.2647,0.75,Method for operating a fuel cell system
+11296333,46325143,SEED,1,0.2414,1.0,Fuel cell system
+9843056,55855133,SEED,1,0.2414,0.625,Fuel cell system and method for controlling fuel cell system
+12512495,37145468,SEED,1,0.2353,1.0,Fuel cell system
+9406949,55855133,SEED,1,0.2346,0.8571,Fuel cell system and control method thereof
+11316184,46325143,SEED,1,0.2333,1.0,Fuel cell system
+11011761,37145468,SEED,1,0.2278,1.0,Fuel cell system
+9537193,37145468,SEED,1,0.2179,1.0,Fuel cell system
+10741858,37145468,SEED,1,0.2133,1.0,Fuel cell system
+11081709,37145468,SEED,1,0.2133,1.0,Fuel cell system
+12334610,46325143,SEED,1,0.2133,1.0,Fuel cell system
+10312539,40933827,SEED,1,0.2128,0.6667,System and method for storage and retrieval of energy
+9640819,37145468,SEED,1,0.2113,1.0,Fuel cell system
+8841039,45493891,ANTISEED-manual,0,0.2105,0.6,Indirect internal reforming solid oxide fuel cell system
+8962199,37145468,SEED,1,0.2099,1.0,Fuel cell system
+10461345,56135129,ANTISEED-manual,0,0.2059,0.7143,Fuel gas storage and supply system
+9455457,55855133,SEED,1,0.2055,0.7143,Fuel cell system and method of operating fuel cell system
+10320016,46325143,SEED,1,0.2031,0.6,High-temperature fuel cell system
+9105916,49261404,SEED,1,0.2029,0.6,Fuel cell module
+11688863,37145468,SEED,1,0.2027,1.0,Fuel cell system
+9929415,55855133,SEED,1,0.2027,0.8571,Fuel cell system and control method thereof
+9660279,47222331,SEED,1,0.2024,0.6667,Fuel unit for hydrogen generator
+11721821,58994195,ANTISEED-manual,0,0.2022,0.6667,Fuel cell system and method for controlling fuel cell system
+8968947,58994195,ANTISEED-manual,0,0.2,0.75,Operating method for a fuel cell system
+9647287,43092688,SEED,1,0.2,1.0,Fuel cell system
+10573906,37762343,ANTISEED-manual,0,0.2,0.6,Fuel cell device
+10454121,55855133,SEED,1,0.2,0.8571,Fuel cell system and control method for fuel cell system
+11223058,37145468,SEED,1,0.1978,1.0,Fuel cell system
+10193166,37145468,SEED,1,0.1975,1.0,Fuel cell system
+8980495,41548468,ANTISEED-manual,0,0.1972,0.6,Fuel cell system
+12202365,61730258,ANTISEED-manual,0,0.1972,0.6,Electric power supply system
+9105891,55855133,SEED,1,0.1944,0.8571,Fuel cell system and control method for fuel cell system
+10566641,55855133,SEED,1,0.1932,0.6,Fuel cell system and control method for controlling moisture content of fuel
+9564646,15498407,SEED,1,0.19,0.6667,Fuel cell system and operating method thereof
+10777832,56108529,ANTISEED-manual,0,0.1887,0.625,Systems and methods for UAV fuel cell
+9461323,43485639,SEED,1,0.1887,0.7,"Method for manufacturing a hydrogen fuel cell cartridge, hydrogen fuel cell cart"
+10693194,16894880,ANTISEED-manual,0,0.1875,0.8,Nickel hydrogen secondary battery
+9525169,14773817,SEED,1,0.1857,1.0,Nickel-hydrogen storage battery
+9871264,43092688,SEED,1,0.1857,1.0,Fuel cell system
+10355295,58108718,SEED,1,0.1839,0.6667,Fuel cell cartridge
+9512002,10545170,SEED,1,0.1837,0.6667,Hydrogen storage pellet
+11641023,46325143,SEED,1,0.1818,0.6,Fuel cell system and method
+10050293,58994195,ANTISEED-manual,0,0.1809,0.6364,Method for operating fuel cell system and method for estimating composition of f
+9266727,37742730,SEED,1,0.1806,0.6667,Hydrogen gas generator
+10122026,37145468,SEED,1,0.1786,1.0,Fuel cell system
+11749821,58994195,ANTISEED-manual,0,0.1786,0.6667,Fuel cell device and method for operating fuel cell device
+8883362,28042424,ANTISEED-manual,0,0.1774,0.75,Fuel cell system
+11888195,27595565,SEED,1,0.1758,0.6,Fuel cell power generation system
+9869007,37727468,SEED,1,0.1754,1.0,"Hydrogen storage alloy, hydrogen storage alloy electrode, secondary battery, and"
+9496550,37727468,SEED,1,0.1754,1.0,"Hydrogen storage alloy, hydrogen storage alloy electrode, secondary battery, and"
+11127963,34909256,SEED,1,0.175,0.6,Solid oxide fuel cell system
+10938046,27595565,SEED,1,0.175,1.0,Fuel cell system
+9653742,47904355,ANTISEED-manual,0,0.175,0.6,Fuel cell system
+9509006,46325143,SEED,1,0.1739,1.0,Fuel cell system
+9343766,46325143,SEED,1,0.1739,1.0,Fuel cell system
+10305132,27595565,SEED,1,0.172,0.6,High-temperature fuel cell system
+9187322,37742730,SEED,1,0.1714,1.0,Hydrogen generator
+10038208,34909256,SEED,1,0.1711,1.0,Fuel cell system
+12388096,55855133,SEED,1,0.1707,0.8571,Fuel cell system and control method for fuel cell system
+11196059,37145468,SEED,1,0.1705,1.0,Fuel cell system
+11024863,55855133,SEED,1,0.1702,1.0,Fuel cell system control method and fuel cell system
+8980488,43092688,SEED,1,0.169,1.0,Fuel cell system
+9050583,66542159,SEED,1,0.169,0.6,"Carbon catalyst for hydrogen production, method for producing catalyst, and meth"
+9252444,46325143,SEED,1,0.1688,1.0,Fuel cell system
+11799109,58994195,ANTISEED-manual,0,0.1687,0.875,Fuel cell system and method for operating a fuel cell system
+11870118,37145468,SEED,1,0.1687,1.0,Fuel cell system
+9190679,37145468,SEED,1,0.1685,1.0,Fuel cell system
+10167777,42645176,SEED,1,0.1681,0.8571,System and method for producing hydrogen
+10804554,55855133,SEED,1,0.1667,0.8571,Fuel cell system and control method for fuel cell system
+10016731,72941941,ANTISEED-manual,0,0.1667,0.6667,Fuel enrichment method and device
+9278329,39218573,SEED,1,0.1667,0.6,Hydrogen generator and fuel cell system including same
+10695727,72941941,ANTISEED-manual,0,0.1667,0.6667,Fuel enrichment method and device
+8906564,43485639,SEED,1,0.1667,0.7,"Hydrogen generator, fuel cell system, and method for operating hydrogen generato"
+9225047,37762343,ANTISEED-manual,0,0.1667,0.6,Fuel cell device
+10280079,43830240,SEED,1,0.1651,1.0,Method for producing hydrogen
+9520603,34909256,SEED,1,0.1648,1.0,Fuel cell system
+8951687,55855133,SEED,1,0.1648,0.7143,"Fuel cell system, and method of stopping fuel cell system"
+10461341,46325143,SEED,1,0.1644,1.0,Fuel cell system
+9385386,27595565,SEED,1,0.1635,0.6,Solid oxide fuel cell system
+10833339,55855133,SEED,1,0.1633,0.7143,Fuel cell system and method of running fuel cell system
+10014536,27595565,SEED,1,0.163,1.0,Fuel cell system
+11469427,34909256,SEED,1,0.1628,1.0,Fuel cell system
+8722258,34909256,SEED,1,0.1622,0.6,Open type fuel cell system
+9856544,10545170,SEED,1,0.1618,0.6667,Hydrogen storage alloys
+9755257,58994195,ANTISEED-manual,0,0.1613,0.6667,Fuel cell system and method for controlling fuel cell system
+10622646,55855133,SEED,1,0.1613,0.625,Fuel cell system and shutdown method thereof
+9985302,34909256,SEED,1,0.1605,1.0,Fuel cell system
+10826096,46325143,SEED,1,0.16,1.0,Fuel cell system
+9435230,28042424,ANTISEED-manual,0,0.1594,1.0,Fuel cell hybrid system
+9340421,38674076,SEED,1,0.1587,1.0,Hydrogen supply system
+11329301,34909256,SEED,1,0.1585,1.0,Fuel cell system
+11205792,59678739,SEED,1,0.1579,0.6667,Fuel cell system and control method for same
+9966621,46325143,SEED,1,0.1579,1.0,Fuel cell system
+8940061,29717859,SEED,1,0.1579,0.75,Apparatus for generating hydrogen
+10053363,42645176,SEED,1,0.1579,0.8571,System and method for producing hydrogen
+11367887,58994195,ANTISEED-manual,0,0.1569,0.875,Fuel cell system and method for operating fuel cell system
+11695130,55855133,SEED,1,0.1566,1.0,Fuel cell system and fuel cell system control method
+8815456,27595565,SEED,1,0.1562,1.0,Fuel cell system
+12172499,59678739,SEED,1,0.1558,0.6,System and method for humidification of fuel cell electric vehicle
+8940448,73609873,SEED,1,0.1556,0.6,Fuel cell system
+9764951,4984127,SEED,1,0.1549,0.6154,Magnesium-based hydrogen storage material and method for preparing the same
+10177394,55855133,SEED,1,0.1548,1.0,Fuel cell system and fuel cell control method
+9917318,43092688,SEED,1,0.1548,0.6,Hydrocarbon-operable fuel cell system
+11196069,46325143,SEED,1,0.1548,1.0,Fuel cell system
+9236625,37145468,SEED,1,0.1546,0.6,Solid oxide fuel cell system
+10236521,34909256,SEED,1,0.1538,1.0,Fuel cell system
+9938142,46403804,SEED,1,0.1538,0.6,Hydrogen storage material and manufacturing method thereof
+11351532,61780061,ANTISEED-manual,0,0.1532,0.6364,Photocatalytic composite material and preparation method and application thereof
+12003009,32063832,SEED,1,0.1528,0.6667,Device for treating exhaust gas from fuel cell
+12381242,32063832,SEED,1,0.1528,0.6667,Device for treating exhaust gas from fuel cell
+12181048,26810862,SEED,1,0.1522,0.6,Apparatus and method for assembling solid hydrogen storage system
+11211631,49261404,SEED,1,0.1519,0.6,Fuel cell system
+10991963,55855133,SEED,1,0.1515,0.8571,Fuel cell system and control method thereof
+9206945,66542159,SEED,1,0.1507,0.625,System and method for hydrogen storage
+9184458,32063832,SEED,1,0.1507,0.7,Device and method for processing exhaust gas from fuel cell
+10193177,55855133,SEED,1,0.15,0.625,Fuel cell system and operating method therefor
+9559371,34909256,SEED,1,0.1494,1.0,Fuel cell system
+12338958,58390139,SEED,1,0.1494,0.75,Gas filling device
+8728675,34909256,SEED,1,0.1477,1.0,Fuel cell system
+11094932,14535083,SEED,1,0.1475,1.0,Hydrogen storage alloy
+8993135,47222331,SEED,1,0.1471,0.7143,Fuel cell stack for hydrogen fuel power generator
+9178231,55855133,SEED,1,0.1471,0.7143,Fuel cell system and fuel cell system diagnosis method
+9112220,14773817,SEED,1,0.1467,0.6,Nickel hydrogen rechargeable battery
+10263251,40670013,ANTISEED-manual,0,0.1467,0.8571,"Battery negative electrode, battery, and manufacturing method of battery negativ"
+10224560,49261404,SEED,1,0.1467,1.0,"Fuel cell system, and fuel cell module"
+9118053,43485639,SEED,1,0.1461,0.6,Fuel cell system and method for performing maintenance on fuel cell system
+9640808,58994195,ANTISEED-manual,0,0.1455,0.75,Operating method for a fuel cell system
+9070915,15498407,SEED,1,0.1455,0.6,"Hydrogen generator, operating method of hydrogen generator, and fuel cell system"
+9941537,49261404,SEED,1,0.1446,0.6667,Fuel cell module and fuel cell device
+8911912,58994195,ANTISEED-manual,0,0.1443,0.75,Fuel cell system and method of operating fuel cell system
+12266791,44020736,SEED,1,0.1429,0.8571,Hydrogen storage alloy for alkaline storage battery
+11111140,29717859,SEED,1,0.1429,0.75,Apparatus for generating hydrogen
+10090548,34909256,SEED,1,0.1429,1.0,Fuel cell system
+10340537,59678739,SEED,1,0.1429,0.6,Fuel cell system and control method for the same
+11251446,34909256,SEED,1,0.1429,1.0,Fuel cell system
+9776862,31719727,SEED,1,0.1415,0.6,Hydrogen production apparatus and hydrogen production method
+9391334,37742730,SEED,1,0.1412,0.6667,Hydrogen gas generator
+9099709,58994195,ANTISEED-manual,0,0.14,0.7,"Fuel cell power generation system, and method for operating fuel cell power gene"
+9269973,41548468,ANTISEED-manual,0,0.14,0.6667,Operating method of fuel cell system
+10283796,43092688,SEED,1,0.1398,1.0,Fuel cell system
+10247360,12558214,SEED,1,0.1395,0.7143,Method for filling hydrogen storage alloy
+12218390,43485639,SEED,1,0.1392,0.6667,Method for heating a fuel cell system and fuel cell system
+9502727,55855133,SEED,1,0.1386,0.7143,Fuel cell system and method of controlling a fuel cell system
+9966620,39157114,SEED,1,0.1379,0.625,Hydrogen generator and fuel cell system
+9711813,59678739,SEED,1,0.1379,0.6,Fuel cell system and start up control method for the fuel cell system
+9595726,27652805,ANTISEED-manual,0,0.1379,0.6667,Fuel reforming system and process
+9708718,66542159,SEED,1,0.1375,0.75,Hydrogen production device and method for producing hydrogen
+10533706,59678739,SEED,1,0.137,0.75,Fuel cell system and control method for fuel cell system
+10374241,34909256,SEED,1,0.1368,1.0,Fuel cell system
+10256489,39157114,SEED,1,0.1364,1.0,Hydrogen generating apparatus and fuel cell system
+9614235,40625602,SEED,1,0.1364,0.6,Fuel cell system and method of controlling the system
+10435798,59383397,ANTISEED-manual,0,0.1358,0.6667,Hydrogen gas generator
+10227700,66542159,SEED,1,0.1351,1.0,Hydrogen production system and method for producing hydrogen
+11056695,46325143,SEED,1,0.1348,0.6,Solid oxide fuel cell system
+11346503,58390139,SEED,1,0.1348,0.6667,Hydrogen gas filling method and hydrogen gas filling device
+11757121,43485639,SEED,1,0.1319,0.6667,Fuel cell system and method for controlling fuel cell system
+12449097,4985051,SEED,1,0.1316,0.6,Hydrogen fuel storage device
+9090464,39157114,SEED,1,0.1313,0.75,Hydrogen generation apparatus and fuel cell system
+9979036,39157114,SEED,1,0.13,0.7,"Hydrogen generating apparatus, fuel cell system, and methods of operating them"
+10422046,48949207,SEED,1,0.1296,1.0,Hydrogen production from an integrated electrolysis cell and hydrocarbon gasific
+11929488,37727468,SEED,1,0.1287,0.6923,"AB5-based hydrogen storage alloy, electrode for Ni-MH battery, secondary battery"
+8916304,39218573,SEED,1,0.1279,0.6,Hydrogen generator and fuel cell system including same
+11251443,15498407,SEED,1,0.1275,0.7,"Fuel cell system, operating method thereof and fuel cell power plant"
+10081872,66542159,SEED,1,0.1266,1.0,Hydrogen production system and method for producing hydrogen
+10804548,40625602,SEED,1,0.1262,0.7,Fuel cell system and hydrogen leak decision method in fuel cell system
+9437891,39157114,SEED,1,0.125,0.625,Hydrogen generator and fuel cell system
+9957626,42645176,SEED,1,0.125,0.75,Hydrogen production system and method for producing hydrogen
+9865892,58994195,ANTISEED-manual,0,0.125,0.7,Fuel cell system and method for operating the same
+11201338,72763928,SEED,1,0.1212,0.6667,Fuel cell exhaust device
+8945784,39218573,SEED,1,0.1209,0.6364,Hydrogen production apparatus and fuel cell system using the same
+9334164,39157114,SEED,1,0.1209,0.625,Hydrogen generator and fuel cell system
+9464627,32707795,SEED,1,0.1205,1.0,Hydrogen storage container
+9174209,44593895,SEED,1,0.1194,0.6364,Hydrogen storage composites and methods for manufacturing the same
+9178228,46325143,SEED,1,0.1188,0.6,Solid oxide fuel cell system
+11141784,32263688,SEED,1,0.1188,0.6667,Mg-based alloy for hydrogen storage
+10364149,38486939,SEED,1,0.1183,0.8571,Hydrogen generation system and fuel cell system
+9206043,56117829,SEED,1,0.1176,0.6667,Method of and device for optimizing a hydrogen generating system
+10092892,56117829,SEED,1,0.1176,0.6667,Method of and device for optimizing a hydrogen generating system
+11969713,63453688,SEED,1,0.1167,0.625,Graphene-transition metal catalyst for hydrogen evolution reaction
+11421329,35330238,SEED,1,0.1163,1.0,Hydrogen production system
+10122038,39157114,SEED,1,0.1158,0.625,Hydrogen generator and fuel cell system
+9932229,56117829,SEED,1,0.1143,0.6,Method and system for production of hydrogen rich gas mixtures
+12319572,46403804,SEED,1,0.1129,0.7,Hydrogen storage composite material and manufacturing method thereof
+8906341,32950819,SEED,1,0.1124,0.7143,"Hydrogen storage method, hydrogen generating method, hydrogen storage apparatus "
+9012098,39157114,SEED,1,0.1111,0.75,Hydrogen production apparatus and fuel cell system
+9776863,36928125,SEED,1,0.1111,1.0,Method for hydrogen production
+11011763,45493891,ANTISEED-manual,0,0.11,0.6667,Solid oxide fuel cell with internal reformer
+9312555,38486939,SEED,1,0.1096,0.625,Hydrogen generator and fuel cell system
+10065170,39157114,SEED,1,0.1089,0.7778,Hydrogen generating apparatus and fuel cell system provided with hydrogen genera
+9908096,23242979,SEED,1,0.1068,1.0,Energy conversion system
+9252443,39157114,SEED,1,0.1068,0.6,"Hydrogen generation apparatus, fuel cell system, and hydrogen generation apparat"
+9133026,23242979,SEED,1,0.1068,1.0,Energy conversion system
+9634344,38486939,SEED,1,0.1061,0.6667,"Hydrogen purifier, hydrogen generation apparatus, and fuel cell system"
+9240604,39173176,SEED,1,0.1059,0.6667,Hydrogen generation apparatus and fuel cell power generation system
+9705144,38486939,SEED,1,0.1059,0.625,Hydrogen generator and fuel cell system
+9219277,14535083,SEED,1,0.1053,0.75,Low Co hydrogen storage alloy
+9017891,56117829,SEED,1,0.1042,0.6667,Hydrogen fed power system and method for generating power
+11258082,24569281,ANTISEED-manual,0,0.1022,0.6667,Fuel cell and temperature control method
+9528189,56117829,SEED,1,0.102,0.625,Gas generating device and method for generating gas
+9312554,38486939,SEED,1,0.0964,0.625,Hydrogen generator and fuel cell system
+12435838,44593895,SEED,1,0.0959,0.6364,Hydrogen storage system and method for controlling the same
+9079144,38486939,SEED,1,0.0957,0.625,Hydrogen generator and fuel cell system
+9231264,23893012,SEED,1,0.0957,0.6667,Hydrogen generator
+9290385,38486939,SEED,1,0.0952,0.75,Hydrogen generation apparatus and fuel cell system
+9461322,38486939,SEED,1,0.0899,0.75,Hydrogen generation apparatus and fuel cell system
+11634321,44593895,SEED,1,0.0899,0.7,Hydrogen storage product and method for manufacturing same
+9209457,14356753,ANTISEED-manual,0,0.0846,0.75,Alkaline storage battery
+9079771,38486939,SEED,1,0.0833,0.6,"Hydrogen generation system, fuel cell system, and method for operation of hydrog"
+9634324,27327556,SEED,1,0.0824,0.6471,Nickel-metal hydride battery and method for producing hydrogen storage alloy
+10323301,17435376,SEED,1,0.0811,0.875,"Hydrogen storing alloy, electrode, and nickel-hydrogen storage battery"
+8974646,23893012,SEED,1,0.0755,0.6,Portable hydrogen-rich water generator
+12077434,49516460,SEED,1,0.0746,0.7143,Method for producing high purity hydrogen
+10850979,10545170,SEED,1,0.0722,0.6667,Hydrogen storage assembly
+11946599,24018331,SEED,1,0.0,0.625,Apparatus and method for hydrogen fuel dispensing
+11988334,24018331,SEED,1,0.0,0.625,Hydrogen storage device and a method for producing a hydrogen storage device
+9447508,24018331,SEED,1,0.0,0.625,Hydrogen production device and method for producing hydrogen
+9683298,24018331,SEED,1,0.0,0.7143,Method and apparatus for producing gas
+12024757,43354647,SEED,1,0.0,0.75,Hydrogen storage alloy for alkaline storage battery and alkaline storage battery
+10501319,24018331,SEED,1,0.0,0.625,"Operation method for hydrogen production apparatus, and hydrogen production appa"
+11505460,24018331,SEED,1,0.0,0.625,Method for producing silanol compound and hydrogen
+10597293,24018331,SEED,1,0.0,0.625,"Operation method for hydrogen production apparatus, and hydrogen production appa"
+9067784,12583816,SEED,1,0.0,0.6,Hydrogen storage material and method of using the same
+10882005,57239723,SEED,1,0.0,0.625,Hydrogen gas production device and hydrogen gas production method
+12181108,57239723,SEED,1,0.0,0.625,Hydrogen gas filling method and hydrogen gas filling device
+11754226,62114124,SEED,1,0.0,0.625,Hydrogen fuel filling system and hydrogen fuel filling method
+12061020,57239723,SEED,1,0.0,0.625,Hydrogen storage device and method of producing a hydrogen storage device
+10407781,24656419,ANTISEED-AF,0,0.0,0.6,Electrolysis apparatus and electrolysis method
+10351961,55217129,ANTISEED-manual,0,0.0,0.6667,Water decomposition apparatus and water decomposition method
+9938143,13804046,SEED,1,0.0,0.625,Method for producing hydrogen gas from formic acid
+12272819,12583816,SEED,1,0.0,0.6154,"Hydrogen storage alloy for alkaline storage battery, alkaline storage battery us"
+12275639,13804046,SEED,1,0.0,0.6667,Method for preparing hydrogen gas
+10323328,13804046,SEED,1,0.0,0.625,Method for producing hydrogen gas from aqueous hydrogen sulphide
+11465902,13804046,SEED,1,0.0,1.0,Method for producing hydrogen gas

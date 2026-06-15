@@ -1,0 +1,364 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
+10547506,62489886,ANTISEED-manual,0,1.0,1.0,Determining identities for executing cloud processing and approvers of the execu
+11405373,69718967,SEED,1,1.0,1.0,Blockchain-based secured multicast communications
+11556923,73456960,SEED,1,1.0,1.0,Blockchain enabled service request system
+12165139,73456960,SEED,1,1.0,0.8,Blockchain enabled service request
+11295318,72141959,SEED,1,1.0,1.0,Systems and methods for provisioning cryptographic digital assets for blockchain
+11756053,72141959,SEED,1,1.0,1.0,Systems and methods for provisioning cryptographic digital assets for blockchain
+9258122,55235702,ANTISEED-manual,0,1.0,1.0,Systems and methods for securing data at third-party storage services
+9009077,38895242,ANTISEED-manual,0,1.0,1.0,Over-the-air delivery of metering certificates and data
+10504110,49448203,ANTISEED-manual,0,1.0,1.0,Application system for mobile payment and method for providing and using mobile 
+10452863,63523693,ANTISEED-manual,0,1.0,1.0,Unified control of privacy-impacting devices
+10579825,63523693,ANTISEED-manual,0,1.0,1.0,Unified control of privacy-impacting devices
+11983722,54702270,ANTISEED-manual,0,1.0,1.0,Systems and methods for fraud liability shifting
+11301843,73745573,SEED,1,1.0,1.0,System and method for blockchain based document processing
+12323524,57996000,SEED,1,1.0,1.0,"Social aggregating, fractionally efficient transfer guidance, conditional trigge"
+11216815,54702270,ANTISEED-manual,0,1.0,1.0,Systems and methods for fraud liability shifting
+11636471,66815133,SEED,1,1.0,1.0,"Social data tracking datastructures, apparatuses, methods and systems"
+11087323,69586381,SEED,1,1.0,1.0,Exposure based secure access system
+11727391,58579234,SEED,1,1.0,1.0,Computer-implemented methods and systems for validating tokens for blockchain-ba
+11386985,54480647,SEED,1,1.0,0.8,Healthcare transaction validation via blockchain systems and methods
+12100491,54480647,SEED,1,1.0,0.7,"Transaction validation via blockchain, systems and methods"
+12027244,54480647,SEED,1,1.0,0.8,Healthcare transaction validation via blockchain systems and methods
+10204339,63761678,SEED,1,1.0,1.0,"Method and system for blockchain-based combined identity, ownership, integrity a"
+11018869,70332527,SEED,1,1.0,1.0,Blockchain-based digital identity management (DIM) system
+11503026,73549398,ANTISEED-manual,0,1.0,1.0,Email address with identity string and methods of use
+11936774,58213271,ANTISEED-manual,0,1.0,1.0,Determining a common secret for the secure exchange of information and hierarchi
+12470369,58213271,ANTISEED-manual,0,1.0,1.0,Determining a common secret for the secure exchange of information and hierarchi
+11868457,69368029,ANTISEED-manual,0,1.0,1.0,Device and method for authenticating user and obtaining user signature using use
+11962681,71838660,SEED,1,1.0,1.0,Symmetric encryption for private smart contracts among multiple parties in a pri
+10915641,64277938,SEED,1,1.0,1.0,Implementation of continuous real-time validation of distributed data storage sy
+11128603,60019862,SEED,1,1.0,1.0,Method and system for providing a transaction forwarding service in blockchain i
+10340038,54480647,SEED,1,1.0,0.8,"Healthcare transaction validation via blockchain, systems and methods"
+10992649,62630676,ANTISEED-manual,0,1.0,1.0,Systems and methods for privacy in distributed ledger transactions
+11601408,59961301,ANTISEED-manual,0,1.0,1.0,Systems and methods for providing data privacy in a private distributed ledger
+10749848,59961301,ANTISEED-manual,0,1.0,1.0,Systems and methods for providing data privacy in a private distributed ledger
+10318938,59630074,SEED,1,1.0,1.0,System for routing of process authorization and settlement to a user in process 
+12381712,71838660,SEED,1,1.0,1.0,Symmetric encryption for private smart contracts among multiple parties in a pri
+11373202,69138421,SEED,1,1.0,1.0,Method and system for referral fraud prevention via blockchain
+11386409,58547786,ANTISEED-manual,0,1.0,1.0,Systems and methods for media codecs and containers
+11146399,68536901,ANTISEED-manual,0,1.0,1.0,Methods and systems for retrieving zero-knowledge proof-cloaked data on distribu
+10735183,71838660,SEED,1,1.0,1.0,Symmetric encryption for private smart contracts among multiple parties in a pri
+11652607,71838660,SEED,1,1.0,1.0,Symmetric encryption for private smart contracts among multiple parties in a pri
+12299641,69231971,SEED,1,1.0,1.0,Systems and methods for organizing and sharing contact and calendar information
+11682003,70326990,SEED,1,1.0,1.0,Systems and methods for charitable giving using blockchain cryptocurrency
+12254451,58095869,ANTISEED-manual,0,1.0,1.0,System and method for rendering virtual currency related services
+9785369,59886899,SEED,1,1.0,1.0,Multiple-link blockchain
+11694169,58095869,ANTISEED-manual,0,1.0,1.0,System and method for rendering virtual currency related services
+10489757,58095869,ANTISEED-manual,0,1.0,1.0,System and method for rendering virtual currency related services
+11120160,71731411,ANTISEED-manual,0,1.0,0.5385,Distributed personal data storage and encrypted personal data service based on s
+9544278,56287126,ANTISEED-manual,0,1.0,1.0,Using domain name system security extensions in a mixed-mode environment
+11605076,72604433,ANTISEED-manual,0,1.0,1.0,Reconciliation of indirectly executed exchanges of data using permissioned distr
+12430635,57503878,ANTISEED-manual,0,1.0,1.0,Systems and methods for an account issuer to manage a mobile wallet
+11093638,72662529,ANTISEED-manual,0,1.0,1.0,Distributed management of user privacy information
+11228570,66951620,ANTISEED-manual,0,1.0,1.0,Safe-transfer exchange protocol based on trigger-ready envelopes among distribut
+10652014,58213271,ANTISEED-manual,0,1.0,1.0,Determining a common secret for the secure exchange of information and hierarchi
+11349645,58213271,ANTISEED-manual,0,1.0,1.0,Determining a common secret for the secure exchange of information and hierarchi
+11514441,57072090,SEED,1,1.0,1.0,System and method for decentralized title recordation and authentication
+11902448,71128316,SEED,1,1.0,1.0,Hybrid blockchain architecture with computing pool
+10637665,70332527,SEED,1,1.0,1.0,Blockchain-based digital identity management (DIM) system
+10255135,61685390,ANTISEED-manual,0,1.0,1.0,Method and apparatus for non-interactive information dispersal
+9836395,51869201,ANTISEED-manual,0,1.0,1.0,Cache hashing
+11869030,61828973,ANTISEED-manual,0,1.0,1.0,Systems and methods for electronic payment using loyalty rewards
+11276059,69228812,ANTISEED-manual,0,1.0,1.0,System and method for autonomous sustenance of digital assets
+10341121,58777452,ANTISEED-AF,0,1.0,1.0,"System, method, and computer program product for privacy-preserving transaction "
+11233641,69229415,ANTISEED-manual,0,1.0,1.0,Systems and methods for using distributed attestation to verify claim of attesta
+11126980,70550403,ANTISEED-manual,0,1.0,1.0,Systems and methods for token linking and unlinking in digital wallets
+12505416,67541835,SEED,1,1.0,1.0,"System, method, and computer program product for a distributed, cryptographicall"
+9858569,54142513,ANTISEED-manual,0,1.0,1.0,Systems and methods in support of authentication of an item
+8924723,48224559,ANTISEED-manual,0,1.0,1.0,Managing security for computer services
+11907406,59791116,SEED,1,1.0,1.0,Computer-implemented method and system of tamper-evident recording of a pluralit
+11257089,70771486,SEED,1,1.0,0.5,Cryptographic taint tracking
+12067572,70771486,SEED,1,1.0,0.5,Cryptographic taint tracking
+10846765,70769965,SEED,1,1.0,1.0,"Blockchain-based e-bill number application method, apparatus, and electronic dev"
+11281644,65038651,SEED,1,1.0,1.0,Blockchain logging of data from multiple systems
+9838203,60452143,ANTISEED-manual,0,1.0,1.0,Integrity protected trusted public key token with performance enhancements
+10298390,60452143,ANTISEED-manual,0,1.0,1.0,Integrity protected trusted public key token with performance enhancements
+11055136,66647368,SEED,1,1.0,1.0,Prioritization in a permissioned blockchain
+10628389,67300025,SEED,1,1.0,1.0,Verification of data provenance for existing computer systems
+10579424,66647368,SEED,1,1.0,1.0,Prioritization in a permissioned blockchain
+10755238,61198659,ANTISEED-manual,0,1.0,1.0,"Transmission method, apparatus and system"
+10548022,69180151,SEED,1,1.0,1.0,Distributed ledger for wireless channel assignment
+10783545,68237993,SEED,1,1.0,1.0,Reward point redemption for cryptocurrency
+10579542,64097900,ANTISEED-manual,0,1.0,1.0,Browser session storage as storage for private key in public-key encryption sche
+11488160,69178550,ANTISEED-manual,0,1.0,1.0,Systems and methods for using captured time series of secured representations of
+11188883,61685564,SEED,1,1.0,1.0,Using ledger sensors to enable contextual contracts across various enterprise bl
+11651360,62147701,SEED,1,1.0,1.0,Triggering actions responsive to blockchain transactions
+10686601,67298298,SEED,1,1.0,0.0,Consistency and consensus management in decentralized and distributed systems
+10728020,67298298,SEED,1,1.0,1.0,Efficient mining operations in blockchain environments with non-secure devices
+9524500,50682644,ANTISEED-manual,0,1.0,1.0,Transferring assets
+10915874,59359873,SEED,1,1.0,1.0,System and process for tokenization of digital media
+9519894,33459275,ANTISEED-manual,0,1.0,1.0,Methods and apparatus for conducting electronic transactions
+8938402,33459275,ANTISEED-manual,0,1.0,1.0,Methods and apparatus for conducting electronic transactions
+12093936,64661478,ANTISEED-manual,0,1.0,1.0,Method and system for consumer-initiated transactions using encrypted tokens
+8924310,33459275,ANTISEED-manual,0,1.0,1.0,Methods and apparatus for conducting electronic transactions
+11514457,70471099,SEED,1,1.0,1.0,Smart contract generation and execution system with built-in mediator selection 
+10878388,69138232,ANTISEED-manual,0,1.0,1.0,Systems and methods for artificial-intelligence-based automated surface inspecti
+11250439,63799056,ANTISEED-manual,0,1.0,1.0,Systems and methods for smart contract intervention
+10839378,73264060,ANTISEED-manual,0,1.0,1.0,Systems and methods for performing device authentication operations using crypto
+9992028,58777452,ANTISEED-AF,0,1.0,1.0,"System, method, and computer program product for privacy-preserving transaction "
+10140610,54017739,ANTISEED-manual,0,1.0,1.0,Customer token preferences interface
+10771384,69523043,SEED,1,1.0,1.0,Routing based blockchain
+11392991,68614732,SEED,1,1.0,1.0,Media ledger for sharing consumer data
+10346406,59897311,SEED,1,1.0,1.0,Decentralized autonomous edge compute coordinated by smart contract on a blockch
+12505180,58737700,SEED,1,1.0,1.0,Method and system for verifying ownership of a digital asset using a distributed
+9954899,49518214,ANTISEED-manual,0,1.0,1.0,Applying a network traffic policy to an application session
+11893637,69139517,SEED,1,1.0,0.3333,Systems and methods for cryptographic trading
+12475464,61969742,ANTISEED-manual,0,1.0,1.0,Unified login biometric authentication support
+11475444,72916768,ANTISEED-manual,0,1.0,1.0,Systems and methods for anonymous cryptocurrency transactions
+11386493,69139517,SEED,1,1.0,1.0,System and method for cryptocurrency trading
+12483417,59771651,SEED,1,1.0,1.0,Computer-implemented system and method enabling secure storage of a large blockc
+9722790,57218599,SEED,1,1.0,1.0,Identity management service using a blockchain providing certifying transactions
+10657532,57218599,SEED,1,1.0,1.0,Identity management service using a blockchain providing certifying transactions
+11128607,56234103,SEED,1,1.0,1.0,Operating system for blockchain IoT devices
+11341490,65992628,SEED,1,1.0,1.0,Carbon footprint blockchain network
+11121870,63686081,SEED,1,1.0,1.0,Method and system for interacting public and private blockchains with controlled
+11087143,71070950,SEED,1,1.0,1.0,Shop platform using blockchain
+11210372,58737700,SEED,1,1.0,1.0,Method and system for verifying ownership of a digital asset using a distributed
+9009480,52782395,ANTISEED-manual,0,1.0,1.0,Techniques for handshake-free encrypted communication using public key bootstrap
+11010729,60039553,ANTISEED-manual,0,1.0,1.0,Cryptoconomy solution for administration and governance in a distributed system
+11227284,64661478,ANTISEED-manual,0,1.0,1.0,Method and system for consumer-initiated transactions using encrypted tokens
+9608969,55537506,ANTISEED-manual,0,1.0,1.0,Encrypted augmentation storage
+10002352,54017738,ANTISEED-manual,0,1.0,1.0,Digital wallet exposure reduction
+9406065,54017739,ANTISEED-manual,0,1.0,1.0,Customer token preferences interface
+10134030,54017739,ANTISEED-manual,0,1.0,1.0,Customer token preferences interface
+8856536,48522203,ANTISEED-manual,0,1.0,1.0,Method and apparatus for secure firmware download using diagnostic link connecto
+11188977,63449014,ANTISEED-manual,0,1.0,0.3889,Method for creating commodity assets from unrefined commodity reserves utilizing
+11593797,60573995,ANTISEED-manual,0,1.0,1.0,Authentication using a secure circuit
+12282913,52020084,ANTISEED-manual,0,0.9773,1.0,Mobile wireless communications device having digital wallet with multi-mode user
+12278806,56234103,SEED,1,0.9753,1.0,Operating system for blockchain IoT devices
+11347876,53835288,SEED,1,0.9688,1.0,Access control
+12315009,70771486,SEED,1,0.9643,0.0,Selection of cryptographic identifiers in a block
+12327237,66696989,ANTISEED-manual,0,0.963,1.0,Offline crypto asset custodian
+12205108,66696989,ANTISEED-manual,0,0.963,1.0,Offline crypto asset custodian
+12026699,66696989,ANTISEED-manual,0,0.963,1.0,Offline crypto asset custodian
+11769147,69639098,SEED,1,0.9583,1.0,Secure smart note
+11294991,58737700,SEED,1,0.9375,1.0,Method and system for verifying ownership of a digital asset using a distributed
+12380182,58737700,SEED,1,0.9375,1.0,Method and system for verifying ownership of a digital asset using a distributed
+11037137,52020084,ANTISEED-manual,0,0.9318,1.0,Mobile wireless communications device having digital wallet with multi-mode user
+11210661,62840479,ANTISEED-manual,0,0.9184,1.0,Method for providing payment gateway service using UTXO-based protocol and serve
+10121143,63761678,SEED,1,0.9167,1.0,"Method and system for blockchain-based combined identity, ownership, integrity a"
+10102526,63761678,SEED,1,0.9167,1.0,"Method and system for blockchain-based combined identity, ownership, integrity a"
+10346823,47678160,ANTISEED-manual,0,0.9016,1.0,Methods and systems for activating an electronic payments infrastructure
+11562343,52020083,ANTISEED-manual,0,0.8723,1.0,Communication system with digital wallet having blank user card and related meth
+10812253,64902938,SEED,1,0.8667,1.0,Blockchain object interface
+10944546,64902938,SEED,1,0.8667,1.0,Blockchain object interface
+11037111,61727732,SEED,1,0.8621,0.9412,Method for issuing currency and making payment by managing balance database for 
+10831924,63523693,ANTISEED-manual,0,0.8608,1.0,Unified control of privacy-impacting devices
+10831925,63523693,ANTISEED-manual,0,0.8608,1.0,Unified control of privacy-impacting devices
+10521604,63523693,ANTISEED-manual,0,0.8481,1.0,Unified control of privacy-impacting devices
+12120230,63686081,SEED,1,0.8475,0.8462,Method and system for interacting public and private blockchains with controlled
+8943319,48224559,ANTISEED-manual,0,0.8182,1.0,Managing security for computer services
+11823293,53052303,ANTISEED-manual,0,0.7963,1.0,Energy resource network
+11157900,61627182,SEED,1,0.7872,1.0,Method and system for offline data transfer via machine-readable code
+11704665,61627182,SEED,1,0.7872,1.0,Method and system for offline data transfer via machine-readable code
+11238546,53052303,ANTISEED-manual,0,0.7719,1.0,Energy resource network
+11620671,68164371,SEED,1,0.7556,1.0,"Method and system for managing medical information platform by using blockchain,"
+12034838,56014930,ANTISEED-manual,0,0.6835,1.0,Method and device to protect a cryptographic exponent
+11487886,73015920,SEED,1,0.6829,1.0,Database private document sharing
+10956614,53835288,SEED,1,0.6806,0.6667,Expendable access control
+10360561,54241385,ANTISEED-manual,0,0.6757,0.4615,System and method for secured communications between a mobile device and a serve
+11677550,62110079,ANTISEED-manual,0,0.6724,0.6364,Methods and apparatus for a distributed database including anonymous entries
+10887096,62110079,ANTISEED-manual,0,0.6724,0.6364,Methods and apparatus for a distributed database including anonymous entries
+9219751,49518214,ANTISEED-manual,0,0.6596,0.2727,System and method to apply forwarding policy to an application session
+9350744,49518214,ANTISEED-manual,0,0.6596,0.5714,Applying forwarding policy to an application session
+11893554,69639098,SEED,1,0.6552,1.0,Secure smart note
+10922679,57583156,ANTISEED-manual,0,0.65,1.0,"Method for authenticating payment data, corresponding devices and programs"
+9967088,59886899,SEED,1,0.65,0.25,Rewritable blockchain
+11868972,70773116,ANTISEED-manual,0,0.6383,1.0,Method and system of validating cash transactions
+10243938,59886899,SEED,1,0.629,0.25,Rewritable blockchain
+10348707,59886899,SEED,1,0.629,0.25,Rewritable blockchain
+11093935,66951620,ANTISEED-manual,0,0.6196,0.5294,System and methods for a resource-saving exchange protocol based on trigger-read
+9270705,49518214,ANTISEED-manual,0,0.617,0.5714,Applying security policy to an application session
+9497201,49518214,ANTISEED-manual,0,0.617,0.5714,Applying security policy to an application session
+10305859,49518214,ANTISEED-manual,0,0.617,0.5714,Applying security policy to an application session
+9661026,49518214,ANTISEED-manual,0,0.617,0.5714,Applying security policy to an application session
+12346416,58737700,SEED,1,0.6034,0.8667,Method and system for verifying integrity of a digital asset using a distributed
+11934494,58737700,SEED,1,0.6034,0.8667,Method and system for verifying integrity of a digital asset using a distributed
+10579779,58737700,SEED,1,0.6034,0.8667,Method and system for verifying integrity of a digital asset using a distributed
+11290258,72138997,ANTISEED-manual,0,0.6,0.7273,Hybrid cryptographic system and method for encrypting data for common fleet of v
+10552641,66100041,SEED,1,0.5789,0.7273,Verifying integrity of data stored in a consortium blockchain using a public sid
+10691835,66100041,SEED,1,0.5789,0.7273,Verifying integrity of data stored in a consortium blockchain using a public sid
+11552935,59886899,SEED,1,0.5667,0.125,Distributed key secret for rewritable blockchain
+10623387,59886899,SEED,1,0.5667,0.125,Distributed key secret for rewritable blockchain
+12149515,59886899,SEED,1,0.5667,0.125,Distributed key secret for rewritable blockchain
+9967239,34549345,ANTISEED-manual,0,0.56,0.6,Method and apparatus for verifiable generation of public keys
+9160530,34549345,ANTISEED-manual,0,0.56,0.6,Method and apparatus for verifiable generation of public keys
+9240884,34549345,ANTISEED-manual,0,0.56,0.6,Method and apparatus for verifiable generation of public keys
+11423174,63523693,ANTISEED-manual,0,0.5432,0.7143,Unified control and validation of privacy-impacting devices
+10673632,57589049,SEED,1,0.5208,0.125,Method for managing a trusted identity
+10079682,57589049,SEED,1,0.5208,0.125,Method for managing a trusted identity
+10769602,64397149,ANTISEED-manual,0,0.5098,0.6667,System and method for customer initiated payment transaction using customer's mo
+10496989,59630606,SEED,1,0.507,0.2667,System to enable contactless access to a transaction terminal using a process da
+11030621,59630606,SEED,1,0.507,0.2667,System to enable contactless access to a transaction terminal using a process da
+12387568,68053767,ANTISEED-manual,0,0.5,1.0,Sports betting apparatus and method
+11436598,66815133,SEED,1,0.5,1.0,"Social data tracking datastructures, apparatuses, methods and systems"
+10007913,57218599,SEED,1,0.4915,0.9,Identity management service using a blockchain providing identity transactions b
+9967096,59886899,SEED,1,0.4762,0.25,Rewritable blockchain
+11783328,62630676,ANTISEED-manual,0,0.4667,0.3571,"Systems and methods for wallet, token, and transaction management using distribu"
+11366882,58737700,SEED,1,0.4521,0.8667,Method and system for verifying integrity of a digital asset using a distributed
+11449842,62630676,ANTISEED-manual,0,0.4444,0.7,Systems and methods for private settlement of distributed ledger transactions
+10127552,54836477,ANTISEED-manual,0,0.4423,0.4,Cryptocurrency aggregation system
+11625708,64397149,ANTISEED-manual,0,0.44,0.6667,System and method for customer initiated payment transaction using customer's mo
+11509455,62597818,SEED,1,0.4384,0.1429,Blockchain for general computation
+10762479,63865932,SEED,1,0.4342,0.9091,Method and system for processing blockchain-based real-time transaction
+12217254,56234104,SEED,1,0.4253,0.5,Method and system for controlling the performance of a contract using a distribu
+12452075,57996000,SEED,1,0.4253,0.8235,"Asynchronous crypto asset transfer and social aggregating, fractionally efficien"
+10771449,63686081,SEED,1,0.4247,0.2667,Method and system for trustworthiness using digital certificates
+11949670,63686081,SEED,1,0.4247,0.2667,Method and system for trustworthiness using digital certificates
+11951400,67904857,SEED,1,0.4235,0.4444,Secure decentralized video game transaction platform
+10657521,55455112,ANTISEED-manual,0,0.4194,0.2353,Systems and methods for determining fraudulent transactions using digital wallet
+11501286,55455112,ANTISEED-manual,0,0.4194,0.3125,Systems and methods for providing fraud indicator data within an authentication 
+11989703,64661478,ANTISEED-manual,0,0.4179,0.25,Method and system of blockchain disbursements
+10972269,62630676,ANTISEED-manual,0,0.4167,0.5,Systems and methods for token vault synchronization using a distributed ledger
+11250394,63761678,SEED,1,0.4127,0.4737,"Method and system for blockchain-based gemstone ownership, identity, custody, su"
+11811931,59630606,SEED,1,0.4079,0.1765,System for real-time assessment of authenticity of a resource using non-fungible
+10917233,70161322,SEED,1,0.4062,1.0,Selective exchange of transaction data
+10692086,68385373,ANTISEED-manual,0,0.4048,0.4737,Distributed ledger based identity and origins of supply chain application enabli
+11842339,62597818,SEED,1,0.4,0.125,Secure off-chain blockchain transactions
+11403604,64488606,SEED,1,0.3803,1.0,Blockchain-based set exchange method and apparatus for available resource quotas
+11423352,62630676,ANTISEED-manual,0,0.3571,0.6,Systems and methods for distributed ledger-based floorplanning
+11270306,62929555,SEED,1,0.3239,0.75,"Asset management method and apparatus, and electronic device"
+11516020,63999191,ANTISEED-manual,0,0.3158,0.9091,"Key management method, apparatus, and system, storage medium, and computer devic"
+11625697,64397149,ANTISEED-manual,0,0.2903,0.6667,System and method for customer initiated payment transaction using customer's mo
+11310031,56936571,SEED,1,0.2897,1.0,Blockchain-implemented method and system
+10789628,70769965,SEED,1,0.2836,0.8182,"Blockchain-based bill number allocation method, apparatus and electronic device"
+11212081,58347318,SEED,1,0.2763,0.7,Method for signing a new block in a decentralized blockchain consensus network
+11706032,68616876,ANTISEED-manual,0,0.2759,1.0,Method and apparatus for user authentication
+12511644,58579234,SEED,1,0.2703,1.0,Computer-implemented methods and systems for validating tokens for blockchain-ba
+11669830,62630676,ANTISEED-manual,0,0.2687,0.6,Systems and methods for distributed-ledger based settlement
+12154100,62630676,ANTISEED-manual,0,0.2687,0.6,Systems and methods for distributed-ledger based settlement
+11271736,56936571,SEED,1,0.2628,1.0,Blockchain-implemented method and system
+11838415,56936571,SEED,1,0.2628,1.0,Blockchain-implemented method and system
+10700852,66066815,SEED,1,0.25,0.7,System and method for parallel-processing blockchain transactions
+11310032,66066815,SEED,1,0.25,0.7,System and method for parallel-processing blockchain transactions
+11126739,71098606,SEED,1,0.2469,0.8,"Invoice access method and apparatus based on blockchain, and electronic device"
+11941613,60267547,SEED,1,0.2386,1.0,Application framework using blockchain-based asset ownership
+11397944,60267547,SEED,1,0.2386,1.0,Application framework using blockchain-based asset ownership
+11290281,62929555,SEED,1,0.2338,0.75,"Asset management method and apparatus, and electronic device"
+11218325,62929555,SEED,1,0.2338,0.75,"Asset management method and apparatus, and electronic device"
+10749865,59896616,SEED,1,0.2299,0.625,Systems and methods for providing block chain or distributed ledger-based entity
+11410145,58231667,SEED,1,0.2291,1.0,Blockchain-implemented method for control and distribution of digital content
+12229752,64095776,ANTISEED-manual,0,0.2273,0.625,Method and system for regulation of blockchain transactions
+11640601,64095776,ANTISEED-manual,0,0.2273,0.625,Method and system for regulation of blockchain transactions
+11924325,56936571,SEED,1,0.22,1.0,Blockchain-implemented method and system
+12367468,58231667,SEED,1,0.2167,1.0,Blockchain-implemented method for control and distribution of digital content
+11373177,62840479,ANTISEED-manual,0,0.2133,0.625,Method for issuing currency and making payment using utxo-based protocol and ser
+12278899,56936571,SEED,1,0.211,1.0,Blockchain-implemented method and system
+11563574,56936571,SEED,1,0.2101,1.0,Blockchain-implemented method and system
+12278898,56936571,SEED,1,0.2087,0.8333,Blockchain-implemented control method and system
+11687889,64095776,ANTISEED-manual,0,0.1975,0.7143,System and method for cryptographic transactions
+12079785,64095776,ANTISEED-manual,0,0.1975,0.7143,System and method for cryptographic transactions
+8892887,40153920,ANTISEED-manual,0,0.1928,0.7143,Method and apparatus for mutual authentication
+11134379,69235835,ANTISEED-manual,0,0.1923,0.625,"Identity authentication method, device, and system"
+12192355,71018932,ANTISEED-manual,0,0.1918,0.6,"Method for positioning terminal device, electronic device and storage medium"
+12316746,70787513,SEED,1,0.1905,0.6364,"Cross-blockchain data processing method and apparatus, device, and computer stor"
+11930103,63999191,ANTISEED-manual,0,0.1857,0.6429,"Method, user device, management device, storage medium and computer program prod"
+11902441,67470674,SEED,1,0.1852,0.6,Systems and methods for parallel verification of blockchain transactions
+11188910,71098606,SEED,1,0.1852,0.6364,"Blockchain-based reconciliation system, method, and apparatus and electronic dev"
+11394559,67470674,SEED,1,0.1818,0.6,Methods and systems for ownership verification using blockchain
+12470399,67470674,SEED,1,0.1818,0.6,Methods and systems for ownership verification using blockchain
+11783329,67987891,ANTISEED-manual,0,0.18,1.0,Payment method and system
+11481765,71098606,SEED,1,0.1786,0.6364,Blockchain-based transaction processing method and apparatus and electronic devi
+10462113,45562499,ANTISEED-manual,0,0.1774,0.625,Systems and methods for securing push authentications
+11838409,70330818,SEED,1,0.175,0.6,Method and apparatus for transferring data in a publish-subscribe system
+11520710,35801369,ANTISEED-manual,0,0.1746,0.75,Storage device authentication
+10061716,35801369,ANTISEED-manual,0,0.1746,0.75,Storage device authentication
+10719455,35801369,ANTISEED-manual,0,0.1746,0.75,Storage device authentication
+11954046,35801369,ANTISEED-manual,0,0.1746,0.75,Storage device authentication
+11023309,65073181,SEED,1,0.1744,0.6154,"Method, apparatus and electronic device for blockchain-based transaction consens"
+11614994,65073181,SEED,1,0.1744,0.6154,"Method, apparatus and electronic device for blockchain-based transaction consens"
+9479327,34549345,ANTISEED-manual,0,0.1739,0.75,Apparatus and method for generating key
+11934549,71098606,SEED,1,0.1733,0.8,"Invoice access method and apparatus based on blockchain, and electronic device"
+11301839,64397149,ANTISEED-manual,0,0.1707,0.6,Method and system for making a secure payment transaction
+12113912,54872483,ANTISEED-manual,0,0.1687,0.625,Electronic authentication device and method using blockchain
+11935015,70787513,SEED,1,0.1684,0.7778,"Data processing method and apparatus, computer device, and storage medium"
+12184726,70787513,SEED,1,0.1628,0.6364,"Blockchain-based data processing method and apparatus, device, and readable stor"
+9112860,40153920,ANTISEED-manual,0,0.1628,0.7143,Method and apparatus for mutual authentication
+11270388,71613324,ANTISEED-manual,0,0.1618,0.625,Blockchain-based data processing method and apparatus
+12388621,50938931,ANTISEED-manual,0,0.1613,0.6364,"Cryptographic system, encryption device, decryption device, and key generation d"
+10511447,53008461,ANTISEED-manual,0,0.1609,0.6,System and method for generating one-time data signatures
+10868670,71613324,ANTISEED-manual,0,0.1594,0.8333,Data processing method and apparatus
+12225106,72349824,ANTISEED-manual,0,0.1579,0.6667,"File sharing method and system, electronic device and readable storage medium"
+11128450,71018932,ANTISEED-manual,0,0.1579,0.6667,"Signature generation method, electronic device, and storage medium"
+12430643,58632143,SEED,1,0.1566,0.6,"Data management method, apparatus and system based on blockchain"
+11349638,70787513,SEED,1,0.1548,0.6,"Privacy transaction processing method, electronic device and storage medium"
+11557011,73745573,SEED,1,0.1538,0.7,Blockchain-based system and method for document transformation and accountabilit
+12058253,70164734,ANTISEED-manual,0,0.1538,0.7,Method and apparatus for controlling data access right to data stored on a block
+11563569,70164734,ANTISEED-manual,0,0.1538,0.7,Method and apparatus for controlling data access right to data stored on a block
+11244306,65073181,SEED,1,0.1528,0.6364,"Method, apparatus and electronic device for blockchain transactions"
+11379826,65073181,SEED,1,0.1528,0.6364,"Method, apparatus and electronic device for blockchain transactions"
+11886420,70330818,SEED,1,0.1522,0.6,System and method for distributing data records using a blockchain
+12093418,67470674,SEED,1,0.1519,0.6364,Systems and methods for blockchain wallet owner verification and access manageme
+11989316,67470674,SEED,1,0.1519,0.6364,Systems and methods for blockchain wallet owner verification and access manageme
+11950091,39356702,ANTISEED-manual,0,0.1507,0.8,Communication system and method
+12273437,71613324,ANTISEED-manual,0,0.1475,0.75,Data processing method and apparatus for blockchain system
+12430964,39151498,ANTISEED-AF,0,0.1471,0.6667,Information processing system and information processing method
+9608808,52813266,ANTISEED-manual,0,0.1467,0.6,"Mobile terminal, control method thereof, onboard unit, control method thereof, b"
+11223486,68738385,ANTISEED-manual,0,0.1443,0.625,"Digital signature method, device, and system"
+10785019,61198659,ANTISEED-manual,0,0.1429,0.6667,Data transmission method and apparatus
+12387012,52481660,ANTISEED-manual,0,0.1395,1.0,System and method for identity management
+10848310,46152952,ANTISEED-manual,0,0.1375,0.6364,Method and device for identifying user identity
+11315112,60405063,SEED,1,0.1359,0.625,"Blockchain data processing method, apparatus, device, and system"
+11037144,60405063,SEED,1,0.1359,0.625,"Blockchain data processing method, apparatus, device, and system"
+10673611,58969511,ANTISEED-manual,0,0.1339,0.8571,"Data transmission method, device, and system"
+8781131,35451248,ANTISEED-manual,0,0.1321,0.6667,Key distribution method and system
+11956625,50693434,ANTISEED-manual,0,0.1313,0.6667,Utilization control system and utilization control method
+11100095,67172354,SEED,1,0.1304,0.6667,Service processing system and method based on blockchain
+10942920,67172354,SEED,1,0.1304,0.6667,Service processing system and method based on blockchain
+11315666,60405063,SEED,1,0.1262,0.7143,Blockchain-based data processing method and device
+11269916,60405063,SEED,1,0.1262,0.7143,Blockchain-based data processing method and device
+11947564,60405063,SEED,1,0.1262,0.7143,Blockchain-based data processing method and device
+12154099,9353051,ANTISEED-manual,0,0.1236,0.6667,System and method for authenticating electronic money
+12086879,69139517,SEED,1,0.1228,0.625,Method and system for cryptocurrency mining center
+10754961,71613324,ANTISEED-manual,0,0.1212,0.6667,Data processing apparatus and data processing method for internet of things syst
+11887508,39151498,ANTISEED-AF,0,0.12,0.6667,Information processing apparatus and information processing method
+10346814,67300889,ANTISEED-manual,0,0.12,0.625,System and method for executing financial transactions
+10965454,23643258,ANTISEED-manual,0,0.1176,0.7,Apparatus and method for public key encryption
+11159526,54324425,ANTISEED-manual,0,0.1161,0.625,System and method for decentralized-identifier authentication
+10841087,50693434,ANTISEED-manual,0,0.102,0.6667,"Security device, system, and security method"
+11641271,67393569,ANTISEED-manual,0,0.1014,0.7692,"Control method, non-transitory computer-readable storage medium, and information"
+11290287,37856680,ANTISEED-manual,0,0.101,0.625,"Digital certificate management method, apparatus, and system"
+11240046,37856680,ANTISEED-manual,0,0.101,0.625,"Digital certificate management method, apparatus, and system"
+10797867,59352615,ANTISEED-manual,0,0.0979,0.8571,System and method for electronic bidding
+11825306,39356702,ANTISEED-manual,0,0.0957,0.7143,"Peer-to-peer secure communication system, apparatus, and method"
+12107840,39588326,ANTISEED-manual,0,0.0938,0.8333,Vehicle control apparatus and control method thereof
+11126458,65073181,SEED,1,0.093,0.6667,"Method, apparatus, and electronic device for resource allocation based on blockc"
+11842332,9353051,ANTISEED-manual,0,0.0918,0.6667,System and method for authenticating electronic money
+11483138,67393569,ANTISEED-manual,0,0.0909,0.6667,Information processing apparatus and non-transitory computer readable medium
+9852423,52449464,ANTISEED-manual,0,0.0889,0.6154,Systems and methods for wireless authorization of transactions with mobile payme
+12248932,69139517,SEED,1,0.0886,0.625,System and method for optimizing cryptocurrency transactions
+10861008,69139517,SEED,1,0.0886,0.625,System and method for optimizing cryptocurrency transactions
+11763275,69139517,SEED,1,0.0882,0.625,System and method for cryptocurrency point of sale
+10185936,38576656,ANTISEED-manual,0,0.085,0.625,Method and system for processing internet payments
+12321470,67393569,ANTISEED-manual,0,0.0789,0.6154,"Data management system, data management method, and non-transitory computer read"
+9203650,18401265,ANTISEED-manual,0,0.0769,0.75,Information management system
+9225553,18401265,ANTISEED-manual,0,0.0769,0.75,Information management system
+9385863,55218297,ANTISEED-manual,0,0.0,0.75,System and method for authenticating a communication device
+10149153,3377048,ANTISEED-manual,0,0.0,0.6667,Wireless communication system
+11934512,55218297,ANTISEED-manual,0,0.0,0.6,"Method, system, and computer program product for authenticating a device"
+11436313,55218297,ANTISEED-manual,0,0.0,0.6,"Method, system, and computer program product for authenticating a device"
+12505435,58213272,SEED,1,0.0,1.0,Registry and automated management method for blockchain-enforced smart contracts
+11743050,64277743,ANTISEED-manual,0,0.0,1.0,Computer system and method for distributed privacy-preserving shared execution o
+12307447,65364369,ANTISEED-manual,0,0.0,0.625,Computer-implemented system and method for exchange of data
+11797984,65364369,ANTISEED-manual,0,0.0,0.625,Computer-implemented system and method for exchange of data
+10979229,64277743,ANTISEED-manual,0,0.0,1.0,Computer system and method for distributed privacy-preserving shared execution o
+10755248,61830599,ANTISEED-manual,0,0.0,1.0,Method and device for digital payment transactions
+9286602,27420558,ANTISEED-manual,0,0.0,0.6667,Secure financial transactions
+10419409,23873339,ANTISEED-manual,0,0.0,0.6,Method and apparatus for secure network communications
+12182244,59191133,ANTISEED-manual,0,0.0,0.625,Method and apparatus for user verification
+9166791,59191133,ANTISEED-manual,0,0.0,0.75,Method and apparatus for user identity verification
+10997443,59191133,ANTISEED-manual,0,0.0,1.0,"User identity verification method, apparatus and system"
+11120437,58213272,SEED,1,0.0,1.0,Registry and automated management method for blockchain-enforced smart contracts
+11972422,58213272,SEED,1,0.0,1.0,Registry and automated management method for blockchain-enforced smart contracts
+11995618,64659362,SEED,1,0.0,1.0,Blockchain network interaction controller
+11962683,16312935,ANTISEED-manual,0,0.0,0.6667,Method and system for device level authentication in electronic transactions
+11468412,16312935,ANTISEED-manual,0,0.0,0.625,System and method for composite cryptographic transactions
+11171775,16312935,ANTISEED-manual,0,0.0,0.6667,Method and system for device level authentication in electronic transactions
+11823141,64659362,SEED,1,0.0,1.0,Blockchain network interaction controller
+12470371,58159118,SEED,1,0.0,1.0,Secure multiparty loss resistant storage and transfer of cryptographic keys for 
+11621833,58159118,SEED,1,0.0,1.0,Secure multiparty loss resistant storage and transfer of cryptographic keys for 
+10659223,58159118,SEED,1,0.0,1.0,Secure multiparty loss resistant storage and transfer of cryptographic keys for 
+11611432,16312935,ANTISEED-manual,0,0.0,0.6667,Method and system for device level authentication in electronic transactions
+12380413,16312935,ANTISEED-manual,0,0.0,0.625,System and method for composite cryptographic transactions
+12506599,32871957,ANTISEED-manual,0,0.0,0.625,Methods and systems for secure network communication

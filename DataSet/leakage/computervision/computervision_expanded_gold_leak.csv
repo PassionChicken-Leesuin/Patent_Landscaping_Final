@@ -1,0 +1,385 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
+11574097,70550169,ANTISEED-manual,0,1.0,1.0,Deep learning based identification of difficult to test nodes
+11010516,70550169,ANTISEED-manual,0,1.0,1.0,Deep learning based identification of difficult to test nodes
+11417128,64572544,ANTISEED-manual,0,1.0,0.2692,"Method, device, and system for adaptive training of machine learning models via "
+10769718,72290072,SEED,1,1.0,1.0,"Method, medium, and system for live preview via machine learning models"
+11538096,72290072,SEED,1,1.0,1.0,"Method, medium, and system for live preview via machine learning models"
+11468318,63522622,SEED,1,1.0,1.0,Frame interpolation via adaptive convolution and adaptive separable convolution
+11803981,72046939,SEED,1,1.0,1.0,Vehicle environment modeling with cameras
+10726356,71783226,ANTISEED-manual,0,1.0,1.0,Target variable distribution-based acceptance of machine learning test data sets
+10810464,63583486,ANTISEED-manual,0,1.0,1.0,"Information processing apparatus, information processing method, and storage med"
+10824752,68104374,ANTISEED-manual,0,1.0,1.0,Utilizing heuristic and machine learning models to generate a mandatory access c
+11347751,62243945,ANTISEED-manual,0,1.0,1.0,System and method for associating user-entered text to database entries
+10628708,65996870,SEED,1,1.0,0.0476,Utilizing a deep neural network-based model to identify visually similar digital
+11227185,65996870,SEED,1,1.0,0.0,Identifying visually similar digital images utilizing deep learning
+10762164,64097285,ANTISEED-manual,0,1.0,1.0,Vector and matrix computing device
+11734383,64097285,ANTISEED-manual,0,1.0,1.0,Vector and matrix computing device
+10441225,67617360,SEED,1,1.0,1.0,Predicting disease recurrence following trimodality therapy in non-small cell lu
+10657647,70736533,SEED,1,1.0,1.0,Image processing system to detect changes to target objects using base object mo
+10902665,72603658,SEED,1,1.0,1.0,Rendering images from deeply learned raytracing parameters
+11074751,70849766,SEED,1,1.0,1.0,3D hair synthesis using volumetric variational autoencoders
+11605168,70727931,SEED,1,1.0,1.0,Learning copy space using regression and segmentation neural networks
+10748662,62081949,SEED,1,1.0,1.0,Content-based medical image retrieval method and retrieval system
+11983269,68533906,ANTISEED-manual,0,1.0,1.0,Deep neural network system for similarity-based graph representations
+10692570,69139756,ANTISEED-manual,0,1.0,1.0,Neural network matrix multiplication in memory cells
+11537719,68533906,ANTISEED-manual,0,1.0,1.0,Deep neural network system for similarity-based graph representations
+10984257,66696049,ANTISEED-manual,0,1.0,1.0,Training multiple neural networks of a vehicle perception component based on sen
+11093826,59497841,ANTISEED-manual,0,1.0,1.0,Efficient determination of optimized learning settings of neural networks
+9449283,56895606,ANTISEED-manual,0,1.0,1.0,Selecting a training strategy for training a machine learning model
+11176470,64903303,ANTISEED-manual,0,1.0,1.0,Artificial intelligence based solution generator
+9857271,52810356,ANTISEED-manual,0,1.0,1.0,Life-time management of downhole tools and components
+10706545,68385083,SEED,1,1.0,1.0,Systems and methods for analysis of anatomical images
+11100621,66171118,SEED,1,1.0,1.0,Simulated post-contrast T1-weighted magnetic resonance imaging
+11216905,71072760,SEED,1,1.0,1.0,"Automatic detection, counting, and measurement of lumber boards using a handheld"
+11145059,73046481,SEED,1,1.0,1.0,Medical scan viewing system with enhanced training and methods for use therewith
+10339421,63669655,SEED,1,1.0,1.0,RGB-D scene labeling with multimodal recurrent neural networks
+11436744,62918531,SEED,1,1.0,1.0,"Method for estimating lane information, and electronic device"
+10606257,61904452,SEED,1,1.0,1.0,Automatic parking system and automatic parking method
+9922272,55585006,SEED,1,1.0,1.0,Deep similarity learning for multimodal medical images
+10769485,68840064,SEED,1,1.0,1.0,Framebuffer-less system and method of convolutional neural network
+10713815,69192004,SEED,1,1.0,0.75,Method and device for supporting administrators to processes of object detectors
+10817984,63129282,SEED,1,1.0,1.0,Image preprocessing method and device for JPEG compressed file
+11449985,62487947,SEED,1,1.0,1.0,Computer vision for cancerous tissue recognition
+12431244,69415119,SEED,1,1.0,1.0,Interpretable deep machine learning for clinical radiology
+11776095,66175519,SEED,1,1.0,1.0,Photo relighting using deep neural networks and confidence learning
+12136203,66175519,SEED,1,1.0,1.0,Photo relighting using deep neural networks and confidence learning
+10614574,66095888,SEED,1,1.0,1.0,Generating image segmentation data using a multi-branch neural network
+10311560,61280833,SEED,1,1.0,1.0,Method and system for estimating blur kernel size
+11176188,62782929,ANTISEED-manual,0,1.0,1.0,Visualization framework based on document representation learning
+11720997,70281191,SEED,1,1.0,1.0,Artificial intelligence (AI) encoding device and operating method thereof and AI
+10860836,73653531,SEED,1,1.0,1.0,Generation of synthetic image data for computer vision models
+10043240,60038955,SEED,1,1.0,1.0,Optimal cropping of digital image based on professionalism score of subject
+11676246,70281191,SEED,1,1.0,1.0,Artificial intelligence (AI) encoding device and operating method thereof and AI
+10458895,60483822,SEED,1,1.0,1.0,Predicting response to pemetrexed chemotherapy in non-small cell lung cancer (NS
+11322259,65634481,SEED,1,1.0,1.0,Patient risk stratification based on body composition derived from computed tomo
+9826149,56975741,SEED,1,1.0,1.0,Machine learning of real-time image capture parameters
+10970599,70727931,SEED,1,1.0,1.0,Learning copy space using regression and segmentation neural networks
+10764588,69406765,SEED,1,1.0,1.0,Deep quality enhancement of adaptive downscaled coding for image compression
+11574225,72290110,ANTISEED-manual,0,1.0,1.0,Generating weather data based on messaging system activity
+10762387,62100334,SEED,1,1.0,1.0,Method and apparatus for processing image
+10769542,72290110,ANTISEED-manual,0,1.0,1.0,Generating weather data based on messaging system activity
+10852749,65435056,SEED,1,1.0,1.0,Learning good features for visual odometry
+11996181,62842288,SEED,1,1.0,1.0,Automatic detection of tooth type and eruption status
+11903557,73016285,SEED,1,1.0,0.5,Endoscope for imaging in nonvisible light
+11037336,70160308,SEED,1,1.0,1.0,Method for processing unmatched low-dose X-ray computed tomography image using n
+9691132,50388586,SEED,1,1.0,1.0,Method and apparatus for inferring facial composite
+11120540,71072723,SEED,1,1.0,1.0,Multi-view imaging system and methods for non-invasive inspection in food proces
+10438350,64692689,SEED,1,1.0,1.0,Material segmentation in image volumes
+10997705,68296585,SEED,1,0.9722,1.0,System and method for quantitative analysis of borehole images
+10839490,67220636,SEED,1,0.76,0.6154,Apparatus and method for runtime training of a denoising machine learning engine
+11024404,59651259,SEED,1,0.7551,0.6429,System and method for medical image based cardio-embolic stroke risk prediction
+11126889,64903265,SEED,1,0.7333,0.0625,Machine learning based prediction of human interactions with autonomous vehicles
+11213256,70413443,SEED,1,0.7209,0.6667,Biological image processing method and biological information detection device
+11185280,64395752,SEED,1,0.7,1.0,System and method for facilitating analysis of a wound in a target subject
+10043254,60038955,SEED,1,0.6875,0.6667,Optimal image transformation based on professionalism score of subject
+10438371,65807708,SEED,1,0.6842,0.7692,Three-dimensional bounding box from two-dimensional image and point cloud data
+11216971,65807708,SEED,1,0.6842,0.7692,Three-dimensional bounding box from two-dimensional image and point cloud data
+10504022,63449663,ANTISEED-manual,0,0.6538,0.875,Neural network accelerator with parameters resident on chip
+11501144,63449663,ANTISEED-manual,0,0.6538,0.875,Neural network accelerator with parameters resident on chip
+11727259,63449663,ANTISEED-manual,0,0.6538,0.875,Neural network accelerator with parameters resident on chip
+10636148,70736533,SEED,1,0.6447,0.5,Image processing system to detect contours of an object in a target object image
+11790532,63491764,SEED,1,0.6364,0.8333,Method for cutting a model of a dental arch
+10706321,70736533,SEED,1,0.6024,0.3571,Image processing system to align a target object in a target object image with a
+10442465,51383855,ANTISEED-manual,0,0.5821,1.0,Parking assistance device and vehicle provided with such a device
+11049248,60515483,SEED,1,0.5577,0.7143,Method for analyzing an image of a dental arch
+10943681,73046481,SEED,1,0.5574,0.0625,Global multi-label generating system
+11538564,73046481,SEED,1,0.5574,0.5,AI system for generating multiple labels based on a medical scan and methods for
+11551795,73046481,SEED,1,0.5224,0.3333,AI-based multi-label heat map generating system and methods for use therewith
+11282595,73046481,SEED,1,0.5224,0.4,Heat map generating system and methods for use therewith
+10818386,73046481,SEED,1,0.5224,0.0588,Multi-label heat map generating system
+10977842,70160308,SEED,1,0.5,0.6842,Method for processing multi-directional X-ray computed tomography image using ar
+10392009,61904452,SEED,1,0.4868,1.0,Automatic parking system and automatic parking method
+11691619,61904452,SEED,1,0.4868,1.0,Automatic parking system and automatic parking method
+10268671,67770141,ANTISEED-manual,0,0.4853,0.3333,Generating parse trees of text segments using neural networks
+11688038,70281191,SEED,1,0.4844,0.3571,Apparatuses and methods for performing artificial intelligence encoding and arti
+10817989,70281191,SEED,1,0.4844,0.3571,Apparatuses and methods for performing artificial intelligence encoding and arti
+10817985,70281191,SEED,1,0.4844,0.3571,Apparatuses and methods for performing artificial intelligence encoding and arti
+10825139,70281191,SEED,1,0.4844,0.3571,Apparatuses and methods for performing artificial intelligence encoding and arti
+11288770,70281191,SEED,1,0.4844,0.3571,Apparatuses and methods for performing artificial intelligence encoding and arti
+10402695,67770159,ANTISEED-manual,0,0.4722,0.25,Learning method and learning device for convolutional neural network using 1×H c
+9652677,49259230,SEED,1,0.4717,0.0833,Object detection device for recognizing an object in an input frame image using 
+11055844,67617360,SEED,1,0.4714,0.2812,Predicting response to immunotherapy using computer extracted features of cancer
+11250600,70160308,SEED,1,0.4667,0.8125,Method for processing X-ray computed tomography image using neural network and a
+10540962,67770141,ANTISEED-manual,0,0.4658,0.1429,Speech recognition with attention-based recurrent neural networks
+11151985,67770141,ANTISEED-manual,0,0.4658,0.1429,Speech recognition with attention-based recurrent neural networks
+12100391,67770141,ANTISEED-manual,0,0.4658,0.1429,Speech recognition with attention-based recurrent neural networks
+10733756,65435056,SEED,1,0.4627,0.0714,Online flow guided memory networks for object detection in video
+12346997,70160308,SEED,1,0.4545,0.6667,Method and apparatus for low-dose X-ray computed tomography image processing bas
+12033073,67770141,ANTISEED-manual,0,0.4545,0.0,Batch normalization layers
+11893485,67770141,ANTISEED-manual,0,0.4545,0.0,Batch normalization layers
+10825203,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+10825206,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+11138763,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+10825205,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+11170534,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+10937197,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+11663747,70281191,SEED,1,0.4507,0.3571,Methods and apparatuses for performing artificial intelligence encoding and arti
+10346975,60483822,SEED,1,0.4444,0.3077,Computerized analysis of computed tomography (CT) imagery to quantify tumor infi
+10832440,65435056,SEED,1,0.4444,0.0667,Temporal multi-scale clockwork memory networks for object detection in videos
+9988047,53367459,SEED,1,0.4328,1.0,Vehicle control system with traffic driving control
+10514462,66696049,ANTISEED-manual,0,0.4324,0.5385,Training a machine learning based model of a vehicle perception component based 
+11609968,67911874,SEED,1,0.4308,1.0,"Image recognition method, apparatus, electronic device and storage medium"
+11182876,70281191,SEED,1,0.4203,0.375,Apparatus and method for performing artificial intelligence encoding and artific
+12400292,70281191,SEED,1,0.4203,0.375,Apparatus and method for performing artificial intelligence encoding and artific
+11080589,67770141,ANTISEED-manual,0,0.4189,0.0833,Sequence processing using online attention
+10839513,67617360,SEED,1,0.4179,0.2667,Distinguishing hyperprogression from other response patterns to PD1/PD-L1 inhibi
+12254591,70281191,SEED,1,0.4133,0.3333,"AI downscaling apparatus and operating method thereof, and AI upscaling apparatu"
+11989852,70281191,SEED,1,0.4133,0.3333,"AI downscaling apparatus and operating method thereof, and AI upscaling apparatu"
+11853885,62556350,SEED,1,0.4103,0.0,Image classification using batch normalization layers
+12229972,67770141,ANTISEED-manual,0,0.4032,0.1538,Unsupervised training of optical flow estimation neural networks
+11462209,68532843,ANTISEED-manual,0,0.4032,0.2,Spectrogram to waveform synthesis using convolutional networks
+9984062,67770141,ANTISEED-manual,0,0.403,0.1,Generating author vectors
+10282864,66333963,SEED,1,0.4,0.5833,Method and device for encoding image and testing method and testing device using
+11789113,65493855,SEED,1,0.4,0.6667,Object identification using radar data
+12223744,72046939,SEED,1,0.3944,0.6667,Vehicle environment modeling with a camera
+11568653,72046939,SEED,1,0.3944,0.6667,Vehicle environment modeling with a camera
+11869253,72046939,SEED,1,0.3944,0.6667,Vehicle environment modeling with a camera
+10872433,72046939,SEED,1,0.3919,0.6667,Vehicle environment modeling with a camera
+11816991,72046939,SEED,1,0.3919,0.6667,Vehicle environment modeling with a camera
+10019657,56027419,SEED,1,0.3625,1.0,Joint depth estimation and semantic segmentation from a single image
+11314983,60515483,SEED,1,0.3462,0.7143,Method for analyzing an image of a dental arch
+11669792,73046481,SEED,1,0.3175,0.6154,Medical scan triaging system and methods for use therewith
+10896522,62100334,SEED,1,0.3056,0.7143,Method and apparatus for compressing image
+10810735,62100334,SEED,1,0.3026,0.625,Method and apparatus for analyzing medical image
+11487995,62100334,SEED,1,0.2933,0.625,Method and apparatus for determining image quality
+12505509,63583486,ANTISEED-manual,0,0.2778,1.0,"Information processing apparatus, information processing method, and storage med"
+12394023,67911874,SEED,1,0.2712,0.8,"Image denoising method and apparatus, electronic device, and storage medium"
+11232560,62100334,SEED,1,0.2687,0.8571,Method and apparatus for processing fundus image
+12469127,60515483,SEED,1,0.2609,0.7143,Method for analyzing an image of a dental arch
+11875816,67775601,ANTISEED-manual,0,0.2542,0.625,Electronic device and method for controlling thereof
+11107218,60515483,SEED,1,0.2405,0.7143,Method for analyzing an image of a dental arch
+12266108,60515483,SEED,1,0.2405,0.7143,Method for analyzing an image of a dental arch
+10699431,69102108,ANTISEED-manual,0,0.2405,0.75,Method and apparatus for generating image generative model
+11276207,70311015,SEED,1,0.2394,0.7,"Image processing method, storage medium, and computer device"
+11967181,67911874,SEED,1,0.2388,0.6667,"Method and device for retinal image recognition, electronic equipment, and stora"
+11354537,63583486,ANTISEED-manual,0,0.2381,0.6667,"Image processing apparatus, imaging apparatus, image processing method, and stor"
+11288807,67911874,SEED,1,0.2286,0.6364,"Method, electronic device and storage medium for segmenting image"
+11689607,67911874,SEED,1,0.2286,0.6364,"Data processing method and apparatus, storage medium, and electronic device"
+11941786,72120730,SEED,1,0.2267,0.6,Image noise reduction method and device
+11574185,70326882,ANTISEED-manual,0,0.2264,0.6,Apparatus and method for training deep neural network
+9413925,63583486,ANTISEED-manual,0,0.225,0.75,"Image processing apparatus, image processing method, and storage medium"
+11488279,63583486,ANTISEED-manual,0,0.225,0.6,"Image processing apparatus, image processing system, imaging apparatus, image pr"
+12315155,44745750,ANTISEED-AF,0,0.2208,1.0,"Information processing apparatus, information processing method, information pro"
+10810765,62100334,SEED,1,0.2206,0.8333,Image processing apparatus and image processing method
+12100154,29272117,SEED,1,0.2182,0.6667,"Medical image processing apparatus, medical image processing method, computer-re"
+11017762,69102108,ANTISEED-manual,0,0.2174,0.75,Method and apparatus for generating text-to-speech model
+11295550,69199756,SEED,1,0.2169,0.75,"Image processing method and apparatus, and terminal device"
+10685259,60515483,SEED,1,0.2162,0.7143,Method for analyzing an image of a dental arch
+11922601,29272117,SEED,1,0.2131,0.8,"Medical image processing apparatus, medical image processing method and computer"
+11880960,29272117,SEED,1,0.2131,0.8,"Medical image processing apparatus, medical image processing method and computer"
+11225285,70767172,ANTISEED-manual,0,0.2128,0.8333,Vehicle control method and vehicle control system
+11222239,29272117,SEED,1,0.2128,0.6667,"Information processing apparatus, information processing method, and non-transit"
+11188793,29272117,SEED,1,0.2128,0.6667,"Information processing apparatus, information processing method, and non-transit"
+10303968,62100334,SEED,1,0.2125,0.7143,Method and apparatus for image recognition
+12009105,70326882,ANTISEED-manual,0,0.2121,0.6,Learning apparatus and learning method for training neural network
+11636664,62603608,SEED,1,0.2121,0.6154,"Training method and device of neural network for medical image processing, and m"
+12141972,67911874,SEED,1,0.2121,0.7273,"Medicine image recognition method, electronic device and readable storage medium"
+11069047,29272117,SEED,1,0.2115,0.8182,"Image processing method, image processing apparatus, computing device and comput"
+12354317,67911874,SEED,1,0.2113,0.8889,"Image recognition method, electronic device and storage medium"
+12100138,29272117,SEED,1,0.2105,0.6429,"Image processing apparatus, image processing method, medical information process"
+12190487,67911874,SEED,1,0.2105,0.8,"Image processing method, apparatus, electronic device and storage medium"
+11663293,64073079,SEED,1,0.2083,0.8182,"Image processing method and device, and computer-readable storage medium"
+11636604,64073079,SEED,1,0.2083,0.6923,"Edge detection method and device, electronic equipment, and computer-readable st"
+11089423,71123626,SEED,1,0.2078,1.0,Signal processing device and image display apparatus including the same
+11282207,29272117,SEED,1,0.2075,0.7778,"Image processing method and apparatus, and storage medium"
+12499517,29272117,SEED,1,0.2069,0.8889,"Image processing apparatus, image processing method, and computer-readable mediu"
+11004257,62100334,SEED,1,0.2055,0.7143,Method and apparatus for image conversion
+12274416,44745750,ANTISEED-AF,0,0.2055,0.6,"Medical image processing apparatus, endoscope system, medical image processing m"
+9911067,44745750,ANTISEED-AF,0,0.2055,0.625,"Image processing apparatus, method of processing image, and program"
+11580645,29272117,SEED,1,0.2037,0.7778,"Image processing apparatus, image processing method, and storage medium"
+10971131,69102108,ANTISEED-manual,0,0.2029,0.75,Method and apparatus for generating speech synthesis model
+11734826,70311015,SEED,1,0.2025,0.6364,"Image segmentation method and apparatus, computer device, and storage medium"
+11354785,69038880,SEED,1,0.2024,0.8889,"Image processing method and device, storage medium and electronic device"
+10872262,65030459,SEED,1,0.2024,0.6,Information processing apparatus and information processing method for detecting
+10289918,65030459,SEED,1,0.2,0.75,Method and apparatus for detecting a speed of an object
+10740652,29272117,SEED,1,0.2,0.7,"Image processing apparatus, image processing system, image processing method, an"
+11935241,29272117,SEED,1,0.2,0.6667,"Image processing apparatus, image processing method and computer-readable medium"
+12444058,29272117,SEED,1,0.2,0.6364,"Facial image processing method and apparatus, device, and storage medium"
+12125182,62100334,SEED,1,0.1974,0.8333,Image processing method and image processing apparatus
+10789691,63583486,ANTISEED-manual,0,0.1964,0.7143,Information processing apparatus and information processing method
+11830201,63583486,ANTISEED-manual,0,0.1951,0.75,"Image processing apparatus, image processing method, and storage medium"
+11869196,63583486,ANTISEED-manual,0,0.1951,0.75,"Image processing apparatus, image processing method, and storage medium"
+11507744,63583486,ANTISEED-manual,0,0.1935,0.6,"Information processing apparatus, information processing method, and computer-re"
+11978241,64073079,SEED,1,0.1935,0.75,"Image processing method and apparatus, computer-readable medium, and electronic "
+12340553,29272117,SEED,1,0.1935,0.7,"Image processing apparatus, learning method, and storage medium"
+12175361,71196086,SEED,1,0.1932,0.8,"Electronic device, image processing method of electronic device, and computer-re"
+11295455,63583486,ANTISEED-manual,0,0.1915,0.625,"Information processing apparatus, information processing method, and program"
+12499570,63583486,ANTISEED-manual,0,0.1915,0.6,"Image processing apparatus, medical image capturing apparatus, image processing "
+12333675,63583486,ANTISEED-manual,0,0.1915,0.75,"Image processing apparatus, image processing method, and storage medium"
+10026002,65030459,SEED,1,0.1905,0.6667,"Object detection apparatus, method for detecting object, and learning apparatus"
+12354239,62100334,SEED,1,0.1899,0.6667,Electronic apparatus for processing an image and control method thereof
+11200665,29272117,SEED,1,0.1887,0.8,"Fundus image processing method, computer apparatus, and storage medium"
+11416984,29272117,SEED,1,0.1884,0.6364,"Medical image processing apparatus, medical image generation apparatus, medical "
+11783450,71757289,SEED,1,0.1882,0.6364,"Method and device for image processing, terminal device and storage medium"
+12039704,29272117,SEED,1,0.1875,0.8889,"Image processing apparatus, image processing method and computer-readable medium"
+11593620,44745750,ANTISEED-AF,0,0.1875,0.75,"Training program, training method, and information processing apparatus"
+10929720,71757289,SEED,1,0.1875,0.7,"Image processing method, image processing apparatus, and computer storage medium"
+11270169,71757289,SEED,1,0.1868,0.7,"Image recognition method, storage medium and computer device"
+11334990,44745750,ANTISEED-AF,0,0.1867,0.8571,"Information processing apparatus, information processing method, and program"
+11216683,70312588,SEED,1,0.1863,0.6429,"Computer aided scanning method for medical device, medical device, and readable "
+11941854,71757289,SEED,1,0.186,0.6364,"Face image processing method and apparatus, image device, and storage medium"
+11908102,62603608,SEED,1,0.1848,0.6154,"Image processing method and device, training method of neural network, and stora"
+12211212,69078061,SEED,1,0.1828,0.6154,Image segmentation method and electronic device and storage medium using the met
+12175618,64073079,SEED,1,0.1818,0.8333,"Image processing method and apparatus, electronic device, and computer-readable "
+10860901,44745750,ANTISEED-AF,0,0.1806,0.7778,"Detection system, information processing apparatus, evaluation method, and progr"
+11455730,29272117,SEED,1,0.1786,0.8182,"Image processing apparatus, image processing method, and non-transitory computer"
+11568645,67775601,ANTISEED-manual,0,0.1781,0.7143,Electronic device and controlling method thereof
+11983879,44745750,ANTISEED-AF,0,0.1781,0.625,"Image processing apparatus, image processing method, and program"
+12039456,67775601,ANTISEED-manual,0,0.1781,0.7143,Electronic device and controlling method thereof
+12040079,29272117,SEED,1,0.1774,0.8,"Medical image processing apparatus, medical image processing method and computer"
+12393838,67911874,SEED,1,0.1765,0.6364,"Vessel image classification method and apparatus, device, and storage medium"
+11915415,64073079,SEED,1,0.1765,0.75,"Image processing method and apparatus, computer-readable medium, and electronic "
+12080045,67911874,SEED,1,0.175,0.6364,"Obstacle recognition method and apparatus, computer device, and storage medium"
+10757218,69102108,ANTISEED-manual,0,0.1733,0.625,Method and apparatus for generating push notifications
+10755393,69199756,SEED,1,0.1733,0.625,Image normalization method and image processing device
+12243127,29272117,SEED,1,0.1719,0.6429,"Medical image processing method, medical image processing apparatus, and compute"
+12361524,64073079,SEED,1,0.1714,0.6667,"Information processing device and method, and computer readable storage medium"
+11144797,63583486,ANTISEED-manual,0,0.1698,0.75,"Image processing apparatus, image processing method, and storage medium"
+12002212,29272117,SEED,1,0.1695,0.6364,"Image segmentation method and apparatus, computer device, and storage medium"
+12307659,29272117,SEED,1,0.1692,0.9,"Medical image processing apparatus, medical image processing method and computer"
+11967084,69078061,SEED,1,0.1684,0.7273,"PDAC image segmentation method, electronic device and storage medium"
+12026963,73665384,ANTISEED-manual,0,0.1683,0.6154,"Dyeing effect prediction method, training method of dyeing effect prediction mod"
+12094082,29272117,SEED,1,0.1667,0.8889,"Image processing apparatus, image processing method and computer-readable medium"
+12051176,29272117,SEED,1,0.1667,0.8889,"Image processing apparatus, image processing method and computer-readable medium"
+12159371,29272117,SEED,1,0.1667,0.6923,"Image processing apparatus, image forming system, image processing method, and n"
+10978042,69102108,ANTISEED-manual,0,0.1667,0.75,Method and apparatus for generating speech synthesis model
+12243188,71757289,SEED,1,0.1647,0.8,"Image processing method and device, computer storage medium and terminal"
+12217443,67911874,SEED,1,0.1647,0.7273,"Depth image generation method, apparatus, and storage medium and electronic devi"
+12118737,64073079,SEED,1,0.1646,0.8182,"Image processing method, device and computer-readable storage medium"
+11080834,69199756,SEED,1,0.1646,0.625,Image processing method and electronic device
+11282535,67775601,ANTISEED-manual,0,0.1642,0.7143,Electronic device and a controlling method thereof
+9824189,63583486,ANTISEED-manual,0,0.1639,0.6,"Image processing apparatus, image processing method, image display system, and s"
+11170482,67859125,SEED,1,0.163,0.8333,Image processing method and device
+12462448,69199756,SEED,1,0.1625,0.625,Image processing method and electronic device
+10885660,72382015,ANTISEED-manual,0,0.1622,0.6,"Object detection method, device, system and storage medium"
+12026874,68385083,SEED,1,0.1619,0.6,Systems and methods for detection and analysis of polyps in colon images
+12322092,29272117,SEED,1,0.1618,0.6364,"Medical image processing method and apparatus, image processing method and appar"
+12462339,19191090,SEED,1,0.1616,0.625,"Image processing apparatus, image processing method and storage medium"
+11756288,69038880,SEED,1,0.1616,0.8,"Image processing method and apparatus, electronic device and storage medium"
+12437370,63583486,ANTISEED-manual,0,0.16,1.0,"Information processing apparatus, information processing method, and storage med"
+12125174,64073079,SEED,1,0.1579,0.8182,"Image processing method and device, and computer-readable storage medium"
+11373305,71757289,SEED,1,0.1579,0.8,"Image processing method and device, computer apparatus, and storage medium"
+11386538,63583486,ANTISEED-manual,0,0.1579,0.75,"Image processing apparatus, image processing method, and storage medium"
+9202116,66333963,SEED,1,0.1579,0.7,Image processing method and image processing apparatus using the same
+11836891,71757289,SEED,1,0.1562,0.6364,"Image related processing method and apparatus, device and storage medium"
+11416703,29272117,SEED,1,0.1562,0.6364,"Network optimization method and apparatus, image processing method and apparatus"
+11948391,66946711,SEED,1,0.1552,0.6154,"Model training method and apparatus, electronic device and readable storage medi"
+11238559,19191090,SEED,1,0.1546,0.7143,Image processing method and image receiving apparatus
+11314988,67859125,SEED,1,0.1538,0.625,Image aesthetic processing method and electronic device
+11127117,63583486,ANTISEED-manual,0,0.1538,0.75,"Information processing method, information processing apparatus, and recording m"
+12165282,67859125,SEED,1,0.1538,0.7143,"Image processing device, ranging device, and method"
+12039758,29272117,SEED,1,0.1538,0.6154,"Image processing apparatus, image processing method, and non-transitory computer"
+12165060,19191090,SEED,1,0.1538,0.625,"Method and apparatus for image processing, terminal"
+11403763,71757289,SEED,1,0.1531,0.6364,"Image segmentation method and apparatus, computer device, and storage medium"
+12169875,67911874,SEED,1,0.1529,0.6154,"Model training method and apparatus for image recognition, network device, and s"
+11817216,44745750,ANTISEED-AF,0,0.1529,0.625,Search method and information processing system
+9934571,64073079,SEED,1,0.1528,0.6154,"Image processing device, program, image processing method, computer-readable med"
+12182681,63583486,ANTISEED-manual,0,0.1525,0.75,"Information processing device, information processing method, and storage medium"
+11501518,67911874,SEED,1,0.1524,0.7273,"Fine-grained image recognition method, electronic device and storage medium"
+12260514,19191090,SEED,1,0.1522,0.7143,Method and apparatus for image processing
+11379980,67911874,SEED,1,0.1519,0.8,"Image processing method, apparatus, electronic device and storage medium"
+11810265,29272117,SEED,1,0.1507,0.6154,"Image reconstruction method and device, apparatus, and non-transitory computer-r"
+12430824,19191090,SEED,1,0.1505,0.625,Magnetic resonance image processing apparatus and method
+11790926,19191090,SEED,1,0.15,0.625,Method and apparatus for processing audio signal
+11606543,19191090,SEED,1,0.1494,0.7143,"Image processing apparatus, image capture apparatus, and image processing method"
+12033330,29272117,SEED,1,0.1493,0.8,"Image processing method and apparatus, computer device, and storage medium"
+12437413,29272117,SEED,1,0.1493,0.8,"Image processing method and apparatus, computer device, and storage medium"
+12423820,29272117,SEED,1,0.1493,0.6364,"Image segmentation method and apparatus, computer device, and storage medium"
+11488288,19191090,SEED,1,0.1489,0.625,Method and apparatus for processing blurred image
+10884156,64073079,SEED,1,0.1486,0.8182,"Image processing method, device, and computer readable storage medium"
+11386577,64073079,SEED,1,0.1486,0.6364,"Image processing method, image processing device, and storage medium"
+11328421,63583486,ANTISEED-manual,0,0.1481,0.75,"Image processing apparatus, image processing method, and storage medium"
+12340817,63583486,ANTISEED-manual,0,0.1475,0.6,"Audio signal processing method, training method, apparatus and storage medium"
+11798145,71757289,SEED,1,0.1471,0.7,"Image processing method and apparatus, device, and storage medium"
+12175692,61158776,ANTISEED-manual,0,0.1467,0.7143,Method and system for localization
+9811886,19191090,SEED,1,0.1456,0.625,"Image processing apparatus, medical imaging apparatus, and image processing meth"
+12501154,63583486,ANTISEED-manual,0,0.1455,0.7778,"Image processing apparatus, image capturing apparatus, information processing me"
+12511753,29272117,SEED,1,0.1452,0.6154,"Image processing method, apparatus and non-transitory computer readable medium f"
+10936861,65896576,SEED,1,0.1449,0.6,Object detection system of a vehicle
+10855933,69199756,SEED,1,0.1444,0.625,Terminal and image processing method thereof
+11423286,65025670,ANTISEED-manual,0,0.1429,0.6,Computing system and method
+11538229,64073079,SEED,1,0.1413,0.8333,"Image processing method and apparatus, electronic device, and computer-readable "
+9734392,69199756,SEED,1,0.1413,0.7143,Image processing device and image processing method
+11417007,62201564,ANTISEED-manual,0,0.1412,0.625,Electronic apparatus and method for controlling thereof
+12223616,29272117,SEED,1,0.1404,0.9,"Image processing method and apparatus, computer readable storage medium, and com"
+12249104,69199756,SEED,1,0.1398,0.625,Camera device and image processing method
+12217460,69199756,SEED,1,0.1398,0.625,Camera device and image processing method
+11967045,70786128,SEED,1,0.1398,0.6,Image processing device and method
+12159469,65514742,ANTISEED-manual,0,0.1392,0.7778,"Vehicle recognition device, vehicle control system, vehicle recognition method, "
+11893708,71757289,SEED,1,0.1389,0.7,"Image processing method and apparatus, device, and storage medium"
+10861476,63711747,ANTISEED-manual,0,0.1385,0.625,System and method for building a voice database
+11587301,69199756,SEED,1,0.1383,0.625,"Image processing device, image processing method, and image processing system"
+11244458,19191090,SEED,1,0.1373,0.7143,"Image processing apparatus, image processing method, and program"
+11586601,65007728,ANTISEED-manual,0,0.1373,0.6,Apparatus and method for representation of a sparse matrix in a neural network
+12469114,69038880,SEED,1,0.1368,0.7273,"Method, device, system, electronic device, and storage medium for image processi"
+11794723,62201564,ANTISEED-manual,0,0.1364,0.625,Apparatus and method for controlling driving of vehicle
+11107220,70786128,SEED,1,0.1354,0.6,Image processing system and image processing method
+9679370,70299689,SEED,1,0.1354,0.6667,Image processing device and image processing method
+9202285,19191090,SEED,1,0.1346,0.7143,"Image processing apparatus, method, and program"
+12079974,69199756,SEED,1,0.134,0.625,"Image processing method and apparatus, and device"
+11501431,62603608,SEED,1,0.1333,0.6667,Image processing method and apparatus and neural network model training method
+12422935,63583486,ANTISEED-manual,0,0.1333,0.7,"Gesture information processing method and apparatus, electronic device, and stor"
+12475529,64073079,SEED,1,0.1325,0.6154,"Video processing method and device, electronic apparatus, and readable storage m"
+11030723,19191090,SEED,1,0.1321,0.7143,"Image processing apparatus, image processing method, and program"
+11377096,61904452,SEED,1,0.129,0.6667,Automatic parking method and device
+12024167,55851746,ANTISEED-manual,0,0.1282,0.6667,Driver assistance system and driver assistance method
+11991488,19191090,SEED,1,0.1261,0.8571,Apparatus and method for image signal processing
+12134191,18926121,ANTISEED-AF,0,0.125,0.6667,Robot system
+12182976,64073079,SEED,1,0.125,0.75,"Image processing method, smart device, and computer readable storage medium"
+12198296,29272117,SEED,1,0.1212,0.9,"Image processing method, apparatus, device, and computer-readable storage medium"
+11379955,64073079,SEED,1,0.1209,0.6923,"Electronic device, image processing method thereof, and computer-readable record"
+12026872,56924055,ANTISEED-manual,0,0.117,0.7143,"Diagnosis assisting system, diagnosis assisting method and diagnosis assisting p"
+10817712,71520991,ANTISEED-manual,0,0.1154,0.6,Gesture recognition method and gesture recognition system
+11928782,29272117,SEED,1,0.1125,0.6154,"Method for positioning vertebra in CT image, apparatus, device, and computer rea"
+11669960,65025670,ANTISEED-manual,0,0.1111,0.8,"Learning system, method, and program"
+11059517,56890262,ANTISEED-manual,0,0.1111,0.625,"Driving assistance method, driving assistance system and vehicle"
+11989901,56978589,SEED,1,0.1111,0.625,Information processing device and information processing method
+11328395,64073079,SEED,1,0.1111,1.0,"Image processing method, image processing device, electronic equipment and compu"
+11972545,27062247,ANTISEED-manual,0,0.1081,0.6,Apparatus and method of guided neural network model for image processing
+12441311,56923544,ANTISEED-manual,0,0.1081,1.0,Vehicle control device
+11645735,29272117,SEED,1,0.1067,0.8182,"Method and apparatus for processing image, device and computer readable storage "
+12343873,66097262,ANTISEED-manual,0,0.1039,0.625,"Control device, control system, robot system, and control method"
+12354620,56978589,SEED,1,0.1029,0.6667,"Signal processing device, signal processing method, signal processing program, l"
+11507807,56978589,SEED,1,0.1,0.6,"Audio signal processing device, audio signal processing method, and control prog"
+11017557,59900074,ANTISEED-manual,0,0.0986,0.6667,Detection method and device thereof
+12340575,65514742,ANTISEED-manual,0,0.0964,0.6667,"Vehicle detecting system, vehicle detecting method, and program storage medium"
+11468278,56978589,SEED,1,0.093,0.6667,"Information processing device, information processing method, and program thereo"
+12335629,66097262,ANTISEED-manual,0,0.0909,0.6,"Imaging exposure control method and apparatus, device and storage medium"
+12431158,56978589,SEED,1,0.0909,0.6,"Speech signal processing device, speech signal processing method, speech signal "
+11724397,38488925,ANTISEED-manual,0,0.0864,0.75,Robot and method for controlling the same
+11461893,38488925,ANTISEED-manual,0,0.0854,0.6,"Medical imaging apparatus and method of controlling the same, and server and met"
+11697413,63787739,ANTISEED-manual,0,0.0843,1.0,Vehicle control device
+10736609,38488925,ANTISEED-manual,0,0.0833,0.6667,Ultrasound imaging apparatus and method of controlling the same
+11113836,68292031,ANTISEED-manual,0,0.0769,0.6154,"Object detection method, device, apparatus and computer-readable storage medium"
+12395736,71406415,SEED,1,0.0,0.7273,"Image processing apparatus, control method therefor, and storage medium"
+12387300,71406415,SEED,1,0.0,0.6154,"Image processing method and apparatus, computer device, storage medium, and prog"
+11438501,71406415,SEED,1,0.0,0.7273,"Image processing apparatus, and control method, and storage medium thereof"
+11521312,71406415,SEED,1,0.0,0.7,"Image processing apparatus, image processing method, and storage medium"
+11544926,71406415,SEED,1,0.0,0.7,"Image processing apparatus, method of processing image, and storage medium"
+11526962,71406415,SEED,1,0.0,0.7,"Image processing apparatus, image processing method, and storage medium"
+11823422,71406415,SEED,1,0.0,0.6667,"Image processing apparatus, control method of the same, and storage medium"
+11328812,71406415,SEED,1,0.0,0.6364,"Medical image processing apparatus, medical image processing method, and storage"
+10929978,71406415,SEED,1,0.0,0.6364,"Image processing apparatus, training apparatus, image processing method, trainin"
+10748282,71406415,SEED,1,0.0,0.6364,"Image processing system, apparatus, method and storage medium"
+10354369,71406415,SEED,1,0.0,0.6364,"Image processing method, image processing apparatus, image pickup apparatus, and"
+11554483,62904572,SEED,1,0.0,1.0,Robotic grasping prediction using neural networks and geometry aware object repr
+10864631,62904572,SEED,1,0.0,1.0,Robotic grasping prediction using neural networks and geometry aware object repr
+11080832,71406415,SEED,1,0.0,0.6364,"Image processing method, image processing apparatus, imaging apparatus, and stor"
+11003961,71406415,SEED,1,0.0,0.6364,"Image processing system, image processing method, and program storage medium"
+11010897,65728210,SEED,1,0.0,0.7143,Identifying image artifacts by means of machine learning
+11715203,71406415,SEED,1,0.0,0.6364,"Image processing method and apparatus, server, and storage medium"
+11914677,71406415,SEED,1,0.0,0.6364,"Image processing method and apparatus, terminal, and storage medium"
+11983850,71406415,SEED,1,0.0,0.6364,"Image processing method and apparatus, device, and storage medium"
+11842470,71406415,SEED,1,0.0,0.7,"Image processing apparatus, image processing method, and storage medium"
+11887288,71406415,SEED,1,0.0,0.7,"Image processing apparatus, image processing method, and storage medium"
+11610289,71406415,SEED,1,0.0,0.6364,"Image processing method and apparatus, storage medium, and terminal"
+10726304,65441336,ANTISEED-manual,0,0.0,1.0,Refining synthetic data with a generative adversarial network using auxiliary in
+11935243,62975724,SEED,1,0.0,1.0,Generative adversarial networks for image segmentation
+11753026,56150384,ANTISEED-manual,0,0.0,1.0,Vehicle control device
+11565637,56150384,ANTISEED-manual,0,0.0,0.6,Vehicle control device and vehicle control system
+11801830,63587606,ANTISEED-manual,0,0.0,1.0,Control device and method for vehicle
+10974716,63587606,ANTISEED-manual,0,0.0,0.6,Method and device for adjusting a controller of a transportation vehicle and con
+10740927,63587606,ANTISEED-manual,0,0.0,0.7143,Method and device for vehicle identification
+11415217,63587606,ANTISEED-manual,0,0.0,0.7143,"Device for vehicle, system and method"
+11847834,63587606,ANTISEED-manual,0,0.0,0.625,Device and method for recognizing obstacle of vehicle
+12230037,63587606,ANTISEED-manual,0,0.0,0.625,Device and method for recognizing obstacles for a vehicle

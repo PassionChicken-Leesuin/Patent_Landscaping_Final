@@ -1,0 +1,456 @@
+train_patent_id,eval_family_id,eval_expansion_level,eval_label,abs_jaccard,title_jaccard,train_title
+11097451,60784650,SEED,1,1.0,1.0,System and method for reducing three-dimensional additive manufacturing producti
+11540740,54554667,ANTISEED-manual,0,1.0,1.0,System and method for fabricating electromagnetic field enhancing objects for ma
+11524364,63525812,ANTISEED-manual,0,1.0,1.0,Overlapping border and internal sections of object formed by different am meltin
+10384374,60784650,SEED,1,1.0,1.0,System and method for reducing three-dimensional additive manufacturing producti
+10589382,63525812,ANTISEED-manual,0,1.0,1.0,Overlapping border and internal sections of object formed by different AM meltin
+11390035,65234116,SEED,1,1.0,1.0,Systems and methods for measuring radiated thermal energy during an additive man
+9764517,47713987,SEED,1,1.0,1.0,Object production using an additive manufacturing process and quality assessment
+11707884,60953414,SEED,1,1.0,1.0,Sliding window screen for reducing resin refilling time in stereolithography
+9744730,53181986,SEED,1,1.0,1.0,Magnetic platen assembly for additive manufacturing system
+10160194,56850527,SEED,1,1.0,1.0,Systems and methods for implementing high speed final surface curing for three d
+9555583,57867286,SEED,1,1.0,1.0,Fabrication of neural interfaces using 3D projection micro-stereolithography
+11802321,62488375,SEED,1,1.0,1.0,Additive manufacturing of metal alloys and metal alloy matrix composites
+12116652,62488375,SEED,1,1.0,1.0,Additive manufacturing of metal alloys and metal alloy matrix composites
+9837191,52003051,SEED,1,1.0,0.3333,Method of connecting an additive communication cable to an electrical harness
+11031156,52003051,SEED,1,1.0,0.2,3-d printed electrical cable
+11351725,68766461,SEED,1,1.0,1.0,Enhanced recoater edges
+10661342,62977495,SEED,1,1.0,1.0,Additive manufacturing systems and methods for the same
+11938560,65234116,SEED,1,1.0,1.0,Systems and methods for measuring radiated thermal energy during an additive man
+12233476,68057630,SEED,1,1.0,1.0,Additive manufacturing systems and methods
+11745416,68766461,SEED,1,1.0,1.0,Enhanced recoater edges
+12330217,67470618,SEED,1,1.0,1.0,Method and system for optimizing process parameters in an additive manufacturing
+12232922,62684648,SEED,1,1.0,1.0,Method of building up a physical object by additive manufacturing
+12214547,66999620,SEED,1,1.0,1.0,Additive-manufacturing systems and methods
+11731352,72606905,SEED,1,1.0,1.0,Apparatus and method for fabricating multi-polymer composite structures
+10518478,58701464,SEED,1,1.0,1.0,Additive manufacturing systems and methods
+11413825,58701464,SEED,1,1.0,1.0,Additive manufacturing systems and methods
+10479020,65234116,SEED,1,1.0,1.0,Systems and methods for measuring radiated thermal energy during an additive man
+10875094,68057630,SEED,1,1.0,1.0,Additive manufacturing systems and methods
+11213998,54266674,SEED,1,1.0,1.0,"Liquefier assemblies for additive manufacturing systems, and methods of use ther"
+11577462,64904002,SEED,1,1.0,1.0,Scanning print bed and part height in 3D printing
+11400519,68055247,SEED,1,1.0,1.0,Method and device for distributing powder material
+11241824,48796267,SEED,1,1.0,0.625,Layer transfusion for heat capacitor belt for additive manufacturing
+9720363,48796267,SEED,1,1.0,0.625,Layer transfusion with rotatable belt for additive manufacturing
+9885987,48796267,SEED,1,1.0,1.0,Layer transfusion for additive manufacturing
+10010937,57288173,SEED,1,1.0,1.0,Additive manufacturing method for making overhanging tabs in cooling holes
+10086566,53480774,SEED,1,1.0,1.0,Apparatus for production of three-dimensional objects by stereolithography
+11458681,69167691,SEED,1,1.0,1.0,Recoating assembly for an additive manufacturing machine
+9993974,52004798,SEED,1,1.0,1.0,Method and apparatus for three-dimensional fabrication
+11007704,62905606,SEED,1,1.0,1.0,Additive manufacturing of elastomeric seals for repair
+11220048,64176427,SEED,1,1.0,1.0,Additive manufacturing method for discharging interlocking continuous reinforcem
+10131088,64176427,SEED,1,1.0,1.0,Additive manufacturing method for discharging interlocking continuous reinforcem
+10710305,52004798,SEED,1,1.0,1.0,Method and apparatus for three-dimensional fabrication
+11292198,68296355,SEED,1,1.0,1.0,Situ monitoring of stress for additively manufactured components
+11485869,67548479,SEED,1,1.0,1.0,Solution-based additive manufacturing
+9238329,46315654,SEED,1,1.0,1.0,Voice coil mechanism for use in additive manufacturing system
+9718129,49626937,SEED,1,1.0,1.0,Additive manufacturing method and apparatus
+10751952,56110296,SEED,1,1.0,1.0,Resource allocation for divided 3D printing jobs
+11155034,60675944,SEED,1,1.0,0.8667,System and method for distortion mitigation and compensation in additive manufac
+10709324,57886234,ANTISEED-manual,0,1.0,1.0,Systems and methods for performing a surgical procedure
+10119108,55436948,ANTISEED-manual,0,1.0,1.0,Manufacturing within a single-use container
+10201703,57014997,ANTISEED-manual,0,1.0,1.0,Integrated surface stimulation device for wound therapy and infection control
+9498920,52004798,SEED,1,1.0,1.0,Method and apparatus for three-dimensional fabrication
+11084276,56620718,SEED,1,1.0,1.0,Method to monitor additive manufacturing process for detection and in-situ corre
+11724316,68055247,SEED,1,1.0,1.0,Method and device for distributing powder material
+10421267,56620718,SEED,1,1.0,1.0,Method to monitor additive manufacturing process for detection and in-situ corre
+11254055,63855976,SEED,1,1.0,1.0,Additive manufacturing machine heat flux
+10737351,55299294,SEED,1,1.0,1.0,Apparatus and method for manufacturing an anti-counterfeit three-dimensional art
+10766181,62020421,SEED,1,1.0,1.0,Magnetic feed material and its use in producing bonded permanent magnets by addi
+9904223,48796267,SEED,1,1.0,0.7143,Layer transfusion with transfixing for additive manufacturing
+10953609,64904002,SEED,1,1.0,1.0,Scanning print bed and part height in 3D printing
+11446862,65139257,SEED,1,1.0,1.0,Sacrificial layers in selective deposition-based additive manufacturing of parts
+10639719,61688149,SEED,1,1.0,1.0,Grain boundary engineering for additive manufacturing
+9808991,61190511,SEED,1,1.0,1.0,Method and apparatus for additive mechanical growth of tubular structures
+10562132,55436662,SEED,1,1.0,1.0,"Applications, methods and systems for materials processing with visible raman la"
+10245785,64657020,SEED,1,1.0,0.5556,Methods for stereolithography three-dimensional printing
+10395800,52003051,SEED,1,1.0,0.3636,Method of manufacturing an electrical cable using 3-D printing
+10814604,61190511,SEED,1,1.0,1.0,Method and apparatus for additive mechanical growth of tubular structures
+11400650,64657020,SEED,1,1.0,0.7778,Methods and systems for stereolithography three-dimensional printing
+11478631,57014997,ANTISEED-manual,0,0.9857,0.8333,Methods of using an integrated surface stimulation device for wound therapy and 
+10648058,70612668,SEED,1,0.9839,1.0,Systems and methods for low temperature metal printing
+11248131,60083746,SEED,1,0.9808,0.75,Removable support material comprising tackifier for additive manufacturing
+11511338,66098339,SEED,1,0.975,1.0,Three-dimensional printing
+8968625,44066802,SEED,1,0.9701,1.0,Process for building three-dimensional objects
+11401953,68290769,ANTISEED-manual,0,0.9655,1.0,Fluid conduit and method of making same
+11992999,55960920,SEED,1,0.9643,1.0,"Coextruded, multilayer and multicomponent 3D printing inputs"
+11786345,60421631,ANTISEED-manual,0,0.9412,1.0,Method of making a physical object
+11376799,68318925,SEED,1,0.9375,1.0,Method for additive manufacturing with partial curing
+12330376,68318925,SEED,1,0.9375,1.0,Method for additive manufacturing with partial curing
+10532418,68344733,SEED,1,0.9149,1.0,Dual wire welding or additive manufacturing contact tip and diffuser
+11484960,68344733,SEED,1,0.9149,1.0,Dual wire welding or additive manufacturing contact tip and diffuser
+10730232,55960920,SEED,1,0.9123,1.0,"Coextruded, multilayer and multicomponent 3D printing inputs"
+11383417,61971337,SEED,1,0.9024,1.0,Filament heaters configured to facilitate thermal treatment of filaments for ext
+11241836,63963415,SEED,1,0.8772,1.0,Method and apparatus for determining extrudate flow in three-dimensional (3D) pr
+11718021,64500181,SEED,1,0.8769,1.0,Method for calibrating an apparatus for producing an object by means of additive
+11654485,66334415,SEED,1,0.8667,1.0,"Method, device and powder for the additive manufacturing of a component with oxi"
+11998987,66548383,SEED,1,0.8571,1.0,Additive manufacturing techniques and applications thereof
+11986974,66548383,SEED,1,0.8571,1.0,Additive manufacturing techniques and applications thereof
+11919240,70740800,SEED,1,0.8039,1.0,Mass customization in additive manufacturing
+10882255,70740800,SEED,1,0.8039,1.0,Mass customization in additive manufacturing
+11602412,60997555,ANTISEED-manual,0,0.7449,0.4375,"Printable compositions including polymeric and polymerizable components, article"
+9933718,51300844,SEED,1,0.7358,0.875,Part material for electrophotography-based additive manufacturing
+9482974,51300844,SEED,1,0.7358,0.875,Part material for electrophotography-based additive manufacturing
+11279853,64743061,SEED,1,0.7356,0.7778,Additive manufacturing methods for adhesives and adhesive articles
+11498126,65279480,ANTISEED-manual,0,0.6964,0.8,"Method for producing a component, in particular vehicle component, and correspon"
+11692240,65031558,SEED,1,0.6804,1.0,Process for manufacturing an aluminum alloy part
+11292062,62245272,SEED,1,0.6761,1.0,Method and device for producing three-dimensional objects
+10596628,58455641,SEED,1,0.6667,0.3846,Systems and methods for creating nanocrystalline alloy articles using additive m
+12037661,65031558,SEED,1,0.6667,1.0,Process for manufacturing an aluminum alloy part
+10557056,51300844,SEED,1,0.661,0.6667,ABS/polycarbonate/poly(styrene-co-maleimide) part material for electrophotograph
+11034086,57042974,SEED,1,0.6538,1.0,Apparatus for producing an object by means of additive manufacturing and method 
+12296387,66098339,SEED,1,0.6471,1.0,Three-dimensional printing
+11584089,62873512,SEED,1,0.6429,0.8,Method and system for additive manufacturing of peelable sacrificial structure
+11390928,67622949,SEED,1,0.6308,0.5625,Inducing compressive stress with shot peen elements in internal opening of addit
+10774909,68055970,ANTISEED-manual,0,0.625,0.4615,Method for making turbine wheel of hydrokinetic torque converter
+10639745,65234116,SEED,1,0.6164,1.0,Systems and methods for measuring radiated thermal energy during an additive man
+11072371,70052957,SEED,1,0.6102,0.5,Apparatus and methods for additively manufactured structures with augmented ener
+12114711,64556813,SEED,1,0.6098,1.0,Heater comprising a part manufactured by additive manufacturing
+12325193,62873512,SEED,1,0.6071,0.8,Method and system for additive manufacturing of peelable sacrificial structure
+11981603,66332637,SEED,1,0.6022,1.0,Self-reinforced cementitious composite compositions for building-scale three dim
+12447531,66098339,SEED,1,0.5909,1.0,Three-dimensional printing
+12152291,67660192,ANTISEED-manual,0,0.5859,0.3846,Process for manufacturing an aluminum-chromium alloy part with superimposed succ
+12042858,66098339,SEED,1,0.5849,1.0,Three-dimensional printing
+12145223,63963499,ANTISEED-manual,0,0.5814,1.0,Metal manufacturing systems and methods using mechanical oscillation
+10328525,56851402,SEED,1,0.5789,0.7143,Coater apparatus and method for additive manufacturing
+10548696,48430849,ANTISEED-manual,0,0.5778,0.2,Method of manufacturing an article
+10727382,56943529,ANTISEED-manual,0,0.5735,0.875,Method of forming one or more three-dimensional objects
+10675858,48796267,SEED,1,0.5714,0.1667,Electrophotography-based additive manufacturing with support structure and bound
+9523934,51300844,SEED,1,0.5714,0.4167,Engineering-grade consumable materials for electrophotography-based additive man
+9785064,51300844,SEED,1,0.5714,0.3846,Semi-crystalline consumable materials for electrophotography-based additive manu
+11484946,70051216,SEED,1,0.5645,0.4118,Defining a transition zone between a shell and lattice cell array in a three-dim
+11453774,67911794,SEED,1,0.5636,0.3125,Method of making a three-dimensional object using a poly(ether ether ketone) pol
+10065264,55299294,SEED,1,0.561,1.0,Apparatus and method for manufacturing an anti-counterfeit three-dimensional art
+10831180,58347042,SEED,1,0.5526,0.4615,Multivariate statistical process control of laser powder bed additive manufactur
+12168255,62684880,SEED,1,0.5385,0.5556,Optimization of supports for the additive manufacturing of a component
+10406599,49626937,SEED,1,0.5362,1.0,Additive manufacturing method and apparatus
+9918811,48430849,ANTISEED-manual,0,0.5106,0.2,Method of manufacturing an article
+12502828,66530142,SEED,1,0.5098,0.6,Additive manufacturing method depositing material within a granular constrained 
+9905389,50473215,SEED,1,0.5091,0.1,Method of manufacturing an article with integral active electronic component
+11389276,60997555,ANTISEED-manual,0,0.4951,0.2105,Photopolymerizable compositions including a urethane component and a monofunctio
+11759298,60997555,ANTISEED-manual,0,0.4951,0.2105,Photopolymerizable compositions including a urethane component and a monofunctio
+9815242,51357703,SEED,1,0.4912,0.5,Apparatus for manufacturing three-dimensional objects
+10483074,50473215,SEED,1,0.4909,0.4286,Printed active device with a 3D thermionic electronic component
+11986883,69884432,SEED,1,0.4889,1.0,Blue laser metal additive manufacturing system
+10948897,68055247,SEED,1,0.4875,0.2857,"Recoating unit, recoating method, device and method for additive manufacturing o"
+11338522,64500181,SEED,1,0.4815,0.8182,Method for calibrating an apparatus for producing an object by means of additive
+9557661,51300844,SEED,1,0.4706,0.6,Soluble support material for electrophotography-based additive manufacturing
+10018937,51300844,SEED,1,0.4706,0.6,Soluble support material for electrophotography-based additive manufacturing
+10996602,65139257,SEED,1,0.4697,0.6,Height control in selective deposition based additive manufacturing of parts
+11254841,64743061,SEED,1,0.4643,0.7778,Additive manufacturing methods for adhesives and adhesive articles
+12104000,60997555,ANTISEED-manual,0,0.4595,0.2353,"Photopolymerizable compositions including a polypropylene oxide component, artic"
+12297316,64743061,SEED,1,0.4556,0.1111,"Orthodontic articles prepared using a polycarbonate diol, polymerizable composit"
+11945900,64743061,SEED,1,0.4556,0.1111,"Orthodontic articles prepared using a polycarbonate diol, polymerizable composit"
+11498146,70728513,SEED,1,0.4545,1.0,Dual wire welding or additive manufacturing system and method
+11584827,60997555,ANTISEED-manual,0,0.4426,0.2222,Photopolymerizable compositions including a urethane component and a reactive di
+9468973,49626937,SEED,1,0.4426,0.8333,Method and apparatus for additive manufacturing
+11850792,64500181,SEED,1,0.4324,1.0,Method for calibrating an apparatus for producing an object by means of additive
+9505172,49626937,SEED,1,0.4306,0.8333,Method and apparatus for additive manufacturing
+9415443,49626937,SEED,1,0.4265,0.8333,Method and apparatus for additive manufacturing
+11155033,60153219,SEED,1,0.4203,0.4615,Apparatus for additively manufacturing three-dimensional objects
+10434572,49626937,SEED,1,0.4179,0.5,Method for additive manufacturing
+11517964,49626937,SEED,1,0.4179,0.5,Method for additive manufacturing
+10780636,68055247,SEED,1,0.4167,0.2857,"Recoating unit, recoating method, device and method for additive manufacturing o"
+11072113,60153219,SEED,1,0.4143,0.4615,Apparatus for additively manufacturing three-dimensional objects
+11298792,58941244,SEED,1,0.4112,1.0,Combined additive manufacturing method applicable to parts and molds
+11020902,60153219,SEED,1,0.4085,0.4615,Apparatus for additively manufacturing of three-dimensional objects
+11904545,60153219,SEED,1,0.4085,0.4615,Apparatus for additively manufacturing three-dimensional objects
+11969934,57042974,SEED,1,0.4074,0.7273,Method and apparatus for manufacturing an object by means of additive manufactur
+9676032,49626937,SEED,1,0.4062,0.5,Method for additive manufacturing
+10487664,57288173,SEED,1,0.4062,0.4286,Additive manufacturing method for making holes bounded by thin walls in turbine 
+10780639,60153219,SEED,1,0.4058,0.5,Irradiation device for an apparatus for additively manufacturing three-dimension
+11383441,60153219,SEED,1,0.4032,0.4615,Apparatus for additively manufacturing of three-dimensional objects
+12384106,60153219,SEED,1,0.403,0.4615,Apparatus for additively manufacturing three-dimensional objects
+10507638,62488375,SEED,1,0.4,0.2222,Reactive additive manufacturing
+11045875,62488375,SEED,1,0.4,0.2222,Reactive additive manufacturing
+11724459,68101162,SEED,1,0.38,0.75,Configuring an additive manufacturing system
+10792757,49626937,SEED,1,0.3699,0.8333,Method and apparatus for additive manufacturing
+11993008,49626937,SEED,1,0.3699,0.8333,Method and apparatus for additive manufacturing
+11518099,57042974,SEED,1,0.3699,0.8182,Apparatus and method for producing an object by means of additive manufacturing
+11185926,49626937,SEED,1,0.3699,0.8333,Method and apparatus for additive manufacturing
+9952572,47713987,SEED,1,0.3667,0.6,Object production using an additive manufacturing process
+11203150,65139257,SEED,1,0.3514,0.6,Layer orientation in selective deposition based additive manufacturing of parts
+11458539,57042974,SEED,1,0.3462,0.6364,Apparatus for producing an object by means of additive manufacturing
+12251876,57042974,SEED,1,0.3051,0.8182,Method and apparatus for producing an object by means of additive manufacturing
+11433658,60421631,ANTISEED-manual,0,0.2917,0.6667,Method of making a physical object by additive manufacturing
+10293554,56620727,SEED,1,0.2857,1.0,Three-dimensional object forming device and three-dimensional object forming met
+11897187,62873512,SEED,1,0.2836,0.8,Method and system for additive manufacturing of peelable sacrificial structure
+10377002,57583804,SEED,1,0.2807,1.0,Manufacturing machine
+11858210,62117081,SEED,1,0.28,0.6667,Managing powder mobility in binder jetting for additive manufacturing
+11491716,62117081,SEED,1,0.28,0.6667,Managing powder mobility in binder jetting for additive manufacturing
+10933582,62117081,SEED,1,0.28,0.6667,Managing powder mobility in binder jetting for additive manufacturing
+10486363,62117081,SEED,1,0.28,0.6667,Managing powder mobility in binder jetting for additive manufacturing
+10369662,62245272,SEED,1,0.2791,0.7778,Method and apparatus for producing three-dimensional objects
+9399321,62245272,SEED,1,0.2791,0.7778,Method and apparatus for producing three-dimensional objects
+11446864,62977495,SEED,1,0.2787,0.7778,Additive manufacturing compositions and methods for the same
+11318532,66098339,SEED,1,0.2714,1.0,Three-dimensional (3D) printing
+11072118,58455563,ANTISEED-manual,0,0.2697,1.0,Stereolithography machine with inclined tank
+10888923,57583804,SEED,1,0.2692,1.0,Manufacturing machine
+12415320,57042974,SEED,1,0.2679,0.8182,Method and apparatus for producing an object by means of additive manufacturing
+10773310,67621046,SEED,1,0.2667,0.7143,"Additive manufacturing system, article, and method of manufacturing an article"
+11260474,57583804,SEED,1,0.2656,1.0,Manufacturing machine
+11679556,62977495,SEED,1,0.2623,1.0,Additive manufacturing systems and methods for the same
+11518086,62977495,SEED,1,0.2623,1.0,Additive manufacturing systems and methods for the same
+8992816,62245272,SEED,1,0.2593,0.7778,Method and apparatus for producing three-dimensional objects
+12179430,67621046,SEED,1,0.2593,0.7143,Process for additive manufacturing and system
+11964346,70728513,SEED,1,0.2571,1.0,Dual wire welding or additive manufacturing system and method
+11440121,70728513,SEED,1,0.2571,1.0,Dual wire welding or additive manufacturing system and method
+10773335,70728513,SEED,1,0.2571,1.0,Dual wire welding or additive manufacturing system and method
+10792752,70728513,SEED,1,0.2571,1.0,Dual wire welding or additive manufacturing system and method
+11267219,67621046,SEED,1,0.2466,0.6667,System and method for additive manufacturing of a three-dimensional object
+10737323,64657020,SEED,1,0.2462,0.6667,Devices and methods for three-dimensional printing
+10792731,64657020,SEED,1,0.2462,0.6667,Devices and methods for three-dimensional printing
+12138857,64657020,SEED,1,0.2462,0.6667,Devices and methods for three-dimensional printing
+9987682,64657020,SEED,1,0.2462,0.6667,Devices and methods for three-dimensional printing
+9782933,62245272,SEED,1,0.2444,0.7778,Method and apparatus for producing three-dimensional objects
+12337531,66098339,SEED,1,0.2419,1.0,Three-dimensional printing
+12093018,64657020,SEED,1,0.2361,0.875,Systems and methods for three-dimensional printing
+11858064,62977495,SEED,1,0.2353,0.6,Path planning systems and methods for additive manufacturing
+12233457,66098339,SEED,1,0.2333,1.0,Three-dimensional printing
+10967574,69623893,SEED,1,0.2326,0.8333,Laser additive manufacturing apparatus and laser additive manufacturing method
+11673211,67621046,SEED,1,0.2321,0.6667,Temperature control system for additive manufacturing and method for same
+11225019,57042974,SEED,1,0.2286,1.0,Apparatus for producing an object by means of additive manufacturing and method 
+10207454,64657020,SEED,1,0.2281,0.625,Systems for three-dimensional printing
+12187873,66098339,SEED,1,0.2281,1.0,Three-dimensional printing
+11780988,66098339,SEED,1,0.2281,1.0,Three-dimensional printing
+9162394,62245272,SEED,1,0.2273,1.0,Method and device for producing three-dimensional objects
+9162393,62245272,SEED,1,0.2273,1.0,Method and device for producing three-dimensional objects
+12358052,66098339,SEED,1,0.2258,1.0,Three-dimensional printing
+11103953,51357703,SEED,1,0.2222,0.625,Device for additive production of three-dimensional objects
+11285557,70728513,SEED,1,0.2169,0.75,Dual wire welding or additive manufacturing system
+11897186,54023394,SEED,1,0.2143,0.6667,Method and system for rotational 3D printing
+10611136,54023394,SEED,1,0.2143,0.6667,Method and system for rotational 3D printing
+10875246,67621046,SEED,1,0.2131,0.6667,System and method for additive manufacturing using spherical coordinates
+11478984,67621046,SEED,1,0.2131,0.6667,System and method for additive manufacturing using spherical coordinates
+12365134,66098339,SEED,1,0.2121,1.0,Three-dimensional printing
+12296534,67621046,SEED,1,0.2113,0.8333,Additive manufacturing method and system
+10195693,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9486878,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9573225,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9573193,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+10507549,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9821411,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9586290,64657020,SEED,1,0.2105,0.625,Systems for three-dimensional printing
+10493564,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9399256,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+11420261,51357703,SEED,1,0.2105,0.7143,System for producing three-dimensional objects
+9346127,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9254535,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+9403235,64657020,SEED,1,0.2105,0.7778,"Apparatuses, systems and methods for three-dimensional printing"
+10688715,67621046,SEED,1,0.209,0.8571,System and method for additive manufacturing of an object
+12036731,67621046,SEED,1,0.2083,0.6667,Method for additive manufacturing
+11014161,67621046,SEED,1,0.2083,0.6667,Method for additive manufacturing
+10124539,54266674,SEED,1,0.2059,0.8182,"Liquefier assembly for additive manufacturing systems, and methods of use thereo"
+9327447,54266674,SEED,1,0.2059,0.8182,"Liquefier assembly for additive manufacturing systems, and methods of use thereo"
+11046014,60083746,SEED,1,0.2055,0.625,Break-away support material for additive manufacturing
+10059053,60083746,SEED,1,0.2055,0.625,Break-away support material for additive manufacturing
+11931962,57042974,SEED,1,0.2051,0.8182,Method and apparatus for producing an object by means of additive manufacturing
+9937666,64657020,SEED,1,0.2031,0.6,Systems and methods for forming three dimensional objects
+9227366,44066802,SEED,1,0.2024,0.7143,Process for fabrication of three-dimensional objects
+12134226,66999620,SEED,1,0.2,1.0,Systems and methods of additive manufacturing
+10449606,56851402,SEED,1,0.2,0.625,Additive manufacturing apparatus and method for large components
+11478983,56851402,SEED,1,0.2,0.625,Additive manufacturing apparatus and method for large components
+10518361,60117445,SEED,1,0.2,0.8,Method of manufacturing a component and component
+12343797,49626937,SEED,1,0.1974,0.625,Additive manufacturing method and apparatus with beam dump
+9731445,62977495,SEED,1,0.197,0.6,Additive manufacturing systems and methods for magnetic materials
+10933468,56851402,SEED,1,0.1957,1.0,Additive manufacturing method and apparatus
+11198192,70728513,SEED,1,0.1948,0.6667,Welding or additive manufacturing dual wire drive system
+11623409,67621046,SEED,1,0.1944,0.8571,System and method for additive manufacturing of an object
+10894399,67621046,SEED,1,0.1944,0.8571,System and method for additive manufacturing of an object
+11192208,57042974,SEED,1,0.1944,1.0,Apparatus for producing an object by means of additive manufacturing and method 
+9688021,67621046,SEED,1,0.1944,0.8571,System and method for additive manufacturing of an object
+10758976,66999620,SEED,1,0.1918,0.625,Systems and methods for powder pretreatment in additive manufacturing
+11504787,70728513,SEED,1,0.1918,0.6667,Welding or additive manufacturing dual wire drive system
+10350821,67621046,SEED,1,0.1899,0.6667,Method and system for manufacturing a three-dimensional object by additive manuf
+11426813,70728513,SEED,1,0.1892,0.6667,Welding or additive manufacturing dual wire drive system
+9650526,66098339,SEED,1,0.1892,0.6,Method of printing a three-dimensional article
+12350880,52004798,SEED,1,0.1887,0.7,Method for the fabrication of three-dimensional objects and apparatus for same
+11292187,52004798,SEED,1,0.1887,0.7,Method for the fabrication of three-dimensional objects and apparatus for same
+11465339,52004798,SEED,1,0.1887,0.7,Method for the fabrication of three-dimensional objects and apparatus for same
+11970399,66098339,SEED,1,0.1884,0.6,Three-dimensional (3D) printing of graphene materials
+10661552,62977495,SEED,1,0.1884,0.6667,Systems and methods for advanced additive manufacturing
+11065815,69167691,SEED,1,0.1882,0.625,Powder dispensing assembly for an additive manufacturing machine
+11027336,58701464,SEED,1,0.1852,0.625,Splatter shield systems and methods for additive manufacturing
+12420488,68057630,SEED,1,0.1818,0.7143,Systems and methods for controlling additive manufacturing
+11148354,52004798,SEED,1,0.1818,0.6667,Process and apparatus for fabrication of three dimensional objects
+10357918,52004798,SEED,1,0.1818,0.6667,Process and apparatus for fabrication of three dimensional objects
+11565465,55299294,SEED,1,0.1818,0.6154,"Method for manufacturing three-dimensional shaped object, additive manufacturing"
+10265910,52004798,SEED,1,0.1818,0.6667,Process and apparatus for fabrication of three-dimensional objects
+9993975,51357703,SEED,1,0.1818,0.7143,Device for producing three-dimensional models
+9174391,51357703,SEED,1,0.1818,0.7143,Device for producing three-dimensional models
+10946480,67621046,SEED,1,0.1807,0.625,Foil fusion additive manufacturing system and method
+12296538,62977495,SEED,1,0.1806,0.6364,"Methods for laser calibration in additive manufacturing systems, and systems con"
+10150257,60784650,SEED,1,0.1806,1.0,System and method for reducing three-dimensional additive manufacturing producti
+10105903,62873512,SEED,1,0.1806,0.6,System and method for additive manufacturing of an object
+10941992,55311467,ANTISEED-manual,0,0.18,0.6667,Heat exchanger
+10016937,67621046,SEED,1,0.1795,0.8571,System and method for additive manufacturing of an object
+9649811,67621046,SEED,1,0.1795,0.8571,System and method for additive manufacturing of an object
+11254057,67621046,SEED,1,0.1795,0.8571,System and method for additive manufacturing of an object
+10406752,67621046,SEED,1,0.1795,0.8571,System and method for additive manufacturing of an object
+11872766,67621046,SEED,1,0.1795,0.8571,System and method for additive manufacturing of an object
+11229953,54266674,SEED,1,0.1795,0.6,Methods and systems for additive manufacturing
+12030253,62245272,SEED,1,0.1792,0.6,Method for producing three-dimensional objects from powders
+12030244,55299294,SEED,1,0.1791,0.6364,Apparatus and method for manufacturing a three-dimensional object
+11426931,66098339,SEED,1,0.1781,1.0,Three-dimensional printing
+11628619,66098339,SEED,1,0.1781,1.0,Three-dimensional printing
+11904409,67621046,SEED,1,0.1781,0.6667,System and method for determining additive manufacturing beam parameters
+12090705,68057630,SEED,1,0.1765,1.0,Additive manufacturing systems and methods
+12459036,60117445,SEED,1,0.1765,0.7143,Method and apparatus for additive manufacturing of a component
+10821513,62245272,SEED,1,0.1735,0.8889,Device for producing three-dimensional objects and a corresponding method
+12472562,66999620,SEED,1,0.1733,0.7143,Friction based additive manufacturing systems and methods
+10514680,67470618,SEED,1,0.1733,0.6,System and method for controlling an additive manufacturing system
+11845130,68057630,SEED,1,0.1724,0.8333,Rotational additive manufacturing systems and methods
+9950495,67621046,SEED,1,0.1711,0.6667,System and method for additive manufacturing of a three-dimensional object
+9862139,61558587,SEED,1,0.1711,0.75,Three dimensional printing apparatus
+11413814,67686786,SEED,1,0.1702,0.625,Method of manufacturing product and additive manufacturing apparatus
+10315408,56986368,SEED,1,0.1695,0.6,Additive manufacturing apparatus and method
+10996653,56620727,SEED,1,0.169,0.6667,"Three-dimensional object building device, three-dimensional object building meth"
+11123930,67470618,SEED,1,0.1688,0.6364,Method and a system to optimize printing parameters in additive manufacturing pr
+10556382,67470618,SEED,1,0.1688,0.6364,Method and a system to optimize printing parameters in additive manufacturing pr
+9895845,67470618,SEED,1,0.1688,0.6364,Method and a system to optimize printing parameters in additive manufacturing pr
+11981082,50884343,ANTISEED-manual,0,0.1684,0.6667,Device and method for the generative production of a three-dimensional object
+12325070,65635592,SEED,1,0.1667,0.7778,Metal powder bed additive manufacturing apparatus and methods
+12179417,64657020,SEED,1,0.1667,0.7778,Manufacturing systems and methods for three-dimensional printing
+10086567,60117445,SEED,1,0.1667,0.625,Method for additively manufacturing component and component made therefrom
+12179416,64657020,SEED,1,0.1667,0.7778,Manufacturing systems and methods for three-dimensional printing
+11691343,66098339,SEED,1,0.1647,0.6,Three-dimensional printing and three-dimensional printers
+10576729,51357703,SEED,1,0.1644,0.75,Device and method for producing three-dimensional objects
+11247402,66098339,SEED,1,0.1644,1.0,Three-dimensional printing
+12269091,69645841,SEED,1,0.1644,0.6154,System and method for multimaterial powder bed patterning for use in additive ma
+11534968,56986368,SEED,1,0.1642,0.6,Nozzle and additive manufacturing apparatus
+10843408,56986368,SEED,1,0.1642,0.6,Nozzle and additive manufacturing apparatus
+11511488,51357703,SEED,1,0.1622,0.8571,Device for producing three-dimensional objects layer by layer
+11865620,70728513,SEED,1,0.1605,0.625,Additive manufacturing system and method
+12319006,68057630,SEED,1,0.1573,0.625,Control systems for additive manufacturing and associated methods
+12338512,62977495,SEED,1,0.1566,0.7,"Feedstocks for additive manufacturing, and methods of using the same"
+11396687,62977495,SEED,1,0.1566,0.7,"Feedstocks for additive manufacturing, and methods of using the same"
+9764423,60117445,SEED,1,0.1562,0.6667,Method for manufacturing a hybrid component
+9815243,51357703,SEED,1,0.1556,0.7143,Device for producing three-dimensional models
+10274934,61159994,SEED,1,0.1549,0.6667,"Data generating method for 3D printing, method for printing a 3D object, and sys"
+8911226,51357703,SEED,1,0.1548,0.7143,Device for producing three-dimensional models
+9688020,67621046,SEED,1,0.1548,0.6667,Method and system for reuse of materials in additive manufacturing systems
+9962885,51357703,SEED,1,0.1548,0.7143,Device for producing three-dimensional models
+11273601,61159994,SEED,1,0.1538,0.7143,System and method for rotational 3D printing
+12496780,57042974,SEED,1,0.1538,0.8182,Method and apparatus for producing an object by means of additive manufacturing
+10303159,62977495,SEED,1,0.1538,0.6,Systems and methods for additive manufacturing of transport structures
+10252333,56986368,SEED,1,0.1538,0.6,Additive manufacturing apparatus and method
+11986882,61159994,SEED,1,0.1531,0.6667,System and method of 3D printing
+10011074,66734576,SEED,1,0.1529,0.6667,Color three-dimensional printing apparatus and color three-dimensional printing 
+12275066,64657020,SEED,1,0.1528,0.6364,Systems and methods for improved melting in three-dimensional printing processes
+11001006,56986368,SEED,1,0.1528,1.0,Additive manufacturing apparatus
+10611086,41800738,ANTISEED-manual,0,0.1525,0.625,System and method for evaluating additive manufacturing index
+11577316,61558587,SEED,1,0.15,1.0,Three-dimensional printing
+9925723,58701464,SEED,1,0.15,1.0,Additive manufacturing systems and methods
+12186805,61558587,SEED,1,0.15,1.0,Three-dimensional printing
+10933620,60543316,SEED,1,0.1484,1.0,Additive manufacturing apparatus and methods
+10611694,68057630,SEED,1,0.1481,0.7143,Systems and methods for additive manufacturing of ceramics
+11511343,60117445,SEED,1,0.1481,0.7143,Method for modular additive manufacturing of a component and a component
+9550207,69623893,SEED,1,0.1477,0.8333,Method and apparatus for additive manufacturing
+12097662,67621046,SEED,1,0.1477,0.6667,Method and system for manufacturing a component using an additive process
+9713844,69623893,SEED,1,0.1477,0.8333,Method and apparatus for additive manufacturing
+11179808,41800738,ANTISEED-manual,0,0.1471,0.6667,System and method of additive manufacturing
+11890697,41800738,ANTISEED-manual,0,0.1471,0.6667,System and method of additive manufacturing
+10766195,68057630,SEED,1,0.1463,0.625,Additive manufacturing fiber composites and related systems and methods
+9993873,53520580,SEED,1,0.1463,0.75,System and method for three-dimensional printing
+8981010,51357703,SEED,1,0.1461,0.625,Polymer powder for producing three-dimensional objects
+10850326,69623893,SEED,1,0.1458,1.0,Additive manufacturing apparatus and method
+12044618,69623893,SEED,1,0.1458,1.0,Additive manufacturing apparatus and method
+12090552,62873561,SEED,1,0.1443,0.6,Method and device for additive manufacturing
+11602790,67621046,SEED,1,0.1429,0.6,Method and system for quality assurance and control of additive manufacturing pr
+12269117,69884432,SEED,1,0.1429,0.6667,Laser additive manufacturing system
+11325188,69623893,SEED,1,0.1429,1.0,Additive manufacturing apparatus and method
+10343349,54023394,SEED,1,0.1413,0.6667,"System, method and apparatus for 3D printing"
+10744596,69623893,SEED,1,0.1412,0.7143,"Material feeder of additive manufacturing apparatus, additive manufacturing appa"
+12343813,56390356,SEED,1,0.141,0.6,Additive manufacturing method for a metal part
+11691333,56068665,SEED,1,0.1395,0.75,Additive manufacturing materials system
+12318995,56068665,SEED,1,0.1395,0.75,Additive manufacturing materials system
+10500641,65635592,SEED,1,0.1389,0.625,Additive manufacturing apparatus and methods
+11267052,65635592,SEED,1,0.1389,0.625,Additive manufacturing apparatus and methods
+10442180,58701464,SEED,1,0.1385,0.7143,Systems and methods for additive manufacturing recoating
+11577453,70728513,SEED,1,0.1383,0.625,Additive manufacturing system and a method of additive manufacturing
+10427352,65724514,SEED,1,0.1379,0.6364,Extrusion-based additive manufacturing system and method
+10953596,70728513,SEED,1,0.1368,0.625,Additive manufacturing system and a method of additive manufacturing
+10792868,52004798,SEED,1,0.1343,1.0,Method and apparatus for three-dimensional fabrication
+11254052,56851402,SEED,1,0.1343,0.8333,Vatless additive manufacturing apparatus and method
+11833755,56851402,SEED,1,0.1343,0.8333,Vatless additive manufacturing apparatus and method
+10399272,66098339,SEED,1,0.1333,0.6,Continuous pull three-dimensional printing
+10987869,66098339,SEED,1,0.1333,0.6,Continuous pull three-dimensional printing
+12441050,60784650,SEED,1,0.1333,0.6154,System for additive manufacturing of three-dimensional structures and method for
+11046930,60784650,SEED,1,0.1333,0.6154,System for additive manufacturing of three-dimensional structures and method for
+10678215,66734576,SEED,1,0.1333,0.75,Three dimensional printing method and three dimensional printing apparatus
+10821514,69623893,SEED,1,0.1333,0.7143,Apparatus and method for continuous additive manufacturing
+11273496,61159994,SEED,1,0.1333,0.7143,System and method for rotational 3D printing
+11420265,69623893,SEED,1,0.1333,0.7143,Apparatus and method for continuous additive manufacturing
+10232552,65529427,SEED,1,0.1333,0.7143,Method for three dimensional printing
+11738501,60784650,SEED,1,0.1333,0.6154,System for additive manufacturing of three-dimensional structures and method for
+11691218,58701464,SEED,1,0.1325,0.6,Additive-manufacturing methods
+12285918,57447372,SEED,1,0.1319,1.0,Printing device and printing method
+10744598,69623893,SEED,1,0.1319,1.0,Additive manufacturing apparatus and method
+11097464,64657020,SEED,1,0.1313,0.6364,"Systems, devices, and methods for inkjet-based three-dimensional printing"
+10821511,56851402,SEED,1,0.1304,0.625,Additive manufacturing apparatus and method for large components
+10474135,58183039,SEED,1,0.1304,0.6667,Three dimensional printing method
+12479169,66734576,SEED,1,0.129,0.6,Apparatus for modeling three-dimensional object and method for modeling three-di
+9718239,66734576,SEED,1,0.1275,0.75,Three dimensional printing apparatus and three dimensional printing method
+10286452,61558587,SEED,1,0.1264,0.6,Three-dimensional printing and three-dimensional printers
+10259044,61558587,SEED,1,0.1264,0.6,Three-dimensional printing and three-dimensional printers
+10252336,61558587,SEED,1,0.1264,0.6,Three-dimensional printing and three-dimensional printers
+11840022,67470618,SEED,1,0.1264,0.6667,System and method for additive manufacturing
+12441028,68057630,SEED,1,0.1263,0.625,Systems and methods for mixing materials for additive manufacturing
+11090728,69623893,SEED,1,0.125,0.8333,Apparatus for additive manufacturing and method of additive manufacturing
+11590691,56851402,SEED,1,0.125,0.7143,Plate-based additive manufacturing apparatus and method
+11938675,57447372,SEED,1,0.1231,1.0,3D printing device and 3D printing method
+11186036,69623893,SEED,1,0.1212,1.0,Additive manufacturing apparatus and additive manufacturing method
+9632037,66734576,SEED,1,0.12,0.7,Three dimensional printing apparatus and method for detecting printing anomaly
+10035307,66734576,SEED,1,0.12,0.6667,Method and apparatus of three-dimensional printing and electronic apparatus
+11229954,69623893,SEED,1,0.1196,1.0,Additive manufacturing apparatus and method
+12365143,64657020,SEED,1,0.1188,0.6364,"Three-dimensional (3D) printing methods, systems, and devices for target objects"
+12246491,29720734,SEED,1,0.1183,0.7,Apparatus and methods for additive manufacturing of three dimensional objects
+11565476,29720734,SEED,1,0.1183,0.7,Apparatus and methods for additive manufacturing of three dimensional objects
+10682703,64657020,SEED,1,0.1176,0.6364,Systems and methods for delivering materials for printing three dimensional (3D)
+11376786,65635592,SEED,1,0.1132,0.75,Methods and apparatus for additive manufacturing
+12226952,69623893,SEED,1,0.1121,0.8333,"Additive manufacturing apparatus, system and method"
+11485080,69623893,SEED,1,0.1121,0.8333,"Additive manufacturing apparatus, system and method"
+10695835,41800738,ANTISEED-manual,0,0.1111,0.625,Method and system for manufacturing of three dimensional objects
+11090726,63963415,SEED,1,0.1099,0.6364,Apparatus and method for three-dimensional metal printing
+11498267,56851402,SEED,1,0.1096,0.7143,Multi-material additive manufacturing apparatus and method
+11945157,56851402,SEED,1,0.1096,0.7143,Multi-material additive manufacturing apparatus and method
+9079356,59398088,SEED,1,0.1053,0.6667,Method and apparatus for producing a three-dimensional object
+12162215,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10744707,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10603836,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11584069,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11964426,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+12257772,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+9987798,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11577455,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11173660,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11865775,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+9511543,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10449711,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three dimensional printing
+10744708,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+12403651,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10759109,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11926094,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11945160,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10315355,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11590699,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+12128613,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+10315356,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+12325185,66734576,SEED,1,0.1038,0.7,Method and apparatus for continuous composite three-dimensional printing
+11104070,57447372,SEED,1,0.1031,0.6667,"3D printing head, 3D printing device and control method of 3D printing head"
+11124961,61159994,SEED,1,0.0976,0.7143,System and method for 3D construction printing
+12208569,62873512,SEED,1,0.0917,0.6,System and method for submicron additive manufacturing
+10252487,69623893,SEED,1,0.0866,1.0,Additive manufacturing method and apparatus
+11040485,69623893,SEED,1,0.0866,1.0,Additive manufacturing method and apparatus
+11548199,54938101,SEED,1,0.0843,0.6667,3D printer and a method for 3D printing of a construct
+10399270,54938101,SEED,1,0.0729,0.6667,Photo-curing 3D printer and 3D printing method
+11666972,53682015,SEED,1,0.0,1.0,Use of 3D printing for anticounterfeiting
+10166726,66668873,SEED,1,0.0,0.6,Method and apparatus for additive manufacturing
+11230062,66668873,SEED,1,0.0,0.6,Method and apparatus for additive manufacturing
+10307957,66668873,SEED,1,0.0,0.6,Apparatus and method for additive manufacturing
+10875249,55759746,SEED,1,0.0,0.7,Additive manufacturing machine comprising an extraction system and method of add
+11173662,55759746,SEED,1,0.0,0.625,"Additive-manufacturing head, manufacturing machine, and manufacturing method"
+10814569,57396529,SEED,1,0.0,0.6,Method and material for additive manufacturing
+9452489,55759746,SEED,1,0.0,0.625,Machine and method for additive manufacturing
+11707306,31205631,ANTISEED-AF,0,0.0,0.6667,Fixing bone plate
+10065360,54326541,SEED,1,0.0,0.6667,Additive manufacturing apparatus

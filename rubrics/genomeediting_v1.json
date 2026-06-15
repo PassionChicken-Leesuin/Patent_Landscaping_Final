@@ -1,0 +1,69 @@
+{
+  "domain": "genomeediting",
+  "version": "v1",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE — S2 Appendix annotation guidelines, keywords (S2.3.1) and CPC classes (S2.3.2) for Genome Editing. The domain is defined at the FUNCTIONAL-APPLICATION level (a set of tasks), not by keyword presence.",
+  "definition": "Genome Editing: technology whose invention actually performs one of the defining Genome Editing tasks (e.g. Target a specific DNA sequence; Break / cleave a DNA sequence (e.g. double-strand break); Edit a DNA sequence (insert / delete / replace)). A patent is SEED only if its title+abstract clearly discusses doing one or more of the in-scope tasks below.",
+  "primary_decision_axis": {
+    "name": "performs_task_vs_mentions_or_adjacent",
+    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Genome Editing in-scope task with a concrete mechanism. REJECT (NOT_SEED) if it merely MENTIONS the domain, uses a related/adjacent technology for a DIFFERENT purpose, applies the domain's tools to another field, or belongs to a different technology entirely. Keyword presence alone is NOT sufficient — the functional task must be present."
+  },
+  "in_scope_tasks": [
+    {
+      "task_id": "T1",
+      "desc": "Target a specific DNA sequence"
+    },
+    {
+      "task_id": "T2",
+      "desc": "Break / cleave a DNA sequence (e.g. double-strand break)"
+    },
+    {
+      "task_id": "T3",
+      "desc": "Edit a DNA sequence (insert / delete / replace)"
+    }
+  ],
+  "key_technical_signals": [
+    "dna editing",
+    "gene editing",
+    "genome editing",
+    "genome engineering",
+    "recombinant targeting vector",
+    "homologous recombination",
+    "double-strand dna break",
+    "homology-directed repair",
+    "targeted dna sequence",
+    "dna cleavage",
+    "fok1",
+    "sequence-specific nuclease",
+    "zinc finger nuclease",
+    "cys2-his2",
+    "transcriptional activator-like effector nuclease",
+    "talen",
+    "clustered regularly interspaced short palindromic repeat",
+    "crispr",
+    "cas9",
+    "pre-crrna",
+    "tracrrna",
+    "rnase",
+    "single guide rna",
+    "cpf1",
+    "ngago",
+    "argonaute endonuclease",
+    "natronobacterium gregoryi argonaute",
+    "guide rna"
+  ],
+  "out_of_scope_confusables": [
+    "Patents from an ADJACENT/other Bergeaud domain (Self-driving Vehicle, Additive Manufacturing, Blockchain, Computer Vision, Hydrogen Storage) that share vocabulary but do not perform a Genome Editing task.",
+    "Generic patents that merely MENTION Genome Editing terms without doing the task (e.g. listing it as background, prior art, or one possible application).",
+    "Using Genome Editing-adjacent components/methods for a different end (no in-scope task)."
+  ],
+  "hard_negative_patterns": [
+    "domain keyword present but the invention does NOT perform a Genome Editing task -> reject",
+    "the domain is named only as an example/application, the real contribution is elsewhere -> reject",
+    "an adjacent-domain invention that overlaps in terminology -> reject"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "the invention clearly PERFORMS a Genome Editing in-scope task with a concrete mechanism",
+    "0.6_0.75": "domain task plausibly implied but the mechanism/scope is unclear, or mixed signals -> boundary",
+    "0.0_0.25": "merely mentions the domain, an adjacent-field/different-purpose use, or no domain signal at all"
+  }
+}

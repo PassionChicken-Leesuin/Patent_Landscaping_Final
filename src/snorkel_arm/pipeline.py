@@ -3,27 +3,50 @@
 * apply_lfs_pure / coverage_report : pure python, run locally on Python 3.14 to
   sanity-check LF coverage/overlap BEFORE spending Colab time.
 * run_snorkel : the real LabelModel run (cardinality=2). Requires snorkel (Colab).
+
+Domain-aware: self-driving uses its bespoke lfs.py; the 5 added domains use the generic
+keyword LFs (lfs_generic.make_lf_specs / build_lfs_for_domain).
 """
 from __future__ import annotations
 from collections import Counter
 
 import numpy as np
 
-from src.snorkel_arm.lfs import LF_SPECS, SEED, NOT_SEED, ABSTAIN
+from src.snorkel_arm.lfs import SEED, NOT_SEED, ABSTAIN
+
+
+def get_lf_specs(domain: str = "autonomous_driving"):
+    """(name, pure-predicate) pairs for a domain — for the local analyzer / tests."""
+    if domain == "autonomous_driving":
+        from src.snorkel_arm.lfs import LF_SPECS
+        return LF_SPECS
+    from src import domains as D
+    from src.snorkel_arm.lfs_generic import make_lf_specs
+    return make_lf_specs(domain, D.DOMAINS)
+
+
+def _build_lfs(domain: str):
+    """Snorkel LabelingFunction list for a domain (Colab only)."""
+    if domain == "autonomous_driving":
+        from src.snorkel_arm.lfs import build_snorkel_lfs
+        return build_snorkel_lfs()
+    from src import domains as D
+    from src.snorkel_arm.lfs_generic import build_lfs_for_domain
+    return build_lfs_for_domain(domain, D.DOMAINS)
 
 
 # ---------------- pure local analyzer (no snorkel) ----------------
-def apply_lfs_pure(texts) -> np.ndarray:
-    names = [n for n, _ in LF_SPECS]
-    L = np.empty((len(texts), len(LF_SPECS)), dtype=int)
-    for j, (_, fn) in enumerate(LF_SPECS):
+def apply_lfs_pure(texts, domain: str = "autonomous_driving") -> np.ndarray:
+    lf_specs = get_lf_specs(domain)
+    L = np.empty((len(texts), len(lf_specs)), dtype=int)
+    for j, (_, fn) in enumerate(lf_specs):
         for i, t in enumerate(texts):
             L[i, j] = fn(t)
     return L
 
 
-def coverage_report(L: np.ndarray) -> dict:
-    names = [n for n, _ in LF_SPECS]
+def coverage_report(L: np.ndarray, domain: str = "autonomous_driving") -> dict:
+    names = [n for n, _ in get_lf_specs(domain)]
     m, n = L.shape
     voted = L != ABSTAIN
     rows = []
@@ -65,16 +88,15 @@ def coverage_report(L: np.ndarray) -> dict:
 
 # ---------------- snorkel run (Colab) ----------------
 def run_snorkel(df, text_col: str = "text", n_epochs: int = 500, lr: float = 0.001,
-                seed: int = 123, drop_abstain: bool = True):
+                seed: int = 123, drop_abstain: bool = True, domain: str = "autonomous_driving"):
     """Fit LabelModel and attach 'snorkel_label'. df must have `text_col`.
 
     Returns (labeled_df, lf_summary_df, L). Requires snorkel.
     """
     from snorkel.labeling import PandasLFApplier, LFAnalysis
     from snorkel.labeling.model import LabelModel
-    from src.snorkel_arm.lfs import build_snorkel_lfs
 
-    lfs = build_snorkel_lfs()
+    lfs = _build_lfs(domain)
     applier = PandasLFApplier(lfs)
     L = applier.apply(df)
 

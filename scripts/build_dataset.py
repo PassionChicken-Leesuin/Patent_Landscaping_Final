@@ -1,8 +1,11 @@
 """Build processed datasets + print an EDA report.
 
-Usage:  python -m scripts.build_dataset
+Usage:
+  python -m scripts.build_dataset                       # self-driving (legacy)
+  python -m scripts.build_dataset --domain blockchain   # one of the 5 added domains
 """
 from __future__ import annotations
+import argparse
 import sys
 from pathlib import Path
 
@@ -16,6 +19,7 @@ except Exception:
 import pandas as pd
 from src import config as C
 from src import data_pipeline as dp
+from src import domains as D
 
 
 def hr(title: str):
@@ -24,7 +28,38 @@ def hr(title: str):
     print("=" * 70)
 
 
+def build_domain(domain: str):
+    """Added domains: gold CSV -> eval_processed; other golds -> negatives_pool.
+    The candidate pool is collected separately (collect_expanded_pool --domain)."""
+    spec = D.get(domain)
+    ev = dp.load_gold(spec)
+    neg = dp.build_ood_pool_for(spec, D.DOMAINS)
+    spec.eval_processed.parent.mkdir(parents=True, exist_ok=True)
+    spec.negatives_pool.parent.mkdir(parents=True, exist_ok=True)
+    ev.to_csv(spec.eval_processed, index=False, encoding="utf-8")
+    neg.to_csv(spec.negatives_pool, index=False, encoding="utf-8")
+
+    hr(f"DOMAIN: {spec.display} ({domain})")
+    print(f"gold (eval): {len(ev):,}")
+    print(ev["label"].value_counts().rename({1: "SEED(1)", 0: "NOT_SEED(0)"}).to_string())
+    print("\nexpansion_level:")
+    print(ev["expansion_level"].value_counts().to_string())
+    hr("OOD NEGATIVE POOL (the other 5 domains' gold sets)")
+    print(f"total: {len(neg):,}  (eval-leaks removed: {neg.attrs.get('eval_leaks_removed', 0)})")
+    print(neg["source_domain"].value_counts().to_string())
+    hr("OUTPUTS WRITTEN")
+    for p in [spec.eval_processed, spec.negatives_pool]:
+        print(f"  {p.relative_to(C.ROOT)}")
+
+
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--domain", default=D.AUTONOMOUS, help="domain key (default: self-driving)")
+    args = ap.parse_args()
+    if args.domain != D.AUTONOMOUS:
+        build_domain(args.domain)
+        return
+
     out = dp.run(write=True)
     train, ev, leaked, clean = out["train_raw"], out["eval"], out["leaked"], out["train_clean"]
 

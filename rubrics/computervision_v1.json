@@ -1,0 +1,69 @@
+{
+  "domain": "computervision",
+  "version": "v1",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE — S2 Appendix annotation guidelines, keywords (S2.3.1) and CPC classes (S2.3.2) for Computer Vision. The domain is defined at the FUNCTIONAL-APPLICATION level (a set of tasks), not by keyword presence.",
+  "definition": "Computer Vision: technology whose invention actually performs one of the defining Computer Vision tasks (e.g. Process digital images; Analyse digital images; Understand / interpret digital images (recognition, detection, classification)). A patent is SEED only if its title+abstract clearly discusses doing one or more of the in-scope tasks below.",
+  "primary_decision_axis": {
+    "name": "performs_task_vs_mentions_or_adjacent",
+    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Computer Vision in-scope task with a concrete mechanism. REJECT (NOT_SEED) if it merely MENTIONS the domain, uses a related/adjacent technology for a DIFFERENT purpose, applies the domain's tools to another field, or belongs to a different technology entirely. Keyword presence alone is NOT sufficient — the functional task must be present."
+  },
+  "in_scope_tasks": [
+    {
+      "task_id": "T1",
+      "desc": "Process digital images"
+    },
+    {
+      "task_id": "T2",
+      "desc": "Analyse digital images"
+    },
+    {
+      "task_id": "T3",
+      "desc": "Understand / interpret digital images (recognition, detection, classification)"
+    }
+  ],
+  "key_technical_signals": [
+    "computer vision",
+    "machine vision",
+    "lidar",
+    "character recognition",
+    "optical character recognition",
+    "handwritten character recognition",
+    "image to text",
+    "text recognition",
+    "face recognition",
+    "facial recognition",
+    "biometric data",
+    "biometrics",
+    "mass surveillance",
+    "face unlock",
+    "traffic camera",
+    "object detection",
+    "edge detection",
+    "obstacle avoidance",
+    "motion tracking",
+    "neural network",
+    "deep learning",
+    "machine learning",
+    "convolutional",
+    "image classification",
+    "image segmentation",
+    "image recognition",
+    "pattern recognition",
+    "image processing"
+  ],
+  "out_of_scope_confusables": [
+    "Patents from an ADJACENT/other Bergeaud domain (Self-driving Vehicle, Additive Manufacturing, Blockchain, Genome Editing, Hydrogen Storage) that share vocabulary but do not perform a Computer Vision task.",
+    "Generic patents that merely MENTION Computer Vision terms without doing the task (e.g. listing it as background, prior art, or one possible application).",
+    "Using Computer Vision-adjacent components/methods for a different end (no in-scope task)."
+  ],
+  "hard_negative_patterns": [
+    "domain keyword present but the invention does NOT perform a Computer Vision task -> reject",
+    "the domain is named only as an example/application, the real contribution is elsewhere -> reject",
+    "an adjacent-domain invention that overlaps in terminology -> reject"
+  ],
+  "score_anchors": {
+    "0.9_1.0": "the invention clearly PERFORMS a Computer Vision in-scope task with a concrete mechanism",
+    "0.6_0.75": "domain task plausibly implied but the mechanism/scope is unclear, or mixed signals -> boundary",
+    "0.0_0.25": "merely mentions the domain, an adjacent-field/different-purpose use, or no domain signal at all"
+  }
+}

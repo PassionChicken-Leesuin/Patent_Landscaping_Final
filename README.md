@@ -104,3 +104,37 @@ python -m scripts.run_mas --workers 40   # MAS labels the pool with 10 keys -> m
 pip install pandas numpy
 python -m scripts.build_dataset
 ```
+
+## Multi-domain extension (5 other Bergeaud technologies)
+
+The same Snorkel-vs-MAS experiment now runs for **additivemanufacturing, blockchain,
+computervision, genomeediting, hydrogenstorage**. Each `DataSet/학습용 음성/training_<domain>.csv`
+is that domain's **gold benchmark** (SEED / ANTISEED-manual / ANTISEED-AF — same shape as
+`Evaluation_Set.csv`). Everything is parameterized by `--domain`.
+
+- **`src/domains.py`** — registry of all 6 domains: official CPC ∩ keyword query + annotation
+  tasks (Bergeaud S2 Appendix), gold CSV, OOD set (= the *other* domains' golds), and all
+  derived paths. Self-driving keeps its legacy flat paths + bespoke `lfs.py` / `*_v2.json` rubric.
+- **Rubrics** auto-generated to `rubrics/<domain>_v1.json` (`src/mas/rubric_gen.py`).
+- **Snorkel LFs** auto-generated from the keyword list (`src/snorkel_arm/lfs_generic.py`);
+  MAS prompts are rubric-driven (`src/mas/prompts.py`).
+
+```
+# LOCAL (needs the PatentsView bulk for collection, OpenAI keys for MAS)
+python -m scripts.gen_domain_artifacts                 # write rubrics + LF sanity check
+python -m scripts.collect_pools --bulk "<Patent_Bulk>" # 1 pass -> DataSet/expanded/<domain>/...
+for d in additivemanufacturing blockchain computervision genomeediting hydrogenstorage; do
+  python -m scripts.build_dataset           --domain $d   # gold->eval + OOD pool
+  python -m scripts.build_expanded_trainset --domain $d   # leakage-clean pool
+  python -m scripts.build_candidate_all     --domain $d   # pool + OOD
+  python -m scripts.run_mas --domain $d --resume --workers 40   # MAS labels (committed)
+done
+
+# COLAB (GPU) — notebooks/colab_experiment_alldomains.ipynb
+#   per domain: build_dataset / build_candidate_all / run_snorkel, then 4 models
+#   {snorkel,mas} x {noood,ood}, curves, compare@0.5, calibrate + threshold sweep.
+```
+
+Committed for Colab (it has no bulk/API): `training_expanded_clean.csv`,
+`eval_processed.csv`, `negatives_pool.csv` (per domain) and
+`DataSet/mas/<domain>/mas_ranked_scores.csv`. `candidate_all` + Snorkel labels regenerate on Colab.
