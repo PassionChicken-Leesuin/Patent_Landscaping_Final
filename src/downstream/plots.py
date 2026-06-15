@@ -42,3 +42,42 @@ def plot_history(arm: str, out_root: str = "outputs", show: bool = True):
     if show:
         plt.show()
     return str(out_png)
+
+
+def roc_pr(curves: dict, out_root: str = "outputs", show: bool = True):
+    """curves = {arm: (y, p)}. Plot ROC + PR for all arms together (threshold-free)."""
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import roc_curve, precision_recall_curve, auc, average_precision_score
+    fig, ax = plt.subplots(1, 2, figsize=(11, 4.5))
+    for arm, (y, p) in curves.items():
+        fpr, tpr, _ = roc_curve(y, p)
+        ax[0].plot(fpr, tpr, label=f"{arm} (AUC={auc(fpr, tpr):.3f})")
+        prec, rec, _ = precision_recall_curve(y, p)
+        ax[1].plot(rec, prec, label=f"{arm} (AP={average_precision_score(y, p):.3f})")
+    ax[0].plot([0, 1], [0, 1], "k--", alpha=0.3)
+    ax[0].set_xlabel("FPR"); ax[0].set_ylabel("TPR"); ax[0].set_title("ROC"); ax[0].legend(); ax[0].grid(alpha=0.3)
+    ax[1].set_xlabel("recall"); ax[1].set_ylabel("precision"); ax[1].set_title("Precision-Recall")
+    ax[1].legend(); ax[1].grid(alpha=0.3)
+    plt.tight_layout()
+    path = Path(out_root) / "roc_pr.png"
+    plt.savefig(path, dpi=120)
+    if show:
+        plt.show()
+    return str(path)
+
+
+def score_hist(arm: str, y, p, out_root: str = "outputs", show: bool = True):
+    """Histogram of P(SEED) for gold positives vs negatives — shows the threshold problem."""
+    import matplotlib.pyplot as plt
+    fig, ax = plt.subplots(figsize=(6, 4))
+    ax.hist(p[y == 1], bins=40, alpha=0.6, density=True, color="tab:green", label="SEED (gold +)")
+    ax.hist(p[y == 0], bins=40, alpha=0.6, density=True, color="tab:red", label="NOT_SEED (gold -)")
+    ax.axvline(0.5, color="k", ls="--", alpha=0.4, label="thr=0.5")
+    ax.set_xlabel("P(SEED)"); ax.set_ylabel("density"); ax.set_title(f"{arm}: score distribution")
+    ax.legend(); ax.grid(alpha=0.3)
+    plt.tight_layout()
+    path = Path(out_root) / f"scorehist_{arm}.png"
+    plt.savefig(path, dpi=120)
+    if show:
+        plt.show()
+    return str(path)
