@@ -36,6 +36,11 @@ def main():
     ap.add_argument("--arm", choices=["snorkel", "mas"], required=True)
     ap.add_argument("--no-inpool-neg", action="store_true", help="use only out-of-domain negatives")
     ap.add_argument("--no-hard-neg", action="store_true", help="(mas) drop hard_negative from training")
+    ap.add_argument("--ood-n", type=int, default=None,
+                    help="number of OOD negatives to include (None=all, 0=none). Recall ablation.")
+    ap.add_argument("--neg-pos-ratio", type=float, default=None,
+                    help="cap total negatives to ratio*positives, in-domain first (e.g. 1.0). Overrides --ood-n.")
+    ap.add_argument("--tag", default="", help="suffix for output dir / metrics (e.g. 'equalN')")
     ap.add_argument("--epochs", type=int, default=4)
     ap.add_argument("--max-len", type=int, default=256)
     args = ap.parse_args()
@@ -48,20 +53,22 @@ def main():
     else:
         part = B.from_mas(labeled, include_hard_neg=not args.no_hard_neg)
 
-    train_df = B.assemble(part, negatives, use_inpool_neg=not args.no_inpool_neg)
+    train_df = B.assemble(part, negatives, use_inpool_neg=not args.no_inpool_neg,
+                          ood_n=args.ood_n, neg_pos_ratio=args.neg_pos_ratio)
     train_df["label"] = train_df["label"].astype(int)
     print(B.summary(train_df))
 
-    out_dir = str(C.ROOT / "outputs" / f"scibert_{args.arm}")
+    name = f"{args.arm}{('_' + args.tag) if args.tag else ''}"
+    out_dir = str(C.ROOT / "outputs" / f"scibert_{name}")
     cfg = TrainCfg(epochs=args.epochs, max_len=args.max_len)
     train(train_df, out_dir, cfg)
 
     eval_df = pd.read_csv(C.EVAL_PROCESSED_CSV, dtype=str).fillna("")
     eval_df["label"] = eval_df["label"].astype(int)
     res = evaluate(out_dir, eval_df, max_len=args.max_len)
-    print_report(res, arm=args.arm)
+    print_report(res, arm=name)
 
-    metrics_path = C.ROOT / "outputs" / f"metrics_{args.arm}.json"
+    metrics_path = C.ROOT / "outputs" / f"metrics_{name}.json"
     metrics_path.parent.mkdir(parents=True, exist_ok=True)
     with open(metrics_path, "w", encoding="utf-8") as f:
         json.dump(res, f, indent=2)

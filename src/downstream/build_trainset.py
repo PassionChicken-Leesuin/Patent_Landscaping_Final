@@ -29,6 +29,20 @@ def _ensure_text(df: pd.DataFrame) -> pd.Series:
     return (title.str.strip() + ". " + abstract.str.strip()).str.strip(". ").str.strip()
 
 
+def _sample_ood(negatives: pd.DataFrame, n: int, seed: int) -> pd.DataFrame:
+    """Sample n OOD negatives, stratified proportionally across source_domain."""
+    if n is None or n >= len(negatives):
+        return negatives
+    if n <= 0:
+        return negatives.iloc[0:0]
+    if "source_domain" not in negatives.columns:
+        return negatives.sample(n=n, random_state=seed)
+    frac = n / len(negatives)
+    parts = [g.sample(n=max(1, round(len(g) * frac)), random_state=seed)
+             for _, g in negatives.groupby("source_domain")]
+    return pd.concat(parts).sample(frac=1.0, random_state=seed).head(n)
+
+
 def from_snorkel(labeled_pool: pd.DataFrame) -> pd.DataFrame:
     """labeled_pool has snorkel_label (1/0/-1) and text (or title+abstract)."""
     df = labeled_pool.copy()
@@ -58,19 +72,36 @@ def from_mas(ranked: pd.DataFrame, include_hard_neg: bool = True) -> pd.DataFram
 
 def assemble(labeled_pool_part: pd.DataFrame, negatives: pd.DataFrame,
              use_inpool_neg: bool = True, drop_dup_text: bool = True,
-             seed: int = 42) -> pd.DataFrame:
-    """Combine arm-labeled pool rows with out-of-domain negatives -> shuffled train df."""
-    parts = []
-    if use_inpool_neg:
-        parts.append(labeled_pool_part)
+             ood_n=None, neg_pos_ratio=None, seed: int = 42) -> pd.DataFrame:
+    """Combine arm-labeled pool rows with out-of-domain (OOD) negatives.
+
+    Negative composition is controllable (the recall ablation):
+      - use_inpool_neg : include in-pool NOT_SEED/hard_negative rows (in-domain, the
+                         boundary the model must learn).
+      - ood_n          : how many OOD negatives to include — None=all, 0=none, int=sample
+                         that many (stratified across the 5 domains).
+      - neg_pos_ratio  : if set, cap TOTAL negatives to ratio*positives, filling with
+                         in-pool negatives FIRST (in-domain priority) then OOD. Overrides ood_n.
+
+    Default (None/None) reproduces the original "all OOD" baseline.
+    """
+    pos = labeled_pool_part[labeled_pool_part["label"] == POS]
+    inpool_neg = (labeled_pool_part[labeled_pool_part["label"] == NEG]
+                  if use_inpool_neg else labeled_pool_part.iloc[0:0])
+
+    if neg_pos_ratio is not None:
+        target_neg = int(round(neg_pos_ratio * len(pos)))
+        ood_take = max(0, target_neg - len(inpool_neg))
+    elif ood_n is not None:
+        ood_take = int(ood_n)
     else:
-        parts.append(labeled_pool_part[labeled_pool_part["label"] == POS])
+        ood_take = len(negatives)
 
-    ood = pd.DataFrame({"text": negatives["text"], "label": NEG,
-                        "group": "ood_" + negatives.get("source_domain", "neg").astype(str)})
-    parts.append(ood)
+    ood = _sample_ood(negatives, ood_take, seed)
+    ood_part = pd.DataFrame({"text": ood["text"], "label": NEG,
+                             "group": "ood_" + ood.get("source_domain", "neg").astype(str)})
 
-    df = pd.concat(parts, ignore_index=True)
+    df = pd.concat([pos, inpool_neg, ood_part], ignore_index=True)
     df = df[df["text"].str.strip() != ""]
     if drop_dup_text:
         df = df.assign(_k=_norm_key(df["text"])).drop_duplicates("_k").drop(columns="_k")
