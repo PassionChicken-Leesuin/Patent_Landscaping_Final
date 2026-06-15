@@ -254,25 +254,22 @@ def build_overall():
 
     # Input stack
     card(draw, (70, 210, 390, 352), "Candidate Pool", [
-        "Training_Set.csv - 6,195 patents",
-        "unlabeled Title + Abstract",
+        "Training_Set.csv",
+        "6,195 unlabeled patents",
     ], COLORS["data"], fill=COLORS["blue_soft"], title_size=27)
     card(draw, (70, 410, 390, 552), "Gold Benchmark", [
-        "Evaluation_Set.csv - 1,208 rows",
-        "313 SEED / 895 NOT_SEED",
-        "test only",
+        "Evaluation_Set.csv",
+        "1,208 gold rows - test only",
     ], COLORS["eval"], fill=COLORS["violet_soft"], title_size=27)
     card(draw, (70, 610, 390, 752), "OOD Negatives", [
-        "5 other domains - 6,296 rows",
-        "fixed anti-seed pool",
-        "computer vision = hard negative",
+        "5 domains, 6,296 rows",
+        "fixed NOT_SEED pool",
     ], COLORS["guard"], fill=COLORS["gray_soft"], title_size=27)
 
     card(draw, (430, 350, 730, 572), "Preprocess", [
-        "normalize title + abstract",
-        "text-leakage Jaccard check",
-        "drop 56 leaking train patents",
-        "clean candidate pool = 6,139",
+        "Title + Abstract only",
+        "remove 56 leakage cases",
+        "clean pool = 6,139",
     ], COLORS["data"], fill="#FFFFFF")
 
     # Labeling lanes
@@ -280,21 +277,18 @@ def build_overall():
     draw.text((810, 230), "Two pseudo-labeling arms", font=font(26, "bold"), fill=COLORS["ink"])
     draw.text((810, 265), "same candidate pool, different labeler", font=font(20), fill=COLORS["muted"])
     card(draw, (820, 315, 1148, 477), "Snorkel Arm", [
-        "labeling functions",
-        "LabelModel",
-        "snorkel_label: 1 / 0 / ABSTAIN",
+        "LFs + LabelModel",
+        "label: 1 / 0 / ABSTAIN",
     ], COLORS["snorkel"], fill=COLORS["pink_soft"], label="A", title_size=27, body_size=20)
     card(draw, (820, 560, 1148, 722), "MAS Arm", [
         "rubric-guided agents",
         "score + candidate_type",
-        "positive / negative / boundary / abstain",
     ], COLORS["mas"], fill=COLORS["green_soft"], label="B", title_size=27, body_size=20)
 
     card(draw, (1235, 384, 1538, 640), "Shared Train Assembly", [
-        "positives: arm-labeled SEED",
-        "in-pool negatives: NOT_SEED / hard_negative",
-        "OOD negatives: fixed pool",
-        "equal-N and hard-negative ablation",
+        "arm positives + in-pool negatives",
+        "fixed OOD negatives",
+        "equal-N + hard-negative ablation",
     ], COLORS["downstream"], fill=COLORS["orange_soft"], title_size=26, body_size=20)
 
     card(draw, (1610, 320, 1848, 480), "Fixed Downstream", [
@@ -316,9 +310,11 @@ def build_overall():
     arrow(draw, (1148, 641), (1235, 552), COLORS["mas"])
     arrow(draw, (1538, 512), (1610, 400), COLORS["downstream"])
     arrow(draw, (1729, 480), (1729, 610), COLORS["downstream"])
-    poly_arrow(draw, [(390, 681), (1185, 681), (1235, 590)], COLORS["guard"], label="fixed negatives", label_xy=(535, 650))
-    poly_arrow(draw, [(390, 481), (1540, 830), (1729, 770)], COLORS["eval"], width=4, dashed=True,
-               label="gold never enters labelers", label_xy=(850, 825))
+    poly_arrow(draw, [(390, 681), (760, 681), (760, 805), (1185, 805), (1235, 590)],
+               COLORS["guard"], label="fixed negatives", label_xy=(535, 775))
+    poly_arrow(draw, [(390, 481), (505, 865), (1540, 865), (1729, 770)],
+               COLORS["eval"], width=4, dashed=True,
+               label="gold never enters labelers", label_xy=(840, 858))
 
     footer_band(
         draw,
@@ -337,19 +333,18 @@ def build_mas():
     )
 
     card(draw, (70, 215, 390, 360), "Inputs", [
-        "clean candidate pool: 6,139 patents",
-        "record_id, patent_id, title, abstract",
-        "domain = autonomous_driving",
+        "clean pool: 6,139 patents",
+        "Title + Abstract",
     ], COLORS["data"], fill=COLORS["blue_soft"])
     card(draw, (70, 415, 390, 590), "Static Rubric", [
-        "autonomous_driving_v2.json",
-        "automate driving vs assist human driver",
-        "fixed thresholds: TAU_POS .75, TAU_NEG .25, EX_CAP .40",
+        "autonomous_driving_v2",
+        "automate vs assist",
+        "fixed thresholds",
     ], COLORS["mas"], fill=COLORS["green_soft"])
     card(draw, (70, 645, 390, 795), "Parallel Runner", [
-        "KeyPool: 10 OpenAI keys",
-        "round-robin + retry rotation",
-        "ThreadPool workers, temperature = 0",
+        "10 keys, round-robin",
+        "ThreadPool + retries",
+        "temperature = 0",
     ], COLORS["guard"], fill=COLORS["gray_soft"])
 
     rounded(draw, (450, 210, 1418, 815), fill="#FFFFFF", outline="#CBD5E1", width=2)
@@ -357,46 +352,45 @@ def build_mas():
     draw.text((485, 275), "usually 1 LLM call; only boundary or hard-negative candidates escalate", font=font(22), fill=COLORS["muted"])
 
     pill(draw, (500, 390, 615, 438), "START", COLORS["blue_soft"], COLORS["data"], "#C7D7FE", 23)
-    card(draw, (675, 330, 1005, 526), "Node A: Relevance & Route", [
-        "fast LLM extracts functional and technical evidence",
-        "core_stance + core_score",
-        "route: easy_positive / easy_negative / boundary / hard_negative / abstain",
-    ], COLORS["data"], fill=COLORS["blue_soft"], label="A", title_size=27, body_size=20)
-    card(draw, (785, 615, 1125, 773), "Node B: Exclusion Check", [
-        "strong LLM for boundary and look-alike cases",
-        "exclusion_stance, risk, confusable category",
-    ], COLORS["snorkel"], fill=COLORS["pink_soft"], label="B", title_size=27, body_size=20)
-    card(draw, (1170, 330, 1372, 526), "Node C: Score & Type", [
-        "deterministic logic",
-        "confirmed hard-negative caps score",
-        "candidate_type flag is preserved",
-    ], COLORS["mas"], fill=COLORS["green_soft"], label="C", title_size=25, body_size=19)
+    card(draw, (675, 330, 1035, 526), "Relevance + Route", [
+        "fast LLM evidence extraction",
+        "core_score + route",
+    ], COLORS["data"], fill=COLORS["blue_soft"], label="A", title_size=26, body_size=20)
+    card(draw, (785, 615, 1125, 773), "Exclusion Check", [
+        "only boundary / hard cases",
+        "exclusion stance + risk",
+    ], COLORS["snorkel"], fill=COLORS["pink_soft"], label="B", title_size=26, body_size=20)
+    card(draw, (1170, 330, 1392, 526), "C. Score + Type", [
+        "deterministic scoring",
+        "hard-negative cap + type flag",
+    ], COLORS["mas"], fill=COLORS["green_soft"], title_size=24, body_size=18)
     pill(draw, (1232, 625, 1338, 673), "END", COLORS["green_soft"], COLORS["mas"], "#B7E9E1", 23)
 
     arrow(draw, (615, 414), (675, 414), COLORS["data"])
-    arrow(draw, (1005, 410), (1170, 410), COLORS["data"], label="easy routes", label_offset=(0, -42))
+    arrow(draw, (1035, 410), (1170, 410), COLORS["data"], label="easy routes", label_offset=(0, -42))
     poly_arrow(draw, [(918, 526), (918, 585), (955, 615)], COLORS["snorkel"], label="boundary / hard_negative", label_xy=(704, 555))
     poly_arrow(draw, [(1125, 694), (1270, 694), (1270, 526)], COLORS["snorkel"])
     arrow(draw, (1270, 526), (1270, 625), COLORS["mas"])
 
-    card(draw, (1485, 235, 1848, 430), "Stage D: Ranked Output", [
+    card(draw, (1485, 235, 1848, 430), "Ranked Output", [
         "mas_ranked_scores.csv",
-        "rank, score, patent_id, title, abstract, candidate_type",
+        "rank + score + candidate_type",
         "sorted by final_score",
-    ], COLORS["mas"], fill="#FFFFFF")
+    ], COLORS["mas"], fill="#FFFFFF", title_size=26, body_size=20)
     card(draw, (1485, 485, 1848, 640), "Audit Log", [
-        "mas_audit.jsonl keeps full state",
-        "route, evidence, exclusion, scores",
-    ], COLORS["guard"], fill="#FFFFFF")
+        "mas_audit.jsonl",
+        "route, evidence, exclusion",
+        "full per-patent state",
+    ], COLORS["guard"], fill="#FFFFFF", title_size=26, body_size=20)
     card(draw, (1485, 695, 1848, 855), "Downstream Mapping", [
         "positive -> SEED",
-        "easy_negative + hard_negative -> NOT_SEED",
-        "boundary / abstain -> dropped",
-    ], COLORS["downstream"], fill=COLORS["orange_soft"])
+        "negative types -> NOT_SEED",
+        "boundary / abstain dropped",
+    ], COLORS["downstream"], fill=COLORS["orange_soft"], title_size=26, body_size=20)
 
-    arrow(draw, (1372, 410), (1485, 332), COLORS["mas"])
-    arrow(draw, (1372, 458), (1485, 562), COLORS["guard"], width=4)
-    arrow(draw, (1666, 430), (1666, 695), COLORS["downstream"])
+    arrow(draw, (1392, 410), (1485, 332), COLORS["mas"])
+    arrow(draw, (1392, 458), (1485, 562), COLORS["guard"], width=4)
+    poly_arrow(draw, [(1666, 430), (1875, 430), (1875, 695), (1666, 695)], COLORS["downstream"])
 
     # Rubric and runner influence arrows
     poly_arrow(draw, [(390, 502), (585, 502), (675, 380)], COLORS["mas"], width=4, dashed=True,
