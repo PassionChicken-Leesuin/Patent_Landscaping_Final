@@ -1,11 +1,11 @@
 {
   "domain": "genomeediting",
   "version": "v1",
-  "source": "Bergeaud & Verluise (2023), PLOS ONE — S2 Appendix annotation guidelines, keywords (S2.3.1) and CPC classes (S2.3.2) for Genome Editing. The domain is defined at the FUNCTIONAL-APPLICATION level (a set of tasks), not by keyword presence.",
-  "definition": "Genome Editing: technology whose invention actually performs one of the defining Genome Editing tasks (e.g. Target a specific DNA sequence; Break / cleave a DNA sequence (e.g. double-strand break); Edit a DNA sequence (insert / delete / replace)). A patent is SEED only if its title+abstract clearly discusses doing one or more of the in-scope tasks below.",
+  "source": "Bergeaud & Verluise (2023), PLOS ONE 18(12):e0295587. Definition = functional-application TASKS for Genome Editing (S2-1 annotation guidelines); keywords (S2.3.1) and CPC (S2.3.2) are the rule-based candidate criteria. Hard negatives follow the paper's 'augmented anti-seed' (rule-matched but human-rejected on the abstract).",
+  "definition": "Genome Editing: technology whose invention actually performs one of the defining Genome Editing tasks (e.g. Target a specific DNA sequence; Break / cleave a DNA sequence (e.g. double-strand break); Edit a DNA sequence (insert / delete / replace)). A patent is SEED only if its title+abstract clearly shows it carrying out one or more of the in-scope tasks below. Matching a keyword or CPC class is NOT sufficient — it only makes the patent a candidate.",
   "primary_decision_axis": {
-    "name": "performs_task_vs_mentions_or_adjacent",
-    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Genome Editing in-scope task with a concrete mechanism. REJECT (NOT_SEED) if it merely MENTIONS the domain, uses a related/adjacent technology for a DIFFERENT purpose, applies the domain's tools to another field, or belongs to a different technology entirely. Keyword presence alone is NOT sufficient — the functional task must be present."
+    "name": "performs_task_vs_rule_match_only",
+    "rule": "ACCEPT (SEED) only if the invention itself PERFORMS a Genome Editing in-scope task with a concrete mechanism. REJECT as a HARD negative if the patent matched the domain's keywords/CPC (so it looks relevant) but the abstract shows it does NOT perform the task — the domain term is background/prior-art/one-possible-application, or the real contribution is a different/adjacent mechanism. REJECT as an EASY negative if there is no domain signal at all (clearly another field)."
   },
   "in_scope_tasks": [
     {
@@ -52,18 +52,19 @@
     "guide rna"
   ],
   "out_of_scope_confusables": [
-    "Patents from an ADJACENT/other Bergeaud domain (Self-driving Vehicle, Additive Manufacturing, Blockchain, Computer Vision, Hydrogen Storage) that share vocabulary but do not perform a Genome Editing task.",
-    "Generic patents that merely MENTION Genome Editing terms without doing the task (e.g. listing it as background, prior art, or one possible application).",
-    "Using Genome Editing-adjacent components/methods for a different end (no in-scope task)."
+    "RULE-MATCH-BUT-NOT-THE-TASK: the abstract contains Genome Editing keywords (or the patent sits in a listed CPC class) but the invention does not actually perform an in-scope task — the paper's 'augmented anti-seed' / hard examples.",
+    "The Genome Editing term appears only as background, motivation, prior art, or one possible application, while the real contribution is a different mechanism.",
+    "A generic or adjacent method that shares Genome Editing vocabulary but pursues a different functional goal."
   ],
   "hard_negative_patterns": [
-    "domain keyword present but the invention does NOT perform a Genome Editing task -> reject",
-    "the domain is named only as an example/application, the real contribution is elsewhere -> reject",
-    "an adjacent-domain invention that overlaps in terminology -> reject"
+    "matched a Genome Editing keyword/CPC rule, but the abstract shows no in-scope task is performed -> hard negative",
+    "Genome Editing named only as an example/application; the invention is really about something else -> hard negative",
+    "shares terminology with the domain but the functional goal is different -> hard negative"
   ],
   "score_anchors": {
     "0.9_1.0": "the invention clearly PERFORMS a Genome Editing in-scope task with a concrete mechanism",
-    "0.6_0.75": "domain task plausibly implied but the mechanism/scope is unclear, or mixed signals -> boundary",
-    "0.0_0.25": "merely mentions the domain, an adjacent-field/different-purpose use, or no domain signal at all"
+    "0.6_0.75": "an in-scope task is plausibly implied but the mechanism/scope is unclear, or signals are mixed -> boundary",
+    "0.25_0.4": "matched the rules but the abstract shows it does NOT perform the task (rule-match look-alike) -> hard negative",
+    "0.0_0.2": "no domain signal at all — clearly a different field -> easy negative"
   }
 }
