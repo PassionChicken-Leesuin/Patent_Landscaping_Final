@@ -50,11 +50,20 @@ def main():
                     help="use the unified labeled set (expanded pool + OOD labeled together)")
     ap.add_argument("--hard-neg-only", action="store_true",
                     help="(unified, MAS) negatives = in-domain HARD negatives only (positive vs hard-neg)")
+    ap.add_argument("--easy-neg-n", type=int, default=None,
+                    help="(unified, MAS) all pos + all hard negatives + this many easy negatives (anchor)")
     ap.add_argument("--epochs", type=int, default=4)
     ap.add_argument("--max-len", type=int, default=256)
     args = ap.parse_args()
 
-    if args.unified:
+    if args.unified and args.easy_neg_n is not None and args.arm == "mas":
+        # hard-centric: all pos + all hard neg + easy downsampled to --easy-neg-n
+        labeled = pd.read_csv(LABELED_UNIFIED["mas"], dtype=str).fillna("")
+        train_df = B.assemble_mas_he(labeled, easy_n=args.easy_neg_n)
+        train_df["label"] = train_df["label"].astype(int)
+        print(B.summary(train_df))
+        part = negatives = None  # already assembled
+    elif args.unified:
         labeled = pd.read_csv(LABELED_UNIFIED[args.arm], dtype=str).fillna("")
         part, negatives = B.from_labeled_all(labeled, args.arm, include_hard_neg=not args.no_hard_neg,
                                              hard_neg_only=args.hard_neg_only)
@@ -64,10 +73,11 @@ def main():
         part = B.from_snorkel(labeled) if args.arm == "snorkel" else \
             B.from_mas(labeled, include_hard_neg=not args.no_hard_neg)
 
-    train_df = B.assemble(part, negatives, use_inpool_neg=not args.no_inpool_neg,
-                          ood_n=args.ood_n, neg_pos_ratio=args.neg_pos_ratio)
-    train_df["label"] = train_df["label"].astype(int)
-    print(B.summary(train_df))
+    if part is not None:                 # not pre-assembled (assemble_mas_he sets part=None)
+        train_df = B.assemble(part, negatives, use_inpool_neg=not args.no_inpool_neg,
+                              ood_n=args.ood_n, neg_pos_ratio=args.neg_pos_ratio)
+        train_df["label"] = train_df["label"].astype(int)
+        print(B.summary(train_df))
 
     name = f"{args.arm}{('_' + args.tag) if args.tag else ''}"
     out_dir = str(C.ROOT / "outputs" / f"scibert_{name}")

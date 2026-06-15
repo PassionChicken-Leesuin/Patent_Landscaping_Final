@@ -70,6 +70,34 @@ def from_mas(ranked: pd.DataFrame, include_hard_neg: bool = True) -> pd.DataFram
     return rows
 
 
+def assemble_mas_he(mas_df: pd.DataFrame, easy_n: int = 2000,
+                    drop_dup_text: bool = True, seed: int = 42) -> pd.DataFrame:
+    """MAS hard-centric config: ALL positives + ALL hard negatives + a small EASY anchor.
+
+    positives  = every candidate_type=='positive' (any source)
+    negatives  = every hard_negative  +  easy_negative downsampled to `easy_n`
+    The easy anchor keeps the model able to reject obviously-unrelated patents (eval
+    ANTISEED-AF) while the abundant hard negatives sharpen the automate-vs-assist boundary.
+    """
+    df = mas_df.copy()
+    df["text"] = _ensure_text(df)
+    pos = df[df["candidate_type"] == "positive"]
+    hard = df[df["candidate_type"] == "hard_negative"]
+    easy = df[df["candidate_type"] == "easy_negative"]
+    if easy_n is not None and easy_n < len(easy):
+        easy = easy.sample(n=easy_n, random_state=seed)
+
+    out = pd.concat([
+        pd.DataFrame({"text": pos["text"].values, "label": POS, "group": "pool_pos"}),
+        pd.DataFrame({"text": hard["text"].values, "label": NEG, "group": "pool_neg_hard"}),
+        pd.DataFrame({"text": easy["text"].values, "label": NEG, "group": "easy_neg"}),
+    ], ignore_index=True)
+    out = out[out["text"].str.strip() != ""]
+    if drop_dup_text:
+        out = out.assign(_k=_norm_key(out["text"])).drop_duplicates("_k").drop(columns="_k")
+    return out.sample(frac=1.0, random_state=seed).reset_index(drop=True)
+
+
 def from_labeled_all(df: pd.DataFrame, arm: str, include_hard_neg: bool = True,
                      hard_neg_only: bool = False):
     """Unified-framework split: one labeled set (autonomous pool + OOD, with `source`)
