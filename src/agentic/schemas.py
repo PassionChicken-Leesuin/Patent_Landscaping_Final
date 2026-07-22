@@ -245,6 +245,19 @@ class IssueResolutionOut(BaseModel):
     evidence: str                    # the exact criterion/section that resolves it
 
 
+class PriorRulingMatch(BaseModel):
+    question_id: str
+    settled_by_prior_index: int      # index into the prior-rulings list; -1 = new boundary
+    rationale: str
+
+
+class PriorRulingMatchOut(BaseModel):
+    """Semantic dedup of newly proposed scope questions against the run's existing
+    human rulings (exact-text reuse cannot catch reworded re-asks of a settled
+    boundary — observed in the A2 boundary loop, 2026-07-22)."""
+    matches: list[PriorRulingMatch]
+
+
 # ---------------- [6] judgment ----------------
 class JudgmentOut(BaseModel):
     matched_criteria: list[str]      # cited C-ids supporting inclusion

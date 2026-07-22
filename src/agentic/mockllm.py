@@ -194,6 +194,11 @@ class MockAgentLLM(StructuredLLM):
         from src.agentic.schemas import IssueResolutionOut
         return IssueResolutionOut(resolved=True, evidence="mock verification")
 
+    def _PriorRulingMatchOut(self, system, user):
+        # mock: treat every question as a new boundary so the HITL path is exercised
+        from src.agentic.schemas import PriorRulingMatchOut
+        return PriorRulingMatchOut(matches=[])
+
     def _CriteriaCritiqueOut(self, system, user):
         first = self.calls["CriteriaCritiqueOut"] == 1
         if first:

@@ -415,6 +415,55 @@ _FEEDBACK_SYSTEM = (
 )
 
 
+_SETTLED_SYSTEM = (
+    "You match newly proposed patent-scope questions against the domain owner's EXISTING "
+    "rulings from this run. For each question decide whether one prior ruling ALREADY "
+    "DECIDES that boundary — the same scope question in different words, or a boundary the "
+    "ruling's include/exclude tests clearly cover. Be conservative: match only when the "
+    "prior ruling genuinely answers the question; a related but undecided boundary is NEW "
+    "(settled_by_prior_index=-1). Output JSON only."
+)
+
+
+def _prior_rulings(ws: Workspace) -> list[dict]:
+    """This run's authoritative human answers (never auto assumptions)."""
+    seen, out = set(), []
+    for e in ws.read_jsonl(ws.human_qa_jsonl):
+        if e.get("answered_by") in ("human", "human_batch", "human_prior"):
+            key = (e.get("question", ""), e.get("answer", ""))
+            if key not in seen:
+                seen.add(key)
+                out.append(e)
+    return out
+
+
+def settle_against_prior(llm: StructuredLLM, questions: list[HITLQuestion],
+                         prior: list[dict], usage: Usage
+                         ) -> tuple[list[HITLQuestion], list[tuple[HITLQuestion, dict]]]:
+    """(still_new, settled=[(question, prior_entry)]). A settled boundary is not
+    re-asked; the caller reapplies the prior ruling as a binding amendment."""
+    if not questions or not prior:
+        return questions, []
+    from src.agentic.schemas import PriorRulingMatchOut
+    # positional temp ids: LLM-assigned question ids (Q1..) can collide across stages
+    user = ("=== PRIOR HUMAN RULINGS (index: question => answer) ===\n"
+            + "\n".join(f"[{i}] Q: {e.get('question','')}\n    A: {e.get('answer','')}"
+                        for i, e in enumerate(prior))
+            + "\n\n=== NEW QUESTIONS ===\n"
+            + "\n".join(f"(q{i}) {q.question}" for i, q in enumerate(questions)))
+    out, pt, ct = llm.parse(_SETTLED_SYSTEM, user, PriorRulingMatchOut)
+    usage.add(pt, ct)
+    verdict = {m.question_id: m.settled_by_prior_index for m in out.matches}
+    new, settled = [], []
+    for i, q in enumerate(questions):
+        idx = verdict.get(f"q{i}", -1)
+        if 0 <= idx < len(prior):
+            settled.append((q, prior[idx]))
+        else:
+            new.append(q)
+    return new, settled
+
+
 def _uncertain_rows(ws: Workspace, rows_by_id: dict[str, dict]) -> list[dict]:
     out = []
     for e in judgments_from_audit(ws).values():
@@ -442,8 +491,16 @@ def boundary_feedback_round(ws: Workspace, doc: CriteriaDocOut, llm: StructuredL
         return []
     sample = uncertain[:AC.JUDGE_AUDIT_SAMPLE]
     listing = "\n".join(f"- {r['title']} :: {str(r['abstract'])[:200]}" for r in sample)
+    prior_block = ""
+    prior_for_prompt = _prior_rulings(ws)
+    if prior_for_prompt:
+        prior_block = ("\n\nALREADY-SETTLED OWNER RULINGS (do NOT re-raise these "
+                       "boundaries, in any wording — they are decided):\n"
+                       + "\n".join(f"- Q: {e.get('question','')}\n  A: {e.get('answer','')}"
+                                   for e in prior_for_prompt))
     out, pt, ct = llm.parse(_FEEDBACK_SYSTEM.format(domain=canonical_name),
-                            f"Hard cases ({len(sample)}):\n{listing}", BoundaryFeedbackOut)
+                            f"Hard cases ({len(sample)}):\n{listing}{prior_block}",
+                            BoundaryFeedbackOut)
     usage.add(pt, ct)
     if not out.questions:
         print("  [boundary-loop] no recurring boundary found")
@@ -460,13 +517,30 @@ def boundary_feedback_round(ws: Workspace, doc: CriteriaDocOut, llm: StructuredL
     # "Q1" here would silently reuse the criteria answer for a DIFFERENT question
     hqs = [HITLQuestion(id=f"BL-{q.id}", question=f"{q.question} (현재 가정: {q.tentative_default})",
                         why_needed=q.why_it_matters, options=q.options) for q in kept]
-    qa = hitl.ask(hqs, context=f"{canonical_name} 판정 후 미해결 경계")
-    amendments = [
+
+    # A boundary the owner already ruled on (any wording) is NOT re-asked: the
+    # ruling is reapplied as a binding amendment (요청: 재질문 대신 판결 재적용)
+    amendments: list[str] = []
+    prior = _prior_rulings(ws)
+    hqs, settled = settle_against_prior(llm, hqs, prior, usage)
+    for q, ruling in settled:
+        print(f"  [boundary-loop] 기존 판결 재적용 (재질문 생략): {q.question[:70]}")
+        ws.append_jsonl(ws.human_qa_jsonl, {
+            "stage": "boundary-loop", "id": q.id, "question": q.question,
+            "why_needed": q.why_needed, "answer": ruling.get("answer", ""),
+            "answered_by": "human_prior", "settled_from": ruling.get("question", "")})
+        amendments.append("Human decision (prior ruling reapplied) — "
+                          f"Q: {q.question} => A: {ruling.get('answer', '')}")
+
+    qa = hitl.ask(hqs, context=f"{canonical_name} 판정 후 미해결 경계") if hqs else []
+    amendments += [
         (f"Scope decision (post-judgment) — {a['question']} => {a['answer']}"
          if a.get("answered_by", "human") != "auto" else
          f"Provisional assumption (post-judgment, no human available) — "
          f"{a['question']} => {a['answer']}")
         for a in qa]
+    if not amendments:
+        return []
     rows = [dict(r) for r in uncertain]
     print(f"  [boundary-loop] re-judging {len(rows)} uncertain cases under {len(amendments)} answer(s)")
     judge_rows(ws, doc, rows, judge_pool, workers=workers, append=True,
