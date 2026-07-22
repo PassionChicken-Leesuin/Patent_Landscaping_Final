@@ -1,0 +1,38 @@
+{
+  "main_clusters": [
+    "hydrogen production methods",
+    "hydrogen storage materials",
+    "hydrogen purification techniques",
+    "fuel cell systems",
+    "hydrogen recovery systems",
+    "hydrogen generation systems"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "production",
+    "purification",
+    "alloy",
+    "fuel cell",
+    "electrolyzer",
+    "gas",
+    "system",
+    "method"
+  ],
+  "representative_cases": [
+    "Hydrogen storage materials and methods for enhancing storage capacity",
+    "Advanced hydrogen purification techniques for fuel cell applications",
+    "Innovative hydrogen production methods using renewable energy sources",
+    "Hydrogen recovery systems for industrial applications",
+    "Efficient hydrogen generation systems for sustainable energy"
+  ],
+  "suspected_boundary_cases": [
+    "Air supply systems for fuel cells, such as 'Air supply system used for fuel cell and capable of strengthening safety discharge of hydrogen gas', focus on air management rather than hydrogen storage or generation.",
+    "Liquid hydrogen handling technologies, like 'Liquid hydrogen stand and liquid hydrogen automobile', relate to handling rather than the storage technology itself."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on metal-organic frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as significant.",
+    "Web evidence discusses the environmental impact of hydrogen production methods, a topic not prominently covered in the patent pool.",
+    "The pool does not reflect the web's emphasis on nanomaterials for enhancing hydrogen storage, which is a key technique mentioned online."
+  ]
+}

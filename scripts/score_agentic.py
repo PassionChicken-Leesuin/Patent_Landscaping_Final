@@ -17,8 +17,7 @@ except Exception:
 import numpy as np
 import pandas as pd
 
-from src.downstream.evaluate import report_from_probs
-from src.agentic import config as AC
+from src.downstream.evaluate import report_from_scores_and_predictions
 from src.agentic.judge import judgments_from_audit
 from src.agentic.workspace import Workspace
 
@@ -27,7 +26,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug", required=True)
     ap.add_argument("--labels", required=True, help="CSV with family_id/record_id + label (+expansion_level)")
-    ap.add_argument("--threshold", type=float, default=AC.EVAL_THRESHOLD)
+    ap.add_argument("--threshold", type=float, default=None,
+                    help="deprecated/ignored: classification now follows stance+C/E")
     args = ap.parse_args()
 
     ws = Workspace(args.slug)
@@ -40,10 +40,14 @@ def main():
     df = df[df["record_id"].isin(latest)].copy()
     if df.empty:
         raise SystemExit("no overlap between audit and labels")
-    df["p"] = [float(latest[r]["final_score"]) for r in df["record_id"]]
+    df["p"] = [float(latest[r].get("relevance_score", latest[r]["final_score"]))
+               for r in df["record_id"]]
     df["stance"] = [latest[r].get("stance") for r in df["record_id"]]
+    df["included"] = [bool(latest[r].get("included", latest[r].get("stance") == "in_domain"))
+                      for r in df["record_id"]]
     y = df["label"].astype(int).values
-    res = report_from_probs(y, df["p"].values, df, threshold=args.threshold)
+    res = report_from_scores_and_predictions(y, df["p"].values,
+                                             df["included"].astype(int).values, df)
 
     print(f"n={res['n']}  acc={res['accuracy']:.3f}  precision={res['precision']:.3f}  "
           f"recall={res['recall']:.3f}  macroF1={res['macro_f1']:.3f}  auc={res['auc']:.3f}")
@@ -55,7 +59,7 @@ def main():
     print("stance:", dict(Counter(df["stance"])))
 
     # error listing: worst false positives / false negatives by score distance
-    yhat = (df["p"] >= args.threshold).astype(int)
+    yhat = df["included"].astype(int)
     fp = df[(yhat == 1) & (y == 0)].sort_values("p", ascending=False)
     fn = df[(yhat == 0) & (y == 1)].sort_values("p")
     print(f"\nFalse positives ({len(fp)}):")

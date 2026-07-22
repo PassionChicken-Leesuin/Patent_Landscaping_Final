@@ -79,6 +79,44 @@ def report_from_probs(y: np.ndarray, p: np.ndarray, eval_df: pd.DataFrame,
     return res
 
 
+def report_from_scores_and_predictions(y: np.ndarray, scores: np.ndarray,
+                                       predictions: np.ndarray,
+                                       eval_df: pd.DataFrame) -> dict:
+    """Classification from explicit decisions; AUC/AP from relevance scores.
+
+    This prevents a ranking score threshold from silently redefining the system's
+    stance+C/E inclusion contract.
+    """
+    from sklearn.metrics import (accuracy_score, precision_score, recall_score,
+                                 f1_score, confusion_matrix)
+    yhat = np.asarray(predictions).astype(int)
+    res = report_from_probs(y, scores, eval_df, threshold=0.5)
+    res.update({
+        "threshold": "stance+C/E",
+        "accuracy": accuracy_score(y, yhat),
+        "precision": precision_score(y, yhat, zero_division=0),
+        "recall": recall_score(y, yhat, zero_division=0),
+        "macro_f1": f1_score(y, yhat, average="macro", zero_division=0),
+        "confusion": confusion_matrix(y, yhat).tolist(),
+    })
+    bl = {}
+    if "expansion_level" in eval_df.columns:
+        levels = eval_df["expansion_level"].values
+        for lvl in ["SEED", "ANTISEED-manual", "ANTISEED-AF"]:
+            mask = levels == lvl
+            if not mask.sum():
+                continue
+            if lvl == "SEED":
+                bl[lvl] = {"n": int(mask.sum()),
+                           "recall(TP rate)": recall_score(y[mask], yhat[mask],
+                                                           zero_division=0)}
+            else:
+                bl[lvl] = {"n": int(mask.sum()),
+                           "specificity(TN rate)": float((yhat[mask] == 0).mean())}
+    res["by_expansion_level"] = bl
+    return res
+
+
 def evaluate(model_dir: str, eval_df: pd.DataFrame, threshold: float = 0.5,
              max_len: int = 256) -> dict:
     y = eval_df["label"].astype(int).values

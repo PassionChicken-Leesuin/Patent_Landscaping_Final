@@ -78,34 +78,54 @@
 ### P2. HITL 무결성 — `hitl.py` 중심 ✅ 완료 (2026-07-20)
 - [x] `hitl.question_id()`: 질문 정규화 텍스트의 sha1 해시로 **전역 고유 ID** — `HITL.ask()` 진입 시 모든 질문 ID를 일괄 재부여(`_uniquify`, 배치 내 중복 질문도 제거). LLM이 부여한 Q1.. ID는 표시용으로만 남음.
 - [x] ID=텍스트해시이므로 batch 매칭은 구조적으로 텍스트 대조와 동치. long-form `{"question","answer"}` 답변은 추가 교차검증, 불일치 시 무시+재질문(`PendingHumanInput`). 구식 Q1 키는 매칭 실패 → 재질문(fail-loud).
-- [x] 동일 질문(텍스트 정규화 기준)이 재등장하면 `human_qa.jsonl`/프로파일의 기존 인간 답변을 재사용(`answered_by: human_prior`) — off 모드에서도 auto보다 우선. (의미적 유사-중복은 human_qa 전체가 draft에 주입되므로 프롬프트 수준에서 흡수)
+- [x] 동일 질문(텍스트 정규화 기준)이 **같은 실행 안에서** 재등장하면 그 실행의
+  `human_qa.jsonl` 답변을 재사용(`answered_by: human_prior`) — batch 중단·재개와
+  criteria→boundary-loop 연결에만 사용한다. 다른 실행의 답변은 참조하지 않는다.
 - 검증: mock batch E2E — 1라운드 답변 정확 매칭, 2라운드 신규 질문은 별개 해시 ID로 재질문(구버전이라면 오배정됐을 시나리오), 기답변 질문 재등장 시 재사용 확인.
 
-### P3. 소유자 판결(HITL Q&A) 영속화 — 도메인 프로파일 ✅ 완료 (2026-07-20)
-- [x] `hitl.profile_path(canonical_name, mock)` → `DataSet/agentic/_profiles/<canonical-slug>.jsonl`. `HITL._log`가 인간 답변(human/human_batch)을 자동 append. mock은 `mock-` 접두 별도 파일(실전 오염 방지).
-- [x] `criteria_loop`가 시작 시 `hitl.profile_qa()`로 판결 전체를 human_qa_all에 시딩 → **v1 초안부터** "Human expert answers (authoritative)" 블록으로 주입 (질문이 재등장하지 않아도 반영). judge/boundary-loop HITL에도 프로파일 연결.
-- [x] **A실행의 정당한 판결 3건을 실전 프로파일에 시딩 완료** (`_profiles/humanoid-robot-commercialization-technology.jsonl`; §3.2에서 오배정으로 판명된 boundary-loop 3건은 제외).
-- 검증: mock E2E — p3a 워크스페이스에서 답변 → 새 p3b 워크스페이스에서 "domain profile: 1건 주입" + 동일 질문 재질문 없이 재사용 확인.
+### P3. 실행 간 사용자 판결 영속화 — 폐기, 실행 단위 격리로 변경 (2026-07-22)
+- [x] 연구 설계상 각 실행은 독립 관측치여야 하므로 `DataSet/agentic/_profiles/` 기반
+  교차 실행 저장·조회 기능을 제거했다.
+- [x] HITL 답변은 현재 실행의 `human_qa.jsonl`에만 기록하고, 같은 실행의 batch 재개와
+  후속 경계 루프에서만 재사용한다.
+- [x] 새 실행은 과거 실행의 사용자 질의·답변을 기준서 v1에 주입하지 않는다.
+- [x] 기존 `_profiles/humanoid-robot-commercialization-technology.jsonl`도 제거했다.
+  실행별 `human_qa.jsonl`은 해당 결과의 감사 기록으로만 유지한다.
+- 검증: run-a의 인간 답변은 run-a 재개에서는 재사용되고, 별도 run-b에서는 상속되지
+  않는 단위테스트를 추가했다.
 
-### P4. 축 앵커링 + 근거 출처 라벨 — `criteria.py`, `validator.py`
-- [ ] 소유자 문서에서 기술축을 추출해 기준서 스키마의 골격으로 강제: **축마다 C기준 ≥1 + 경계 판례**.
-- [ ] validator에 **축 커버리지 체크** 추가 — 미커버 축은 곧 HITL 질문으로. 소유자 축에 없는 기준(B의 C3~C6류)은 근거 출처 명시 + 소유자 확인 질문.
-- [ ] 근거 라벨을 `owner_doc:` / `corpus:` / `web:` / `hitl:`로 구분 (§3.5 해결).
+### P4. 축 앵커링 + 근거 출처 라벨 — ✅ 완료 (2026-07-22)
+- [x] `axes.py`가 사용자 문서의 범위 명확성·기술 완전성·사실 신뢰성을 별도 평가한다.
+  사용자 문서는 범위 의도의 우선 앵커지만 완전하다고 가정하지 않으며, 빠진 축은 웹 연구와
+  실제 특허 풀에서 자율 보강한다. corpus-only 축은 자동으로 core가 되지 않는다.
+- [x] 기술축을 core/supplemental/disputed/excluded로 구조화하고, 활성 축마다 C기준 ≥1을
+  deterministic validator가 강제한다.
+- [x] 축과 모든 C/E 기준에 `user_query/owner_doc/web/corpus/hitl` 유형의
+  `source_refs(reference, claim, strength)`를 기록한다. 누락은 critical 오류다.
 
-### P5. 판정 안정화 — `judge.py` + 선별 컷 전략
-- [ ] 선별을 원점수 임계값 대신 **stance(positive) 기반**으로, 점수는 랭킹용으로만. 또는 C/E 만족 구조에서 결정론적 점수 산출.
-- [ ] 최소한: 컷을 점수 질량 밀집점(0.75) 위에 두지 않기 — 점수 분포 출력 후 컷 위치 경고.
+### P5. 판정 안정화 — ✅ 완료 (2026-07-22)
+- [x] 최종 포함은 `stance=in_domain AND C≥1 AND E=0`으로만 결정한다. 모순은 boundary로
+  정규화하고 2차 판정에서 C/E 인용 목록까지 다시 받는다.
+- [x] `relevance_score`는 유효특허 내부 랭킹·AUC·감사용이며 포함 컷이 아니다.
+  `decision_confidence`는 2차 확인·의심 판정 감사·판정 후 경계 발견 대상을 정한다.
+- [x] UI/Excel은 전체 positive 또는 positive 내 상위 N만 출력한다.
 
-### P6. 재현성 회귀 지표 — `experiments/`
-- [ ] 동일 풀·동일 답변·동일 자료로 2회 실행 → 선별 자카드를 정식 지표로. 이번 A/B 0.584가 참고선(단, 입력도 달랐으므로 통제 재실행으로 진짜 기준선을 먼저 측정).
-- [ ] validator 예산 소진 시 critical 잔존이면 자동 확정 대신 경고 + HITL 에스컬레이션.
+### P6. 재현성 회귀 지표 — ✅ 완료 (2026-07-22)
+- [x] `scripts/reproducibility_report.py`가 서로 다른 두 실행 폴더의 stance 일치도,
+  Cohen's κ, positive 자카드, top-N overlap, 관련도 Spearman, 기술축 일치도,
+  C/E 출처 커버리지, HITL 질문 일치도를 비교한다. `--strict`는 기준 미달 시 실패한다.
+- [x] validator 예산 소진 시 critical이 남으면 `criteria_blocked.json`을 기록하고
+  `CriteriaValidationBlocked`로 중단한다. `criteria_final`을 자동 확정하지 않는다.
 
 부가: TAVILY 키 확보 (현재 Wikipedia fallback — A의 웹 리서치가 Boston Dynamics 1페이지였음).
 
-## 5. 다음 A2 재실행 체크리스트 (P1~P3 적용 후)
+## 5. 다음 A2 재실행 체크리스트 (P1·P2 + 실행 격리 적용 후)
 
 1. 참고자료 **둘 다** 주입: `DataSet/humanoid/A2_도메인설명.md` + `휴머노이드문제/휴머노이드_핵심자료_decoded.txt` (PDF 대신 decoded.txt 권장)
 2. 실행 직후 `research/blocked.jsonl` 확인 — 소유자 문서 차단 여부
 3. `research/notes.jsonl`에서 A2 노트 존재 확인 (source_url이 `local://A2_...`)
-4. HITL 답변은 기존 소유자 판결 3건(도메인 프로파일) 재사용 + 신규 질문만 답변
-5. 결과를 A/B와 record_id 자카드로 비교 — 개선 전 0.584 대비 상승 확인
+4. 새 실행에서 제시된 HITL 질문에 다시 답변한다. 과거 도메인 프로파일은 재사용하지 않는다.
+5. 새 결과는 score 컷이 아니라 `included=true` positive 집합으로 확정하고, 관련도 점수는
+   positive 내부 검토 순서에만 사용한다.
+6. 동일 입력의 별도 run id 실행을 한 번 더 만든 뒤 `scripts.reproducibility_report --strict`로
+   통제 재현성을 측정한다. 과거 A/B 0.584는 입력도 달랐던 역사적 참고선으로만 둔다.

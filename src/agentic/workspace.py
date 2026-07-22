@@ -1,4 +1,8 @@
-"""Per-query workspace: cache/resume layout under DataSet/agentic/<slug>/."""
+"""Per-run workspace: audit/cache layout under DataSet/agentic/<run-slug>/.
+
+Artifacts may be reused to resume the same interrupted run. User questions and
+answers must never be loaded from a different workspace/run.
+"""
 from __future__ import annotations
 import hashlib
 import json
@@ -44,6 +48,12 @@ class Workspace:
     @property
     def corpus_digest_json(self) -> Path: return self.root / "corpus_digest.json"
     @property
+    def axis_synthesis_json(self) -> Path: return self.root / "axis_synthesis.json"
+    @property
+    def axis_synthesis_md(self) -> Path: return self.root / "axis_synthesis.md"
+    @property
+    def axis_synthesis_blocked_json(self) -> Path: return self.root / "axis_synthesis_blocked.json"
+    @property
     def human_qa_jsonl(self) -> Path: return self.root / "human_qa.jsonl"
     @property
     def questions_pending_json(self) -> Path: return self.root / "questions_pending.json"
@@ -57,6 +67,8 @@ class Workspace:
     def criteria_final_json(self) -> Path: return self.root / "criteria_final.json"
     @property
     def criteria_final_md(self) -> Path: return self.root / "criteria_final.md"
+    @property
+    def criteria_blocked_json(self) -> Path: return self.root / "criteria_blocked.json"
     @property
     def judge_dir(self) -> Path: return self.root / "judge"
     @property
@@ -105,12 +117,13 @@ class Workspace:
         if not path.exists():
             return []
         out = []
-        for line in open(path, encoding="utf-8"):
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                out.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    out.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
         return out

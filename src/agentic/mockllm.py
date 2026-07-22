@@ -13,10 +13,11 @@ from pydantic import BaseModel
 
 from src.mas.llm import StructuredLLM
 from src.agentic.schemas import (
-    BoundaryProbeOut, BoundaryVerdict, CorpusBatchDigestOut, CorpusDigestOut,
+    AxisSynthesisOut, BoundaryProbeOut, BoundaryVerdict, CorpusBatchDigestOut, CorpusDigestOut,
     CriteriaCritiqueOut, CriteriaDocOut, CriterionOut, EvidenceNote, EvidenceNotesOut,
-    GapAnalysisOut, HITLQuestion, INTENT_TYPES, JudgeAuditOut, JudgmentOut,
-    QueryScopeOut, ScopeDecisionOut, ScopeQuestion, SearchIntent, SecondPassOut,
+    EvidenceSourceRef, GapAnalysisOut, HITLQuestion, INTENT_TYPES, JudgeAuditOut, JudgmentOut,
+    OwnerDocumentAssessmentOut, QueryScopeOut, ScopeDecisionOut, ScopeQuestion,
+    SearchIntent, SecondPassOut, TechnologyAxisOut,
 )
 
 
@@ -80,18 +81,60 @@ class MockAgentLLM(StructuredLLM):
             mismatch_with_web_evidence=[
                 "The pool contains many vessel-engineering patents while web evidence emphasizes materials research."])
 
-    # ------------------------------------------------------------- [4] criteria
+    # ------------------------------------------------------------- [4a] axes
+    def _AxisSynthesisOut(self, system, user):
+        web = EvidenceSourceRef(
+            source_type="web", reference="https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+            claim="Hydrogen can be stored physically or in materials.", strength="high")
+        corpus = EvidenceSourceRef(
+            source_type="corpus", reference="corpus: compressed-gas tanks",
+            claim="The patent pool repeatedly contains vessel and material storage inventions.",
+            strength="high")
+        query = EvidenceSourceRef(
+            source_type="user_query", reference="query.json",
+            claim="The requested domain is hydrogen storage technology.", strength="high")
+        return AxisSynthesisOut(
+            owner_document_assessment=OwnerDocumentAssessmentOut(
+                present=False, overall_quality="none", scope_clarity="none",
+                technical_completeness="none", factual_reliability="none",
+                strengths=[], gaps=["No owner document supplied."], conflicts=[]),
+            technology_axes=[
+                TechnologyAxisOut(
+                    id="A1", name="Physical storage", description="Compressed or liquefied storage.",
+                    status="core", confidence="high", owner_documented=False,
+                    observed_in_corpus=True, source_refs=[query, web, corpus],
+                    rationale="Query, research, and pool evidence converge.", boundary_examples=[]),
+                TechnologyAxisOut(
+                    id="A2", name="Material storage", description="Hydrides and sorbents.",
+                    status="core", confidence="high", owner_documented=False,
+                    observed_in_corpus=True, source_refs=[web, corpus],
+                    rationale="Research and pool evidence converge.", boundary_examples=[]),
+                TechnologyAxisOut(
+                    id="A3", name="Charging and release", description="Mechanisms for uptake and release.",
+                    status="supplemental", confidence="medium", owner_documented=False,
+                    observed_in_corpus=True, source_refs=[corpus],
+                    rationale="A repeated enabling mechanism in the pool.", boundary_examples=[]),
+            ], unresolved_conflicts=[])
+
+    # ------------------------------------------------------------- [4b] criteria
     def _CriteriaDocOut(self, system, user):
+        web_ref = EvidenceSourceRef(
+            source_type="web", reference="https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+            claim="Hydrogen storage includes physical and material-based approaches.", strength="high")
+        corpus_ref = EvidenceSourceRef(
+            source_type="corpus", reference="corpus: compressed-gas tanks",
+            claim="The pool contains storage vessels and material charge/release mechanisms.",
+            strength="high")
         C = [CriterionOut(id="C1", statement="The invention stores hydrogen physically (compressed or liquefied) or in a material, as its primary function.",
-                          sources=["https://en.wikipedia.org/wiki/Hydrogen_storage"]),
+                          sources=[web_ref.reference], axis_ids=["A1", "A2"], source_refs=[web_ref]),
              CriterionOut(id="C2", statement="The invention improves capacity, kinetics, cycling, or safety of a hydrogen storage system or material.",
-                          sources=["https://www.energy.gov/eere/fuelcells/hydrogen-storage"]),
+                          sources=[web_ref.reference], axis_ids=["A1", "A2"], source_refs=[web_ref]),
              CriterionOut(id="C3", statement="The invention concerns charging or releasing hydrogen from a storage medium as a described mechanism.",
-                          sources=["corpus: Metal hydride hydrogen storage vessel"])]
+                          sources=[corpus_ref.reference], axis_ids=["A3"], source_refs=[corpus_ref])]
         E = [CriterionOut(id="E1", statement="Patents that consume or convert hydrogen (fuel cells, combustion) without storing it are excluded even if they mention storage.",
-                          sources=["corpus: Fuel cell stack"]),
+                          sources=["corpus: Fuel cell stack"], axis_ids=["A1"], source_refs=[corpus_ref]),
              CriterionOut(id="E2", statement="Patents with no hydrogen-related signal at all are excluded as out of domain.",
-                          sources=[])]
+                          sources=[web_ref.reference], axis_ids=["A1", "A2"], source_refs=[web_ref])]
         return CriteriaDocOut(
             domain_name="Hydrogen Storage",
             domain_definition="Hydrogen storage covers inventions whose primary function is to hold hydrogen for later use by physical or material-based means.",
@@ -161,27 +204,40 @@ class MockAgentLLM(StructuredLLM):
 
     # ------------------------------------------------------------- [6] judgment
     def _JudgmentOut(self, system, user):
-        t = user.lower()
+        _, _, patent = user.partition("PATENT")
+        t = patent.lower()
         store = any(k in t for k in ("storage", "storing", "hydride", "tank", "adsorb", "vessel"))
         hydro = "hydrogen" in t
         if hydro and store:
             return JudgmentOut(matched_criteria=["C1"], violated_exclusions=[],
-                               stance="in_domain", score=0.9,
+                               stance="in_domain", relevance_score=0.9,
+                               decision_confidence=0.92,
                                rationale="Stores hydrogen as primary function, satisfying C1.")
         if hydro:
             return JudgmentOut(matched_criteria=[], violated_exclusions=["E1"],
-                               stance="boundary", score=0.5,
+                               stance="boundary", relevance_score=0.5,
+                               decision_confidence=0.45,
                                rationale="Mentions hydrogen but storage is not clearly the contribution (E1 risk).")
         return JudgmentOut(matched_criteria=[], violated_exclusions=["E2"],
-                           stance="out_of_domain", score=0.1,
+                           stance="out_of_domain", relevance_score=0.1,
+                           decision_confidence=0.95,
                            rationale="No hydrogen storage signal; E2 applies.")
 
     def _SecondPassOut(self, system, user):
-        t = user.lower()
+        _, _, patent = user.partition("PATENT")
+        t = patent.split("FIRST-PASS JUDGMENT", 1)[0].lower()
         if "storage" in t or "hydride" in t:
-            return SecondPassOut(confirmed_stance="in_domain", confirmed_score=0.85,
+            return SecondPassOut(confirmed_stance="in_domain",
+                                 confirmed_matched_criteria=["C1"],
+                                 confirmed_violated_exclusions=[],
+                                 confirmed_relevance_score=0.85,
+                                 confirmed_decision_confidence=0.9,
                                  decisive_criterion="C1", rationale="Storage mechanism is the claimed contribution.")
-        return SecondPassOut(confirmed_stance="out_of_domain", confirmed_score=0.2,
+        return SecondPassOut(confirmed_stance="out_of_domain",
+                             confirmed_matched_criteria=[],
+                             confirmed_violated_exclusions=["E1"],
+                             confirmed_relevance_score=0.2,
+                             confirmed_decision_confidence=0.88,
                              decisive_criterion="E1", rationale="Conversion, not storage, is the contribution.")
 
     # ------------------------------------------------------------- [7] judge audit

@@ -13,8 +13,11 @@ redraft, so batch answers keyed by id were silently re-assigned to DIFFERENT
 questions on resume (observed in the 2026-07-19 A2 run: 3 of 6 answers wrong).
 Every question id is therefore rewritten here to a hash of its normalized text —
 an id can only ever match the exact question it was answered for. A previously
-human-answered question (same text, any stage) is answered from the record
-instead of being re-asked, labeled answered_by="human_prior".
+human-answered question is reused only inside the SAME run workspace (for batch
+resume or a later stage of that run), labeled answered_by="human_prior".
+
+RUN ISOLATION: HITL decisions are never read from or written to a cross-run
+domain profile. Each run starts without user-query/answer memory from prior runs.
 """
 from __future__ import annotations
 import hashlib
@@ -31,16 +34,6 @@ def question_id(text: str) -> str:
     """Globally-unique, drift-proof question id: hash of the normalized text."""
     norm = re.sub(r"\s+", " ", (text or "")).strip().lower()
     return "q" + hashlib.sha1(norm.encode("utf-8")).hexdigest()[:10]
-
-
-def profile_path(canonical_name_en: str, mock: bool = False):
-    """Domain-profile store for the owner's rulings — OUTSIDE any workspace, so a
-    ruling made in one run (CLI/UI/any variant slug) survives into every later run
-    on the same domain. Mock runs get their own file (never pollute real domains)."""
-    from src.agentic import config as AC
-    from src.agentic.workspace import slugify
-    return (AC.AGENTIC_DIR / "_profiles"
-            / f"{'mock-' if mock else ''}{slugify(canonical_name_en)}.jsonl")
 
 
 def _uniquify(questions: list[HITLQuestion]) -> list[HITLQuestion]:
@@ -71,39 +64,24 @@ class PendingHumanInput(Exception):
 
 
 class HITL:
-    def __init__(self, ws: Workspace, mode: HITLMode = "interactive", stage: str = "",
-                 profile=None):
+    def __init__(self, ws: Workspace, mode: HITLMode = "interactive", stage: str = ""):
         self.ws = ws
         self.mode = mode
         self.stage = stage
-        self.profile = profile           # domain-profile jsonl (see profile_path)
-
-    def profile_qa(self) -> list[dict]:
-        """The owner's persisted rulings for this domain — [{'id','question','answer'}],
-        deduped by question identity (latest wins). Injected into criteria drafting as
-        authoritative context even when no question is re-asked."""
-        if self.profile is None or not self.profile.exists():
-            return []
-        by_id: dict[str, dict] = {}
-        for e in Workspace.read_jsonl(self.profile):
-            qid = question_id(e.get("question", ""))
-            by_id[qid] = {"id": qid, "question": e.get("question", ""),
-                          "answer": str(e.get("answer", ""))}
-        return list(by_id.values())
 
     def ask(self, questions: list[HITLQuestion], context: str = "") -> list[dict]:
         """Return [{'id', 'question', 'answer'}, ...] for every question."""
         if not questions:
             return []
         questions = _uniquify(questions)
-        # a question the human already answered (identical text, any stage/run)
-        # is resolved from the record — never re-asked, never silently dropped
+        # A question already answered in THIS run (identical text, any stage) is
+        # resolved from the run-local record — never from another run.
         prior = self._prior_human_answers()
         answered = [self._log(q, prior[q.id], "human_prior")
                     for q in questions if q.id in prior]
         if answered:
-            print(f"  [HITL/{self.stage}] {len(answered)}건은 기존 인간 답변 재사용 "
-                  f"(human_qa.jsonl 동일 질문)")
+            print(f"  [HITL/{self.stage}] {len(answered)}건은 이 실행의 기존 인간 답변 재사용 "
+                  f"(run-local human_qa.jsonl 동일 질문)")
         questions = [q for q in questions if q.id not in prior]
         if not questions:
             return answered
@@ -115,11 +93,10 @@ class HITL:
 
     def _prior_human_answers(self) -> dict[str, str]:
         """question-text-hash -> answer, for every question a human actually
-        answered before (auto answers are never reused as human decisions)."""
+        answered earlier in this run (auto answers are never reused as human
+        decisions). No cross-run store is consulted."""
         out: dict[str, str] = {}
-        for qa in self.profile_qa():                      # cross-run domain profile
-            out[qa["id"]] = qa["answer"]
-        if self.ws.human_qa_jsonl.exists():               # this workspace wins on overlap
+        if self.ws.human_qa_jsonl.exists():
             for e in self.ws.read_jsonl(self.ws.human_qa_jsonl):
                 if e.get("answered_by") in ("human", "human_batch", "human_prior"):
                     out[question_id(e.get("question", ""))] = str(e.get("answer", ""))
@@ -186,9 +163,4 @@ class HITL:
         entry = {"stage": self.stage, "id": q.id, "question": q.question,
                  "why_needed": q.why_needed, "answer": answer, "answered_by": who}
         self.ws.append_jsonl(self.ws.human_qa_jsonl, entry)
-        # a FRESH human ruling is a durable owner decision -> persist to the
-        # domain profile so every later run (any slug/UI) inherits it
-        if self.profile is not None and who in ("human", "human_batch"):
-            self.ws.append_jsonl(self.profile, {"question": q.question, "answer": answer,
-                                                "stage": self.stage, "workspace": self.ws.slug})
         return {"id": q.id, "question": q.question, "answer": answer}

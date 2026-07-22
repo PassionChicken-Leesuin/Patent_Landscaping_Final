@@ -1,0 +1,201 @@
+{
+  "owner_document_assessment": {
+    "present": false,
+    "overall_quality": "none",
+    "scope_clarity": "none",
+    "technical_completeness": "none",
+    "factual_reliability": "none",
+    "strengths": [],
+    "gaps": [
+      "No owner document provided, leading to lack of clarity on the intended scope."
+    ],
+    "conflicts": []
+  },
+  "technology_axes": [
+    {
+      "id": "A1",
+      "name": "Hydrogen Storage Methods",
+      "description": "Methods for storing hydrogen, including mechanical, chemical, and nanomaterial-based approaches.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen storage materials",
+          "claim": "Hydrogen storage materials and methods for enhancing storage capacity",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Both web and corpus evidence strongly support the inclusion of various hydrogen storage methods as a core axis.",
+      "boundary_examples": [
+        "Mechanical storage using high pressure tanks",
+        "Chemical storage using metal hydrides"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Hydrogen Release Efficiency",
+      "description": "Technologies that enable the efficient release of stored hydrogen when needed.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "The release temperature of hydrogen storage materials affects the cost of chemical storage strategies.",
+          "strength": "high"
+        },
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must allow for the efficient release of hydrogen when needed.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Efficient hydrogen release is critical for practical applications and is supported by both user query and web evidence.",
+      "boundary_examples": [
+        "Release of hydrogen from metal hydrides at controlled temperatures"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Safety of Hydrogen Storage",
+      "description": "Ensuring the safety of hydrogen storage under various conditions, including pressure and temperature extremes.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure the safety of hydrogen storage under various conditions.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Safety is a fundamental requirement for hydrogen storage technologies, as highlighted in the user query.",
+      "boundary_examples": [
+        "Safety mechanisms in high-pressure hydrogen tanks"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Volume and Weight Optimization",
+      "description": "Optimizing the volume and weight of hydrogen storage systems to enhance energy density and portability.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must optimize the volume and weight of hydrogen storage systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form to provide sufficient driving range.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Volume and weight optimization is crucial for mobile applications, supported by both user query and web evidence.",
+      "boundary_examples": [
+        "Lightweight composite materials for hydrogen tanks"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Compatibility with Hydrogen Systems",
+      "description": "Compatibility of hydrogen storage technologies with existing hydrogen production and utilization systems.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must be compatible with existing hydrogen production and utilization systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen production methods",
+          "claim": "Innovative hydrogen production methods using renewable energy sources",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Compatibility with existing systems is essential for integration and scalability, supported by user query and corpus evidence.",
+      "boundary_examples": [
+        "Integration of storage systems with fuel cells"
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Nanomaterials for Hydrogen Storage",
+      "description": "Use of nanomaterials to enhance hydrogen storage capacity and kinetics.",
+      "status": "supplemental",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Nanomaterials can enhance hydrogen storage by improving sorption kinetics and storage capacity.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: The pool does not reflect the web's emphasis on nanomaterials for enhancing hydrogen storage, which is a key technique mentioned online.",
+          "claim": "The patent pool lacks emphasis on nanomaterials for hydrogen storage.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Web evidence highlights the importance of nanomaterials, but this is not reflected in the corpus, suggesting a supplemental role.",
+      "boundary_examples": [
+        "Use of carbon nanotubes for hydrogen adsorption"
+      ]
+    },
+    {
+      "id": "A7",
+      "name": "Metal-Organic Frameworks (MOFs)",
+      "description": "Application of MOFs in hydrogen storage due to their high surface area and porosity.",
+      "status": "supplemental",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Metal–organic_framework",
+          "claim": "Metal–organic frameworks (MOFs) are used for hydrogen storage due to their porous nature.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: The patent pool lacks emphasis on metal-organic frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as significant.",
+          "claim": "The patent pool lacks emphasis on MOFs for hydrogen storage.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "MOFs are significant in web evidence but underrepresented in the corpus, indicating a supplemental axis.",
+      "boundary_examples": [
+        "MOFs with high hydrogen uptake capacity"
+      ]
+    }
+  ],
+  "unresolved_conflicts": []
+}

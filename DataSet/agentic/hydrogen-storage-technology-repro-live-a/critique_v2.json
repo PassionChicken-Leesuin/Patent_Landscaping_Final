@@ -1,0 +1,56 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 is not fully testable from title+abstract alone as it requires understanding if the method or material is specifically designed for hydrogen storage, which may not be explicit in brief descriptions.",
+      "suggestion": "Clarify C1 to ensure it can be assessed from title+abstract by specifying indicators or keywords that suggest a specific design for hydrogen storage.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C5's requirement for compatibility with existing systems may not be discernible from title+abstract alone, as integration details are often in the full text.",
+      "suggestion": "Refine C5 to include observable indicators in title+abstract that suggest compatibility, such as mentions of integration with known systems or standards.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E5 is not clearly distinct from C-criteria as it excludes handling technologies without addressing storage, which overlaps with the scope of C1.",
+      "suggestion": "Clarify E5 to focus on technologies that manage hydrogen post-storage, ensuring it does not overlap with storage-specific criteria.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not address the inclusion of nanomaterials and MOFs, which are significant in web evidence but underrepresented in the patent pool.",
+      "suggestion": "Include explicit guidance on how to handle patents involving nanomaterials and MOFs, considering their supplemental status and potential impact on storage technology.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The exclusion of 'Liquid hydrogen handling technologies' contradicts the potential inclusion of storage methods involving liquid hydrogen, creating inconsistency.",
+      "suggestion": "Clarify the scope decision to differentiate between handling and storage technologies, ensuring liquid hydrogen storage methods are not inadvertently excluded.",
+      "severity": "critical"
+    },
+    {
+      "field": "technology_axes",
+      "problem": "A6 and A7 are marked as supplemental but lack clear criteria for inclusion, leading to potential underrepresentation of significant technologies.",
+      "suggestion": "Develop specific criteria for A6 and A7 to ensure they are adequately represented in the domain, reflecting their importance in web evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axes lack a C-criterion mapping: ['A6', 'A7']",
+      "suggestion": "Map every active axis to a testable inclusion criterion.",
+      "severity": "critical"
+    },
+    {
+      "field": "E5.source_refs",
+      "problem": "Criterion E5 cites references absent from the allowed evidence catalog: ['corpus: Liquid hydrogen handling technologies']",
+      "suggestion": "Copy an exact reference from the axis synthesis or allowed evidence catalog.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

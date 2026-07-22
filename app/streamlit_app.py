@@ -240,24 +240,27 @@ def render_results(run_dir: Path, ws: Path):
     st.subheader("판정 결과 · 유효특허 선별")
     c1, c2, c3 = st.columns(3)
     c1.metric("판정 특허 수", f"{len(df):,}")
-    c2.metric("score ≥ 0.5", f"{int((df['score'] >= 0.5).sum()):,}")
+    c2.metric("C/E 기준 충족 유효특허", f"{int(df['included'].sum()):,}")
     c3.metric("판정 유형", ", ".join(f"{k}:{v}" for k, v in
                                    df["candidate_type"].value_counts().items())[:60])
 
-    hist = (df["score"].clip(0, 1) // 0.05 * 0.05).round(2).value_counts().sort_index()
-    st.bar_chart(hist, x_label="score 구간", y_label="특허 수", height=180)
+    hist = (df["relevance_score"].clip(0, 1) // 0.05 * 0.05).round(2).value_counts().sort_index()
+    st.bar_chart(hist, x_label="관련도 점수 구간(순위용)", y_label="특허 수", height=180)
 
-    mode = st.radio("선별 방식", ["점수 임계값", "상위 N건"], horizontal=True)
-    if mode == "점수 임계값":
-        thr = st.slider("score 임계값 (기본 0.5)", 0.0, 1.0, 0.5, 0.01)
-        sel = artifacts.selected_slice(df, "threshold", thr, 0)
+    mode = st.radio("유효특허 출력 범위", ["전체 유효특허", "유효특허 중 상위 N건"],
+                    horizontal=True)
+    if mode == "전체 유효특허":
+        sel = artifacts.selected_slice(df, "all_positive", 0.0, 0)
     else:
-        topn = st.number_input("상위 N건 (이상적 목표 ≈ 1,000건)", 50, len(df),
-                               min(1000, len(df)), step=50)
+        n_positive = max(1, int(df["included"].sum()))
+        topn = st.number_input("유효특허 내 상위 N건", 1, n_positive,
+                               min(1000, n_positive), step=min(50, n_positive))
         sel = artifacts.selected_slice(df, "top_n", 0.0, int(topn))
     st.metric("선별된 유효특허", f"{len(sel):,}건")
-    st.dataframe(sel[["rank", "score", "record_id", "patent_id", "title",
-                      "candidate_type"]].head(30),
+    display_cols = [c for c in ["rank", "relevance_score", "decision_confidence",
+                                "record_id", "patent_id", "title", "candidate_type"]
+                    if c in sel.columns]
+    st.dataframe(sel[display_cols].head(30),
                  width="stretch", height=300)
 
     crit_md = None

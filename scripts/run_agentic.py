@@ -8,12 +8,15 @@ python -m scripts.run_agentic --query "hydrogen storage technology" --mock --lim
 # criteria only (research + corpus + validated criteria document):
 python -m scripts.run_agentic --query "수소 저장 기술" --input DataSet/processed/hydrogenstorage/eval_processed.csv --criteria-only
 
-# full run with resume:
-python -m scripts.run_agentic --query "수소 저장 기술" --input <pool.csv> --resume --workers 40
+# resume one specific interrupted run:
+python -m scripts.run_agentic --query "수소 저장 기술" --input <pool.csv> \
+       --variant run20260722-example --resume --workers 40
 """
 from __future__ import annotations
 import argparse
+import secrets
 import sys
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -27,12 +30,14 @@ import pandas as pd
 
 from src import config as C
 from src.mas.llm import Usage, load_openai_keys
-from src.mas.runner import KeyPool, write_ranked_csv
+from src.mas.runner import KeyPool
 from src.agentic import config as AC
 from src.agentic import judge as J
-from src.agentic.hitl import HITL, PendingHumanInput, profile_path
+from src.agentic.axes import AxisSynthesisBlocked
+from src.agentic.hitl import HITL, PendingHumanInput
 from src.agentic.pipeline import build_criteria, research_llm
 from src.agentic.search import make_search_client
+from src.agentic.validator import CriteriaValidationBlocked
 
 
 def load_pool(path: str, limit: int | None) -> pd.DataFrame:
@@ -76,6 +81,17 @@ def main():
                     help="closed loop: discover scope questions from uncertain judgments, re-judge")
     args = ap.parse_args()
 
+    # Every ordinary CLI invocation gets a fresh workspace. Reuse is allowed
+    # only when the caller explicitly names a run id and asks to resume it.
+    if args.resume and not args.variant:
+        raise SystemExit("--resume requires --variant <run-id>; this prevents a prior "
+                         "query workspace from being selected implicitly")
+    if not args.variant:
+        args.variant = f"run{time.strftime('%Y%m%d%H%M%S')}-{secrets.token_hex(2)}"
+        print(f"[run] isolated run id: {args.variant}")
+        if args.hitl == "batch":
+            print(f"  batch 재개 시 같은 명령에 --variant {args.variant} --resume 를 추가하세요")
+
     if not args.input and not args.criteria_only:
         raise SystemExit("--input is required unless --criteria-only")
     pool_df = load_pool(args.input, args.limit) if args.input else pd.DataFrame(
@@ -92,8 +108,15 @@ def main():
     except PendingHumanInput as e:
         print(f"\n[HITL] {len(e.questions)}건의 질문이 대기 중입니다.")
         print(f"  질문: {Path.cwd()}")
-        print("  -> questions_pending.json 을 확인하고 answers.json 을 작성한 뒤 같은 명령을 재실행하세요.")
+        print("  -> questions_pending.json/answers.json 작성 후 같은 입력에 "
+              f"--variant {args.variant} --resume 를 붙여 재실행하세요.")
         sys.exit(2)
+    except CriteriaValidationBlocked as e:
+        print(f"\n[BLOCKED] 기준서의 critical 오류가 남아 판정을 시작하지 않습니다: {e.path}")
+        sys.exit(3)
+    except AxisSynthesisBlocked as e:
+        print(f"\n[BLOCKED] 기술축과 출처를 확정하지 못해 판정을 시작하지 않습니다: {e}")
+        sys.exit(3)
 
     if args.criteria_only or pool_df.empty:
         print("criteria-only run complete.")
@@ -102,6 +125,12 @@ def main():
     # ---- stage [6]: judgment ----
     from scripts.run_mas import done_record_ids
     done = done_record_ids(ws.judge_audit_jsonl) if args.resume else set()
+    if done:
+        latest_contract = J.judgments_from_audit(ws)
+        done = {rid for rid in done
+                if rid in latest_contract
+                and all(k in latest_contract[rid]
+                        for k in ("included", "relevance_score", "decision_confidence"))}
     todo = pool_df[~pool_df["record_id"].isin(done)] if done else pool_df
     print(f"\n[6] judge: pool={len(pool_df)} | already judged={len(done)} | to judge={len(todo)}")
 
@@ -117,7 +146,7 @@ def main():
         rows = todo[["record_id", "patent_id", "title", "abstract"]].to_dict("records")
         for r in rows:
             r["domain"] = ws.slug
-        out = J.judge_rows(ws, doc, rows, pool, workers=args.workers, append=args.resume,
+        out = J.judge_rows(ws, doc, rows, pool, workers=args.workers, append=bool(done),
                            second_pass=not args.no_second_pass)
         u = out["usage"]
         print(f"judged {len(out['results'])}, failed {len(out['failures'])} in "
@@ -135,8 +164,7 @@ def main():
         try:
             J.validate_judgments(ws, doc, research_llm(args.mock),
                                  make_search_client(args.mock),
-                                 HITL(ws, mode=args.hitl, stage="judge",
-                                      profile=profile_path(scope.canonical_name_en, args.mock)),
+                                 HITL(ws, mode=args.hitl, stage="judge"),
                                  pool, rows_by_id, scope.canonical_name_en,
                                  vusage, workers=args.workers)
         except PendingHumanInput as e:
@@ -152,8 +180,7 @@ def main():
                       for _, r in pool_df.iterrows()}
         try:
             J.boundary_feedback_round(ws, doc, research_llm(args.mock),
-                                      HITL(ws, mode=args.hitl, stage="boundary-loop",
-                                           profile=profile_path(scope.canonical_name_en, args.mock)),
+                                      HITL(ws, mode=args.hitl, stage="boundary-loop"),
                                       pool, pool, pool_df, rows_by_id,
                                       scope.canonical_name_en, Usage(), workers=args.workers)
         except PendingHumanInput:
@@ -170,10 +197,13 @@ def main():
         results.append({"record_id": rid, "patent_id": e.get("patent_id", ""),
                         "domain": ws.slug,
                         "title": meta.loc[rid, "title"], "abstract": meta.loc[rid, "abstract"],
+                        "included": e.get("included", e.get("stance") == "in_domain"),
+                        "relevance_score": e.get("relevance_score", e.get("final_score")),
+                        "decision_confidence": e.get("decision_confidence"),
                         "final_score": e.get("final_score"),
                         "candidate_type": e.get("candidate_type"),
                         "source": e.get("stance", "")})
-    path = write_ranked_csv(results, path=ws.ranked_csv)
+    path = J.write_ranked_csv(results, path=ws.ranked_csv)
     print(f"\nranked CSV ({len(results)} rows) -> {path}")
     print("candidate_type:", dict(Counter(r["candidate_type"] for r in results)))
     print(f"기준서: {ws.criteria_final_md}")

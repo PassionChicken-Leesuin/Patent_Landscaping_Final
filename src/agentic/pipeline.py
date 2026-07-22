@@ -1,8 +1,9 @@
 """Orchestration of stages [1]-[5]: query -> research -> corpus -> criteria (validated).
 
-Every stage caches its artifact under DataSet/agentic/<slug>/ and is skipped on
-re-run unless force=True, so the same query resumes for free (including after a
-PendingHumanInput stop in batch HITL mode).
+Every stage caches its artifact under DataSet/agentic/<run-slug>/ and is skipped
+when the SAME run resumes (including after a PendingHumanInput stop in batch
+HITL mode). HITL memory is strictly workspace-local; no prior run's user answers
+are imported.
 """
 from __future__ import annotations
 
@@ -12,6 +13,7 @@ from src import config as C
 from src.mas.llm import OpenAIStructuredLLM, StructuredLLM, Usage, load_openai_keys
 from src.agentic import config as AC
 from src.agentic import research as R
+from src.agentic.axes import synthesize_axes
 from src.agentic.corpus import read_corpus
 from src.agentic.criteria import load_final
 from src.agentic.hitl import HITL, HITLMode
@@ -121,10 +123,27 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
         print(f"[1] scoping: '{query}' -> {scope.canonical_name_en} (slug={ws.slug})")
     ws.ensure()
 
+    if force:
+        # A forced rebuild must not leave a stale approved document visible if
+        # the new axis/validator contract later blocks the run.
+        ws.criteria_final_json.unlink(missing_ok=True)
+        ws.criteria_final_md.unlink(missing_ok=True)
+        ws.criteria_blocked_json.unlink(missing_ok=True)
+
     # criteria already approved? -> everything below is done
-    if ws.criteria_final_json.exists() and not force:
-        print("[2-5] criteria_final.json exists — skipping (use --force to rebuild)")
-        return ws, scope, load_final(ws)
+    if (ws.criteria_final_json.exists() and not ws.criteria_blocked_json.exists()
+            and not force):
+        cached_doc = load_final(ws)
+        provenance_ok = (bool(cached_doc.technology_axes)
+                         and all(a.source_refs for a in cached_doc.technology_axes)
+                         and all(c.source_refs for c in [*cached_doc.domain_criteria,
+                                                        *cached_doc.exclusion_criteria]))
+        if provenance_ok:
+            print("[2-5] compliant criteria_final.json exists — skipping")
+            return ws, scope, cached_doc
+        print("[2-5] legacy criteria_final lacks axis/provenance contract — rebuilding")
+        ws.criteria_final_json.unlink(missing_ok=True)
+        ws.criteria_final_md.unlink(missing_ok=True)
 
     # [2] web research (staged, leakage-guarded, cached)
     client = make_search_client(mock)
@@ -164,13 +183,16 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
                              R.notes_summary_by_type(ws), usage, force=force,
                              llm_map=llm_map)
 
-    # [4]+[5] criteria + validator feedback loop (with HITL + boundary probing)
-    print("[4-5] criteria drafting + validator loop")
-    from src.agentic.hitl import profile_path
-    hitl = HITL(ws, mode=hitl_mode, stage="criteria",
-                profile=profile_path(scope.canonical_name_en, mock))
+    # [4a] quality-aware axis anchoring from query/owner doc + research + pool
+    print("[4a] technology-axis synthesis + provenance anchoring")
+    axes = synthesize_axes(ws, llm, scope, digest, usage, force=force)
+    print(f"  [axes] {len(axes.technology_axes)} axes -> {ws.axis_synthesis_md}")
+
+    # [4b]+[5] criteria + validator feedback loop (with HITL + boundary probing)
+    print("[4b-5] criteria drafting + validator loop")
+    hitl = HITL(ws, mode=hitl_mode, stage="criteria")
     probe_pool = _judge_pool(mock)   # cheap model, reused by the boundary probe
-    doc = criteria_loop(ws, llm, client, scope, digest, usage, hitl,
+    doc = criteria_loop(ws, llm, client, scope, digest, axes, usage, hitl,
                         pool_df=pool_df, probe_pool=probe_pool)
 
     print(f"[criteria approved] {len(doc.domain_criteria)} C / "

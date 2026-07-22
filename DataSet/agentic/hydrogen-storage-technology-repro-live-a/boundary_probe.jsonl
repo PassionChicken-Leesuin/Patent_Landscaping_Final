@@ -1,0 +1,21 @@
+{"record_id": "55753487", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "in", "narrow": "out"}]}
+{"record_id": "1419984", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "24018331", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "in", "narrow": "out"}]}
+{"record_id": "49739113", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "in", "narrow": "out"}]}
+{"record_id": "14535083", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "24333870", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "42645176", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "62149000", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "10545170", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "29771833", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "16054905", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "13371200", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "35941016", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "15498407", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "7784013", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "44148855", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "27238353", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "43354647", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "43830240", "verdicts": [{"boundary_id": "Q1", "broad": "out", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"record_id": "35900719", "verdicts": [{"boundary_id": "Q1", "broad": "in", "narrow": "out"}, {"boundary_id": "Q2", "broad": "out", "narrow": "out"}]}
+{"summary": [{"id": "Q1", "flip": 6, "n": 20}, {"id": "Q2", "flip": 3, "n": 20}]}

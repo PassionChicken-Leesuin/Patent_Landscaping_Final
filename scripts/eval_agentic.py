@@ -29,14 +29,16 @@ import pandas as pd
 
 from src import config as C
 from src import domains as D
-from src.downstream.evaluate import report_from_probs
+from src.downstream.evaluate import report_from_scores_and_predictions
 from src.mas.llm import Usage, load_openai_keys
 from src.mas.runner import KeyPool
 from src.agentic import config as AC
 from src.agentic import judge as J
+from src.agentic.axes import AxisSynthesisBlocked
 from src.agentic.hitl import HITL, PendingHumanInput
 from src.agentic.pipeline import build_criteria, research_llm
 from src.agentic.search import make_search_client
+from src.agentic.validator import CriteriaValidationBlocked
 
 QUERIES_PATH = Path(__file__).parent / "eval_queries.json"
 
@@ -73,9 +75,22 @@ def run_domain(domain: str, query: str, args) -> dict | None:
         print(f"[HITL] {domain}: {len(e.questions)} question(s) pending — fill answers.json, re-run")
         return None
 
+    except CriteriaValidationBlocked as e:
+        print(f"[BLOCKED] {domain}: unresolved critical criteria issues ({e.path})")
+        return None
+    except AxisSynthesisBlocked as e:
+        print(f"[BLOCKED] {domain}: axis synthesis has no auditable result ({e})")
+        return None
+
     # ---- judge (resume-aware) ----
     from scripts.run_mas import done_record_ids
     done = done_record_ids(ws.judge_audit_jsonl)
+    if done:
+        latest_contract = J.judgments_from_audit(ws)
+        done = {rid for rid in done
+                if rid in latest_contract
+                and all(k in latest_contract[rid]
+                        for k in ("included", "relevance_score", "decision_confidence"))}
     todo = pool_df[~pool_df["record_id"].isin(done)]
     print(f"[6] judge: {len(todo)}/{len(pool_df)} to judge")
     if args.mock:
@@ -124,10 +139,16 @@ def run_domain(domain: str, query: str, args) -> dict | None:
     missing = [rid for rid in pool_df["record_id"] if rid not in latest]
     if missing:
         print(f"WARNING: {len(missing)} rows unjudged (API failures?) — treated as score 0.5")
-    p = np.array([float(latest.get(rid, {}).get("final_score", 0.5))
+    p = np.array([float(latest.get(rid, {}).get(
+                      "relevance_score", latest.get(rid, {}).get("final_score", 0.5)))
                   for rid in pool_df["record_id"]])
+    predicted = np.array([
+        int(bool(latest.get(rid, {}).get(
+            "included", latest.get(rid, {}).get("stance") == "in_domain")))
+        for rid in pool_df["record_id"]
+    ])
     y = eval_df["label"].astype(int).values
-    res = report_from_probs(y, p, eval_df, threshold=AC.EVAL_THRESHOLD)
+    res = report_from_scores_and_predictions(y, p, predicted, eval_df)
 
     stances = Counter(latest.get(rid, {}).get("stance", "missing")
                       for rid in pool_df["record_id"])

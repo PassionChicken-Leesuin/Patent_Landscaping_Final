@@ -1,0 +1,487 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring safe containment and release of hydrogen under various conditions. This includes methods and materials specifically designed for hydrogen storage, such as mechanical, chemical, and nanomaterial-based approaches, as well as technologies that optimize the volume and weight of storage systems and ensure compatibility with existing hydrogen production and utilization systems.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve a method or material specifically designed for storing hydrogen, such as mechanical, chemical, or nanomaterial-based approaches.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hydrogen_storage",
+        "corpus: hydrogen storage materials"
+      ],
+      "axis_ids": [
+        "A1"
+      ],
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen storage materials",
+          "claim": "Hydrogen storage materials and methods for enhancing storage capacity",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must enable the efficient release of stored hydrogen when needed, such as through controlled temperature or pressure changes.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hydrogen_storage",
+        "query.json"
+      ],
+      "axis_ids": [
+        "A2"
+      ],
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "The release temperature of hydrogen storage materials affects the cost of chemical storage strategies.",
+          "strength": "high"
+        },
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must allow for the efficient release of hydrogen when needed.",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the safety of hydrogen storage under various conditions, including pressure and temperature extremes.",
+      "sources": [
+        "query.json"
+      ],
+      "axis_ids": [
+        "A3"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure the safety of hydrogen storage under various conditions.",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must optimize the volume and weight of hydrogen storage systems to enhance energy density and portability.",
+      "sources": [
+        "query.json",
+        "https://en.wikipedia.org/wiki/Hydrogen_storage"
+      ],
+      "axis_ids": [
+        "A4"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must optimize the volume and weight of hydrogen storage systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form to provide sufficient driving range.",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be compatible with existing hydrogen production and utilization systems, facilitating integration and scalability.",
+      "sources": [
+        "query.json",
+        "corpus: hydrogen production methods"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must be compatible with existing hydrogen production and utilization systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen production methods",
+          "claim": "Innovative hydrogen production methods using renewable energy sources",
+          "strength": "high"
+        }
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Hydrogen Storage Technology includes patents that implement, improve, or provide enabling components or methods specifically for hydrogen storage. This encompasses mechanical, chemical, and nanomaterial-based storage methods, as well as technologies that ensure safety, optimize volume and weight, and ensure compatibility with existing hydrogen systems. Patents that merely use hydrogen storage outputs for unrelated purposes or focus on handling rather than storage are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "hydrogen production methods",
+      "verdict": "out",
+      "rationale": "While related to hydrogen technology, production methods do not specifically address the storage of hydrogen."
+    },
+    {
+      "topic": "hydrogen storage materials",
+      "verdict": "in",
+      "rationale": "These patents directly involve materials designed for storing hydrogen, aligning with the core domain tasks."
+    },
+    {
+      "topic": "hydrogen purification techniques",
+      "verdict": "out",
+      "rationale": "Purification techniques focus on refining hydrogen rather than storing it."
+    },
+    {
+      "topic": "fuel cell systems",
+      "verdict": "out",
+      "rationale": "Fuel cells utilize hydrogen but do not specifically address its storage."
+    },
+    {
+      "topic": "hydrogen recovery systems",
+      "verdict": "out",
+      "rationale": "Recovery systems focus on reclaiming hydrogen rather than storing it."
+    },
+    {
+      "topic": "hydrogen generation systems",
+      "verdict": "out",
+      "rationale": "Generation systems produce hydrogen but do not specifically address its storage."
+    },
+    {
+      "topic": "Air supply systems for fuel cells",
+      "verdict": "out",
+      "rationale": "These systems focus on air management rather than hydrogen storage."
+    },
+    {
+      "topic": "Liquid hydrogen handling technologies",
+      "verdict": "out",
+      "rationale": "Handling technologies relate to the management of liquid hydrogen rather than its storage."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on hydrogen production methods without addressing storage are excluded.",
+      "sources": [
+        "corpus: hydrogen production methods"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen production methods",
+          "claim": "Innovative hydrogen production methods using renewable energy sources",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that focus on hydrogen purification techniques without addressing storage are excluded.",
+      "sources": [
+        "corpus: hydrogen purification techniques"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen purification techniques",
+          "claim": "Advanced hydrogen purification techniques for fuel cell applications",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that focus on fuel cell systems without addressing storage are excluded.",
+      "sources": [
+        "corpus: fuel cell systems"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "corpus",
+          "reference": "corpus: fuel cell systems",
+          "claim": "fuel cell systems",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents that focus on hydrogen recovery systems without addressing storage are excluded.",
+      "sources": [
+        "corpus: hydrogen recovery systems"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen recovery systems",
+          "claim": "Hydrogen recovery systems for industrial applications",
+          "strength": "high"
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents that focus on liquid hydrogen handling technologies without addressing storage are excluded.",
+      "sources": [
+        "corpus: Liquid hydrogen handling technologies"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "corpus",
+          "reference": "corpus: Liquid hydrogen handling technologies",
+          "claim": "Liquid hydrogen handling technologies, like 'Liquid hydrogen stand and liquid hydrogen automobile', relate to handling rather than the storage technology itself.",
+          "strength": "high"
+        }
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents focusing on air supply systems for fuel cells are excluded as they do not address hydrogen storage.",
+    "Patents related to liquid hydrogen handling are excluded unless they specifically address storage methods."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Should the domain include nanomaterials for hydrogen storage, despite their underrepresentation in the patent pool?",
+      "why_it_matters": "Nanomaterials could significantly enhance hydrogen storage capacity and kinetics, impacting the domain's technological breadth.",
+      "options": [
+        "Include nanomaterials as a core part of the domain.",
+        "Exclude nanomaterials due to their current underrepresentation."
+      ],
+      "tentative_default": "Include nanomaterials as a supplemental part of the domain.",
+      "broad_rule": "Include patents that use nanomaterials to enhance hydrogen storage capacity and kinetics.",
+      "narrow_rule": "Exclude patents that use nanomaterials unless they are explicitly designed for hydrogen storage."
+    },
+    {
+      "id": "Q2",
+      "question": "Should the domain include metal-organic frameworks (MOFs) for hydrogen storage, given their significance in web evidence but lack of emphasis in the patent pool?",
+      "why_it_matters": "MOFs are highlighted in web evidence as significant for hydrogen storage, potentially broadening the domain's scope.",
+      "options": [
+        "Include MOFs as a core part of the domain.",
+        "Exclude MOFs due to their lack of emphasis in the patent pool."
+      ],
+      "tentative_default": "Include MOFs as a supplemental part of the domain.",
+      "broad_rule": "Include patents that apply MOFs for hydrogen storage due to their high surface area and porosity.",
+      "narrow_rule": "Exclude patents that apply MOFs unless they are explicitly designed for hydrogen storage."
+    }
+  ],
+  "technology_axes": [
+    {
+      "id": "A1",
+      "name": "Hydrogen Storage Methods",
+      "description": "Methods for storing hydrogen, including mechanical, chemical, and nanomaterial-based approaches.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen storage materials",
+          "claim": "Hydrogen storage materials and methods for enhancing storage capacity",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Both web and corpus evidence strongly support the inclusion of various hydrogen storage methods as a core axis.",
+      "boundary_examples": [
+        "Mechanical storage using high pressure tanks",
+        "Chemical storage using metal hydrides"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Hydrogen Release Efficiency",
+      "description": "Technologies that enable the efficient release of stored hydrogen when needed.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "The release temperature of hydrogen storage materials affects the cost of chemical storage strategies.",
+          "strength": "high"
+        },
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must allow for the efficient release of hydrogen when needed.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Efficient hydrogen release is critical for practical applications and is supported by both user query and web evidence.",
+      "boundary_examples": [
+        "Release of hydrogen from metal hydrides at controlled temperatures"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Safety of Hydrogen Storage",
+      "description": "Ensuring the safety of hydrogen storage under various conditions, including pressure and temperature extremes.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure the safety of hydrogen storage under various conditions.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Safety is a fundamental requirement for hydrogen storage technologies, as highlighted in the user query.",
+      "boundary_examples": [
+        "Safety mechanisms in high-pressure hydrogen tanks"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Volume and Weight Optimization",
+      "description": "Optimizing the volume and weight of hydrogen storage systems to enhance energy density and portability.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must optimize the volume and weight of hydrogen storage systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form to provide sufficient driving range.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Volume and weight optimization is crucial for mobile applications, supported by both user query and web evidence.",
+      "boundary_examples": [
+        "Lightweight composite materials for hydrogen tanks"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Compatibility with Hydrogen Systems",
+      "description": "Compatibility of hydrogen storage technologies with existing hydrogen production and utilization systems.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must be compatible with existing hydrogen production and utilization systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: hydrogen production methods",
+          "claim": "Innovative hydrogen production methods using renewable energy sources",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Compatibility with existing systems is essential for integration and scalability, supported by user query and corpus evidence.",
+      "boundary_examples": [
+        "Integration of storage systems with fuel cells"
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Nanomaterials for Hydrogen Storage",
+      "description": "Use of nanomaterials to enhance hydrogen storage capacity and kinetics.",
+      "status": "supplemental",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Nanomaterials can enhance hydrogen storage by improving sorption kinetics and storage capacity.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: The pool does not reflect the web's emphasis on nanomaterials for enhancing hydrogen storage, which is a key technique mentioned online.",
+          "claim": "The patent pool lacks emphasis on nanomaterials for hydrogen storage.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Web evidence highlights the importance of nanomaterials, but this is not reflected in the corpus, suggesting a supplemental role.",
+      "boundary_examples": [
+        "Use of carbon nanotubes for hydrogen adsorption"
+      ]
+    },
+    {
+      "id": "A7",
+      "name": "Metal-Organic Frameworks (MOFs)",
+      "description": "Application of MOFs in hydrogen storage due to their high surface area and porosity.",
+      "status": "supplemental",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Metal–organic_framework",
+          "claim": "Metal–organic frameworks (MOFs) are used for hydrogen storage due to their porous nature.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus: The patent pool lacks emphasis on metal-organic frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as significant.",
+          "claim": "The patent pool lacks emphasis on MOFs for hydrogen storage.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "MOFs are significant in web evidence but underrepresented in the corpus, indicating a supplemental axis.",
+      "boundary_examples": [
+        "MOFs with high hydrogen uptake capacity"
+      ]
+    }
+  ],
+  "owner_document_assessment": {
+    "present": false,
+    "overall_quality": "none",
+    "scope_clarity": "none",
+    "technical_completeness": "none",
+    "factual_reliability": "none",
+    "strengths": [],
+    "gaps": [
+      "No owner document provided, leading to lack of clarity on the intended scope."
+    ],
+    "conflicts": []
+  }
+}

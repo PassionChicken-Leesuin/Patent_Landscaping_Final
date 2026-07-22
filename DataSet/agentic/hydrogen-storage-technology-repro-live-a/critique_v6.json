@@ -1,0 +1,50 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they rely on 'indicative terms or descriptions' which are not clearly defined or exhaustive.",
+      "suggestion": "Specify the indicative terms or provide examples to ensure clarity and testability from title+abstract alone.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3 lacks a performance task; it only mentions ensuring safety without specifying how this is demonstrated or identified in the title+abstract.",
+      "suggestion": "Clarify how safety is ensured or demonstrated in the invention, and what terms or descriptions would indicate this in the title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C5's requirement for compatibility with existing systems is vague and may not be discernible from title+abstract alone.",
+      "suggestion": "Provide specific terms or descriptions that would indicate compatibility with existing hydrogen systems in the title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 and E4 are not clearly differentiated from C5, which allows for conditional inclusion of fuel cell and recovery systems if they integrate with storage technologies.",
+      "suggestion": "Clarify the distinction between exclusion and conditional inclusion criteria to avoid overlap and contradiction.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not resolve the contradiction between the exclusion of fuel cell systems and their conditional inclusion if they integrate with storage technologies.",
+      "suggestion": "Provide clearer guidance on how to handle cases where fuel cell systems are involved, possibly by refining the conditions for inclusion.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding hydrogen production methods is weak given the domain's focus on storage, which often involves integration with production technologies.",
+      "suggestion": "Re-evaluate the exclusion of hydrogen production methods, especially those that integrate with storage technologies, or provide a stronger rationale for their exclusion.",
+      "severity": "critical"
+    },
+    {
+      "field": "E5.source_refs",
+      "problem": "Criterion E5 cites references absent from the allowed evidence catalog: ['corpus: Liquid hydrogen handling technologies']",
+      "suggestion": "Copy an exact reference from the axis synthesis or allowed evidence catalog.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

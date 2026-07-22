@@ -1,0 +1,69 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require understanding specific methods or materials used, which may not be detailed in the abstract.",
+      "suggestion": "Refine C1 and C2 to focus on observable claims in the title+abstract, such as mentioning specific storage methods or release mechanisms.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E5 is not a genuine 'rule-match-but-not-the-task' criterion as it restates the exclusion of non-storage technologies.",
+      "suggestion": "Clarify E5 to focus on technologies that manage hydrogen post-storage without modifying storage methods, ensuring it captures adjacent technologies rather than restating irrelevance.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not resolve the contradiction in the inclusion of fuel cell systems when integrated with storage technologies.",
+      "suggestion": "Clarify the boundary guidance to explicitly address when fuel cell systems are included, aligning with the conditional scope decision.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding hydrogen recovery systems is weak as it does not consider potential overlaps with storage technologies.",
+      "suggestion": "Re-evaluate the exclusion of hydrogen recovery systems to ensure it aligns with the domain's focus on storage technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "technology_axes",
+      "problem": "A6 and A7 lack observed corpus evidence, which weakens their inclusion as supplemental axes.",
+      "suggestion": "Conduct further research to confirm the presence of nanomaterials and MOFs in the corpus or adjust their status based on available evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "E5.source_refs",
+      "problem": "Criterion E5 cites references absent from the allowed evidence catalog: ['corpus: Liquid hydrogen handling technologies']",
+      "suggestion": "Copy an exact reference from the axis synthesis or allowed evidence catalog.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [
+    {
+      "intent_type": "core_techniques",
+      "query_en": "Identify core techniques in hydrogen storage involving nanomaterials and MOFs.",
+      "rationale": "To verify the presence and significance of nanomaterials and MOFs in the corpus, supporting their inclusion as supplemental axes."
+    }
+  ],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should the domain include technologies that enhance hydrogen storage capacity and kinetics, regardless of whether they use nanomaterials or MOFs?",
+      "why_needed": "To determine if the focus should be on the functional enhancement of hydrogen storage rather than specific materials, ensuring comprehensive coverage of relevant technologies.",
+      "options": [
+        "Include any technology that enhances hydrogen storage capacity and kinetics.",
+        "Restrict to technologies using nanomaterials or MOFs only."
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Should the domain include fuel cell systems if they integrate with hydrogen storage technologies, despite the current exclusion?",
+      "why_needed": "To resolve the contradiction between excluding fuel cell systems and including technologies compatible with hydrogen systems, which may involve fuel cells.",
+      "options": [
+        "Include fuel cell systems if they integrate with hydrogen storage technologies.",
+        "Exclude all fuel cell systems regardless of integration."
+      ]
+    }
+  ]
+}

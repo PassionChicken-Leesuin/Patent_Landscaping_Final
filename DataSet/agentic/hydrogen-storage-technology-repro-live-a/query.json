@@ -1,0 +1,54 @@
+{
+  "query_original": "hydrogen storage technology",
+  "mock": false,
+  "variant": "repro-live-a",
+  "scope": {
+    "canonical_name_en": "Hydrogen Storage Technology",
+    "language_detected": "en",
+    "disambiguation_notes": "",
+    "initial_task_hypotheses": [
+      "The technology must enable the storage of hydrogen in a stable form.",
+      "The technology must allow for the efficient release of hydrogen when needed.",
+      "The technology must ensure the safety of hydrogen storage under various conditions.",
+      "The technology must optimize the volume and weight of hydrogen storage systems.",
+      "The technology must be compatible with existing hydrogen production and utilization systems."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of hydrogen storage technology",
+        "rationale": "To understand the fundamental principles and scope of hydrogen storage technology."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of hydrogen storage technology",
+        "rationale": "To identify the various branches and specializations within hydrogen storage technology."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in hydrogen storage",
+        "rationale": "To discover the primary methods and technologies used in storing hydrogen."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of hydrogen storage technology",
+        "rationale": "To explore the practical uses and industries that benefit from hydrogen storage technology."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to hydrogen storage but different",
+        "rationale": "To identify technologies that are related but do not perform the core tasks of hydrogen storage."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC classification codes for hydrogen storage technology",
+        "rationale": "To find the official classification codes that categorize hydrogen storage technology."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for hydrogen storage technology",
+        "rationale": "To gather alternative terms and phrases that refer to hydrogen storage technology."
+      }
+    ]
+  }
+}

@@ -23,11 +23,14 @@ from src.agentic.schemas import (BoundaryFeedbackOut, CriteriaDocOut, HITLQuesti
 from src.agentic.search import SearchClient
 from src.agentic.workspace import Workspace
 
-AUDIT_KEYS = ("record_id", "patent_id", "domain", "stance", "score",
+AUDIT_KEYS = ("record_id", "patent_id", "domain", "stance", "included",
+              "relevance_score", "decision_confidence", "score",
               "matched_criteria", "violated_exclusions", "rationale",
-              "second_pass", "final_score", "candidate_type", "judge_pass")
+              "second_pass", "final_score", "candidate_type", "decision_reason",
+              "judge_pass")
 SLIM_KEYS = ("record_id", "patent_id", "domain", "title", "abstract",
-             "final_score", "candidate_type", "stance")
+             "included", "relevance_score", "decision_confidence", "final_score",
+             "candidate_type", "stance")
 
 
 # ----------------------------------------------------------------- prompt
@@ -46,6 +49,10 @@ def criteria_prompt_block(doc: CriteriaDocOut, amendments: list[str] | None = No
     lines = [f"DOMAIN: {doc.domain_name}",
              f"DEFINITION: {doc.domain_definition}",
              f"SCOPE OF ANALYSIS: {doc.scope_statement}"]
+    if doc.technology_axes:
+        lines += ["", "TECHNOLOGY AXES (anchored inventory):"]
+        lines += [f"  [{a.status.upper()}] {a.id}. {a.name}: {a.description}"
+                  for a in doc.technology_axes]
     if doc.scope_decisions:
         lines += ["", "SCOPE DECISIONS (binding per-cluster rulings; CONDITIONAL = apply the "
                       "stated decisive test to the individual patent):"]
@@ -84,73 +91,137 @@ _JUDGE_SYSTEM = (
     "empty. Cite an E-id only when NO inclusion criterion is genuinely satisfied.\n"
     "- stance: in_domain | out_of_domain | boundary (criteria conflict or evidence unclear) "
     "| abstain (text too thin to judge).\n"
-    "- score: a CONTINUOUS probability (0-1) that the patent is domain-valid, calibrated to "
+    "- relevance_score: a CONTINUOUS ranking value (0-1) for degree of domain relevance, "
+    "calibrated to "
     "evidence strength — use the full scale and differentiate between patents, never repeat "
     "one default value. Guide: ~0.95+ explicit mechanism satisfying multiple criteria; "
     "~0.8 one criterion clearly satisfied; ~0.6 task implied but mechanism thin; ~0.45 "
     "genuinely conflicted; ~0.3 domain vocabulary but task unlikely; ~0.15 look-alike with "
     "a clear exclusion; ~0.05 no domain signal at all.\n"
+    "- decision_confidence: confidence (0-1) that the stance and cited C/E ids are correct. "
+    "This is decision certainty, not domain relevance.\n"
     "- rationale: 1-3 full sentences that explicitly reference the cited ids.\n"
     "Never guess ground-truth labels; judge only the given text. Output JSON only."
+)
+
+_JUDGE_SYSTEM += (
+    "\nFINAL DECISION CONTRACT:\n"
+    "- relevance_score estimates degree of domain relevance for ranking and AUC only. It "
+    "must NEVER determine whether a patent is included.\n"
+    "- decision_confidence estimates confidence that the stated stance and C/E citations "
+    "are correct. Low confidence triggers review; it does not itself exclude the patent.\n"
+    "- in_domain is valid only with at least one genuinely satisfied C-id and no applicable "
+    "E-id. out_of_domain is valid only with no genuinely satisfied C-id. A C/E conflict, "
+    "an in_domain stance without a C-id, or an out_of_domain stance with a C-id must be "
+    "reported as boundary pending confirmation.\n"
 )
 
 _SECOND_PASS_SYSTEM = (
     "You are the Confirmation agent. A first-pass judgment was borderline or internally "
     "conflicted. Re-read the patent against the criteria document, focusing on the "
-    "exclusion criteria and boundary guidance, and commit to a final stance and score. "
+    "exclusion criteria and boundary guidance, and commit to final C/E citations and stance. "
     "Remember: exclusion criteria identify look-alikes (vocabulary without the task); they "
     "never veto an inclusion criterion that is genuinely satisfied by a real mechanism. "
-    "Identify the SINGLE decisive criterion id. Output JSON only."
+    "Return the confirmed C-id list and E-id list as well as stance, relevance_score, and "
+    "decision_confidence. Identify the SINGLE decisive criterion id. Score never overrides "
+    "the C/E decision rule. Output JSON only."
 )
 
 
 # ----------------------------------------------------------------- process_fn
+def _valid_criterion_ids(values: list[str], prefix: str,
+                         allowed: set[str] | None) -> list[str]:
+    out = []
+    for value in values or []:
+        value = str(value).strip()
+        if value.startswith(prefix) and (not allowed or value in allowed) and value not in out:
+            out.append(value)
+    return out
+
+
+def _normalize_decision(stance: str, matched: list[str], excluded: list[str],
+                        c_ids: set[str] | None = None,
+                        e_ids: set[str] | None = None) -> tuple[str, bool, list[str], list[str], str]:
+    """Make inclusion a deterministic stance+C/E invariant, never a score cutoff."""
+    matched = _valid_criterion_ids(matched, "C", c_ids)
+    excluded = _valid_criterion_ids(excluded, "E", e_ids)
+    if stance == "in_domain" and matched and not excluded:
+        return stance, True, matched, excluded, "in_domain with satisfied C and no E conflict"
+    if stance == "out_of_domain" and not matched:
+        return stance, False, matched, excluded, "out_of_domain with no satisfied C"
+    if stance == "abstain" and not matched and not excluded:
+        return stance, False, matched, excluded, "insufficient text to apply C/E criteria"
+    return ("boundary", False, matched, excluded,
+            "C/E citations and stance are unresolved or internally inconsistent")
+
+
+def _candidate_type(stance: str, relevance_score: float,
+                    violated_exclusions: list[str] | None = None) -> str:
+    """Subtype is descriptive only; inclusion is determined before this function."""
+    if stance == "in_domain":
+        return "positive"
+    if stance == "out_of_domain":
+        # E citations plus residual relevance indicate a look-alike/hard negative.
+        return ("hard_negative" if violated_exclusions and relevance_score > 0.25
+                else "easy_negative")
+    return stance
+
+
 def judge_patent(state: dict, fast: StructuredLLM, strong: StructuredLLM,
                  usage: Usage) -> dict:
-    """process_fn for run_pool. state['rubric'] = {'block': <criteria text>}."""
+    """Judge, confirm when needed, then enforce the score-independent C/E contract."""
     block = state["rubric"]["block"]
-    user = (f"{block}\n\n"
-            f"PATENT\nTitle: {state['title']}\nAbstract: {state['abstract']}")
+    user = (f"{block}\n\nPATENT\nTitle: {state['title']}\n"
+            f"Abstract: {state['abstract']}")
     out, pt, ct = fast.parse(_JUDGE_SYSTEM, user, JudgmentOut)
     usage.add(pt, ct)
     res = dict(state)
     res.update(out.model_dump())
     res["judge_pass"] = state.get("judge_pass", 1)
 
-    lo, hi = AC.SECOND_PASS_BAND
+    c_ids = set(state["rubric"].get("c_ids") or [])
+    e_ids = set(state["rubric"].get("e_ids") or [])
+    normalized_first = _normalize_decision(
+        out.stance, out.matched_criteria, out.violated_exclusions, c_ids, e_ids)
+    first_inconsistent = normalized_first[0] != out.stance
     second_pass_on = state["rubric"].get("second_pass", True)
-    # C/E conflict (matched inclusion yet excluded) is logically unstable -> always arbitrate
-    conflict = bool(out.matched_criteria) and (bool(out.violated_exclusions)
-                                               or out.stance == "out_of_domain")
-    if second_pass_on and (out.stance in ("boundary", "abstain")
-                           or lo <= out.score <= hi or conflict):
-        sp_user = user
-        if conflict:
-            sp_user += ("\n\nFIRST-PASS CONFLICT: the first judgment cited satisfied "
-                        f"inclusion criteria {out.matched_criteria} yet ruled the patent out "
-                        f"({out.violated_exclusions}). Apply the conflict rule: exclusions "
-                        "never veto a genuinely satisfied inclusion criterion — decide "
-                        "whether the inclusion evidence is real or vocabulary-only.")
+    needs_confirmation = (
+        out.stance in ("boundary", "abstain")
+        or out.decision_confidence <= AC.DECISION_CONFIDENCE_AUDIT_MAX
+        or first_inconsistent
+    )
+
+    if second_pass_on and needs_confirmation:
+        sp_user = (user + "\n\nFIRST-PASS JUDGMENT:\n"
+                   + json.dumps(out.model_dump(), ensure_ascii=False))
+        if first_inconsistent:
+            sp_user += ("\nThe first pass violates the stance+C/E contract. Decide whether "
+                        "the C evidence is genuine, whether an E applies, and return corrected "
+                        "citation lists. Do not use score to break the conflict.")
         sp, pt2, ct2 = strong.parse(_SECOND_PASS_SYSTEM, sp_user, SecondPassOut)
         usage.add(pt2, ct2)
         res["second_pass"] = sp.model_dump()
         res["stance"] = sp.confirmed_stance
-        res["score"] = sp.confirmed_score
+        res["matched_criteria"] = sp.confirmed_matched_criteria
+        res["violated_exclusions"] = sp.confirmed_violated_exclusions
+        res["relevance_score"] = sp.confirmed_relevance_score
+        res["decision_confidence"] = sp.confirmed_decision_confidence
+        res["rationale"] = sp.rationale
     else:
         res["second_pass"] = None
 
-    res["final_score"] = float(res["score"])
-    res["candidate_type"] = _candidate_type(res["stance"], res["final_score"])
+    (res["stance"], res["included"], res["matched_criteria"],
+     res["violated_exclusions"], res["decision_reason"]) = _normalize_decision(
+        res["stance"], res["matched_criteria"], res["violated_exclusions"], c_ids, e_ids)
+    res["relevance_score"] = float(res["relevance_score"])
+    res["decision_confidence"] = float(res["decision_confidence"])
+    # Backward-compatible ranking aliases. Neither is consulted for inclusion.
+    res["score"] = res["relevance_score"]
+    res["final_score"] = res["relevance_score"]
+    res["candidate_type"] = _candidate_type(
+        res["stance"], res["relevance_score"], res["violated_exclusions"])
     res.pop("rubric", None)
     return res
-
-
-def _candidate_type(stance: str, score: float) -> str:
-    if stance == "in_domain":
-        return "positive"
-    if stance == "out_of_domain":
-        return "easy_negative" if score <= 0.25 else "hard_negative"
-    return stance  # boundary | abstain
 
 
 # ----------------------------------------------------------------- driving
@@ -169,7 +240,9 @@ def judge_rows(ws: Workspace, doc: CriteriaDocOut, rows: list[dict], pool: KeyPo
                workers: int = 40, append: bool = False,
                amendments: list[str] | None = None, judge_pass: int = 1,
                second_pass: bool = True) -> dict:
-    rubric = {"block": criteria_prompt_block(doc, amendments), "second_pass": second_pass}
+    rubric = {"block": criteria_prompt_block(doc, amendments), "second_pass": second_pass,
+              "c_ids": [c.id for c in doc.domain_criteria],
+              "e_ids": [e.id for e in doc.exclusion_criteria]}
     for r in rows:
         r["judge_pass"] = judge_pass
     return run_pool(rows, rubric, pool, workers=workers,
@@ -183,6 +256,38 @@ def judgments_from_audit(ws: Workspace) -> dict[str, dict]:
     for entry in ws.read_jsonl(ws.judge_audit_jsonl):
         latest[entry["record_id"]] = entry
     return latest
+
+
+def write_ranked_csv(results: list[dict], path) -> str:
+    """Agentic-only export: decision columns plus backward-compatible score."""
+    import csv
+    items = sorted(
+        results,
+        key=lambda r: r.get("relevance_score", r.get("final_score", 0.0)),
+        reverse=True,
+    )
+    rows = []
+    for rank, row in enumerate(items, 1):
+        relevance = row.get("relevance_score", row.get("final_score"))
+        included = row.get("included", row.get("candidate_type") == "positive")
+        rows.append({
+            "rank": rank, "relevance_score": relevance,
+            "decision_confidence": row.get("decision_confidence"),
+            "included": bool(included), "score": relevance,
+            "record_id": row["record_id"], "patent_id": row.get("patent_id", ""),
+            "domain": row.get("domain", ""), "title": row.get("title", ""),
+            "abstract": row.get("abstract", ""),
+            "candidate_type": row.get("candidate_type", ""),
+            "source": row.get("source", ""),
+        })
+    fields = ["rank", "relevance_score", "decision_confidence", "included", "score",
+              "record_id", "patent_id", "domain", "title", "abstract",
+              "candidate_type", "source"]
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+    return str(path)
 
 
 # ----------------------------------------------------------------- [7] validator
@@ -204,15 +309,18 @@ _AUDIT_SYSTEM = (
 
 
 def _suspicious(latest: dict[str, dict]) -> list[dict]:
-    lo, hi = AC.SECOND_PASS_BAND
     picks = []
     for e in latest.values():
-        s = float(e.get("final_score", 0.0))
         stance = e.get("stance", "")
         conflict = bool(e.get("matched_criteria")) and bool(e.get("violated_exclusions"))
-        if stance in ("boundary", "abstain") or lo <= s <= hi or conflict:
+        confidence = float(e.get("decision_confidence", 0.0))
+        invariant_fault = ((stance == "in_domain" and not e.get("matched_criteria"))
+                           or (stance == "out_of_domain" and e.get("matched_criteria")))
+        if (stance in ("boundary", "abstain")
+                or confidence <= AC.DECISION_CONFIDENCE_AUDIT_MAX
+                or conflict or invariant_fault):
             picks.append(e)
-    picks.sort(key=lambda e: abs(float(e.get("final_score", 0.5)) - 0.5))
+    picks.sort(key=lambda e: float(e.get("decision_confidence", 0.0)))
     return picks[:AC.JUDGE_AUDIT_SAMPLE]
 
 
@@ -243,7 +351,7 @@ def validate_judgments(ws: Workspace, doc: CriteriaDocOut, llm: StructuredLLM,
                 continue
             audited.add(e["record_id"])
             user = (f"{block}\n\nPATENT\nTitle: {row['title']}\nAbstract: {row['abstract']}\n\n"
-                    f"JUDGMENT UNDER AUDIT:\n{json.dumps({k: e.get(k) for k in ('stance', 'score', 'matched_criteria', 'violated_exclusions', 'rationale')}, ensure_ascii=False)}")
+                    f"JUDGMENT UNDER AUDIT:\n{json.dumps({k: e.get(k) for k in ('stance', 'included', 'relevance_score', 'decision_confidence', 'matched_criteria', 'violated_exclusions', 'rationale')}, ensure_ascii=False)}")
             audit, pt, ct = llm.parse(_AUDIT_SYSTEM, user, JudgeAuditOut)
             usage.add(pt, ct)
             ws.append_jsonl(ws.judge_validation_jsonl,
@@ -288,7 +396,8 @@ def validate_judgments(ws: Workspace, doc: CriteriaDocOut, llm: StructuredLLM,
 _FEEDBACK_SYSTEM = (
     "You are the Boundary-Discovery agent. Below are patents that the judge could NOT "
     "confidently place for the domain '{domain}' (it marked them boundary/abstain or scored "
-    "them near 0.5). Find the 1-3 RECURRING SCOPE AMBIGUITIES behind these hard cases — the "
+    "them with low decision confidence). Find the 1-3 RECURRING SCOPE AMBIGUITIES behind "
+    "these hard cases — the "
     "boundaries whose resolution would settle many of them at once. For each, write a "
     "ScopeQuestion the domain owner can answer, with a broad_rule and a narrow_rule (each a "
     "single sentence a judge could apply), 2-3 options, and a tentative_default. Do not "
@@ -297,11 +406,11 @@ _FEEDBACK_SYSTEM = (
 
 
 def _uncertain_rows(ws: Workspace, rows_by_id: dict[str, dict]) -> list[dict]:
-    lo, hi = AC.SECOND_PASS_BAND
     out = []
     for e in judgments_from_audit(ws).values():
-        s = float(e.get("final_score", 0.5))
-        if e.get("stance") in ("boundary", "abstain") or lo <= s <= hi:
+        confidence = float(e.get("decision_confidence", 0.0))
+        if (e.get("stance") in ("boundary", "abstain")
+                or confidence <= AC.DECISION_CONFIDENCE_AUDIT_MAX):
             r = rows_by_id.get(e["record_id"])
             if r:
                 out.append(r)

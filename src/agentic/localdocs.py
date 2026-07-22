@@ -2,8 +2,8 @@
 enters the research notes store through the SAME evidence-extraction agent as
 web pages, so the criteria stage sees one uniform evidence pool.
 
-OWNER DOCUMENTS ARE FIRST-CLASS. Unlike web pages, a --local-doc file was chosen
-by the domain owner, so the benchmark-leak guard must never silently discard it:
+OWNER DOCUMENTS ARE FIRST-CLASS SCOPE EVIDENCE. Unlike web pages, a --local-doc
+file was chosen by the domain owner, so the benchmark-leak guard must never silently discard it:
  - the regex content scan fail-louds (raises) instead of silently skipping, with
    an explicit override (allow_flagged) for the case where the hit is intended;
  - the note-extraction LLM's page_is_benchmark_leak flag is advisory only
@@ -180,7 +180,7 @@ def owner_docs_block(ws: Workspace) -> str:
               for d in docs if d.get("full_text")]
     if not bodies:
         return ""
-    return ("\n=== OWNER DOMAIN DEFINITION (문서 원문 — 최상위 권위) ===\n"
+    return ("\n=== OWNER DOMAIN DEFINITION (범위 의도의 우선 앵커; 품질은 별도 평가) ===\n"
             + "\n\n".join(bodies))
 
 

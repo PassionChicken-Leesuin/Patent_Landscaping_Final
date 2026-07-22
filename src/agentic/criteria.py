@@ -12,8 +12,8 @@ import json
 from src.mas.llm import StructuredLLM, Usage
 from src.agentic import config as AC
 from src.agentic.hitl import HITL
-from src.agentic.schemas import (CriteriaCritiqueOut, CriteriaDocOut, CorpusDigestOut,
-                                 HITLQuestion, QueryScopeOut)
+from src.agentic.schemas import (AxisSynthesisOut, CriteriaCritiqueOut, CriteriaDocOut,
+                                 CorpusDigestOut, HITLQuestion, QueryScopeOut)
 from src.agentic.workspace import Workspace
 
 _LANDSCAPING_CLAUSE = (
@@ -82,16 +82,23 @@ _SYSTEM = (
     "Output JSON only."
 )
 
+# Owner intent is binding; completeness and facts are independently assessed
+# and may be supplemented from research + corpus.
 _OWNER_CLAUSE = (
-    "\nOWNER DOMAIN DEFINITION — the user message contains a document written by the DOMAIN "
-    "OWNER (the person whose scope intent this criteria document must encode). It is the TOP "
-    "AUTHORITY: wherever it conflicts with web evidence, corpus impressions, or your own "
-    "knowledge, the owner definition WINS. Anchor the domain_definition and the C-criteria "
-    "skeleton to it; every technology axis it names MUST be covered by at least one "
-    "C-criterion, and every scope_decision must be consistent with its stated "
-    "inclusion/boundary intent. Where the owner document explicitly defers a boundary to the "
-    "owner's decision, that boundary is a prime open_questions candidate. Cite it in sources "
-    "as 'owner_doc: <document name>'.\n"
+    "\nOWNER DOCUMENT POLICY: the document is the top authority for the owner's intended "
+    "SCOPE, but it is not assumed to be technically complete or factually perfect. Use the "
+    "supplied quality assessment. Anchor every explicit owner axis, autonomously fill "
+    "material gaps with supported research and corpus evidence, and never promote a "
+    "corpus-only cluster to core without other support. Surface material conflicts as "
+    "disputed axes/open questions instead of silently resolving them.\n"
+)
+
+_AXIS_CLAUSE = (
+    "\nAXIS/PROVENANCE CONTRACT: reproduce the supplied technology_axes and owner-document "
+    "assessment faithfully. Map every C/E criterion to axis_ids. Every core or supplemental "
+    "axis must be covered by at least one C-criterion. Every C/E criterion must include "
+    "typed source_refs copied from the axis synthesis or supplied evidence; also populate "
+    "legacy sources for readable export. Do not invent references.\n"
 )
 
 _REVISE_SUFFIX = (
@@ -113,14 +120,21 @@ def _renumber(doc: CriteriaDocOut) -> CriteriaDocOut:
 
 
 def draft_criteria(ws: Workspace, llm: StructuredLLM, scope: QueryScopeOut,
-                   digest: CorpusDigestOut, evidence_summary: str, usage: Usage,
+                   digest: CorpusDigestOut, axis_synthesis: AxisSynthesisOut,
+                   evidence_summary: str, usage: Usage,
                    version: int = 1,
                    prior: CriteriaDocOut | None = None,
                    critique: CriteriaCritiqueOut | None = None,
                    human_qa: list[dict] | None = None) -> CriteriaDocOut:
-    system = _SYSTEM.format(domain=scope.canonical_name_en) + _scope_clause()
+    from src.agentic.axes import allowed_source_references, canonicalize_source_refs
+    allowed_refs = allowed_source_references(ws, digest)
+    system = _SYSTEM.format(domain=scope.canonical_name_en) + _scope_clause() + _AXIS_CLAUSE
     parts = [f"User query: {scope.canonical_name_en} ({scope.disambiguation_notes})",
              f"Initial task hypotheses:\n" + "\n".join(f"- {t}" for t in scope.initial_task_hypotheses),
+             f"\n=== (0) Approved technology-axis synthesis ===\n"
+             f"{json.dumps(axis_synthesis.model_dump(), ensure_ascii=False)}",
+             "\n=== ALLOWED SOURCE REFERENCES (copy exactly) ===\n"
+             + "\n".join(f"- {ref}" for ref in sorted(allowed_refs)),
              f"\n=== (a) Web evidence notes ===\n{evidence_summary}",
              f"\n=== (b) Patent-pool digest ===\n{json.dumps(digest.model_dump(), ensure_ascii=False)}"]
     # P1: a short owner document is the top scope authority — inject it verbatim
@@ -148,13 +162,18 @@ def draft_criteria(ws: Workspace, llm: StructuredLLM, scope: QueryScopeOut,
 
     out, pt, ct = llm.parse(system, "\n".join(parts), CriteriaDocOut)
     usage.add(pt, ct)
+    out.technology_axes = [a.model_copy(deep=True) for a in axis_synthesis.technology_axes]
+    out.owner_document_assessment = axis_synthesis.owner_document_assessment.model_copy(deep=True)
+    for criterion in [*out.domain_criteria, *out.exclusion_criteria]:
+        canonicalize_source_refs(criterion.source_refs, allowed_refs)
     out = _renumber(out)
     save_criteria(ws, out, version)
     return out
 
 
 def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeOut,
-                           digest: CorpusDigestOut, evidence_summary: str,
+                           digest: CorpusDigestOut, axis_synthesis: AxisSynthesisOut,
+                           evidence_summary: str,
                            doc: CriteriaDocOut, hitl: HITL, usage: Usage,
                            version: int) -> tuple[CriteriaDocOut, list[dict]]:
     """Ask the human the criteria author's own scope questions, then fold the answers
@@ -169,39 +188,63 @@ def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeO
     ) for q in doc.open_questions]
     qa = hitl.ask(questions, context=f"{scope.canonical_name_en} 기준 작성 중 범위 결정")
     # if the human just accepted every default (or off-mode auto-answers), no revision needed
-    doc2 = draft_criteria(ws, llm, scope, digest, evidence_summary, usage,
+    doc2 = draft_criteria(ws, llm, scope, digest, axis_synthesis, evidence_summary, usage,
                           version=version + 1, prior=doc, human_qa=qa)
     return doc2, qa
 
 
 # ----------------------------------------------------------------- rendering / io
 def render_md(doc: CriteriaDocOut) -> str:
-    lines = [f"# 도메인 판단 기준서 — {doc.domain_name}", "",
-             "## 도메인 정의", doc.domain_definition, "",
-             "## 도메인 판단 기준 (C)", ""]
-    for c in doc.domain_criteria:
-        lines.append(f"- **{c.id}.** {c.statement}")
-        if c.sources:
-            lines.append(f"  - 근거: {', '.join(c.sources)}")
-    lines += ["", "## 분석 대상 특허의 범위", doc.scope_statement, "",
-              "## 범위 결정 (클러스터별 in/out)", ""]
-    for s in doc.scope_decisions:
-        lines.append(f"- [{s.verdict.upper()}] **{s.topic}** — {s.rationale}")
-    lines += ["", "## 제외 기준 (E)", ""]
-    for e in doc.exclusion_criteria:
-        lines.append(f"- **{e.id}.** {e.statement}")
-        if e.sources:
-            lines.append(f"  - 근거: {', '.join(e.sources)}")
+    """Render the final axis/provenance contract without losing legacy sources."""
+    lines = [f"# 특허 도메인 판단 기준서 — {doc.domain_name}", "",
+             "## 도메인 정의", "", doc.domain_definition, "",
+             "## 기술축", ""]
+    for axis in doc.technology_axes:
+        lines.append(
+            f"### {axis.id}. {axis.name} [{axis.status}/{axis.confidence}]"
+        )
+        lines += ["", axis.description, "",
+                  f"- 사용자 문서 명시: {axis.owner_documented}",
+                  f"특허 풀 관찰: {axis.observed_in_corpus}",
+                  f"판단 근거: {axis.rationale}", "- 출처:"]
+        for ref in axis.source_refs:
+            lines.append(
+                f"  - [{ref.source_type}/{ref.strength}] {ref.reference}: {ref.claim}"
+            )
+        lines.append("")
+
+    def add_criteria(title: str, items) -> None:
+        lines.extend([f"## {title}", ""])
+        for item in items:
+            lines.append(f"- **{item.id}.** {item.statement}")
+            if item.axis_ids:
+                lines.append(f"  - 기술축: {', '.join(item.axis_ids)}")
+            for ref in item.source_refs:
+                lines.append(
+                    f"  - [{ref.source_type}/{ref.strength}] {ref.reference}: {ref.claim}"
+                )
+            if item.sources:
+                lines.append(f"  - 레거시 출처: {', '.join(item.sources)}")
+
+    add_criteria("포함 판단 기준 (C)", doc.domain_criteria)
+    lines += ["", "## 분석 대상 특허의 범위", "", doc.scope_statement, "",
+              "## 범위 결정", ""]
+    for decision in doc.scope_decisions:
+        lines.append(
+            f"- [{decision.verdict.upper()}] **{decision.topic}** — {decision.rationale}"
+        )
+    lines.append("")
+    add_criteria("제외 판단 기준 (E)", doc.exclusion_criteria)
     lines += ["", "## 경계 판정 지침", ""]
     lines += [f"- {g}" for g in doc.boundary_guidance]
     if doc.open_questions:
-        lines += ["", "## 사용자 결정이 필요한 범위 질문", ""]
+        lines += ["", "## HITL이 필요한 범위 질문", ""]
         for q in doc.open_questions:
-            lines.append(f"- **{q.id}. {q.question}**")
-            lines.append(f"  - 영향: {q.why_it_matters}")
-            lines.append(f"  - 선택지: {', '.join(q.options)}")
-            lines.append(f"  - 현재 가정(미답변 시): {q.tentative_default}")
-    return "\n".join(lines) + "\n"
+            lines += [f"- **{q.id}. {q.question}**",
+                      f"  - 영향: {q.why_it_matters}",
+                      f"  - 선택지: {', '.join(q.options)}",
+                      f"  - 미응답 기본값: {q.tentative_default}"]
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def save_criteria(ws: Workspace, doc: CriteriaDocOut, version: int) -> None:
@@ -212,6 +255,7 @@ def save_criteria(ws: Workspace, doc: CriteriaDocOut, version: int) -> None:
 def save_final(ws: Workspace, doc: CriteriaDocOut) -> None:
     ws.write_json(ws.criteria_final_json, doc.model_dump())
     ws.criteria_final_md.write_text(render_md(doc), encoding="utf-8")
+    ws.criteria_blocked_json.unlink(missing_ok=True)
 
 
 def load_final(ws: Workspace) -> CriteriaDocOut:

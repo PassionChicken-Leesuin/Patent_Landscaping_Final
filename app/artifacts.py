@@ -102,15 +102,32 @@ def ranked(ws: Path) -> pd.DataFrame:
         return pd.DataFrame()
     df = pd.read_csv(p, dtype={"record_id": str, "patent_id": str})
     df["score"] = pd.to_numeric(df["score"], errors="coerce")
+    if "relevance_score" not in df.columns:
+        df["relevance_score"] = df["score"]
+    df["relevance_score"] = pd.to_numeric(df["relevance_score"], errors="coerce")
+    if "decision_confidence" in df.columns:
+        df["decision_confidence"] = pd.to_numeric(df["decision_confidence"], errors="coerce")
+    if "included" not in df.columns:
+        df["included"] = df.get("candidate_type", "").eq("positive")
+    else:
+        df["included"] = df["included"].astype(str).str.lower().isin(("true", "1", "yes"))
     return df
 
 
 # ------------------------------------------------------------------ export
 def selected_slice(ranked_df: pd.DataFrame, mode: str, threshold: float,
                    top_n: int) -> pd.DataFrame:
-    df = ranked_df.sort_values("score", ascending=False)
+    score_col = "relevance_score" if "relevance_score" in ranked_df.columns else "score"
+    if "included" in ranked_df.columns:
+        mask = ranked_df["included"].astype(bool)
+    else:
+        mask = ranked_df.get("candidate_type", pd.Series(index=ranked_df.index,
+                                                          dtype=str)).eq("positive")
+    df = ranked_df[mask].sort_values(score_col, ascending=False)
+    if mode == "all_positive":
+        return df
     if mode == "threshold":
-        return df[df["score"] >= threshold]
+        return df[df[score_col] >= threshold]
     return df.head(top_n)
 
 

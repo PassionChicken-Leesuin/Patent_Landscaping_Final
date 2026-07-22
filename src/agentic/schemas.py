@@ -77,11 +77,55 @@ class CorpusDigestOut(BaseModel):
     mismatch_with_web_evidence: list[str]
 
 
-# ---------------- [4] criteria (sentence-form) ----------------
+# ---------------- [4] technology-axis synthesis + criteria ----------------
+SourceType = Literal["user_query", "owner_doc", "web", "corpus", "hitl"]
+
+
+class EvidenceSourceRef(BaseModel):
+    """One auditable source supporting an axis or a C/E criterion."""
+    source_type: SourceType
+    reference: str                  # URL, local://..., corpus case, query, or HITL id
+    claim: str                      # the exact proposition this source supports
+    strength: Literal["high", "medium", "low"]
+
+
+class OwnerDocumentAssessmentOut(BaseModel):
+    """Quality is assessed independently from the owner's scope authority."""
+    present: bool
+    overall_quality: Literal["high", "medium", "low", "none"]
+    scope_clarity: Literal["high", "medium", "low", "none"]
+    technical_completeness: Literal["high", "medium", "low", "none"]
+    factual_reliability: Literal["high", "medium", "low", "none"]
+    strengths: list[str]
+    gaps: list[str]
+    conflicts: list[str]
+
+
+class TechnologyAxisOut(BaseModel):
+    id: str                          # A1, A2, ...
+    name: str
+    description: str
+    status: Literal["core", "supplemental", "disputed", "excluded"]
+    confidence: Literal["high", "medium", "low"]
+    owner_documented: bool
+    observed_in_corpus: bool
+    source_refs: list[EvidenceSourceRef]
+    rationale: str
+    boundary_examples: list[str]
+
+
+class AxisSynthesisOut(BaseModel):
+    owner_document_assessment: OwnerDocumentAssessmentOut
+    technology_axes: list[TechnologyAxisOut]
+    unresolved_conflicts: list[str]
+
+
 class CriterionOut(BaseModel):
     id: str                          # C1.., E1..
     statement: str                   # full-sentence criterion
     sources: list[str]               # evidence URLs / "corpus: <case>"
+    axis_ids: list[str] = Field(default_factory=list)
+    source_refs: list[EvidenceSourceRef] = Field(default_factory=list)
 
 
 class ScopeDecisionOut(BaseModel):
@@ -121,7 +165,7 @@ class BoundaryProbeOut(BaseModel):
 
 class BoundaryFeedbackOut(BaseModel):
     """New scope questions inferred from the patents the judge was UNSURE about
-    (boundary/abstain/near-0.5). Closes the loop: the pool's own hard cases surface
+    (boundary/abstain/low decision confidence). Closes the loop: the pool's hard cases surface
     the boundaries the criteria author missed."""
     questions: list[ScopeQuestion]
 
@@ -135,6 +179,8 @@ class CriteriaDocOut(BaseModel):
     exclusion_criteria: list[CriterionOut]     # E-ids: exclusion criteria
     boundary_guidance: list[str]               # corpus-grounded borderline guidance
     open_questions: list[ScopeQuestion]        # scope calls that need the human owner
+    technology_axes: list[TechnologyAxisOut] = Field(default_factory=list)
+    owner_document_assessment: Optional[OwnerDocumentAssessmentOut] = None
 
 
 # ---------------- [5]/[7] validators + HITL ----------------
@@ -165,13 +211,17 @@ class JudgmentOut(BaseModel):
     matched_criteria: list[str]      # cited C-ids supporting inclusion
     violated_exclusions: list[str]   # cited E-ids supporting exclusion
     stance: Literal["in_domain", "out_of_domain", "boundary", "abstain"]
-    score: float = Field(ge=0, le=1)
+    relevance_score: float = Field(ge=0, le=1)  # ranking/AUC, never the inclusion rule
+    decision_confidence: float = Field(ge=0, le=1)  # confidence in the stated stance
     rationale: str                   # sentence-form, must reference cited ids
 
 
 class SecondPassOut(BaseModel):
     confirmed_stance: Literal["in_domain", "out_of_domain", "boundary", "abstain"]
-    confirmed_score: float = Field(ge=0, le=1)
+    confirmed_matched_criteria: list[str]
+    confirmed_violated_exclusions: list[str]
+    confirmed_relevance_score: float = Field(ge=0, le=1)
+    confirmed_decision_confidence: float = Field(ge=0, le=1)
     decisive_criterion: str          # the single C/E id that decided the case
     rationale: str
 

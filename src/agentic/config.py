@@ -30,8 +30,8 @@ PAGE_TEXT_CHARS = 8000           # page text truncation before note extraction
 FETCH_TIMEOUT_S = 15
 
 # ---- owner documents (--local-doc: the domain owner's own reference material) ----
-# A short owner document is injected VERBATIM into the criteria prompt as the top
-# scope authority (note extraction alone loses too much for a 2-3KB definition doc).
+# A short owner document is injected verbatim as the top authority for intended
+# scope; the axis stage separately assesses completeness and factual reliability.
 OWNER_DOC_FULLTEXT_MAX_CHARS = 8000
 
 # ---- corpus reading (the judge pool is actually read, in batches) ----
@@ -45,13 +45,12 @@ BOUNDARY_MIN_FLIP_RATE = 0.08    # a boundary is "real" only if >= this share of
 BOUNDARY_MAX_QUESTIONS = 4       # cap the questions actually shown to the human
 
 # ---- feedback loops ----
-CRITERIA_MAX_ITERS = 3           # criteria validator loop budget
+CRITERIA_MAX_ITERS = 5           # criteria validator loop budget; critical remains -> block
 JUDGE_VALIDATE_MAX_ITERS = 2     # judgment validator loop budget
 JUDGE_AUDIT_SAMPLE = 40          # suspicious judgments re-examined per validator round
-SECOND_PASS_BAND = (0.35, 0.65)  # judgment scores that get a confirmation pass
+DECISION_CONFIDENCE_AUDIT_MAX = 0.65  # low certainty -> confirmation/audit, not exclusion
 
 # ---- evaluation ----
-EVAL_THRESHOLD = 0.5             # fixed a priori: score >= 0.5 -> predicted SEED
 PILOT_SIZE = 80
 
 # ---- scope breadth (recall lever) ----
