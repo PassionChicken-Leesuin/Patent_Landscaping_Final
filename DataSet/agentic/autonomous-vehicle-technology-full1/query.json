@@ -1,0 +1,54 @@
+{
+  "query_original": "self-driving car technology — vehicles that drive themselves without a human driver",
+  "mock": false,
+  "variant": "full1",
+  "scope": {
+    "canonical_name_en": "Autonomous Vehicle Technology",
+    "language_detected": "en",
+    "disambiguation_notes": "The query refers specifically to technology enabling vehicles to operate without human intervention, commonly known as autonomous or self-driving vehicles.",
+    "initial_task_hypotheses": [
+      "The technology must enable a vehicle to navigate roads and traffic autonomously without human input.",
+      "The technology must detect and respond to dynamic obstacles and traffic signals in real-time.",
+      "The technology must ensure passenger safety through collision avoidance systems.",
+      "The technology must integrate with mapping and GPS systems for route planning and navigation.",
+      "The technology must comply with legal and regulatory standards for autonomous operation."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of autonomous vehicle technology",
+        "rationale": "To establish a clear and precise definition of what constitutes autonomous vehicle technology."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of autonomous vehicle technology",
+        "rationale": "To identify the various subfields and specializations within autonomous vehicle technology."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in autonomous vehicle technology",
+        "rationale": "To understand the fundamental techniques and methods used in developing autonomous vehicles."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of autonomous vehicle technology",
+        "rationale": "To explore the different applications and use cases of autonomous vehicle technology."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to but not autonomous vehicle technology",
+        "rationale": "To identify technologies that are similar but do not perform the defining tasks of autonomous vehicle technology, such as advanced driver-assistance systems (ADAS)."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC classification codes for autonomous vehicle technology",
+        "rationale": "To find the official classification codes that categorize autonomous vehicle technology in patent databases."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for autonomous vehicle technology",
+        "rationale": "To gather alternative terms and synonyms used for autonomous vehicle technology."
+      }
+    ]
+  }
+}

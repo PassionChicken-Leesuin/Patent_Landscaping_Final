@@ -1,0 +1,54 @@
+{
+  "query_original": "휴머노이드 로봇 상용화 기술",
+  "mock": false,
+  "variant": "",
+  "scope": {
+    "canonical_name_en": "Humanoid Robot Commercialization Technology",
+    "language_detected": "ko",
+    "disambiguation_notes": "The query focuses on the technologies required to commercialize humanoid robots, rather than the general field of humanoid robotics.",
+    "initial_task_hypotheses": [
+      "The technology must enable humanoid robots to perform tasks in real-world environments safely and efficiently.",
+      "The technology must include systems for human-robot interaction that are intuitive and reliable.",
+      "The technology must ensure the cost-effective production and maintenance of humanoid robots.",
+      "The technology must include robust navigation and mobility systems for humanoid robots in diverse settings.",
+      "The technology must address regulatory and safety standards for deploying humanoid robots in public and private sectors."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of humanoid robot commercialization technology",
+        "rationale": "To understand the scope and components of technologies involved in commercializing humanoid robots."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of humanoid robot commercialization",
+        "rationale": "To identify the various subfields and specializations within the domain of humanoid robot commercialization."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in humanoid robot commercialization",
+        "rationale": "To discover the fundamental techniques and methods used in the commercialization of humanoid robots."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of humanoid robot commercialization technology",
+        "rationale": "To explore the practical applications and industries where humanoid robot commercialization technology is utilized."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to humanoid robot commercialization but different",
+        "rationale": "To identify technologies that are similar but do not focus on the commercialization aspect of humanoid robots, such as general robotics or non-humanoid robots."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC codes for humanoid robot commercialization",
+        "rationale": "To find the official classification codes that categorize technologies related to the commercialization of humanoid robots."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for humanoid robot commercialization technology",
+        "rationale": "To gather alternative terms and phrases that describe the same domain, aiding in comprehensive research."
+      }
+    ]
+  }
+}

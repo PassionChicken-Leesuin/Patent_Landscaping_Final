@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence. Specifically, there is no criterion addressing the integration of AI and learning-based technologies, which are crucial for humanoid robots as per the evidence.",
+      "suggestion": "Add a criterion that requires the invention to incorporate AI and learning-based technologies for autonomous navigation, decision-making, or task execution in humanoid robots.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the task criteria. They restate exclusions without providing clear adjacent technologies that are rule-match but not task-match.",
+      "suggestion": "Refine E-criteria to specify technologies that are similar but do not contribute to humanoid robot commercialization, such as generic AI systems not tailored for humanoid robots or non-humanoid-specific robotic arms.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "Boundary guidance does not fully resolve borderline patterns, particularly regarding service robots and wearable robotic systems.",
+      "suggestion": "Clarify boundary guidance to specify conditions under which service robots and wearable systems are included, focusing on their contribution to humanoid robot commercialization.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The scope decision for 'Mobile robot systems' is inconsistent with the exclusion of generic mobile platforms in E3. The conditional inclusion of mobile systems needs clearer criteria.",
+      "suggestion": "Provide specific criteria for when mobile robot systems are included, focusing on their direct applicability to humanoid robots.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

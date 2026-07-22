@@ -1,0 +1,47 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen fuel cells",
+    "Hydrogen generation and recovery",
+    "Hydrogen storage systems",
+    "Hydrogen purification methods",
+    "Nickel-hydrogen batteries",
+    "Hydrogen production methods",
+    "Fuel cell technology",
+    "Hydrogen separation and storage",
+    "Metal hydride tanks"
+  ],
+  "vocabulary_profile": [
+    "hydrogen storage",
+    "hydrogen gas",
+    "fuel cell",
+    "hydrogen generation",
+    "hydrogen storage alloy",
+    "hydrogen fuel cell",
+    "hydrogen recovery",
+    "hydrogen purification",
+    "nickel-hydrogen battery",
+    "hydrogen production",
+    "electrochemical",
+    "hydrogen separation"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for efficient energy systems",
+    "Advanced hydrogen fuel cell technologies",
+    "Innovative hydrogen generation and recovery methods",
+    "Comprehensive hydrogen storage systems",
+    "Cutting-edge hydrogen purification methods"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower technologies mention cooling but are unrelated to hydrogen storage, e.g., 'Cooling tower :: The utility model relates to a kind of recirculated cooling water cooling tower.'",
+    "Electrochemical devices focus on reactions but not specifically on hydrogen storage, e.g., 'Electrochemical reaction apparatus :: An object of the present invention is to increase the production efficiency of a reduction product.'",
+    "Processes involving hydrogen in unrelated fields, such as oil processing, are not directly related to hydrogen storage, e.g., 'Process for the treatment of crude oil using hydrogen in a special unit.'",
+    "Recycling processes that capture hydrogen gas but focus on other materials, e.g., 'Acid ndfeb magnet recycling.'",
+    "Technologies for unrelated applications that mention hydrogen, e.g., 'Device for the oven protection of cables.'"
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as a significant technique.",
+    "The web evidence discusses the environmental impact of hydrogen technologies, which is not a focus in the patent pool.",
+    "Web evidence emphasizes hydrogen storage in vehicles and the importance of release temperature, which is not prominently featured in the patent pool."
+  ]
+}

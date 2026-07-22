@@ -1,0 +1,401 @@
+{
+  "domain_name": "Autonomous Vehicle Technology",
+  "domain_definition": "Autonomous Vehicle Technology encompasses systems and methods that enable vehicles to operate independently without human intervention. This includes the ability to navigate roads, detect and respond to dynamic obstacles and traffic signals in real-time, ensure passenger safety through collision avoidance systems, integrate with mapping and GPS systems for route planning and navigation, and comply with legal and regulatory standards for autonomous operation.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable a vehicle to navigate roads and traffic autonomously without human input.",
+      "sources": [
+        "corpus: Autonomous Navigation",
+        "corpus: Dynamic Route Planning"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include systems for detecting and responding to dynamic obstacles and traffic signals in real-time.",
+      "sources": [
+        "corpus: Object Detection and Avoidance",
+        "corpus: Traffic Sign Recognition"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must incorporate collision avoidance systems to ensure passenger safety.",
+      "sources": [
+        "corpus: Collision Avoidance Systems",
+        "corpus: Hazard Detection Systems"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must integrate with mapping and GPS systems for route planning and navigation.",
+      "sources": [
+        "corpus: Vehicle Navigation Systems",
+        "corpus: High Definition Map Updating"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must comply with legal and regulatory standards for autonomous operation.",
+      "sources": [
+        "web: Automated vehicles in EU legislation refer specifically to road vehicles like cars, trucks, or buses."
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must include V2X communication systems for interaction with the environment and other vehicles.",
+      "sources": [
+        "corpus: Vehicle-to-Everything (V2X) Communication",
+        "corpus: V2V Communication"
+      ]
+    },
+    {
+      "id": "C7",
+      "statement": "The invention must incorporate sensor integration and cross-validation to ensure system reliability and accuracy.",
+      "sources": [
+        "corpus: Sensor Cross-Validation",
+        "corpus: Sensor Integration for Autonomous Driving"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Autonomous Vehicle Technology includes patents that describe systems and methods enabling vehicles to operate independently without human intervention. This encompasses technologies for autonomous navigation, obstacle detection and avoidance, collision prevention, integration with mapping and GPS systems, and compliance with regulatory standards. Patents that focus on enabling technologies, such as sensor integration and communication systems, are also included if they directly support autonomous vehicle operation.",
+  "scope_decisions": [
+    {
+      "topic": "Cruise Control Systems",
+      "verdict": "out",
+      "rationale": "Cruise control systems are typically driver assistance technologies and do not enable full autonomy."
+    },
+    {
+      "topic": "Traffic Sign Recognition",
+      "verdict": "in",
+      "rationale": "Traffic sign recognition is essential for autonomous vehicles to navigate and respond to road conditions."
+    },
+    {
+      "topic": "Vehicle-to-Everything (V2X) Communication",
+      "verdict": "in",
+      "rationale": "V2X communication is crucial for autonomous vehicles to interact with their environment and other vehicles."
+    },
+    {
+      "topic": "Collision Avoidance Systems",
+      "verdict": "in",
+      "rationale": "Collision avoidance is a core component of ensuring safety in autonomous vehicles."
+    },
+    {
+      "topic": "Sensor Cross-Validation",
+      "verdict": "in",
+      "rationale": "Sensor cross-validation is important for the reliability and accuracy of autonomous vehicle systems."
+    },
+    {
+      "topic": "Autonomous Navigation",
+      "verdict": "in",
+      "rationale": "Autonomous navigation is a fundamental capability of autonomous vehicles."
+    },
+    {
+      "topic": "Object Detection and Avoidance",
+      "verdict": "in",
+      "rationale": "Object detection and avoidance are critical for autonomous vehicle operation."
+    },
+    {
+      "topic": "Lane Departure Warning Systems",
+      "verdict": "in",
+      "rationale": "Lane departure warning systems can be part of a broader autonomous system when integrated with other technologies."
+    },
+    {
+      "topic": "Adaptive Driving Assistance",
+      "verdict": "in",
+      "rationale": "Adaptive driving assistance can be integrated into fully autonomous systems as part of a comprehensive solution."
+    },
+    {
+      "topic": "Hazard Detection Systems",
+      "verdict": "in",
+      "rationale": "Hazard detection is essential for the safe operation of autonomous vehicles."
+    },
+    {
+      "topic": "Vehicle Communication Systems",
+      "verdict": "in",
+      "rationale": "Communication systems are necessary for autonomous vehicles to interact with their environment."
+    },
+    {
+      "topic": "Image Processing for Navigation",
+      "verdict": "in",
+      "rationale": "Image processing is a key technology for autonomous vehicle navigation and perception."
+    },
+    {
+      "topic": "Sensor Integration for Autonomous Driving",
+      "verdict": "in",
+      "rationale": "Sensor integration is crucial for the functioning of autonomous vehicle systems."
+    },
+    {
+      "topic": "Adaptive Motion Control",
+      "verdict": "in",
+      "rationale": "Adaptive motion control is necessary for autonomous vehicles to navigate dynamically changing environments."
+    },
+    {
+      "topic": "Driving Assistance Systems",
+      "verdict": "out",
+      "rationale": "Driving assistance systems are designed to assist human drivers, not replace them."
+    },
+    {
+      "topic": "Pedestrian Detection Methods",
+      "verdict": "in",
+      "rationale": "Pedestrian detection is critical for the safety of autonomous vehicles."
+    },
+    {
+      "topic": "Vehicle Navigation Systems",
+      "verdict": "in",
+      "rationale": "Navigation systems are essential for autonomous vehicle operation."
+    },
+    {
+      "topic": "V2V Communication",
+      "verdict": "in",
+      "rationale": "Vehicle-to-vehicle communication is important for autonomous vehicle coordination and safety."
+    },
+    {
+      "topic": "Lane Keeping and Departure Systems",
+      "verdict": "in",
+      "rationale": "Lane keeping and departure systems can be part of a broader autonomous system when integrated with other technologies."
+    },
+    {
+      "topic": "Autonomous Vehicle Coordination",
+      "verdict": "in",
+      "rationale": "Coordination among autonomous vehicles is necessary for efficient and safe operation."
+    },
+    {
+      "topic": "Dynamic Route Planning",
+      "verdict": "in",
+      "rationale": "Dynamic route planning is essential for autonomous vehicles to adapt to changing conditions."
+    },
+    {
+      "topic": "3D Point Cloud Generation",
+      "verdict": "in",
+      "rationale": "3D point cloud generation is used in mapping and navigation for autonomous vehicles."
+    },
+    {
+      "topic": "Self-Driving Vehicle Allocation",
+      "verdict": "in",
+      "rationale": "Allocation systems are important for managing fleets of autonomous vehicles."
+    },
+    {
+      "topic": "High Definition Map Updating",
+      "verdict": "in",
+      "rationale": "High definition maps are crucial for precise navigation in autonomous vehicles."
+    },
+    {
+      "topic": "Radar Device for Vehicles",
+      "verdict": "in",
+      "rationale": "Radar is a key sensor technology for autonomous vehicle perception."
+    },
+    {
+      "topic": "Remote Assistance for Autonomous Vehicles",
+      "verdict": "in",
+      "rationale": "Remote assistance can support autonomous vehicle operation in complex scenarios."
+    },
+    {
+      "topic": "Driving Behavior Analysis",
+      "verdict": "out",
+      "rationale": "Driving behavior analysis typically focuses on human drivers, not autonomous systems."
+    },
+    {
+      "topic": "Vehicle Data Acquisition",
+      "verdict": "in",
+      "rationale": "Data acquisition is important for the operation and improvement of autonomous vehicles."
+    },
+    {
+      "topic": "Driver Assist System",
+      "verdict": "out",
+      "rationale": "Driver assist systems are designed to aid human drivers, not enable full autonomy."
+    },
+    {
+      "topic": "Cloud-Based Mapping for Vehicles",
+      "verdict": "in",
+      "rationale": "Cloud-based mapping is important for real-time navigation and updates in autonomous vehicles."
+    },
+    {
+      "topic": "Indoor Self-Driving Vehicle Positioning",
+      "verdict": "in",
+      "rationale": "Indoor positioning is relevant for autonomous vehicles operating in non-road environments."
+    },
+    {
+      "topic": "Smart Parking Systems",
+      "verdict": "in",
+      "rationale": "Smart parking systems can be part of autonomous vehicle operations, especially in urban environments."
+    },
+    {
+      "topic": "Radar Technology for Vehicles",
+      "verdict": "in",
+      "rationale": "Radar technology is essential for autonomous vehicle sensing and perception."
+    },
+    {
+      "topic": "Parking Assistance Technology",
+      "verdict": "out",
+      "rationale": "Parking assistance typically aids human drivers rather than enabling full autonomy."
+    },
+    {
+      "topic": "Electric Vehicle Technology",
+      "verdict": "out",
+      "rationale": "Electric vehicle technology focuses on propulsion, not autonomy."
+    },
+    {
+      "topic": "Automation in Vehicle Maintenance",
+      "verdict": "out",
+      "rationale": "Automation in maintenance does not pertain to vehicle operation or navigation."
+    },
+    {
+      "topic": "Safety Devices for Vehicles",
+      "verdict": "out",
+      "rationale": "General safety devices do not specifically enable autonomous operation."
+    },
+    {
+      "topic": "Obstacle Detection Systems",
+      "verdict": "in",
+      "rationale": "Obstacle detection is critical for autonomous vehicle safety and navigation."
+    },
+    {
+      "topic": "Parking Space Detection",
+      "verdict": "in",
+      "rationale": "Parking space detection can be part of autonomous vehicle parking systems."
+    },
+    {
+      "topic": "Vehicle Radar Technology",
+      "verdict": "in",
+      "rationale": "Radar is a key technology for autonomous vehicle sensing."
+    },
+    {
+      "topic": "Environmental Sensing for Vehicles",
+      "verdict": "in",
+      "rationale": "Environmental sensing is crucial for autonomous vehicle operation."
+    },
+    {
+      "topic": "Unmanned Aerial Vehicles",
+      "verdict": "out",
+      "rationale": "Unmanned aerial vehicles are not within the scope of land-based autonomous vehicles."
+    },
+    {
+      "topic": "Vehicle Management Systems",
+      "verdict": "in",
+      "rationale": "Management systems are important for coordinating autonomous vehicle fleets."
+    },
+    {
+      "topic": "Resource Allocation in Networks",
+      "verdict": "out",
+      "rationale": "Resource allocation in networks does not directly pertain to autonomous vehicle operation."
+    },
+    {
+      "topic": "Vehicle Customization and Personalization",
+      "verdict": "out",
+      "rationale": "Customization and personalization do not relate to autonomous vehicle functionality."
+    },
+    {
+      "topic": "Navigation and Speed Limit Systems",
+      "verdict": "in",
+      "rationale": "Navigation and speed limit systems are essential for autonomous vehicle operation."
+    },
+    {
+      "topic": "Vehicle-Mounted Systems",
+      "verdict": "in",
+      "rationale": "Vehicle-mounted systems can include essential components for autonomous operation."
+    },
+    {
+      "topic": "Drive Assistance",
+      "verdict": "out",
+      "rationale": "Drive assistance focuses on aiding human drivers, not enabling full autonomy."
+    },
+    {
+      "topic": "Object Classification",
+      "verdict": "in",
+      "rationale": "Object classification is important for autonomous vehicle perception and decision-making."
+    },
+    {
+      "topic": "Remote Tracking",
+      "verdict": "in",
+      "rationale": "Remote tracking can be part of managing autonomous vehicle operations."
+    },
+    {
+      "topic": "Collision Avoidance",
+      "verdict": "in",
+      "rationale": "Collision avoidance is a core component of autonomous vehicle safety."
+    },
+    {
+      "topic": "Navigation Systems",
+      "verdict": "in",
+      "rationale": "Navigation systems are essential for autonomous vehicle operation."
+    },
+    {
+      "topic": "Environment Mapping",
+      "verdict": "in",
+      "rationale": "Environment mapping is crucial for autonomous vehicle navigation and perception."
+    },
+    {
+      "topic": "Trailer Hitch Assist",
+      "verdict": "out",
+      "rationale": "Trailer hitch assist is a driver assistance feature, not related to full autonomy."
+    },
+    {
+      "topic": "Sensor Fusion",
+      "verdict": "in",
+      "rationale": "Sensor fusion is important for integrating data from multiple sensors in autonomous vehicles."
+    },
+    {
+      "topic": "Neural Networks for Detection",
+      "verdict": "in",
+      "rationale": "Neural networks are used for perception and decision-making in autonomous vehicles."
+    },
+    {
+      "topic": "Traffic Analysis Methods",
+      "verdict": "in",
+      "rationale": "Traffic analysis is important for autonomous vehicle navigation and planning."
+    },
+    {
+      "topic": "Vehicle Camera Calibration",
+      "verdict": "in",
+      "rationale": "Camera calibration is necessary for accurate perception in autonomous vehicles."
+    },
+    {
+      "topic": "Traffic Surveillance Systems",
+      "verdict": "out",
+      "rationale": "Traffic surveillance systems focus on monitoring traffic, not enabling autonomous vehicle operation."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on driver assistance systems without enabling full autonomy, such as systems that only provide partial automation or assistive features, are excluded.",
+      "sources": [
+        "corpus: Advanced driver-assistance systems (ADAS) are technologies that assist drivers with the safe operation of a vehicle."
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to unmanned aerial vehicles or marine vehicles are excluded as they do not pertain to land-based autonomous vehicles.",
+      "sources": [
+        "corpus: Unmanned Aerial Vehicles",
+        "corpus: Unmanned ship autopilot"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents focusing on electric vehicle propulsion without addressing autonomous driving capabilities are excluded.",
+      "sources": [
+        "corpus: Electric Vehicle Technology"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents involving automation in non-vehicle contexts, such as home automation or gate systems, are excluded.",
+      "sources": [
+        "corpus: Gate opening and closing system"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents related to home automation systems communicating with vehicles are out, as they focus more on home automation than autonomous vehicle operation.",
+    "Patents involving unmanned marine vehicles are out, as they are not directly related to land-based autonomous vehicles.",
+    "Patents for autonomous robots in specific fields, such as cleaning robots, are out, as they do not specify vehicle technology or road navigation.",
+    "Patents focused on driver support rather than full autonomy are out, as they emphasize assistance rather than autonomous control.",
+    "Patents related to aircraft control systems are out, as they pertain to aviation rather than ground vehicles.",
+    "Patents involving mobile robots without specifying vehicle technology or road navigation are out, as they do not pertain to autonomous vehicles.",
+    "Patents focused on personality identification in vehicles are out, as they lack specific details on autonomous driving functionality.",
+    "Patents related to electric vehicles focusing on electrical system control are out, as they do not specifically address autonomous driving capabilities.",
+    "Patents involving sensor cross-validation and integration are in, as they are critical for the reliability and accuracy of autonomous vehicle systems."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "main_clusters": [
+    "Image Processing",
+    "Object Detection",
+    "Neural Networks",
+    "Deep Learning",
+    "Image Segmentation",
+    "Medical Imaging",
+    "Facial Recognition",
+    "Video Analysis",
+    "Feature Extraction",
+    "Optical Character Recognition"
+  ],
+  "vocabulary_profile": [
+    "image",
+    "processing",
+    "detection",
+    "neural network",
+    "features",
+    "recognition",
+    "object",
+    "video",
+    "method",
+    "system",
+    "data",
+    "deep learning",
+    "character",
+    "segmentation",
+    "analysis",
+    "input",
+    "extraction",
+    "model",
+    "training",
+    "quality",
+    "evaluation",
+    "tracking",
+    "camera",
+    "output",
+    "sensor",
+    "classification",
+    "prediction"
+  ],
+  "representative_cases": [
+    "Image Processing Methods and Systems",
+    "Object Detection and Tracking Techniques",
+    "Deep Learning Applications in Computer Vision",
+    "Neural Network-Based Image Recognition",
+    "Medical Imaging Techniques Using Computer Vision",
+    "Facial Recognition Systems and Methods",
+    "Video Analysis and Feature Extraction",
+    "Optical Character Recognition Technologies"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on LED display control, such as 'A kind of LED display control method and control system', are more about display technology than image analysis or recognition.",
+    "Patents like 'Method and apparatus for processing image' mention image processing but lack specific applications in computer vision tasks.",
+    "Patents related to specific recognition tasks, such as 'Detection and tracking system using tattoos', may not fit broader computer vision applications.",
+    "Patents involving input devices, like 'Hand-written character input device', focus more on input mechanisms than computer vision itself.",
+    "Medical imaging patents, such as 'System and method for cardioembolic stroke risk prediction based on medical images', focus on medical predictions rather than direct computer vision tasks."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool shows a strong emphasis on medical imaging, which is less emphasized in the web evidence that focuses more on general computer vision tasks like object detection and 3D reconstruction.",
+    "The web evidence highlights techniques like graph cuts and SfM, which are not prominently featured in the patent pool's main clusters.",
+    "The patent pool includes clusters like 'biometric recognition' and 'video analysis', which are not specifically highlighted in the web evidence's task and technique notes."
+  ]
+}

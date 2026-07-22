@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, they do not address consensus mechanisms explicitly, which are a core part of blockchain technology as per the evidence.",
+      "suggestion": "Add a criterion that explicitly requires the invention to implement or improve consensus mechanisms, such as proof-of-work or proof-of-stake, which are essential for validating transactions in a decentralized manner.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not genuinely 'rule-match-but-not-the-task' shaped. They are more about excluding irrelevant patents rather than identifying adjacent technologies that might be confused with blockchain but do not perform its core tasks.",
+      "suggestion": "Refine E-criteria to focus on technologies that might appear similar to blockchain (e.g., distributed databases) but do not perform the core tasks of secure, immutable, and decentralized transaction recording.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases like 'Intelligent water meter system with light wallet' where blockchain is mentioned peripherally.",
+      "suggestion": "Provide more detailed guidance on how to handle cases where blockchain is mentioned but not central to the invention's functionality, possibly by specifying what constitutes 'core functionalities' in more detail.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decisions do not cover every main cluster of the pool digest. Specifically, there is no decision for 'Photography-related patents' which are mentioned in the pool digest as suspected boundary cases.",
+      "suggestion": "Include a scope decision for photography-related patents that mention blockchain, clarifying whether they are in or out of scope based on their use of blockchain for core functionalities.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

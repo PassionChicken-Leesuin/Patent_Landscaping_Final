@@ -1,0 +1,54 @@
+{
+  "query_original": "3D printing (additive manufacturing) technology",
+  "mock": false,
+  "variant": "full3",
+  "scope": {
+    "canonical_name_en": "3D Printing Technology",
+    "language_detected": "en",
+    "disambiguation_notes": "The query refers to 3D printing, also known as additive manufacturing, which involves creating three-dimensional objects by layering materials based on digital models.",
+    "initial_task_hypotheses": [
+      "A 3D printing technology must be able to create three-dimensional objects from digital models.",
+      "It must involve the process of adding material layer by layer to form the final object.",
+      "The technology should be capable of using various materials such as plastics, metals, or ceramics.",
+      "It must include a method for precisely controlling the deposition of material to achieve the desired shape and properties.",
+      "The technology should allow for customization and rapid prototyping of complex geometries."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of 3D printing technology",
+        "rationale": "To understand the fundamental principles and scope of 3D printing technology."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of 3D printing technology",
+        "rationale": "To identify the different branches and specializations within 3D printing technology."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in 3D printing",
+        "rationale": "To explore the primary methods and processes used in 3D printing."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of 3D printing technology",
+        "rationale": "To discover the various industries and use cases where 3D printing is applied."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to 3D printing but not additive manufacturing",
+        "rationale": "To identify technologies that are often confused with 3D printing but do not involve additive manufacturing processes."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC codes for 3D printing technology",
+        "rationale": "To find the official classification codes that categorize 3D printing technology in patent databases."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for 3D printing technology",
+        "rationale": "To gather alternative terms and phrases that refer to 3D printing technology."
+      }
+    ]
+  }
+}

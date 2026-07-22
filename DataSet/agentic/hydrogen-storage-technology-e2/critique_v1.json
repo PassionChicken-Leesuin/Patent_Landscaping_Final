@@ -1,0 +1,28 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not explicitly require the invention to perform the tasks; they are phrased in a way that could be interpreted as merely mentioning the tasks.",
+      "suggestion": "Rephrase the C-criteria to explicitly require that the invention performs the tasks, such as 'The invention must demonstrate the ability to store hydrogen in a stable form...'."
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not clearly 'rule-match-but-not-the-task' shaped; they are more like restatements of irrelevance.",
+      "suggestion": "Clarify the E-criteria to focus on technologies that might appear similar but do not perform the core tasks of hydrogen storage, such as 'Patents that involve hydrogen in processes that do not contribute to the storage task, such as hydrogenation for chemical synthesis, are excluded.'"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding cooling and refrigeration technologies.",
+      "suggestion": "Expand the boundary guidance to include more specific examples of what constitutes hydrogen storage conditions, possibly including temperature and pressure parameters."
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding hydrogen generation and recovery is weak given the overlap with storage technologies in some contexts.",
+      "suggestion": "Provide a more detailed rationale for excluding hydrogen generation and recovery, possibly by specifying conditions under which these processes might contribute to storage."
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

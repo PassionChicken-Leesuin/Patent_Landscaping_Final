@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence, such as consensus mechanisms and data integrity.",
+      "suggestion": "Add criteria that specifically address consensus mechanisms and data integrity, as these are core functionalities of blockchain and DLT.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not genuinely 'rule-match-but-not-the-task' shaped; they are more about relevance.",
+      "suggestion": "Refine E-criteria to focus on technologies that might appear similar but do not perform the core tasks of blockchain and DLT, such as systems using similar cryptographic techniques but not for distributed ledgers.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases like insurance claims processing and energy management.",
+      "suggestion": "Provide more detailed guidance on how to handle cases where blockchain is mentioned but not central to the invention's function, especially in areas like insurance and energy management.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including certain clusters like 'Insurance claims processing' and 'Data privacy protection' is weak and not fully supported by evidence.",
+      "suggestion": "Re-evaluate the inclusion of these clusters based on whether they perform a defining task of the domain, and provide stronger evidence-based rationale.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

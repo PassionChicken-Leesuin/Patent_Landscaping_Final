@@ -1,0 +1,57 @@
+{
+  "n": 1098,
+  "threshold": 0.5,
+  "accuracy": 0.9134790528233151,
+  "precision": 0.7881619937694704,
+  "recall": 0.9035714285714286,
+  "macro_f1": 0.8911844939729501,
+  "auc": 0.9244782570730002,
+  "average_precision": 0.766302821602916,
+  "confusion": [
+    [
+      750,
+      68
+    ],
+    [
+      27,
+      253
+    ]
+  ],
+  "auc_seed_vs_hard": 0.8800196514012304,
+  "auc_seed_vs_easy": 0.9709375,
+  "by_expansion_level": {
+    "SEED": {
+      "n": 280,
+      "recall(TP rate)": 0.9035714285714286
+    },
+    "ANTISEED-manual": {
+      "n": 418,
+      "specificity(TN rate)": 0.8397129186602871
+    },
+    "ANTISEED-AF": {
+      "n": 400,
+      "specificity(TN rate)": 0.9975
+    }
+  },
+  "domain": "additivemanufacturing",
+  "query": "3D printing (additive manufacturing) technology",
+  "slug": "3d-printing-technology-full3",
+  "stance_distribution": {
+    "in_domain": 318,
+    "out_of_domain": 777,
+    "boundary": 3
+  },
+  "abstain_rate": 0.0,
+  "criteria_citation_counts": {
+    "E1": 739,
+    "E3": 735,
+    "C1": 316,
+    "C2": 271,
+    "C3": 267,
+    "E4": 201,
+    "E2": 164,
+    "C5": 78,
+    "C4": 32
+  },
+  "n_unjudged": 0
+}

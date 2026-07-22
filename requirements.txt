@@ -5,6 +5,11 @@ openai>=2.0          # MAS structured-output client (chat.completions.parse)
 python-dotenv>=1.0   # load 10 OPENAI_API_KEY_1..10 from .env
 pydantic>=2.6        # structured-output schemas
 langgraph>=0.2       # optional spec-faithful graph wrapper (src/mas/graph.py)
+requests>=2.31       # agentic web research (Tavily REST + page fetch)
+beautifulsoup4>=4.12 # agentic page-text extraction (html.parser backend, pure Python)
+pymupdf>=1.24        # local-doc ingestion: PDF text + broken-ToUnicode Korean PDF decode
+openpyxl>=3.1        # CPU2026 WIPS xlsx -> pool CSV (scripts/build_humanoid_pool.py)
+streamlit>=1.40      # app/ — 업로드→HITL→선별 다운로드 UI (.venv-mac에서 실행)
 
 # ── Snorkel baseline arm (run in Colab/Kaggle, Python 3.10/3.11) ──
 # snorkel 0.10 does NOT support Python 3.14 — use a 3.10/3.11 env.

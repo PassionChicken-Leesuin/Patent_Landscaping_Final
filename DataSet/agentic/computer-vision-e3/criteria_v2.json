@@ -1,0 +1,161 @@
+{
+  "domain_name": "Computer Vision",
+  "domain_definition": "Computer vision is a field focused on enabling machines to interpret and understand visual information from the world, primarily through the processing and analysis of digital images and video. This involves tasks such as object detection, recognition, and tracking, depth estimation, 3D modeling, and feature detection and extraction, often leveraging machine learning techniques to improve accuracy and adaptability. The goal is to automate visual tasks that the human visual system can perform, such as identifying objects, understanding scenes, and extracting meaningful information from visual data.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve the detection, recognition, or tracking of objects within digital images or video streams.",
+      "sources": [
+        "corpus: Object detection is a computer technology related to computer vision and image processing that detects instances of semantic objects in digital images and videos.",
+        "corpus: Object detection has applications in image retrieval and video surveillance."
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include techniques for interpreting and analyzing visual data to extract meaningful information, such as depth estimation or scene understanding.",
+      "sources": [
+        "corpus: Computer vision involves acquiring, processing, analyzing, and understanding digital images to produce numerical or symbolic information.",
+        "corpus: Stereo vision is important in robotics for extracting 3D object positions."
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must perform image processing tasks such as filtering, enhancement, or transformation as part of a larger computer vision system.",
+      "sources": [
+        "corpus: Image processing is a related field that involves determining information from an image through computation.",
+        "corpus: Graph cut optimization is used to solve low-level computer vision problems like image smoothing and segmentation."
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must utilize machine learning techniques for visual recognition tasks, which can be inferred from the presence of terms like 'neural network' or 'deep learning' in the title or abstract.",
+      "sources": [
+        "corpus: Neural network approaches for object detection include R-CNN, YOLO, and SSD.",
+        "corpus: Unsupervised domain adaptation approaches address challenges caused by domain gaps in object detection."
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must involve the generation or use of 3D models from 2D images, such as through Structure from Motion or stereo vision techniques.",
+      "sources": [
+        "corpus: Structure from motion (SfM) is a photogrammetric range imaging technique for estimating 3D structures from 2D image sequences.",
+        "corpus: Computer stereo vision extracts 3D information from digital images using two vantage points."
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must involve feature detection and extraction from images, which is fundamental to computer vision tasks.",
+      "sources": [
+        "corpus: Feature detection is a low-level image processing operation in computer vision.",
+        "corpus: Features in computer vision can be points, edges, or objects in an image."
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for the computer vision domain includes patents that focus on enabling machines to interpret and understand visual data through techniques such as object detection, recognition, tracking, depth estimation, 3D modeling, and feature detection and extraction. This includes the use of machine learning to enhance these tasks. Patents that merely use visual data for unrelated purposes or focus on non-visual tasks are outside the scope.",
+  "scope_decisions": [
+    {
+      "topic": "Image processing methods and enhancement",
+      "verdict": "in",
+      "rationale": "These methods are integral to computer vision as they involve processing visual data to extract meaningful information."
+    },
+    {
+      "topic": "Neural network applications and machine learning",
+      "verdict": "in",
+      "rationale": "Neural networks are crucial for improving the accuracy and adaptability of computer vision tasks."
+    },
+    {
+      "topic": "Object detection and recognition",
+      "verdict": "in",
+      "rationale": "Object detection and recognition are core tasks of computer vision."
+    },
+    {
+      "topic": "Signal processing techniques",
+      "verdict": "out",
+      "rationale": "While related, signal processing alone does not necessarily involve interpreting visual data in the context of computer vision."
+    },
+    {
+      "topic": "Graph generation methods",
+      "verdict": "out",
+      "rationale": "Graph generation is not specific to computer vision unless it directly involves visual data interpretation."
+    },
+    {
+      "topic": "Sports video analysis",
+      "verdict": "in",
+      "rationale": "Analyzing video for object detection and tracking falls within the scope of computer vision."
+    },
+    {
+      "topic": "Air quality estimation from images",
+      "verdict": "in",
+      "rationale": "This involves interpreting visual data to extract meaningful information, aligning with computer vision tasks."
+    },
+    {
+      "topic": "Depth estimation from images",
+      "verdict": "in",
+      "rationale": "Depth estimation is a key task in computer vision for understanding 3D structures."
+    },
+    {
+      "topic": "3D modeling and optimization",
+      "verdict": "in",
+      "rationale": "3D modeling from visual data is a fundamental aspect of computer vision."
+    },
+    {
+      "topic": "Image registration and tracking",
+      "verdict": "in",
+      "rationale": "Tracking and registering images are essential tasks in computer vision."
+    },
+    {
+      "topic": "Microscopic imaging methods",
+      "verdict": "in",
+      "rationale": "If these methods involve computer vision tasks like object detection or 3D modeling, they are within the scope."
+    },
+    {
+      "topic": "Network and data management",
+      "verdict": "out",
+      "rationale": "These tasks do not involve the interpretation of visual data."
+    },
+    {
+      "topic": "User authentication and security",
+      "verdict": "out",
+      "rationale": "Unless specifically involving visual recognition, these tasks are outside the scope."
+    },
+    {
+      "topic": "Predictive modeling and customer behavior analysis",
+      "verdict": "out",
+      "rationale": "These tasks do not involve interpreting visual data."
+    },
+    {
+      "topic": "Vehicle control and road condition detection",
+      "verdict": "in",
+      "rationale": "These tasks often involve computer vision for interpreting visual data from the environment."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on image processing without the context of interpreting or understanding visual data do not belong to the computer vision domain.",
+      "sources": [
+        "corpus: Image processing is a related field that involves determining information from an image through computation."
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that use visual data for non-interpretative purposes, such as simple display or storage, are excluded from the computer vision domain.",
+      "sources": [
+        "corpus: Computer graphics involves algorithms for generating visual images and integrating visual information from the real world."
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents related to basic image storage or display technologies without any interpretation or analysis of the visual data are excluded from the computer vision domain.",
+      "sources": [
+        "corpus: Computer graphics involves algorithms for generating visual images and integrating visual information from the real world."
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Air quality estimation from images', if the method involves interpreting visual data to derive information, it is within scope.",
+    "For 'Sports video analysis', if the analysis involves object detection or tracking, it is within scope.",
+    "For 'Graph generation methods', unless the graph generation directly involves interpreting visual data, it is out of scope.",
+    "For 'Microscopic imaging methods', if they involve tasks like object detection or 3D modeling, they are within scope."
+  ]
+}

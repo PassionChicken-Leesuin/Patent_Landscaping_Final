@@ -1,0 +1,65 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring its safe containment and release when needed. These technologies must optimize the volume and weight efficiency of storage systems and be compatible with existing hydrogen infrastructure, facilitating the use of hydrogen as an energy carrier.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the storage of hydrogen in a stable form, such as through compression, liquefaction, or chemical bonding.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hydrogen_storage",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the efficient release of hydrogen when needed, ensuring that the stored hydrogen can be utilized effectively.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919310025"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the safety of hydrogen storage under various conditions, including temperature and pressure variations.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919310025"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must optimize the volume and weight efficiency of hydrogen storage, making it feasible for applications such as transportation.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919310025"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be compatible with existing hydrogen infrastructure, facilitating integration into current systems.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919310025"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Hydrogen Storage Technology includes patents that specifically address the methods and systems for storing hydrogen in a stable, efficient, and safe manner. This includes technologies that involve mechanical, chemical, or novel material approaches to hydrogen storage, as well as those that ensure compatibility with existing hydrogen infrastructure. Patents that focus solely on the production or utilization of hydrogen, without addressing storage, are outside the scope.",
+  "scope_decisions": [],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on the production of hydrogen, such as electrolysis or steam methane reforming, without addressing storage, are excluded.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-production"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that focus solely on the utilization of hydrogen, such as fuel cells or combustion engines, without addressing storage, are excluded.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-use"
+      ]
+    }
+  ],
+  "boundary_guidance": []
+}

@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require understanding the specific mechanisms or methods used for storage and retrieval, which may not be detailed in the abstract.",
+      "suggestion": "Rephrase C1 and C2 to focus on the presence of mechanisms or methods for storage and retrieval that can be inferred from the title+abstract, such as mentioning specific technologies or approaches.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3, C4, and C5 are not fully testable from title+abstract alone as they require detailed information about safety measures, optimization techniques, and purity maintenance, which may not be evident in the abstract.",
+      "suggestion": "Rephrase C3, C4, and C5 to focus on the mention of safety, optimization, and purity-related terms or technologies that can be inferred from the title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is a restatement of 'irrelevant' rather than a rule-match-but-not-the-task shape. It excludes non-storage contexts but does not provide a clear adjacent technology example.",
+      "suggestion": "Provide specific examples of adjacent technologies that might appear similar but do not perform the storage task, such as hydrogen purification or utilization technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding hydrogen refueling infrastructure and safety during refueling.",
+      "suggestion": "Clarify the conditions under which hydrogen refueling infrastructure and safety during refueling are considered in scope, focusing on the presence of specific storage solutions.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Hydrogen purification methods' is weak as it does not consider cases where purification is integral to storage.",
+      "suggestion": "Re-evaluate the exclusion of hydrogen purification methods to consider cases where purification is directly linked to storage processes.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

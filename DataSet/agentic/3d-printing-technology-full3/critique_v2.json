@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not testable from title+abstract alone as it requires detailed process information that may not be present in these sections.",
+      "suggestion": "Revise C5 to focus on the presence of stages or mention of pre-processing, building, and post-processing in the abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E2 and E3 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance rather than adjacent technologies.",
+      "suggestion": "Clarify E2 and E3 to focus on technologies that are similar but not performing the core tasks of 3D printing, such as auxiliary technologies that do not involve material deposition.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not clearly resolve borderline cases involving specific applications like orthodontics or lighting devices.",
+      "suggestion": "Provide more specific examples or criteria for when such applications are considered in scope, focusing on the novelty of the 3D printing method or system involved.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'Rapid Prototyping' is not supported by the evidence, as it is not a distinct cluster in the pool digest.",
+      "suggestion": "Re-evaluate the inclusion of 'Rapid Prototyping' based on its presence and role in the patent pool and evidence notes.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

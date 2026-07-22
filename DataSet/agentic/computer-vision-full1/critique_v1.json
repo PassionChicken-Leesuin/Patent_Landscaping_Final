@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, tasks like image segmentation and feature extraction are not explicitly covered, despite being fundamental to computer vision.",
+      "suggestion": "Add criteria that explicitly cover image segmentation and feature extraction as these are core tasks in computer vision.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C2's statement is not fully testable from the title+abstract alone as it requires understanding the context of 'tracking' which might not be explicitly stated.",
+      "suggestion": "Rephrase C2 to ensure it can be assessed from title+abstract alone, perhaps by specifying that the invention must describe a method for tracking objects across video frames.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the core tasks. For example, E2 could be seen as overlapping with OCR tasks if not clearly distinguished.",
+      "suggestion": "Clarify E2 to ensure it is distinct from OCR by emphasizing the focus on input mechanisms rather than image analysis.",
+      "severity": "minor"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases like 'Detection and tracking system using tattoos'.",
+      "suggestion": "Provide more detailed guidance on how to handle patents that involve specific recognition tasks that may not fit broader computer vision applications.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Medical Imaging' is weak given the overlap with computer vision techniques, which are used in medical imaging for tasks like segmentation and feature extraction.",
+      "suggestion": "Re-evaluate the exclusion of 'Medical Imaging' or provide a stronger rationale that clearly distinguishes why it is out of scope despite using computer vision techniques.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

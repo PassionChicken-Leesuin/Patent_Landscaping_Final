@@ -1,0 +1,42 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a testable full sentence as it requires the invention to 'claim' something rather than perform a task. It also introduces a specific application (identity authentication) that is not a core task of blockchain technology itself.",
+      "suggestion": "Rewrite C6 to focus on the task performed by the invention, such as 'The invention must manage identity data securely and immutably using blockchain or distributed ledger technology.'",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not clearly 'rule-match-but-not-the-task' shaped. They are more general exclusions rather than specific adjacent technologies.",
+      "suggestion": "Refine E-criteria to specify technologies that might appear similar but do not perform blockchain's core tasks, such as traditional databases or centralized systems that mimic blockchain terminology.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases like 'Intelligent water meter system with light wallet'.",
+      "suggestion": "Provide more specific guidance on how to assess whether the blockchain component is performing a core task, such as secure transaction management, rather than being a peripheral mention.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for ruling 'Insurance claims processing' out is weak and not fully supported by evidence. It is based on a narrow interpretation of blockchain's application.",
+      "suggestion": "Reassess the scope decision for 'Insurance claims processing' to determine if there are cases where blockchain performs core tasks like secure transaction management or smart contract execution.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "scope_insurance_claims",
+      "question": "Should 'Insurance claims processing' be included if it involves blockchain performing core tasks like secure transaction management or smart contract execution?",
+      "why_needed": "The current exclusion is based on a narrow interpretation and may overlook cases where blockchain is central to the process.",
+      "options": [
+        "Include if blockchain performs core tasks",
+        "Exclude regardless of blockchain's role"
+      ]
+    }
+  ]
+}

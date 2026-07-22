@@ -1,0 +1,51 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, augmented reality and its applications, which are mentioned in the evidence, are not covered by the criteria.",
+      "suggestion": "Add a criterion that addresses augmented reality tasks, such as overlaying virtual objects onto real-world scenes.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not clearly differentiate between adjacent technologies and those that are irrelevant. For example, E2 is vague about what constitutes 'specific applications in computer vision tasks'.",
+      "suggestion": "Clarify E2 to specify what types of image processing are considered adjacent but not in scope, such as those focused solely on aesthetic enhancements without analytical tasks.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest, particularly regarding augmented reality and environmental monitoring using images.",
+      "suggestion": "Include specific guidance on augmented reality applications and clarify the conditions under which environmental monitoring using images is considered in scope.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The scope decision for 'environmental monitoring using images' is inconsistent with the exclusion criteria, which exclude non-visual data processing. The rationale provided does not clearly align with the evidence.",
+      "suggestion": "Re-evaluate the scope decision for environmental monitoring using images to ensure consistency with exclusion criteria and provide a clearer rationale based on evidence.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should augmented reality applications be included in the scope of computer vision?",
+      "why_needed": "Augmented reality is mentioned in the evidence but not covered by the current criteria or scope decisions. Clarification is needed to determine if it should be included.",
+      "options": [
+        "Include augmented reality applications in the scope",
+        "Exclude augmented reality applications from the scope"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Should environmental monitoring using images be considered in scope for computer vision?",
+      "why_needed": "The current scope decision is inconsistent with exclusion criteria, and the rationale does not clearly align with evidence. Clarification is needed to resolve this inconsistency.",
+      "options": [
+        "Include environmental monitoring using images in the scope",
+        "Exclude environmental monitoring using images from the scope"
+      ]
+    }
+  ]
+}

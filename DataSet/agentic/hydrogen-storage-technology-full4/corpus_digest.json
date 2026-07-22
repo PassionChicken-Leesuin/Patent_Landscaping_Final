@@ -1,0 +1,54 @@
+{
+  "main_clusters": [
+    "Hydrogen storage materials",
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen production methods",
+    "Fuel cell technologies",
+    "Hydrogen storage systems",
+    "Hydrogen refueling infrastructure",
+    "Hydrogen purification methods",
+    "Hydrogen compression devices"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "generation",
+    "production",
+    "alloy",
+    "fuel cell",
+    "purification",
+    "electrolyzer",
+    "chemical hydride",
+    "temperature",
+    "pressure",
+    "catalyst",
+    "compressor",
+    "tank",
+    "system",
+    "method",
+    "material",
+    "device",
+    "electrolysis",
+    "absorption",
+    "desorption"
+  ],
+  "representative_cases": [
+    "Hydrogen storage materials and methods",
+    "Hydrogen storage alloys for energy systems",
+    "Hydrogen generation systems using electrolysis",
+    "Hydrogen production methods from hydrocarbons",
+    "Fuel cell technologies for hydrogen utilization"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on hydrogen production without addressing storage, such as 'Method for producing hydrogen gas from marine algae using anaerobic microorganisms'.",
+    "Patents related to safety during hydrogen refueling rather than storage technology, like 'Driver interactive system for reducing the possibility of a static discharge during the refill of high pressure storage tanks in hydrogen fuel cell powered vehicles'.",
+    "Patents discussing hydrogen utilization in applications like ammonia production or oil refining, which do not focus on storage, such as 'Hydrogen gas utilizing method'.",
+    "Patents involving hydrogen in non-storage contexts, such as 'Hydrogen-containing sake and method for producing the same', which involves hydrogen in a beverage context."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as a significant technique.",
+    "The pool does not extensively cover the environmental impact of hydrogen production methods, which is a key concern in web evidence.",
+    "There is limited representation of hydrogen storage in vehicles, a major application area according to web evidence."
+  ]
+}

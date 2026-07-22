@@ -1,0 +1,46 @@
+{
+  "main_clusters": [
+    "Blockchain-based systems",
+    "Cryptocurrency transactions and trading",
+    "Data encryption and protection methods",
+    "Smart contracts",
+    "User identity authentication and management",
+    "Distributed ledger technology",
+    "Asset management in blockchain",
+    "Electronic settlement systems",
+    "Medical record sharing",
+    "Secure communication protocols"
+  ],
+  "vocabulary_profile": [
+    "blockchain",
+    "cryptocurrency",
+    "distributed ledger",
+    "smart contracts",
+    "encryption",
+    "public key",
+    "consensus mechanism",
+    "digital token",
+    "asset management",
+    "zero-knowledge proof",
+    "private key"
+  ],
+  "representative_cases": [
+    "Blockchain-based system for secure cryptocurrency transactions",
+    "Smart contract execution platform using distributed ledger technology",
+    "Method for user identity authentication in blockchain networks",
+    "System for managing digital assets on a blockchain",
+    "Secure medical record sharing using blockchain technology"
+  ],
+  "suspected_boundary_cases": [
+    "Web application exploit mitigation in an information technology environment — Mentions security and IT environment but lacks blockchain-specific context.",
+    "User identity authentication method and system for discovery service — Involves DHT network and PKI but does not explicitly mention blockchain.",
+    "Data security service — Title suggests relevance but lacks detail on blockchain or distributed ledger technology.",
+    "Architecture for an extensible real-time collaboration system — Discusses communication protocols but not blockchain or distributed ledger.",
+    "Method and system for storing data using a continuous data protection system — Mentions data protection and storage but not specifically blockchain or distributed ledger technology."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes clusters like 'Medical record sharing' and 'Secure communication protocols' which are not emphasized in the web evidence.",
+    "The web evidence highlights DLT law and legal aspects of smart contracts, which are not prominent in the patent pool.",
+    "The web evidence discusses advanced consensus mechanisms like DAG and Hashgraph, which are not reflected in the patent pool's main clusters."
+  ]
+}

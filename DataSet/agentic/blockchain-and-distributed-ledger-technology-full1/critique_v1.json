@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, there is no criterion addressing the use of consensus mechanisms like proof-of-work or proof-of-stake, which are fundamental to blockchain technology.",
+      "suggestion": "Add a criterion that requires the invention to employ a consensus mechanism, such as proof-of-work or proof-of-stake, to validate transactions or data entries without a central authority.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not genuinely 'rule-match-but-not-the-task' shaped. They are more like restatements of 'irrelevant' rather than identifying adjacent technologies.",
+      "suggestion": "Refine the exclusion criteria to better identify technologies that are adjacent or look-alike but do not perform the core tasks of blockchain technology, such as traditional centralized databases or non-blockchain-based encryption systems.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for patents involving identity verification or authentication that do not directly leverage blockchain's unique capabilities.",
+      "suggestion": "Clarify the boundary guidance to address cases where identity verification or authentication is mentioned but does not utilize blockchain's decentralized and secure features.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

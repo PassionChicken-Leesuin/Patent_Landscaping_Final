@@ -1,0 +1,70 @@
+{
+  "main_clusters": [
+    "Additive Manufacturing Methods",
+    "3D Printing Systems",
+    "Material Compositions",
+    "Stereolithography",
+    "Laser Sintering",
+    "Powder Bed Fusion",
+    "Bioprinting",
+    "Metal 3D Printing",
+    "Multi-Material Printing",
+    "Temperature Control in 3D Printing"
+  ],
+  "vocabulary_profile": [
+    "additive manufacturing",
+    "3D printing",
+    "layer",
+    "material",
+    "method",
+    "system",
+    "device",
+    "composition",
+    "powder",
+    "sintering",
+    "laser",
+    "curing",
+    "fabrication",
+    "object",
+    "energy",
+    "printing",
+    "manufacturing",
+    "structure",
+    "process",
+    "solidification"
+  ],
+  "representative_cases": [
+    "Method for producing three-dimensional objects using additive manufacturing",
+    "System and method for multi-material 3D printing",
+    "Apparatus for stereolithography-based 3D printing",
+    "Powder bed fusion method for metal 3D printing",
+    "Bioprinting system for tissue engineering applications"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on adhesive surfaces rather than creating 3D objects directly, such as 'Method for producing adhesive-bonding surfaces by means of a 3D printing device'.",
+    "Patents discussing monitoring systems rather than the actual additive manufacturing process, like 'Method for automatic identification of material deposition deficiencies during an additive manufacturing process and manufacturing device'.",
+    "Patents involving origami techniques which may not align with traditional 3D printing processes, such as 'Method for producing a three-dimensional object using the fusen origami technique'.",
+    "Patents focusing on orthodontic applications which may not align with broader 3D printing technology, like 'Direct 3D-printed orthodontic aligners with torque, rotation, and full control anchors'.",
+    "Patents discussing imaging and display technologies, which are related but not strictly within the 3D printing domain, such as 'Imaging and forming method using projection operation and back projection method'.",
+    "Patents related to photolithography systems, which may not directly relate to 3D printing but involve similar technologies, like 'Model based dynamic positional correction for digital lithography tools'.",
+    "Patents focusing on material compositions without specifying 3D printing applications, such as 'Nylon copolymer containing dimeric acid and fiber made thereof'.",
+    "Patents discussing manufacturing methods for non-3D printing specific applications, like 'Method for manufacturing a nacelle element'.",
+    "Patents involving control systems not specifically related to 3D printing, such as 'Method for realizing time sequence control of system based on CPLD'.",
+    "Patents related to semiconductor manufacturing processes, which may not involve 3D printing technology directly, like 'Manufacture of semiconductor device'.",
+    "Patents discussing medical devices that do not relate to 3D printing technology, such as 'Medical nursing pad for males'.",
+    "Patents involving traditional manufacturing processes not specific to 3D printing, like 'Method for applying film on carrier part'.",
+    "Patents discussing construction methods not related to 3D printing, such as 'Rural environment-friendly water-saving dry pail latrine'.",
+    "Patents focusing on packaging technology not directly related to 3D printing, like 'Multi-layer film material and its manufacturing method with gas leak detection watch box'.",
+    "Patents discussing purification methods not related to 3D printing, such as 'Method for removing impurity in mica powder'.",
+    "Patents involving heat exchange rather than 3D printing processes, like 'Honeycomb heat exchanger'.",
+    "Patents related to photolithography in semiconductor manufacturing, not 3D printing, such as 'Method for preventing overlay shift from occurring to device deposited with epitaxial silicon'.",
+    "Patents discussing imaging but lacking direct 3D printing context, like 'Improved edge smoothness with low resolution projected images for use in solid imaging'.",
+    "Patents involving coating processes but not specifically pertaining to 3D printing, such as 'Autocatalytic coating method'.",
+    "Patents discussing material preparation but not specifically mentioning 3D printing, like 'High-strength flame-retardant wood-plastic material and preparation method thereof'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on photolithography and semiconductor manufacturing, which are not emphasized in the web evidence for 3D printing.",
+    "The web evidence highlights 3D concrete printing and construction applications, which are not prominently represented in the patent pool.",
+    "The web evidence emphasizes the speed and efficiency of 3D printing processes, which is not a major focus in the patent pool's technical clusters."
+  ]
+}

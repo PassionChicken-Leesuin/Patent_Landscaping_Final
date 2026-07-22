@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not testable from title+abstract alone as it requires inference from the process description, which may not be present in the abstract.",
+      "suggestion": "Revise C5 to focus on explicit claims of reduced material waste or remove it if it cannot be made testable from title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the domain criteria and scope decisions, potentially leading to overlap and confusion.",
+      "suggestion": "Clarify E-criteria to ensure they are genuinely adjacent technologies or processes that do not perform the core tasks of 3D printing.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not address all suspected boundary cases, such as those involving origami techniques or imaging technologies.",
+      "suggestion": "Expand boundary guidance to include specific instructions for handling patents involving origami techniques and imaging technologies.",
+      "severity": "minor"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding 'Adhesive Surfaces' is weak as it does not consider potential overlaps with 3D printing processes that might involve adhesive properties.",
+      "suggestion": "Re-evaluate the exclusion of 'Adhesive Surfaces' to ensure it aligns with the domain's focus on 3D printing processes.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

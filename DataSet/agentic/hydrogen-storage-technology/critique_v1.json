@@ -1,0 +1,28 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not explicitly require the invention to perform specific tasks related to hydrogen storage technology. They are more descriptive and do not clearly state the functional tasks that need to be performed.",
+      "suggestion": "Rewrite the C-criteria to explicitly require the invention to perform specific tasks, such as 'The invention must actively store hydrogen in a stable form using metal hydrides or hydrogen storage alloys,' or 'The invention must actively facilitate the controlled release of hydrogen under specified conditions.'"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not clearly differentiated from the C-criteria in terms of adjacent technologies. They mostly restate what is irrelevant rather than providing clear examples of adjacent technologies that are not in scope.",
+      "suggestion": "Provide examples of adjacent technologies that are not in scope, such as 'Technologies focused on hydrogen production without storage capabilities' or 'Technologies related to hydrogen purification that do not involve storage mechanisms.'"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest. It lacks specific guidance on how to handle cases that are close to the boundary of the domain.",
+      "suggestion": "Include more specific guidance on how to handle borderline cases, such as 'Patents that mention hydrogen storage but focus primarily on unrelated chemical processes should be excluded unless they demonstrate a clear mechanism for hydrogen storage.'"
+    },
+    {
+      "field": "Domain Definition",
+      "problem": "The domain definition is broad and does not specify the unique aspects of hydrogen storage technology that differentiate it from related fields.",
+      "suggestion": "Refine the domain definition to emphasize unique aspects of hydrogen storage technology, such as specific storage mechanisms, materials used, or integration with existing infrastructure."
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,70 @@
+{
+  "main_clusters": [
+    "CRISPR-Cas9 technology",
+    "gene editing methods",
+    "homologous recombination",
+    "gene knockout methods",
+    "gene therapy applications",
+    "plant genetic engineering",
+    "RNA-guided gene editing",
+    "genome engineering applications",
+    "nucleic acid therapeutics",
+    "viral gene editing"
+  ],
+  "vocabulary_profile": [
+    "CRISPR",
+    "gene editing",
+    "genome",
+    "nucleic acid",
+    "homologous recombination",
+    "target gene",
+    "genetic modification",
+    "Cas9",
+    "sgRNA",
+    "transgenic",
+    "mutation",
+    "expression",
+    "therapeutic",
+    "targeting",
+    "sequence",
+    "protein",
+    "composition",
+    "vector",
+    "RNA",
+    "donor DNA",
+    "recombinant",
+    "polynucleotide",
+    "transfection",
+    "nuclease",
+    "base editing",
+    "genetic constructs",
+    "plasmid",
+    "lentivirus",
+    "bioreactor",
+    "delivery system"
+  ],
+  "representative_cases": [
+    "CRISPR-Cas9 systems for gene editing",
+    "Gene knockout methods using CRISPR",
+    "Homologous recombination techniques in genome editing",
+    "Gene therapy applications involving CRISPR",
+    "Plant genome editing using CRISPR technology"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on gene expression modulation without direct genome editing methods, such as 'The multi-functional gene expression platform of protocatechuic acid regulation and its application'.",
+    "Patents related to vector production without direct genome editing techniques, like 'Method for producing adenovirus vector'.",
+    "Patents discussing nucleic acid-based therapeutics without specific genome editing technologies, such as 'Nucleic acid-based therapeutics'.",
+    "Patents involving genetic modification for agricultural applications rather than broader genome editing technology, like 'Method for preparing tomato material with high lycopene content'.",
+    "Patents focusing on detection methods rather than genome editing, such as 'Method for detecting the antibiotic resistance gene blavim-2'.",
+    "Patents related to recombinant virus construction for purposes other than genome editing, like 'Use and constructing method for anticancer recombined gland virus with tumour cell PLK1 as target of medicine'.",
+    "Patents discussing gene deletion without explicit mention of CRISPR or genome editing techniques, such as 'L-lactate dehydrogenase gene-deleted engineering bacterium and construction method and application thereof'.",
+    "Patents involving gene regulation rather than direct genome editing, like 'Regulation factor of targeted FAS (fatty acid synthetase) and application thereof'.",
+    "Patents related to vaccine development using genetic engineering but not focusing on genome editing, such as 'Duck circovirus genetic engineering subunit vaccine and its preparation method and application'.",
+    "Patents discussing genetic markers without direct involvement in genome editing techniques, like 'Genetic marker for discrimination of individuals which comprise lethal genotype associated with mortality and method comprising thereof'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on plant genetic engineering, which is less emphasized in the web evidence that highlights medical and therapeutic applications.",
+    "The web evidence discusses prime editing and its potential applications, which is not prominently featured in the patent pool.",
+    "The web evidence emphasizes human germline engineering and its ethical considerations, which are not a major focus in the patent pool."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the integration of machine learning and AI, which is a significant aspect of autonomous vehicle technology as evidenced by Wayve's approach.",
+      "suggestion": "Add a criterion that addresses the use of machine learning and AI in autonomous vehicle systems, as this is a critical component of real-time decision-making and navigation.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not adequately differentiate between adjacent technologies and those that are genuinely out of scope. For example, the exclusion of 'general control systems' could inadvertently exclude relevant autonomous vehicle control systems that are not explicitly vehicle-specific but are crucial for automation.",
+      "suggestion": "Refine the exclusion criteria to better distinguish between general control systems and those that are applicable to autonomous vehicle technology, possibly by specifying the context or application of the control systems.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest. Specifically, it does not address the mismatch with web evidence regarding 'Lane departure warning systems' and 'Lane keeping assistance', which are prominent in web evidence but not in the patent pool.",
+      "suggestion": "Include guidance on how to handle patents related to 'Lane departure warning systems' and 'Lane keeping assistance', considering their significance in the web evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decisions do not cover every main cluster of the pool digest. Notably, 'Lane departure warning systems' and 'Lane keeping assistance' are missing, despite being significant in the web evidence.",
+      "suggestion": "Add scope decisions for 'Lane departure warning systems' and 'Lane keeping assistance', with a rationale based on their role in autonomous vehicle technology as evidenced by the web.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

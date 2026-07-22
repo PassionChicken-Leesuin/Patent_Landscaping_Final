@@ -1,0 +1,69 @@
+{
+  "main_clusters": [
+    "CRISPR-Cas9 technology",
+    "gene editing methods",
+    "homologous recombination",
+    "plant genetic engineering",
+    "gene therapy applications",
+    "RNA-guided endonucleases",
+    "gene knockout techniques",
+    "transgenic organism development",
+    "nucleic acid therapeutics",
+    "high-throughput gene screening"
+  ],
+  "vocabulary_profile": [
+    "CRISPR",
+    "Cas9",
+    "gene editing",
+    "genome",
+    "nucleic acid",
+    "homologous recombination",
+    "target gene",
+    "plant",
+    "expression",
+    "modification",
+    "transgenic",
+    "sgRNA",
+    "genetic engineering",
+    "gene knockout",
+    "recombinant",
+    "target sequence",
+    "mutation",
+    "donor DNA",
+    "expression vector",
+    "nuclease",
+    "RNA",
+    "vector",
+    "therapeutic applications"
+  ],
+  "representative_cases": [
+    "CRISPR-Cas9 gene editing",
+    "Gene knockout methods",
+    "Gene therapy applications",
+    "Transgenic organism development",
+    "Gene delivery systems",
+    "Homologous recombination techniques",
+    "Synthetic guide RNA development",
+    "Genome editing in plants",
+    "Nucleic acid delivery methods",
+    "Bioreactor systems for protein production"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on gene expression modulation without direct genome editing techniques, such as 'Modulation of jerky-like 1 expression'.",
+    "Patents involving genetic modification in specific organisms without broader genome editing context, like 'A kind of infectious spleen and kidney necrosis virus ORF069 gene-deleted strains and its preparation method and application'.",
+    "Patents related to recombinant virus construction for therapeutic purposes rather than direct genome editing, such as 'Use and constructing method for anticancer recombined gland virus with tumour cell PLK1 as target of medicine'.",
+    "Patents discussing high-throughput screening methods without direct genome editing, like 'Method for high-throughput screening of essential genes and growth inhibitory genes of eukaryotes'.",
+    "Patents involving plant biotechnology applications without explicit genome editing techniques, such as 'Application of GT1 gene in regulation and control of maize male inflorescence sex determination and/or multi-spike development'.",
+    "Patents focusing on diagnostic methods using CRISPR without editing, like 'Method for detecting the antibiotic resistance gene blavim-2'.",
+    "Patents related to therapeutic applications using nucleic acids without direct genome editing, such as 'Nucleic acid-based therapeutics'.",
+    "Patents involving genetic engineering for vaccine development rather than genome editing, like 'Duck circovirus genetic engineering subunit vaccine and its preparation method and application'.",
+    "Patents discussing SNP markers and genetic analysis without direct editing, such as 'Application of single-nucleotide-polymorphism rs55882956 in screening of Hansen's disease sufferers'.",
+    "Patents focusing on bioprinting or material production without genome editing, like 'Bioprinter devices, systems and methods for printing soft gels for the treatment of musculoskeletal and skin disorders'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on plant genetic engineering and transgenic organism development, which is less emphasized in the web evidence that highlights broader applications like human germline engineering and medical genetics.",
+    "The web evidence emphasizes prime editing as a significant advancement, yet this technique is not prominently featured in the patent pool.",
+    "The web evidence discusses the potential of CRISPR in creating genetically modified organisms and new medicines, but the patent pool shows a stronger focus on technical methods and applications rather than end products.",
+    "The web evidence highlights human germline engineering and its ethical implications, which are not a major focus in the patent pool, indicating a gap in patent filings related to this controversial area."
+  ]
+}

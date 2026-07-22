@@ -1,0 +1,56 @@
+{
+  "n": 1208,
+  "threshold": 0.5,
+  "accuracy": 0.8104304635761589,
+  "precision": 0.6242603550295858,
+  "recall": 0.6741214057507987,
+  "macro_f1": 0.7592442222251232,
+  "auc": 0.8562407410712692,
+  "average_precision": 0.6166119994976176,
+  "confusion": [
+    [
+      768,
+      127
+    ],
+    [
+      102,
+      211
+    ]
+  ],
+  "auc_seed_vs_hard": 0.7757898473553426,
+  "auc_seed_vs_easy": 0.9557987220447284,
+  "by_expansion_level": {
+    "SEED": {
+      "n": 313,
+      "recall(TP rate)": 0.6741214057507987
+    },
+    "ANTISEED-manual": {
+      "n": 495,
+      "specificity(TN rate)": 0.7454545454545455
+    },
+    "ANTISEED-AF": {
+      "n": 400,
+      "specificity(TN rate)": 0.9975
+    }
+  },
+  "domain": "autonomous_driving",
+  "query": "self-driving car technology — vehicles that drive themselves without a human driver",
+  "slug": "autonomous-vehicle-technology-full5",
+  "stance_distribution": {
+    "out_of_domain": 870,
+    "in_domain": 337,
+    "boundary": 1
+  },
+  "abstain_rate": 0.0,
+  "criteria_citation_counts": {
+    "E1": 530,
+    "E2": 483,
+    "C2": 224,
+    "C3": 206,
+    "C1": 115,
+    "C5": 102,
+    "E3": 82,
+    "C4": 55
+  },
+  "n_unjudged": 0
+}

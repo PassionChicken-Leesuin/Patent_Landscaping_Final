@@ -139,6 +139,46 @@ Committed for Colab (it has no bulk/API): `training_expanded_clean.csv`,
 `eval_processed.csv`, `negatives_pool.csv` (per domain) and
 `DataSet/mas/<domain>/mas_ranked_scores.csv`. `candidate_all` + Snorkel labels regenerate on Colab.
 
+## Agentic system (query-driven, `src/agentic/`) — 2026-07 확장
+
+자연어 질의 하나로 **어떤 기술 도메인이든** 유효특허를 직접 판정하는 에이전틱 시스템 (학습 불필요).
+
+```
+NL 질의 → [1]scoping → [2]웹 리서치(Tavily/Wikipedia 폴백, Bergeaud 벤치마크 3중 누출차단)
+        → [3]판정 풀 전체 corpus 리딩(map-reduce) → [4]문장형 기준서(C/E-id + scope_decisions)
+        → [5]기준 Validator 루프(revise/collect_more/ask_human — HITL: interactive|batch|off)
+        → [6]기준 엄밀 판정(기존 10-key KeyPool 재사용, C∩E 충돌 시 2차확인 강제)
+        → [7]판정 Validator 루프(의심 판정 감사→재수집/인간질문/재판정)
+```
+
+```bash
+# 오프라인 스모크 (키 불필요)
+python -m scripts.run_agentic --query "hydrogen storage technology" --input <csv> --mock --limit 20 --hitl off
+# 실전 (자연어 질의는 한국어 가능; .env에 OPENAI_API_KEY_1..N, 선택적으로 TAVILY_API_KEY)
+python -m scripts.run_agentic --query "수소 저장 기술" --input <pool.csv> --workers 40
+# 6개 골드 도메인 평가 / 채점 / HITL 질문 리포트
+python -m scripts.eval_agentic --domains all --hitl off
+python -m scripts.score_agentic --slug <slug> --labels <labeled.csv>
+python -m scripts.hitl_report
+```
+
+산출물: `DataSet/agentic/<slug>/` (criteria_final.md = 사람이 읽는 기준서, judge/ranked.csv, human_qa.jsonl).
+실험 기록: `experiments/EXPERIMENTS.md`. 파일럿(80건 층화): blockchain F1 0.947, computervision 0.934, hydrogenstorage 0.804(도메인 범위 환유성 이슈 — PENDING_QUESTIONS.md 참고).
+
+### Streamlit UI (`app/`) — 업로드→HITL→선별 다운로드
+
+```bash
+.venv-mac/bin/streamlit run app/streamlit_app.py     # mac 로컬 (py3.12 venv)
+```
+
+특허 xlsx(WIPS 자동인식·패밀리 dedup)/csv + 도메인 설명 + 참고자료(pdf/txt/md)를 올리면
+파이프라인이 `--hitl batch`로 돌고, 범위 질문이 나오면 화면 폼에서 답변→즉시 재개된다.
+단계 진행도·실시간 로그·기준서 버전·HITL Q&A·경계 검증·검증 이력이 모두 표시되고,
+완료 후 score 임계값/상위 N건으로 선별해 원본 컬럼 병합 xlsx로 다운로드. 실행 폴더는
+`DataSet/agentic_ui/<run_id>/`. **이 시스템의 코드는 별도 레포
+[Patent_Landscaping_MAS](https://github.com/PassionChicken-Leesuin/Patent_Landscaping_MAS)에
+커밋·푸시한다** (`bash scripts/push_mas_repo.sh "msg"`).
+
 ### Labeling fidelity to the paper (per-domain definitions)
 
 Bergeaud & Verluise define each domain at the **functional-application (task) level** (S2-1), and

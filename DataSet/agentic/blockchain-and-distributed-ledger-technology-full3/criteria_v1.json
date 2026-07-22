@@ -1,0 +1,137 @@
+{
+  "domain_name": "Blockchain and Distributed Ledger Technology",
+  "domain_definition": "An invention belongs to the domain of Blockchain and Distributed Ledger Technology if it enables the secure, immutable recording and management of transactions or data across a distributed network without a central authority. It must facilitate consensus mechanisms to validate and agree on the state of the ledger among participants, provide cryptographic security to ensure data integrity and privacy, and support decentralized control. Additionally, the technology should allow for the execution of smart contracts, which are self-executing contracts with terms directly written into code.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the secure and immutable recording of transactions or data across a distributed network.",
+      "sources": [
+        "corpus: definition",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must facilitate a consensus mechanism to validate and agree on the state of the ledger among participants.",
+      "sources": [
+        "corpus: definition",
+        "https://en.wikipedia.org/wiki/Consensus_(computer_science)"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must provide cryptographic security to ensure data integrity and privacy.",
+      "sources": [
+        "corpus: definition",
+        "https://en.wikipedia.org/wiki/Cryptography"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must support decentralized control, eliminating the need for a central authority.",
+      "sources": [
+        "corpus: definition",
+        "https://en.wikipedia.org/wiki/Decentralized_computing"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must support the execution of smart contracts, which are self-executing contracts with terms directly written into code.",
+      "sources": [
+        "corpus: definition",
+        "https://en.wikipedia.org/wiki/Smart_contract"
+      ]
+    }
+  ],
+  "scope_statement": "Patents within the scope of Blockchain and Distributed Ledger Technology include those that perform tasks related to the secure, decentralized management of transactions or data using distributed ledger systems. This includes technologies that implement consensus mechanisms, cryptographic security, and smart contracts. Patents that merely use blockchain or distributed ledger outputs for unrelated purposes, or that focus on traditional processes with peripheral mentions of blockchain, are outside the scope.",
+  "scope_decisions": [
+    {
+      "topic": "Cryptocurrency transaction systems",
+      "verdict": "in",
+      "rationale": "These systems perform the core task of managing transactions securely and immutably across a distributed network."
+    },
+    {
+      "topic": "Smart contract applications",
+      "verdict": "in",
+      "rationale": "These applications directly involve the execution of smart contracts, a defining task of the domain."
+    },
+    {
+      "topic": "Identity authentication mechanisms",
+      "verdict": "conditional",
+      "rationale": "In if the mechanism uses blockchain or distributed ledger technology to manage identity data securely and immutably; out if it merely uses blockchain terminology without performing these tasks."
+    },
+    {
+      "topic": "Digital asset management",
+      "verdict": "in",
+      "rationale": "These systems manage digital assets using distributed ledger technology, aligning with the domain's core tasks."
+    },
+    {
+      "topic": "Blockchain-based document processing",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to securely and immutably manage document data, fitting the domain's definition."
+    },
+    {
+      "topic": "Supply chain integrity",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to ensure the secure and immutable tracking of supply chain data."
+    },
+    {
+      "topic": "Data privacy protection",
+      "verdict": "conditional",
+      "rationale": "In if the protection is achieved through blockchain's cryptographic and decentralized features; out if it uses blockchain terminology without these features."
+    },
+    {
+      "topic": "Energy transactions",
+      "verdict": "in",
+      "rationale": "These systems use distributed ledger technology to manage energy transactions securely and immutably."
+    },
+    {
+      "topic": "Healthcare transaction validation",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to validate healthcare transactions securely and immutably."
+    },
+    {
+      "topic": "Voting systems",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to manage voting data securely and immutably, fitting the domain's core tasks."
+    },
+    {
+      "topic": "Peer-to-peer transactions",
+      "verdict": "in",
+      "rationale": "These systems facilitate secure and immutable peer-to-peer transactions using distributed ledger technology."
+    },
+    {
+      "topic": "Insurance claims processing",
+      "verdict": "out",
+      "rationale": "These patents focus on traditional insurance processes with peripheral mentions of blockchain, not performing the domain's core tasks."
+    },
+    {
+      "topic": "Product provenance tracking",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to track product provenance securely and immutably, aligning with the domain's core tasks."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on traditional processes with peripheral mentions of blockchain or distributed ledger technology are excluded.",
+      "sources": [
+        "corpus: boundary_case",
+        "patent-pool digest"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that use blockchain or distributed ledger outputs for unrelated purposes without performing the domain's core tasks are excluded.",
+      "sources": [
+        "corpus: boundary_case",
+        "patent-pool digest"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Intelligent water meter system with light wallet', focus on whether the blockchain component performs a core task such as secure transaction management. If not, rule out.",
+    "For patents such as 'Method for Providing Asynchronous Reverse Direction Payment by using Sound Signal Device and Blockchain', assess if the blockchain component is central to the payment processing. If it is peripheral, rule out.",
+    "For 'Secure revisioning auditing system for electronic document files', determine if the blockchain-like audit logs perform secure and immutable data management. If not, rule out."
+  ]
+}

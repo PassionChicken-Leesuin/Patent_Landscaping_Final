@@ -1,0 +1,63 @@
+{
+  "main_clusters": [
+    "Additive Manufacturing Methods",
+    "3D Printing Systems",
+    "Material Compositions",
+    "Stereolithography",
+    "Laser Sintering",
+    "Powder Bed Fusion",
+    "Bioprinting",
+    "Metal 3D Printing",
+    "Composite Materials",
+    "Multi-Material Printing"
+  ],
+  "vocabulary_profile": [
+    "additive manufacturing",
+    "3D printing",
+    "layer",
+    "material",
+    "method",
+    "system",
+    "device",
+    "composition",
+    "powder",
+    "sintering",
+    "laser",
+    "stereolithography",
+    "thermoplastic",
+    "composite",
+    "resin",
+    "curing",
+    "model",
+    "component",
+    "fabrication",
+    "energy",
+    "printing",
+    "structure",
+    "solidification",
+    "temperature",
+    "control",
+    "inkjet",
+    "polymer",
+    "bonding",
+    "mechanism"
+  ],
+  "representative_cases": [
+    "Method for producing a three-dimensional object using additive manufacturing",
+    "3D printing apparatus and method for creating complex geometries",
+    "Stereolithography system for high-resolution 3D printing",
+    "Powder bed fusion method for metal 3D printing",
+    "Bioprinting method for creating tissue structures"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on specific applications like orthodontic aligners or lighting components, such as 'Direct 3D-printed orthodontic aligners with torque, rotation, and full control anchors', may not align with broader 3D printing technology.",
+    "Patents discussing monitoring or auxiliary processes, like 'Method for automatic identification of material deposition deficiencies during an additive manufacturing process and manufacturing device', focus on peripheral aspects rather than core 3D printing processes.",
+    "Patents involving related but distinct technologies, such as 'Model based dynamic positional correction for digital lithography tools', which may overlap with 3D printing but do not directly pertain to it.",
+    "Patents that mention 3D printing in a non-central context, like 'Use of 3d printing for anticounterfeiting', where the focus is not on the additive manufacturing process itself."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on photolithography and semiconductor manufacturing, which are not emphasized in the web evidence for 3D printing.",
+    "The web evidence highlights construction 3D printing, particularly concrete, which is not a prominent cluster in the patent pool.",
+    "The web evidence emphasizes FDM as the most common 3D printing process, yet the patent pool does not reflect a strong focus on this technique."
+  ]
+}

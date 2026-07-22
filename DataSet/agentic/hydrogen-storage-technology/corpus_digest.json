@@ -1,0 +1,57 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen fuel cells",
+    "Hydrogen generation and recovery",
+    "Hydrogen storage systems",
+    "Hydrogen purification methods",
+    "Nickel-hydrogen batteries",
+    "Hydrogen production methods",
+    "Fuel cell technology",
+    "Hydrogen separation and storage",
+    "Metal hydride tanks"
+  ],
+  "vocabulary_profile": [
+    "hydrogen storage",
+    "hydrogen gas",
+    "fuel cell",
+    "hydrogen generation",
+    "hydrogen storage alloy",
+    "hydrogen fuel cell",
+    "hydrogen recovery",
+    "hydrogen purification",
+    "nickel-hydrogen battery",
+    "hydrogen production",
+    "electrochemical",
+    "hydrogen separation",
+    "hydrogen absorption",
+    "hydrogen release"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for improved efficiency",
+    "Advanced hydrogen fuel cell systems",
+    "Innovative hydrogen generation and recovery methods",
+    "Comprehensive hydrogen storage systems",
+    "Efficient hydrogen purification methods",
+    "Nickel-hydrogen battery advancements",
+    "Novel hydrogen production methods",
+    "Cutting-edge fuel cell technology",
+    "Hydrogen separation and storage solutions",
+    "Metal hydride tank innovations"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower patents focus on cooling technology and do not relate to hydrogen storage or generation, e.g., 'Cooling tower :: The utility model relates to a kind of recirculated cooling water cooling tower'.",
+    "Electrochemical reaction apparatus patents involve electrochemical reactions but do not specifically address hydrogen storage or generation, e.g., 'Electrochemical reaction apparatus :: An object of the present invention is to increase the production efficiency of a reduction product'.",
+    "Patents on chemical processes for polyamides are unrelated to hydrogen storage or generation, e.g., 'Process for preparing aromatic polyamides of high hydrolysis resistance with controlled water content of diamine'.",
+    "Gasification of plastics patents mention hydrogen gas but focus on plastic decomposition, not storage or fuel cell technology, e.g., 'Gasification of plastics :: PROBLEM TO BE SOLVED: To efficiently decompose plastics into hydrogen gas'.",
+    "Activated carbon and gas cleaning patents are not related to hydrogen storage or generation, e.g., 'Device and method for controlling screening size of exhaust sintering gas activated carbon'.",
+    "Crude oil treatment patents involve hydrogen but focus on oil treatment rather than hydrogen storage, e.g., 'Process for the treatment of crude oil using hydrogen in a special unit'.",
+    "Tungsten powder production patents involve hydrogen gas but are primarily about tungsten powder, e.g., 'Method for preparing nano grade tungsten powder'.",
+    "Magnet recycling patents mention hydrogen gas capture but focus on recycling, e.g., 'Acid ndfeb magnet recycling'.",
+    "Chemical process patents using hydrogen fluoride are not related to hydrogen storage, e.g., 'Improvements in or relating to an akylation process'.",
+    "Cable protection patents are unrelated to hydrogen storage, e.g., 'Device for the oven protection of cables'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The web evidence lacks specific tasks, techniques, or signal terms related to hydrogen storage technology, which are prevalent in the patent pool."
+  ]
+}

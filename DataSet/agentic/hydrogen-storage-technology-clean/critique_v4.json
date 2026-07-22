@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C7 is not testable from title+abstract alone as it requires assessing environmental impact, which is not typically detailed in these sections.",
+      "suggestion": "Revise C7 to focus on claims of environmental impact mitigation explicitly stated in the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E2 and E4 are not sufficiently distinct from the C-criteria as they restate exclusions based on lack of storage innovation, which is already covered by the C-criteria.",
+      "suggestion": "Clarify E2 and E4 to focus on technologies that are adjacent but not directly related to storage, such as hydrogen use in unrelated industrial processes.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The guidance does not resolve the mismatch with web evidence regarding MOFs and environmental impact, which are significant in web evidence but not reflected in the pool.",
+      "suggestion": "Include explicit guidance on the inclusion of MOFs and environmental impact considerations as significant factors for hydrogen storage technology.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for including hydrogen storage alloys and materials is not clearly supported by evidence, as the pool lacks emphasis on MOFs, which are significant in web evidence.",
+      "suggestion": "Provide evidence-based rationale for including specific materials like MOFs in the scope decisions.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

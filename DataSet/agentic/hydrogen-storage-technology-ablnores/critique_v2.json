@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not explicitly cover all functional tasks related to hydrogen storage technology. Specifically, there is no criterion addressing the compatibility of the storage technology with existing hydrogen infrastructure, which is a critical aspect of the domain definition.",
+      "suggestion": "Add a criterion that explicitly requires the invention to demonstrate compatibility with existing hydrogen infrastructure.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not sufficiently distinct from the C-criteria. They restate the scope exclusions rather than providing clear adjacent technologies that might be confused with hydrogen storage.",
+      "suggestion": "Refine the exclusion criteria to focus on technologies that are adjacent or look-alike but do not perform the storage task, such as technologies that handle hydrogen in ways that do not involve storage (e.g., hydrogen transport without storage).",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for electrochemical reaction apparatus patents.",
+      "suggestion": "Clarify the boundary guidance for electrochemical reaction apparatus patents by specifying conditions under which they are considered relevant to hydrogen storage.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

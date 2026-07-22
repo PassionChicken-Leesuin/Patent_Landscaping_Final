@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, there is no criterion addressing the integration of AI or machine learning for decision-making, which is a key component of autonomous vehicle technology as per the domain definition.",
+      "suggestion": "Add a criterion that requires the invention to utilize AI or machine learning techniques for decision-making in autonomous vehicle operation.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not clearly differentiate between adjacent technologies and those that are irrelevant. For example, E1 and E3 are broad and could exclude relevant technologies that are integral to autonomous functions.",
+      "suggestion": "Refine E1 and E3 to specify conditions under which driver assistance systems and general vehicle components are considered integral to autonomous functions.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest. Specifically, the guidance on radar and sensor technologies is not clear enough to distinguish between autonomous and non-autonomous applications.",
+      "suggestion": "Clarify the boundary guidance to specify when radar and sensor technologies are considered part of autonomous vehicle technology, possibly by linking them to specific autonomous tasks like navigation and environmental detection.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decisions are inconsistent with the exclusion criteria. For example, 'Adaptive Motion Control' is ruled conditional, but similar technologies like 'Adaptive Driving Assistance' are ruled out. This inconsistency could lead to confusion in judgment outcomes.",
+      "suggestion": "Review and align scope decisions with exclusion criteria to ensure consistency, particularly for technologies that enhance human driving but may also support autonomous functions.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

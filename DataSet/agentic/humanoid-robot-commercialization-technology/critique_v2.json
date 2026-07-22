@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, there is no criterion addressing the integration of humanoid robots into various industries, which is a key aspect of commercialization.",
+      "suggestion": "Add a criterion that requires the invention to facilitate the integration of humanoid robots into specific industries or applications, addressing challenges such as data scarcity and cybersecurity.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not sufficiently distinct from the C-criteria. They restate the exclusion of non-humanoid or generic robotic applications without providing clear adjacent technologies that might be confused with humanoid robot commercialization.",
+      "suggestion": "Refine the E-criteria to specify technologies that are adjacent but not directly related to humanoid robot commercialization, such as fixed industrial robots or AGVs, which are mentioned in the boundary guidance.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding service robots and specific robotic applications.",
+      "suggestion": "Clarify the boundary guidance to explicitly address service robots and specific robotic applications, providing examples of what constitutes a humanoid feature or commercialization aspect.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decision for 'Wearable robotic systems' is inconsistent with the exclusion criteria, which exclude systems not contributing to humanoid robot commercialization.",
+      "suggestion": "Re-evaluate the scope decision for 'Wearable robotic systems' to ensure consistency with the exclusion criteria, possibly by specifying conditions under which they might be included.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

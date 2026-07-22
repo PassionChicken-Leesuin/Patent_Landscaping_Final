@@ -1,0 +1,59 @@
+{
+  "n": 1260,
+  "threshold": 0.5,
+  "accuracy": 0.919047619047619,
+  "precision": 0.7987987987987988,
+  "recall": 0.8837209302325582,
+  "macro_f1": 0.8925170022513557,
+  "auc": 0.9470655687160283,
+  "average_precision": 0.7985303842435023,
+  "confusion": [
+    [
+      892,
+      67
+    ],
+    [
+      35,
+      266
+    ]
+  ],
+  "auc_seed_vs_hard": 0.9253115732293666,
+  "auc_seed_vs_easy": 0.9774667774086379,
+  "by_expansion_level": {
+    "SEED": {
+      "n": 301,
+      "recall(TP rate)": 0.8837209302325582
+    },
+    "ANTISEED-manual": {
+      "n": 559,
+      "specificity(TN rate)": 0.8944543828264758
+    },
+    "ANTISEED-AF": {
+      "n": 400,
+      "specificity(TN rate)": 0.98
+    }
+  },
+  "domain": "computervision",
+  "query": "computer vision — machines that understand images and video",
+  "slug": "computer-vision-full3",
+  "stance_distribution": {
+    "out_of_domain": 928,
+    "in_domain": 332
+  },
+  "abstain_rate": 0.0,
+  "criteria_citation_counts": {
+    "E5": 825,
+    "E3": 766,
+    "E1": 764,
+    "E4": 639,
+    "E2": 606,
+    "C1": 205,
+    "C8": 144,
+    "C3": 97,
+    "C4": 70,
+    "C2": 68,
+    "C5": 65,
+    "C6": 51
+  },
+  "n_unjudged": 0
+}

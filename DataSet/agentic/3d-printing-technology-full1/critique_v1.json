@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C3 does not specify that the materials must be used in a 3D printing process, only that they are utilized, which could be interpreted too broadly.",
+      "suggestion": "Revise C3 to specify that the materials must be used in the layer-by-layer deposition process of 3D printing.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not clearly a 'rule-match-but-not-the-task' criterion. It excludes technologies like photolithography or semiconductor manufacturing, but does not explain why these are adjacent or look-alike technologies rather than just irrelevant.",
+      "suggestion": "Clarify why photolithography and semiconductor manufacturing are considered adjacent or look-alike technologies to 3D printing.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not clearly resolve the borderline pattern of patents focusing on specific applications like orthodontic aligners.",
+      "suggestion": "Provide more detailed guidance on how to handle patents that focus on specific applications, ensuring they are only included if they describe a novel 3D printing process or system integral to the domain.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

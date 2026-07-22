@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C4 and C5 are not fully testable from title+abstract alone as they require assessment of the invention's performance in terms of customization, rapid prototyping, precision, and accuracy, which may not be explicitly stated in the abstract.",
+      "suggestion": "Revise C4 and C5 to focus on whether the invention is described as enabling customization or precision in the 3D printing process, rather than requiring evidence of performance.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not clearly distinct from the core domain as it mentions technologies like photolithography or semiconductor manufacturing, which are adjacent but not clearly differentiated from 3D printing in terms of layer-based processing.",
+      "suggestion": "Clarify E3 to specify why these technologies do not align with the core 3D printing processes, perhaps by emphasizing the difference in application or material handling.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not clearly resolve borderline cases involving patents that mention 3D printing in a non-central context, such as anticounterfeiting applications.",
+      "suggestion": "Provide more specific examples or criteria for determining when a non-central mention of 3D printing is sufficient for inclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

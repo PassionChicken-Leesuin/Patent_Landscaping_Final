@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 and C7 are not testable from title+abstract alone. They require detailed technical and environmental analysis that is unlikely to be present in such brief sections.",
+      "suggestion": "Revise C6 and C7 to focus on aspects that can be discerned from title+abstract, such as mentioning specific materials or methods that inherently address release temperature or environmental impact.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not clearly distinct from the core task of storage. Transportation and conversion processes often overlap with storage technologies, making this exclusion criterion potentially ambiguous.",
+      "suggestion": "Clarify E3 to specify what aspects of transportation or conversion are excluded, ensuring it does not inadvertently exclude relevant storage technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance provided is too vague to resolve borderline cases effectively, especially without specific examples or criteria to distinguish primary from secondary functions.",
+      "suggestion": "Provide more detailed criteria or examples to help judges determine when storage is a primary function versus incidental.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

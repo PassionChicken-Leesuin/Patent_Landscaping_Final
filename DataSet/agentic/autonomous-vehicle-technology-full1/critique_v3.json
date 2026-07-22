@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not testable from title+abstract alone as it requires knowledge of compliance with safety or operational protocols, which may not be explicitly stated.",
+      "suggestion": "Revise C5 to focus on features that inherently suggest compliance, such as specific safety mechanisms or adherence to known standards, which can be inferred from the title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C6 and C7 are not fully testable from title+abstract alone as they require detailed knowledge of system operation and integration, which may not be evident from these sections.",
+      "suggestion": "Revise C6 and C7 to focus on the presence of V2X communication systems and sensor integration features that can be identified from title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 is not a genuine 'rule-match-but-not-the-task' criterion as it simply restates the exclusion of non-autonomous systems.",
+      "suggestion": "Clarify E1 to focus on systems that provide alerts without autonomous corrective action, distinguishing them from systems that perform autonomous tasks.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not clearly resolve the inclusion of systems that integrate driver assistance with autonomous features, such as adaptive driving assistance.",
+      "suggestion": "Provide clearer guidance on how to handle patents that describe systems with both driver assistance and autonomous features, specifying criteria for inclusion based on the level of autonomy described.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1, C2, C3, and C4 are not fully testable from title+abstract alone as they require understanding of the invention's performance, which may not be detailed in the abstract.",
+      "suggestion": "Ensure each C-criterion can be assessed based on title+abstract alone by focusing on the presence of specific features or claims rather than performance outcomes.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E5 is not a genuine 'rule-match-but-not-the-task' criterion; it restates the exclusion of non-storage contexts, which is already covered by other criteria.",
+      "suggestion": "Refine E5 to address a specific adjacent technology that might be confused with storage but does not perform the storage task.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for hydrogen purification and compression devices.",
+      "suggestion": "Clarify the conditions under which purification and compression devices are considered part of a storage system, possibly by specifying integration or direct contribution to storage efficiency.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding hydrogen generation systems is weak, as some systems might include integrated storage solutions.",
+      "suggestion": "Consider a conditional inclusion for hydrogen generation systems that incorporate specific storage mechanisms, similar to the approach for purification and compression devices.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,150 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring its safe containment and controlled release for subsequent use. This includes methods and materials that optimize the volume and weight efficiency of hydrogen storage, maintain stability under various environmental conditions, and are compatible with existing hydrogen infrastructure. The technology must address the challenges of storing hydrogen in gaseous, liquid, or solid forms, and facilitate its use in applications such as transportation, energy generation, and industrial processes.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the storage of hydrogen in a stable form, either as a gas, liquid, or solid.",
+      "sources": [
+        "corpus: Hydrogen storage materials",
+        "corpus: Liquid hydrogen storage involves liquefying hydrogen by reducing its temperature to −253 °C."
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the efficient release of hydrogen when needed, ensuring usability in various applications.",
+      "sources": [
+        "corpus: Electrochemical hydrogen storage allows controlled release of hydrogen using electricity.",
+        "corpus: Hydrogen can be converted back to electrical power using a fuel cell or hydrogen turbine."
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the safety of hydrogen storage under various conditions, including high pressure and low temperature environments.",
+      "sources": [
+        "corpus: Compressed hydrogen storage involves keeping hydrogen gas under pressure to increase storage density.",
+        "corpus: Liquid hydrogen storage takes less space than gaseous hydrogen at normal temperature and pressure."
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must optimize the volume and weight efficiency of hydrogen storage, making it suitable for applications like transportation.",
+      "sources": [
+        "corpus: Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form for sufficient driving range.",
+        "corpus: Nanomaterials can enhance hydrogen storage by improving sorption kinetics and storage capacity."
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be compatible with existing hydrogen infrastructure, facilitating integration into current systems.",
+      "sources": [
+        "corpus: Hydrogen technologies are applicable for many uses, including ammonia production and oil refining."
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must utilize advanced materials such as Metal–Organic Frameworks (MOFs) to enhance hydrogen storage capacity and efficiency.",
+      "sources": [
+        "corpus: Metal–Organic Frameworks (MOFs) are used for hydrogen storage due to their porous nature."
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Hydrogen Storage Technology includes patents that focus on the methods and materials for storing hydrogen in gaseous, liquid, or solid forms, ensuring its stability, safety, and efficient release. This encompasses technologies that enhance storage capacity, optimize storage conditions, and integrate with existing hydrogen infrastructure. Patents that primarily address hydrogen production, utilization, or unrelated technologies are outside the scope.",
+  "scope_decisions": [
+    {
+      "topic": "Hydrogen storage alloys",
+      "verdict": "in",
+      "rationale": "These alloys are directly related to the storage of hydrogen, enhancing energy density and storage efficiency."
+    },
+    {
+      "topic": "Hydrogen generation systems",
+      "verdict": "out",
+      "rationale": "These systems focus on the production of hydrogen rather than its storage, which is outside the domain's scope."
+    },
+    {
+      "topic": "Hydrogen fuel cells",
+      "verdict": "out",
+      "rationale": "Fuel cells are primarily concerned with the utilization of hydrogen for energy conversion, not its storage."
+    },
+    {
+      "topic": "Hydrogen storage materials",
+      "verdict": "in",
+      "rationale": "These materials are central to the domain, focusing on the storage capacity and efficiency of hydrogen."
+    },
+    {
+      "topic": "Hydrogen recovery and separation technologies",
+      "verdict": "out",
+      "rationale": "These technologies focus on the separation and recovery of hydrogen, not its storage."
+    },
+    {
+      "topic": "Cooling tower",
+      "verdict": "out",
+      "rationale": "This patent relates to cooling technology and does not focus on hydrogen storage."
+    },
+    {
+      "topic": "Electrochemical reaction apparatus",
+      "verdict": "out",
+      "rationale": "While it involves electrochemical processes, it does not specifically address hydrogen storage."
+    },
+    {
+      "topic": "Gasification of plastics",
+      "verdict": "out",
+      "rationale": "This patent discusses hydrogen generation from plastics but does not focus on storage technology."
+    },
+    {
+      "topic": "Vehicle-mounted hydrogen supply system frame for hydrogen fuel logistics vehicle",
+      "verdict": "out",
+      "rationale": "This patent relates to logistics for hydrogen supply but does not detail storage technology itself."
+    },
+    {
+      "topic": "Semiconductor manufacturing apparatus",
+      "verdict": "out",
+      "rationale": "While it mentions hydrogen, it focuses on semiconductor processes rather than hydrogen storage or production."
+    },
+    {
+      "topic": "Self-rising type closestool cover",
+      "verdict": "out",
+      "rationale": "This patent does not relate to hydrogen technology; it is about a toilet seat cover."
+    },
+    {
+      "topic": "Acid ndfeb magnet recycling",
+      "verdict": "out",
+      "rationale": "Although it mentions hydrogen gas capture, the primary focus is on magnet recycling, not hydrogen storage or production."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on hydrogen production methods rather than storage solutions are excluded.",
+      "sources": [
+        "corpus: Hydrogen generation systems"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that primarily address the utilization of hydrogen, such as in fuel cells, are excluded.",
+      "sources": [
+        "corpus: Hydrogen fuel cells"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents related to hydrogen recovery and separation technologies without a focus on storage are excluded.",
+      "sources": [
+        "corpus: Hydrogen recovery and separation technologies"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents that focus on hydrogen purification systems or hydrogen transportation logistics without addressing storage solutions are excluded.",
+      "sources": [
+        "corpus: Vehicle-mounted hydrogen supply system frame for hydrogen fuel logistics vehicle"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents related to hydrail technology should be included if they specifically address hydrogen storage solutions for transportation applications, as noted in the web evidence.",
+    "Patents mentioning hydrogen in the context of unrelated technologies, such as semiconductor manufacturing or magnet recycling, should be excluded unless they directly address hydrogen storage challenges.",
+    "Metal–Organic Frameworks (MOFs) should be explicitly considered as a relevant technology for hydrogen storage, as they are highlighted in the web evidence."
+  ]
+}

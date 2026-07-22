@@ -1,0 +1,162 @@
+{
+  "domain_name": "Genome Editing Technology",
+  "domain_definition": "Genome Editing Technology encompasses methods and tools that enable precise modifications to the genetic material of living organisms. This includes technologies that allow for the insertion, deletion, or replacement of specific DNA segments, targeting specific genes or genomic regions with high accuracy. The technology facilitates the study of gene function by enabling gene knockout or modification and is applicable to a wide range of organisms, including plants, animals, and microorganisms.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the precise alteration of DNA sequences in living organisms.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the insertion, deletion, or replacement of specific DNA segments.",
+      "sources": [
+        "corpus: definition",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must be capable of targeting specific genes or genomic regions with high accuracy.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must facilitate the study of gene function by enabling gene knockout or modification.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be applicable to a wide range of organisms, including plants, animals, and microorganisms.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must involve a genome editing tool or method, such as CRISPR, TALENs, or prime editing.",
+      "sources": [
+        "corpus: technique",
+        "corpus: definition"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Genome Editing Technology includes patents that implement, improve, or provide enabling components, methods, or materials specific to genome editing. This encompasses inventions that perform precise genetic modifications, target specific genomic regions, or facilitate gene function studies across various organisms. Patents that merely use genome editing outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "CRISPR-Cas9 systems",
+      "verdict": "in",
+      "rationale": "CRISPR-Cas9 systems are a core technology for genome editing, enabling precise DNA modifications."
+    },
+    {
+      "topic": "gene editing methods",
+      "verdict": "in",
+      "rationale": "Gene editing methods that allow for precise DNA alterations are central to genome editing technology."
+    },
+    {
+      "topic": "nuclease-based editing",
+      "verdict": "in",
+      "rationale": "Nuclease-based editing involves tools like CRISPR and TALENs, which are essential for genome editing."
+    },
+    {
+      "topic": "plant genome modification",
+      "verdict": "in",
+      "rationale": "Plant genome modification is a specific application of genome editing technology."
+    },
+    {
+      "topic": "base editing tools",
+      "verdict": "in",
+      "rationale": "Base editing tools are a form of genome editing that allows for precise nucleotide changes."
+    },
+    {
+      "topic": "gene delivery systems",
+      "verdict": "in",
+      "rationale": "Gene delivery systems are enabling technologies specific to the application of genome editing tools."
+    },
+    {
+      "topic": "anti-CRISPR proteins",
+      "verdict": "conditional",
+      "rationale": "Anti-CRISPR proteins are in scope if they are specifically designed to regulate or enhance genome editing processes."
+    },
+    {
+      "topic": "DNA methylation editing",
+      "verdict": "conditional",
+      "rationale": "DNA methylation editing is in scope if it involves genome editing tools or methods for precise epigenetic modifications."
+    },
+    {
+      "topic": "genetic variant analysis",
+      "verdict": "out",
+      "rationale": "Genetic variant analysis does not involve the direct modification of DNA sequences, which is required for genome editing."
+    },
+    {
+      "topic": "targeted mutagenesis",
+      "verdict": "in",
+      "rationale": "Targeted mutagenesis involves precise DNA modifications, aligning with genome editing tasks."
+    },
+    {
+      "topic": "gene knockout methods",
+      "verdict": "in",
+      "rationale": "Gene knockout methods are a fundamental application of genome editing technology."
+    },
+    {
+      "topic": "homologous recombination",
+      "verdict": "conditional",
+      "rationale": "Homologous recombination is in scope if used in conjunction with genome editing tools for precise DNA modifications."
+    },
+    {
+      "topic": "transgene expression enhancement",
+      "verdict": "out",
+      "rationale": "Transgene expression enhancement does not involve direct genome editing tasks."
+    },
+    {
+      "topic": "protein engineering",
+      "verdict": "out",
+      "rationale": "Protein engineering does not involve the direct modification of DNA sequences."
+    },
+    {
+      "topic": "genetic engineering applications",
+      "verdict": "conditional",
+      "rationale": "Genetic engineering applications are in scope if they specifically involve genome editing tools or methods."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that involve genetic analysis or diagnostics without direct DNA modification are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that enhance gene expression without involving genome editing tools or methods are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents related to protein engineering without direct genome editing involvement are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents related to anti-CRISPR proteins are in scope if they are specifically designed to regulate or enhance genome editing processes.",
+    "DNA methylation editing patents are in scope if they involve genome editing tools or methods for precise epigenetic modifications.",
+    "Homologous recombination patents are in scope if used in conjunction with genome editing tools for precise DNA modifications.",
+    "Genetic engineering applications are in scope if they specifically involve genome editing tools or methods."
+  ]
+}

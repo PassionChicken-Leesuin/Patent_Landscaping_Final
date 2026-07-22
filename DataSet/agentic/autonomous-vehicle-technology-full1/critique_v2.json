@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not testable from title+abstract alone as it requires knowledge of legal and regulatory standards, which are external data.",
+      "suggestion": "Revise C5 to focus on the invention's features that suggest compliance, such as specific safety or operational protocols that align with known standards.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C6 and C7 do not explicitly demand that the invention performs a task; they only mention the inclusion of systems.",
+      "suggestion": "Revise C6 and C7 to specify that the invention must actively use V2X communication and sensor integration for autonomous operation tasks.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 is a restatement of 'irrelevant' rather than a rule-match-but-not-the-task shape. It excludes based on lack of full autonomy, which is already covered by the domain scope.",
+      "suggestion": "Refine E1 to focus on specific features that might appear similar to autonomous systems but do not perform autonomous tasks, such as systems that only provide alerts without control.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not address the inclusion of systems that might be used in both autonomous and non-autonomous contexts, such as smart parking systems.",
+      "suggestion": "Add guidance on how to handle patents that describe dual-use technologies, specifying criteria for inclusion based on their role in autonomous operation.",
+      "severity": "minor"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

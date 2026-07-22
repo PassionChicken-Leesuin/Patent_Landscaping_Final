@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C3 and C4 are not fully testable from title+abstract alone as they require understanding the purpose or application context, which may not be explicitly stated.",
+      "suggestion": "Rephrase C3 and C4 to focus on the capability of the invention to perform genome editing tasks, rather than the purpose or application context.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E3 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance rather than adjacent technologies.",
+      "suggestion": "Clarify E1 and E3 to focus on technologies that might appear similar but do not perform genome editing tasks, such as gene expression modulation tools that do not alter DNA sequences.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not fully resolve the borderline patterns, particularly for gene expression modulation and nucleic acid therapeutics.",
+      "suggestion": "Provide more specific examples or tests to distinguish between in-scope and out-of-scope cases for these borderline areas.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'gene therapy applications' is not fully supported by evidence, as it does not specify the involvement of genome editing technologies.",
+      "suggestion": "Clarify the inclusion criteria for gene therapy applications to ensure they involve genome editing technologies, or ask for human input if the evidence is insufficient.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

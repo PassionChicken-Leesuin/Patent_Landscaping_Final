@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, consensus mechanisms like proof-of-work and proof-of-stake, which are critical to blockchain technology, are not explicitly mentioned.",
+      "suggestion": "Add a criterion that specifically addresses the implementation or improvement of consensus mechanisms such as proof-of-work or proof-of-stake.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not genuinely 'rule-match-but-not-the-task' shaped. They are more about excluding irrelevant patents rather than identifying adjacent technologies.",
+      "suggestion": "Refine E-criteria to focus on technologies that are adjacent or look-alike but do not perform blockchain-specific tasks, such as traditional databases or centralized systems that use similar terminology.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest, particularly for cases where blockchain is mentioned peripherally.",
+      "suggestion": "Expand boundary guidance to include more detailed criteria for assessing the centrality of blockchain in the invention, possibly with examples of borderline cases and their resolutions.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope decisions",
+      "problem": "The scope decisions do not cover every main cluster of the pool digest. For example, clusters like 'Photography-related patents' and 'Payment processing using sound signals' are not addressed.",
+      "suggestion": "Include scope decisions for all main clusters identified in the pool digest, providing clear rationales for inclusion or exclusion based on the evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope decisions",
+      "problem": "The rationale for including 'Energy transactions using blockchain' and 'Healthcare transaction validation' is not strongly supported by the web evidence, which does not emphasize these areas.",
+      "suggestion": "Re-evaluate the inclusion of these clusters based on stronger evidence or provide additional justification for their inclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

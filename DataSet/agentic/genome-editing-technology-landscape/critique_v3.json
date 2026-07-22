@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a testable criterion from title+abstract alone, as it requires specific mention of tools like CRISPR, TALENs, or prime editing, which may not always be explicitly stated in the abstract.",
+      "suggestion": "Rephrase C6 to focus on the functionality or outcome of the genome editing tool or method, rather than specific names.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E2 and E3 are not clearly 'rule-match-but-not-the-task' shaped. They are more about excluding irrelevant technologies rather than adjacent ones.",
+      "suggestion": "Clarify E2 and E3 to focus on technologies that might appear similar to genome editing but do not perform the task of direct DNA modification.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not address the mismatch with web evidence regarding plant genome modification and prime editing.",
+      "suggestion": "Include guidance on how to handle cases involving plant genome modification and prime editing, given their prominence in the web evidence.",
+      "severity": "minor"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'genetic variant analysis' is weak, as it does not address potential overlaps with genome editing tasks that might involve variant analysis as a step.",
+      "suggestion": "Re-evaluate the exclusion of 'genetic variant analysis' to ensure it does not inadvertently exclude relevant genome editing tasks.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

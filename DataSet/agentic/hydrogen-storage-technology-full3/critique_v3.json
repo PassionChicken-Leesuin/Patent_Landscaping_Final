@@ -1,0 +1,50 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require specific mechanisms to be mentioned, which may not always be explicitly stated in these sections.",
+      "suggestion": "Rephrase C1 and C2 to focus on the functional capability of the invention to store and release hydrogen, rather than requiring specific mechanisms to be mentioned.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3 requires safety-related terms to be mentioned, which may not always be present in the title or abstract even if the invention ensures safety.",
+      "suggestion": "Rephrase C3 to focus on the invention's capability to ensure safety in hydrogen storage, rather than requiring specific terms to be mentioned.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C4 is not testable from title+abstract alone as it requires optimization for volume and weight efficiency, which may not be explicitly stated.",
+      "suggestion": "Rephrase C4 to focus on the invention's capability to optimize hydrogen storage efficiency, rather than requiring explicit mention of optimization.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C5 requires mention of integration or compatibility with existing infrastructure, which may not always be explicitly stated in the title or abstract.",
+      "suggestion": "Rephrase C5 to focus on the invention's capability to integrate with existing hydrogen infrastructure, rather than requiring explicit mention.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are generally well-formed but could benefit from additional examples to clarify the exclusions.",
+      "suggestion": "Add more examples to E-criteria to illustrate the types of patents that are excluded.",
+      "severity": "minor"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for hydrogen refueling stations and compressors.",
+      "suggestion": "Clarify the boundary guidance for hydrogen refueling stations and compressors to ensure consistent application of the criteria.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for some scope decisions, such as hydrogen refueling stations and compressors, is not fully supported by evidence and may lead to inconsistent judgments.",
+      "suggestion": "Provide clearer evidence-based rationale for scope decisions, particularly for conditional inclusions like hydrogen refueling stations and compressors.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,54 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen fuel cells",
+    "Hydrogen storage materials",
+    "Hydrogen recovery systems",
+    "Hydrogen production methods",
+    "Hydrogen separation technologies"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "fuel cell",
+    "alloy",
+    "generation",
+    "system",
+    "catalyst",
+    "electrochemical",
+    "decomposition",
+    "gas",
+    "temperature",
+    "pressure",
+    "electrode",
+    "production",
+    "method",
+    "battery",
+    "separation"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen fuel cells",
+    "Hydrogen storage materials",
+    "Hydrogen recovery systems"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower — Focuses on cooling technology, not directly related to hydrogen storage.",
+    "Electrochemical reaction apparatus — While it involves electrochemical processes, it does not specifically address hydrogen storage.",
+    "Gasification of plastics — Aims to produce hydrogen but does not focus on storage technology.",
+    "Vehicle-mounted hydrogen supply system frame for hydrogen fuel logistics vehicle — Related to hydrogen logistics but not specifically about storage technology.",
+    "Home fuel cell boiler system having combustion catalysis device — Involves hydrogen use but not specifically storage.",
+    "Production of hydrogen occlusion alloy powder and negative electrode for nickel-hydrogen battery formed by using this powder — Focuses on battery applications rather than direct hydrogen storage technology.",
+    "Semiconductor manufacturing apparatus — Involves hydrogen but is primarily about semiconductor processing, not hydrogen storage.",
+    "Self-rising type closestool cover — Contains no relevant hydrogen storage technology, focuses on toilet design.",
+    "Process for the treatment of crude oil using hydrogen in a special unit — Uses hydrogen in oil processing, not for storage or fuel cells.",
+    "Improvements in or relating to an akylation process — Discusses alkylation with hydrogen but not hydrogen storage or production."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool does not emphasize Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as a significant technique.",
+    "The pool lacks focus on the environmental impact of hydrogen technologies, which is a key point in web evidence.",
+    "The pool does not cover hydrogen storage in vehicles as a distinct cluster, despite its importance in web evidence."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "main_clusters": [
+    "Object detection systems",
+    "Traffic sign recognition",
+    "Vehicle parking assistance",
+    "Collision avoidance systems",
+    "Robotic driving status determination",
+    "Driving assistance systems",
+    "Autonomous vehicle systems",
+    "Sensor technologies for vehicles",
+    "V2X communication systems",
+    "Pedestrian detection methods",
+    "Vehicle imaging systems",
+    "Autonomous navigation systems",
+    "Vehicle communication systems",
+    "Radar and sensor technologies"
+  ],
+  "vocabulary_profile": [
+    "autonomous vehicle",
+    "object detection",
+    "sensor",
+    "traffic sign",
+    "collision avoidance",
+    "driving assistance",
+    "vehicle",
+    "recognition",
+    "control",
+    "system",
+    "image",
+    "navigation",
+    "method",
+    "data",
+    "camera",
+    "transceiver",
+    "environment",
+    "information"
+  ],
+  "representative_cases": [
+    "Object detection systems for autonomous vehicles",
+    "Traffic sign recognition in autonomous driving",
+    "Vehicle parking assistance systems",
+    "Collision avoidance systems for self-driving cars",
+    "Robotic driving status determination methods",
+    "Driving assistance systems for semi-autonomous vehicles",
+    "Autonomous vehicle systems with integrated sensors",
+    "Sensor technologies for enhanced vehicle automation",
+    "V2X communication systems for vehicle interaction",
+    "Pedestrian detection methods for autonomous navigation"
+  ],
+  "suspected_boundary_cases": [
+    "Patents related to general sensor technologies, such as 'Air conditioner wind sensing control method', which involve sensors but are not specific to autonomous vehicles.",
+    "Patents focused on non-vehicle related technologies, like 'Foldable etagere', which pertains to furniture design.",
+    "Patents involving general control systems, such as 'Payoff reel control method', which are not directly related to vehicle automation.",
+    "Patents related to rehabilitation or medical technologies, like 'Gesture recognition fusion-based aphasia patient auxiliary rehabilitation training system', which involve recognition technologies but are not specific to vehicles.",
+    "Patents on general imaging or camera systems, such as 'Document camera', which are not specifically for vehicle applications."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool emphasizes 'Traffic sign recognition' and 'Vehicle parking assistance', which are not highlighted in the web evidence as key areas of autonomous vehicle technology.",
+    "The web evidence discusses 'Lane departure warning systems' and 'Lane keeping assistance' extensively, but these are not prominent in the patent pool clusters.",
+    "The web evidence highlights 'Wayve's approach using end-to-end deep learning', which is not reflected in the patent pool's focus on traditional sensor and detection systems."
+  ]
+}

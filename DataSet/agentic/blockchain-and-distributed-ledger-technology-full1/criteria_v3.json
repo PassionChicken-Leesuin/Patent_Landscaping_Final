@@ -1,0 +1,136 @@
+{
+  "domain_name": "Blockchain and Distributed Ledger Technology",
+  "domain_definition": "An invention belongs to the domain of Blockchain and Distributed Ledger Technology if it enables the secure, immutable recording and management of transactions or data across a distributed network without a central authority, using cryptographic techniques and consensus mechanisms to ensure data integrity, privacy, and decentralized control. It may also facilitate the execution of smart contracts, which are automated, self-executing agreements with terms directly written into code, and support decentralized applications (DApps) that operate on such networks.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must facilitate the secure and immutable recording of transactions or data across a distributed network.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://www.investopedia.com/terms/b/blockchain.asp"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must use cryptographic techniques to ensure data integrity and privacy.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Cryptographic_hash_function",
+        "https://www.investopedia.com/terms/c/cryptography.asp"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must employ a consensus mechanism, such as proof-of-work or proof-of-stake, to validate transactions or data entries without a central authority.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+        "https://www.investopedia.com/terms/c/consensus-mechanism.asp"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must support or facilitate the execution of smart contracts on a distributed ledger.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Smart_contract",
+        "https://www.investopedia.com/terms/s/smart-contracts.asp"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must enable decentralized storage and retrieval of data across multiple nodes.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Distributed_ledger",
+        "https://www.investopedia.com/terms/d/distributed-ledger-technology-dlt.asp"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must support or facilitate the operation of decentralized applications (DApps) on a blockchain or distributed ledger.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Decentralized_application",
+        "https://www.investopedia.com/terms/d/decentralized-applications-dapps.asp"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for this domain includes patents that focus on the core functionalities of blockchain and distributed ledger technologies, such as secure transaction recording, consensus mechanisms, cryptographic security, smart contracts, and decentralized applications. It excludes patents where blockchain is merely a secondary feature or where the primary focus is on unrelated technologies or applications that do not leverage the unique capabilities of blockchain or distributed ledgers.",
+  "scope_decisions": [
+    {
+      "topic": "cryptocurrency transaction systems",
+      "verdict": "in",
+      "rationale": "These systems are core applications of blockchain technology, focusing on secure and decentralized transaction recording."
+    },
+    {
+      "topic": "smart contract applications",
+      "verdict": "in",
+      "rationale": "Smart contracts are a fundamental aspect of blockchain technology, enabling automated and secure execution of agreements."
+    },
+    {
+      "topic": "identity authentication mechanisms",
+      "verdict": "in",
+      "rationale": "When these mechanisms leverage blockchain's unique capabilities for decentralized and secure identity verification, they fall within the domain."
+    },
+    {
+      "topic": "data management using blockchain",
+      "verdict": "in",
+      "rationale": "This involves using blockchain for secure and decentralized data storage and retrieval, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "digital asset management",
+      "verdict": "in",
+      "rationale": "Managing digital assets securely and immutably on a blockchain is a primary use case of the technology."
+    },
+    {
+      "topic": "secure payment methods",
+      "verdict": "in",
+      "rationale": "If these methods utilize blockchain for secure and decentralized transaction processing, they are within scope."
+    },
+    {
+      "topic": "distributed ledger technology",
+      "verdict": "in",
+      "rationale": "This is the overarching technology category that includes blockchain and its applications."
+    },
+    {
+      "topic": "blockchain-based document processing",
+      "verdict": "in",
+      "rationale": "Using blockchain for secure and immutable document processing aligns with the domain's core functionalities."
+    },
+    {
+      "topic": "energy management using blockchain",
+      "verdict": "in",
+      "rationale": "While not emphasized in web evidence, using blockchain for decentralized energy management is a valid application of the technology."
+    },
+    {
+      "topic": "supply chain provenance",
+      "verdict": "in",
+      "rationale": "Blockchain's ability to provide secure and transparent tracking of goods in a supply chain is a recognized application."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that mention blockchain but focus on traditional centralized databases or non-blockchain-based encryption systems are excluded.",
+      "sources": [
+        "corpus: Secure revisioning auditing system for electronic document files"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents where blockchain is a secondary feature in applications like insurance claims or water metering are excluded.",
+      "sources": [
+        "corpus: Method and apparatus for claiming insurance benefit"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents related to voting or communication systems that do not leverage blockchain's unique capabilities are excluded.",
+      "sources": [
+        "corpus: Method for providing secret electronic voting service on the basis of blockchain"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Method and apparatus for claiming insurance benefit', if blockchain is merely a secondary feature and not central to the invention's purpose, it should be excluded.",
+    "Patents such as 'Secure revisioning auditing system for electronic document files' should be excluded if they do not clearly leverage blockchain's unique capabilities for secure and decentralized data management.",
+    "In cases like 'Method for providing secret electronic voting service on the basis of blockchain', if the primary focus is not on blockchain's unique functionalities, the patent should be excluded.",
+    "For identity verification or authentication patents, if they do not utilize blockchain's decentralized and secure features, they should be excluded."
+  ]
+}

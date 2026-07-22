@@ -43,3 +43,13 @@ DataSet/processed/*/snorkel_labeled_all.csv
 
 # Presentation files
 *.pptx
+
+# Agentic system: keep criteria documents + metrics + HITL log (small, reviewable);
+# ignore bulky regenerable caches (fetched pages, per-patent audits).
+DataSet/agentic/*/research/pages/
+DataSet/agentic/*/judge/audit.jsonl
+DataSet/agentic/mock-*/
+
+# Streamlit UI runs (uploaded pools + logs; per-machine)
+DataSet/agentic_ui/
+.venv-mac/

@@ -1,0 +1,60 @@
+{
+  "main_clusters": [
+    "CRISPR-Cas9 systems",
+    "gene editing methods",
+    "nuclease-based editing",
+    "plant genome modification",
+    "base editing tools",
+    "gene delivery systems",
+    "anti-CRISPR proteins",
+    "DNA methylation editing",
+    "genetic variant analysis",
+    "targeted mutagenesis",
+    "gene knockout methods",
+    "homologous recombination",
+    "transgene expression enhancement",
+    "protein engineering",
+    "genetic engineering applications"
+  ],
+  "vocabulary_profile": [
+    "CRISPR",
+    "gene editing",
+    "nuclease",
+    "sgRNA",
+    "donor DNA",
+    "homologous recombination",
+    "transgenic",
+    "mutation detection",
+    "genome modification",
+    "Cas9",
+    "base editor",
+    "plant transformation",
+    "targeted",
+    "mutagenesis",
+    "knockout",
+    "protein",
+    "expression",
+    "RNA",
+    "sequence",
+    "nucleotide"
+  ],
+  "representative_cases": [
+    "CRISPR-Cas9 systems for genome editing",
+    "Gene editing methods using nucleases",
+    "Plant genome modification techniques",
+    "Base editing tools for precise genome modification",
+    "Gene delivery systems for CRISPR applications"
+  ],
+  "suspected_boundary_cases": [
+    "Patents related to mechanical systems, such as 'Feeder line for stacker crane,' are unrelated to genome editing.",
+    "Medical devices like 'Infusion monitoring device with snap action cut-off means' are not focused on genome editing technology.",
+    "Patents discussing targeted enzyme therapies, such as 'Targeted enzyme prodrug therapy,' do not specifically relate to genome editing.",
+    "Genetic engineering models like 'Method for establishing Sissy medaka model for simulating human spermary ovarian syndrome' involve genetic engineering but not genome editing techniques.",
+    "Detection reagents, such as 'Detection reagent for radioactive damage diseases and application thereof,' lack a direct connection to genome editing."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool emphasizes plant genome modification, which is less highlighted in the web evidence focusing more on human and animal applications.",
+    "The web evidence discusses prime editing extensively, but this is not a prominent cluster in the patent pool.",
+    "The web evidence highlights CRISPR-Display and its applications, which are not reflected in the patent pool's main clusters."
+  ]
+}

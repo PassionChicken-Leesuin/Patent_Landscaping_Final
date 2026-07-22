@@ -1,0 +1,23 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not explicitly require the invention to perform tasks related to optimizing volume and weight efficiency or ensuring compatibility with existing infrastructure. They only mention these aspects.",
+      "suggestion": "Revise C4 to explicitly require the invention to demonstrate how it optimizes volume and weight efficiency. Revise C5 to require demonstration of compatibility with existing hydrogen infrastructure."
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not clearly rule-match-but-not-the-task shaped. They are more about stating what is irrelevant rather than providing adjacent or look-alike technologies.",
+      "suggestion": "Revise E-criteria to focus on technologies that might appear similar but do not perform the core tasks of hydrogen storage, such as technologies that store other gases or focus on energy conversion without storage."
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not clearly resolve the borderline patterns reported in the pool digest, such as electrochemical reactions or cooling technologies.",
+      "suggestion": "Provide more specific guidance on how to handle patents that involve electrochemical reactions or cooling technologies that might mention hydrogen but do not focus on storage."
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

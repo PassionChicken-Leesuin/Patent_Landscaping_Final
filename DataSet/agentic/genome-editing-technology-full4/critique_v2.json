@@ -1,0 +1,52 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks. Specifically, they do not address the use of prime editing, which is a significant advancement in genome editing technology.",
+      "suggestion": "Add a criterion that covers the use of prime editing techniques, ensuring that inventions utilizing this method are included.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria E2 and E5 may overlap with the conditional scope decisions for plant genetic engineering and transgenic organism development, leading to potential inconsistencies.",
+      "suggestion": "Clarify the distinction between E2/E5 and the conditional scope decisions to ensure consistent application.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "Boundary guidance does not address the mismatch with web evidence regarding the emphasis on plant genetic engineering and transgenic organism development.",
+      "suggestion": "Include guidance on how to handle patents focusing on plant genetic engineering and transgenic organism development, especially in light of their significant presence in the patent pool.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decision for plant genetic engineering lacks clarity on what constitutes 'direct genome editing techniques' versus 'traditional genetic modification'.",
+      "suggestion": "Provide specific examples or criteria to distinguish between these two categories to ensure consistent application of the scope decision.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should prime editing techniques be included in the scope of genome editing technology?",
+      "why_needed": "Prime editing is a significant advancement in genome editing, but it is not explicitly covered in the current criteria. Clarification is needed to determine if it should be included.",
+      "options": [
+        "Include prime editing techniques in the scope.",
+        "Exclude prime editing techniques from the scope."
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "How should plant genetic engineering be distinguished between 'direct genome editing techniques' and 'traditional genetic modification'?",
+      "why_needed": "The current scope decision for plant genetic engineering is conditional but lacks clear criteria for distinction, leading to potential inconsistencies.",
+      "options": [
+        "Provide specific examples of direct genome editing techniques.",
+        "Define traditional genetic modification and provide examples.",
+        "Both of the above."
+      ]
+    }
+  ]
+}

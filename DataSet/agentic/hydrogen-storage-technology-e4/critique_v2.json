@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a testable criterion from title+abstract alone as it requires specific mention of advanced materials like MOFs, which may not always be explicitly stated in the abstract.",
+      "suggestion": "Revise C6 to focus on the enhancement of hydrogen storage capacity and efficiency through advanced materials without specifying MOFs, or ensure that the presence of MOFs is a clear indicator in the abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E4 is not clearly distinct from the task criteria as it mentions hydrogen transportation logistics, which could overlap with storage solutions if not clearly defined.",
+      "suggestion": "Clarify E4 to ensure it excludes only those patents that do not address storage solutions at all, even if they mention logistics.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The guidance does not clearly resolve the inclusion of hydrail technology, which is noted as significant for hydrogen storage in transportation but lacks clear criteria for inclusion.",
+      "suggestion": "Provide explicit criteria for when hydrail technology should be included, focusing on its role in hydrogen storage rather than just transportation.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

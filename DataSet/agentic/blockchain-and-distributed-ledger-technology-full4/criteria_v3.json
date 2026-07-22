@@ -1,0 +1,155 @@
+{
+  "domain_name": "Blockchain and Distributed Ledger Technology",
+  "domain_definition": "Blockchain and Distributed Ledger Technology (DLT) encompasses systems that enable the secure, immutable, and decentralized recording of transactions across a distributed network. These systems must facilitate consensus among distributed nodes to validate transactions without a central authority, ensuring data integrity and preventing unauthorized alterations. They should provide transparency and traceability of transactions to all participants in the network and support the execution of smart contracts, which are self-executing agreements with terms directly written into code.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the secure and immutable recording of transactions across a distributed network using cryptographic techniques.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must facilitate consensus among distributed nodes to validate transactions without a central authority.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must provide transparency and traceability of transactions to all participants in the network.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must ensure data integrity and prevent unauthorized alterations to the ledger.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must support the execution of smart contracts, which are self-executing contracts with the terms of the agreement directly written into code.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Smart_contract",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must implement or improve consensus mechanisms, such as proof-of-work or proof-of-stake, which are essential for validating transactions in a decentralized manner.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Proof_of_work",
+        "https://en.wikipedia.org/wiki/Proof_of_stake"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Blockchain and Distributed Ledger Technology includes patents that implement, improve, or provide enabling components or methods specific to blockchain and distributed ledger systems. This encompasses inventions that address the core functionalities of secure, immutable, and decentralized transaction recording, consensus mechanisms, transparency, data integrity, and smart contract execution. Patents that apply these technologies to specific domains, such as finance, supply chain, or identity verification, are also within scope, provided they perform a defining task of the domain.",
+  "scope_decisions": [
+    {
+      "topic": "Cryptocurrency transaction systems",
+      "verdict": "in",
+      "rationale": "These systems implement blockchain technology to enable secure and decentralized financial transactions, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Smart contract applications",
+      "verdict": "in",
+      "rationale": "Smart contract applications directly utilize blockchain technology to execute self-executing agreements, fulfilling a defining task of the domain."
+    },
+    {
+      "topic": "Identity authentication mechanisms",
+      "verdict": "in",
+      "rationale": "When these mechanisms use blockchain or DLT for decentralized and secure identity verification, they perform a defining task of the domain."
+    },
+    {
+      "topic": "Blockchain-based document processing",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to ensure the integrity and traceability of documents, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Supply chain integrity",
+      "verdict": "in",
+      "rationale": "Supply chain systems using blockchain for transparency and traceability of goods perform a defining task of the domain."
+    },
+    {
+      "topic": "Data privacy protection",
+      "verdict": "conditional",
+      "rationale": "In if the protection mechanism specifically uses blockchain or DLT to ensure data integrity and prevent unauthorized alterations."
+    },
+    {
+      "topic": "Digital asset management",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to manage digital assets securely and transparently, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Blockchain for energy management",
+      "verdict": "conditional",
+      "rationale": "In if blockchain is used to manage energy transactions or data securely and transparently, performing a defining task of the domain."
+    },
+    {
+      "topic": "Healthcare transaction validation",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to validate healthcare transactions securely and transparently, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Voting systems",
+      "verdict": "in",
+      "rationale": "Voting systems using blockchain for secure and transparent vote recording perform a defining task of the domain."
+    },
+    {
+      "topic": "Peer-to-peer transactions",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to facilitate secure and decentralized transactions, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Insurance claims processing",
+      "verdict": "conditional",
+      "rationale": "In if the processing specifically uses blockchain to ensure secure and transparent claims handling."
+    },
+    {
+      "topic": "Product provenance tracking",
+      "verdict": "in",
+      "rationale": "These systems use blockchain to track product origins and movements securely and transparently, aligning with the domain's core functionalities."
+    },
+    {
+      "topic": "Photography-related patents",
+      "verdict": "out",
+      "rationale": "These patents focus on user characteristics rather than implementing blockchain's core functionalities for secure, immutable, and decentralized transaction recording."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that mention blockchain or DLT but focus on traditional processes without implementing any core functionalities of the domain are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that use blockchain-like terminology for unrelated fields without performing any defining task of the domain are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that involve distributed databases or similar technologies that do not implement secure, immutable, and decentralized transaction recording are excluded.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Distributed_database"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Method and apparatus for claiming insurance benefit,' include only if blockchain is used for secure and transparent claims processing.",
+    "For patents like 'Intelligent water meter system with light wallet,' exclude if blockchain is only mentioned peripherally and not used for core functionalities.",
+    "For patents like 'Secure revisioning auditing system for electronic document files,' include only if blockchain is used for secure and immutable audit logs."
+  ]
+}

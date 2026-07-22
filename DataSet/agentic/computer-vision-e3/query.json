@@ -1,0 +1,54 @@
+{
+  "query_original": "computer vision - machines that understand images and video",
+  "mock": false,
+  "variant": "e3",
+  "scope": {
+    "canonical_name_en": "Computer Vision",
+    "language_detected": "en",
+    "disambiguation_notes": "The query specifically refers to computer vision as it relates to machines understanding images and video, which is a common interpretation of the field.",
+    "initial_task_hypotheses": [
+      "The system must be able to detect and identify objects within images or video streams.",
+      "The system must be capable of interpreting and analyzing visual data to extract meaningful information.",
+      "The system must perform image processing tasks such as filtering, enhancement, and transformation.",
+      "The system must be able to track and recognize patterns or movements in video sequences.",
+      "The system must integrate with machine learning models to improve accuracy and adaptability in visual recognition tasks."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of computer vision",
+        "rationale": "To establish a clear and concise definition of computer vision as a technological domain."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of computer vision",
+        "rationale": "To identify the various subfields and specializations within computer vision."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in computer vision",
+        "rationale": "To understand the fundamental techniques and methods used in computer vision."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of computer vision",
+        "rationale": "To explore the practical applications and use cases of computer vision technology."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to computer vision but not the same",
+        "rationale": "To identify technologies that are similar to computer vision but do not perform the same tasks, for exclusion purposes."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC classification codes for computer vision",
+        "rationale": "To find the official classification codes that categorize computer vision technologies."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for computer vision",
+        "rationale": "To gather alternative terms and synonyms used for computer vision."
+      }
+    ]
+  }
+}

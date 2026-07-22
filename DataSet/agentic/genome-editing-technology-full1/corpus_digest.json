@@ -1,0 +1,73 @@
+{
+  "main_clusters": [
+    "CRISPR-Cas9 technology",
+    "gene editing methods",
+    "homologous recombination",
+    "gene knockout methods",
+    "gene therapy applications",
+    "plant genetic engineering",
+    "RNA-guided gene editing",
+    "nucleic acid-based therapeutics",
+    "genome engineering applications",
+    "viral gene editing"
+  ],
+  "vocabulary_profile": [
+    "CRISPR",
+    "gene editing",
+    "genome",
+    "nucleic acid",
+    "homologous recombination",
+    "target gene",
+    "transgenic",
+    "genetic modification",
+    "Cas9",
+    "sgRNA",
+    "targeted modification",
+    "plant",
+    "therapeutic",
+    "mutation",
+    "expression",
+    "protein",
+    "sequence",
+    "vector",
+    "recombinant",
+    "donor DNA",
+    "nuclease",
+    "RNA",
+    "gene knockout",
+    "transfection",
+    "polynucleotide",
+    "expression vector",
+    "DNA cleavage",
+    "bioreactor",
+    "synthetic guide RNA"
+  ],
+  "representative_cases": [
+    "CRISPR-Cas9 gene editing",
+    "Gene knockout methods",
+    "Homologous recombination techniques",
+    "Gene therapy applications",
+    "RNA-guided gene editing",
+    "Genome editing in plants",
+    "Nucleic acid delivery methods",
+    "Synthetic guide RNA development",
+    "Viral gene editing",
+    "Transgenic organism development"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on gene expression modulation without direct genome editing, such as 'The multi-functional gene expression platform of protocatechuic acid regulation and its application'.",
+    "Patents related to vector production rather than direct genome editing, like 'Method for producing adenovirus vector'.",
+    "Patents discussing nucleic acid-based therapeutics without specific genome editing techniques, such as 'Nucleic acid-based therapeutics'.",
+    "Patents involving high-throughput screening or detection methods that mention CRISPR but focus on screening, like 'Method for high-throughput screening of essential genes and growth inhibitory genes of eukaryotes'.",
+    "Patents related to agricultural applications of gene editing that may not fit broader genome editing technology definitions, such as 'Method for preparing tomato material with high lycopene content'.",
+    "Patents involving genetic manipulation in model organisms without a focus on genome editing technology, like 'Method for establishing Sissy medaka model for simulating human spermary ovarian syndrome'.",
+    "Patents discussing genetic markers or SNP applications without direct genome editing, such as 'Application of single-nucleotide-polymorphism rs55882956 in screening of Hansen's disease sufferers'.",
+    "Patents related to therapeutic delivery or medical monitoring without genome editing, like 'Treatment of coronary conditions by delivery of therapeutic agents to the pericardial space'.",
+    "Patents involving bioprinting or other biotechnology applications without direct genome editing, such as 'Bioprinter devices, systems and methods for printing soft gels for the treatment of musculoskeletal and skin disorders'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on plant genetic engineering and agricultural applications, which is less emphasized in the web evidence that focuses more on medical and human applications.",
+    "The web evidence highlights prime editing and its applications, which are not prominently featured in the patent pool.",
+    "The web evidence discusses human germline engineering and ethical concerns, which are not a major focus in the patent pool."
+  ]
+}

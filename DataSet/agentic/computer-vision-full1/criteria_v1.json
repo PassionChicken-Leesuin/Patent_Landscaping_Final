@@ -1,0 +1,114 @@
+{
+  "domain_name": "Computer Vision",
+  "domain_definition": "Computer vision is a field that involves the development of algorithms and systems to enable machines to interpret and understand visual information from the world, such as images and videos. This includes tasks such as object detection and recognition, image classification, 3D reconstruction from 2D images, tracking object movement across video frames, and interpreting spatial relationships between objects in an image.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve the detection or recognition of objects within images or video streams.",
+      "sources": [
+        "corpus: Object detection is a computer technology related to computer vision and image processing that detects instances of semantic objects in digital images and videos."
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must involve tracking the movement of objects across frames in a video.",
+      "sources": [
+        "corpus: Object detection is used in tasks such as image annotation, vehicle counting, and activity recognition."
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must involve interpreting the spatial relationships between objects in an image.",
+      "sources": [
+        "corpus: Computer vision involves acquiring, processing, analyzing, and understanding digital images to produce numerical or symbolic information."
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must involve reconstructing 3D models from 2D images.",
+      "sources": [
+        "corpus: Structure from motion (SfM) is a photogrammetric range imaging technique for estimating 3D structures from 2D image sequences."
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must involve classifying images into predefined categories based on their content.",
+      "sources": [
+        "corpus: ViTs have been applied in image recognition, image segmentation, weather prediction, and autonomous driving."
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for the computer vision domain includes patents that focus on the development of systems and algorithms for interpreting and understanding visual information from images and videos. This encompasses tasks such as object detection, image classification, 3D reconstruction, and video analysis. Patents that merely use computer vision outputs for other purposes, or focus on unrelated technologies like display control, are outside the scope.",
+  "scope_decisions": [
+    {
+      "topic": "Image Processing",
+      "verdict": "in",
+      "rationale": "Image processing is a fundamental component of computer vision, as it involves techniques necessary for analyzing and interpreting visual data."
+    },
+    {
+      "topic": "Object Detection",
+      "verdict": "in",
+      "rationale": "Object detection is a core task in computer vision, involving the identification and localization of objects within images or videos."
+    },
+    {
+      "topic": "Neural Networks",
+      "verdict": "in",
+      "rationale": "Neural networks are widely used in computer vision for tasks such as image recognition and classification."
+    },
+    {
+      "topic": "Deep Learning",
+      "verdict": "in",
+      "rationale": "Deep learning techniques are integral to modern computer vision applications, enabling advanced image analysis and understanding."
+    },
+    {
+      "topic": "Image Segmentation",
+      "verdict": "in",
+      "rationale": "Image segmentation is a key computer vision task that involves partitioning an image into meaningful segments."
+    },
+    {
+      "topic": "Medical Imaging",
+      "verdict": "out",
+      "rationale": "While medical imaging can use computer vision techniques, the focus on medical predictions rather than direct computer vision tasks places it outside the core scope."
+    },
+    {
+      "topic": "Facial Recognition",
+      "verdict": "in",
+      "rationale": "Facial recognition is a specific application of computer vision involving the identification of individuals based on facial features."
+    },
+    {
+      "topic": "Video Analysis",
+      "verdict": "in",
+      "rationale": "Video analysis involves interpreting and understanding video content, a direct application of computer vision."
+    },
+    {
+      "topic": "Feature Extraction",
+      "verdict": "in",
+      "rationale": "Feature extraction is a fundamental process in computer vision for identifying and describing important image characteristics."
+    },
+    {
+      "topic": "Optical Character Recognition",
+      "verdict": "in",
+      "rationale": "Optical character recognition involves the conversion of images of text into machine-encoded text, a specific application of computer vision."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents focusing on LED display control are excluded as they pertain to display technology rather than image analysis or recognition.",
+      "sources": [
+        "corpus: Patents focusing on LED display control, such as 'A kind of LED display control method and control system', are more about display technology than image analysis or recognition."
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents involving input devices, like hand-written character input devices, are excluded as they focus on input mechanisms rather than computer vision tasks.",
+      "sources": [
+        "corpus: Patents involving input devices, like 'Hand-written character input device', focus more on input mechanisms than computer vision itself."
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents like 'Method and apparatus for processing image' should be included if they specify applications in computer vision tasks such as object detection or image classification.",
+    "Patents related to specific recognition tasks, such as 'Detection and tracking system using tattoos', should be included if they involve core computer vision tasks like object detection or tracking."
+  ]
+}

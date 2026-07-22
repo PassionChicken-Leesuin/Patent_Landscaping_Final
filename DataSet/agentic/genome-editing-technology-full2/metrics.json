@@ -1,0 +1,57 @@
+{
+  "n": 918,
+  "threshold": 0.5,
+  "accuracy": 0.8986928104575164,
+  "precision": 0.9411764705882353,
+  "recall": 0.7392739273927392,
+  "macro_f1": 0.8781407232423868,
+  "auc": 0.9619174112533204,
+  "average_precision": 0.9009566605682813,
+  "confusion": [
+    [
+      601,
+      14
+    ],
+    [
+      79,
+      224
+    ]
+  ],
+  "auc_seed_vs_hard": 0.906846266021951,
+  "auc_seed_vs_easy": 0.9915181518151814,
+  "by_expansion_level": {
+    "SEED": {
+      "n": 303,
+      "recall(TP rate)": 0.7392739273927392
+    },
+    "ANTISEED-manual": {
+      "n": 215,
+      "specificity(TN rate)": 0.9348837209302325
+    },
+    "ANTISEED-AF": {
+      "n": 400,
+      "specificity(TN rate)": 1.0
+    }
+  },
+  "domain": "genomeediting",
+  "query": "genome editing technology such as CRISPR",
+  "slug": "genome-editing-technology-full2",
+  "stance_distribution": {
+    "in_domain": 236,
+    "out_of_domain": 680,
+    "boundary": 2
+  },
+  "abstain_rate": 0.0,
+  "criteria_citation_counts": {
+    "E1": 625,
+    "E3": 600,
+    "E4": 580,
+    "E2": 516,
+    "C2": 239,
+    "C1": 236,
+    "C3": 123,
+    "C4": 35,
+    "C5": 31
+  },
+  "n_unjudged": 0
+}

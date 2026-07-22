@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, tasks like 'interpreting spatial relationships' and '3D reconstruction' are not explicitly covered by the criteria.",
+      "suggestion": "Add criteria that explicitly cover tasks such as 'interpreting spatial relationships between objects' and '3D reconstruction from 2D images'.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not genuinely 'rule-match-but-not-the-task' shaped. They are more about stating what is irrelevant rather than providing adjacent technologies.",
+      "suggestion": "Refine the exclusion criteria to include technologies that are adjacent or look-alike but not performing the core computer vision tasks, such as machine vision in factory automation.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve the borderline patterns reported in the pool digest, particularly for cases like 'Detection and tracking system using tattoos'.",
+      "suggestion": "Clarify the boundary guidance to address specific cases like 'Detection and tracking system using tattoos' by specifying what constitutes a broader computer vision application.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'Medical Imaging' is weak given the mismatch with web evidence that emphasizes general computer vision tasks.",
+      "suggestion": "Re-evaluate the inclusion of 'Medical Imaging' based on its alignment with core computer vision tasks rather than its application context.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

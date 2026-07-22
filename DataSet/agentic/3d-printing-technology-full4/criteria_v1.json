@@ -1,0 +1,241 @@
+{
+  "domain_name": "3D Printing Technology",
+  "domain_definition": "3D Printing Technology, also known as additive manufacturing, involves the creation of three-dimensional objects by adding material layer by layer, guided by digital models or CAD files. This technology encompasses various methods and systems that enable the precise deposition, joining, or solidification of materials such as plastics, metals, ceramics, or biological substances, allowing for the production of complex geometries, customization, and rapid prototyping with minimal material waste compared to traditional manufacturing methods.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve a process or system that creates three-dimensional objects by adding material layer by layer.",
+      "sources": [
+        "https://www.3dprintingmedia.network/what-is-3d-printing/",
+        "https://www.sciencedirect.com/science/article/pii/S2214860420301234"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must utilize digital models or CAD files to guide the 3D printing process.",
+      "sources": [
+        "https://www.3dprintingmedia.network/what-is-3d-printing/",
+        "https://www.sciencedirect.com/science/article/pii/S2214860420301234"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must be capable of using various materials such as plastics, metals, ceramics, or biological substances in the 3D printing process.",
+      "sources": [
+        "https://www.3dprintingmedia.network/what-is-3d-printing/",
+        "https://www.sciencedirect.com/science/article/pii/S2214860420301234"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must enable the production of complex geometries or customized objects that are difficult to achieve with traditional manufacturing methods.",
+      "sources": [
+        "https://www.3dprintingmedia.network/what-is-3d-printing/",
+        "https://www.sciencedirect.com/science/article/pii/S2214860420301234"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must contribute to the reduction of material waste compared to traditional manufacturing methods.",
+      "sources": [
+        "https://www.3dprintingmedia.network/what-is-3d-printing/",
+        "https://www.sciencedirect.com/science/article/pii/S2214860420301234"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for 3D Printing Technology includes patents that describe methods, systems, or materials specifically designed for the additive manufacturing process, where material is added layer by layer to create three-dimensional objects. This includes innovations in printing techniques, material compositions specific to 3D printing, and applications that leverage the unique capabilities of 3D printing. Patents that merely use 3D printing outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Additive Manufacturing Methods",
+      "verdict": "in",
+      "rationale": "These methods are central to the domain as they describe the processes of creating objects layer by layer, which is the core of 3D printing technology."
+    },
+    {
+      "topic": "3D Printing Systems",
+      "verdict": "in",
+      "rationale": "These systems are integral to the domain as they encompass the machinery and software that enable the 3D printing process."
+    },
+    {
+      "topic": "Material Compositions",
+      "verdict": "conditional",
+      "rationale": "In if the compositions are specifically designed for use in 3D printing processes; out if they are generic materials not tailored for 3D printing."
+    },
+    {
+      "topic": "Stereolithography",
+      "verdict": "in",
+      "rationale": "This is a specific 3D printing technique that uses light to solidify layers of material, fitting within the domain."
+    },
+    {
+      "topic": "Laser Sintering",
+      "verdict": "in",
+      "rationale": "This technique involves fusing material particles layer by layer, aligning with the domain's core processes."
+    },
+    {
+      "topic": "Powder Bed Fusion",
+      "verdict": "in",
+      "rationale": "This is a method of 3D printing that involves fusing powder layers, directly related to the domain."
+    },
+    {
+      "topic": "Bioprinting",
+      "verdict": "in",
+      "rationale": "Bioprinting is a specialized application of 3D printing technology for creating biological structures, fitting within the domain."
+    },
+    {
+      "topic": "Metal 3D Printing",
+      "verdict": "in",
+      "rationale": "This involves the use of 3D printing techniques to create metal objects, which is a recognized part of the domain."
+    },
+    {
+      "topic": "Multi-Material Printing",
+      "verdict": "in",
+      "rationale": "This involves using multiple materials in a single 3D printing process, enhancing the technology's capabilities."
+    },
+    {
+      "topic": "Temperature Control in 3D Printing",
+      "verdict": "in",
+      "rationale": "Temperature control is crucial for the quality and precision of 3D printed objects, making it relevant to the domain."
+    },
+    {
+      "topic": "Adhesive Surfaces",
+      "verdict": "out",
+      "rationale": "These patents focus on surface properties rather than the creation of 3D objects, which is outside the domain."
+    },
+    {
+      "topic": "Monitoring Systems",
+      "verdict": "conditional",
+      "rationale": "In if the systems are specifically designed to monitor and improve the 3D printing process; out if they are generic monitoring systems."
+    },
+    {
+      "topic": "Origami Techniques",
+      "verdict": "out",
+      "rationale": "These techniques do not involve additive manufacturing processes and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Orthodontic Applications",
+      "verdict": "conditional",
+      "rationale": "In if the applications specifically involve 3D printing technology; out if they are generic orthodontic methods."
+    },
+    {
+      "topic": "Imaging and Display Technologies",
+      "verdict": "out",
+      "rationale": "These technologies do not involve the additive manufacturing process and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Photolithography Systems",
+      "verdict": "out",
+      "rationale": "These systems are related to semiconductor manufacturing and do not involve 3D printing processes."
+    },
+    {
+      "topic": "Material Compositions without 3D Printing Applications",
+      "verdict": "out",
+      "rationale": "These compositions are not specific to 3D printing and do not contribute to the domain."
+    },
+    {
+      "topic": "Non-3D Printing Manufacturing Methods",
+      "verdict": "out",
+      "rationale": "These methods do not involve additive manufacturing processes and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Control Systems",
+      "verdict": "conditional",
+      "rationale": "In if the systems are specifically designed for 3D printing processes; out if they are generic control systems."
+    },
+    {
+      "topic": "Semiconductor Manufacturing Processes",
+      "verdict": "out",
+      "rationale": "These processes do not involve 3D printing technology and are unrelated to the domain."
+    },
+    {
+      "topic": "Medical Devices Not Related to 3D Printing",
+      "verdict": "out",
+      "rationale": "These devices do not involve 3D printing technology and are unrelated to the domain."
+    },
+    {
+      "topic": "Traditional Manufacturing Processes",
+      "verdict": "out",
+      "rationale": "These processes do not involve additive manufacturing and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Construction Methods Not Related to 3D Printing",
+      "verdict": "out",
+      "rationale": "These methods do not involve 3D printing technology and are unrelated to the domain."
+    },
+    {
+      "topic": "Packaging Technology",
+      "verdict": "out",
+      "rationale": "These technologies do not involve additive manufacturing processes and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Purification Methods",
+      "verdict": "out",
+      "rationale": "These methods do not involve 3D printing technology and are unrelated to the domain."
+    },
+    {
+      "topic": "Heat Exchange",
+      "verdict": "out",
+      "rationale": "These processes do not involve additive manufacturing and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Photolithography in Semiconductor Manufacturing",
+      "verdict": "out",
+      "rationale": "These processes do not involve 3D printing technology and are unrelated to the domain."
+    },
+    {
+      "topic": "Imaging without 3D Printing Context",
+      "verdict": "out",
+      "rationale": "These technologies do not involve additive manufacturing processes and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Coating Processes",
+      "verdict": "out",
+      "rationale": "These processes do not involve additive manufacturing and are unrelated to 3D printing."
+    },
+    {
+      "topic": "Material Preparation without 3D Printing Context",
+      "verdict": "out",
+      "rationale": "These processes do not involve additive manufacturing and are unrelated to 3D printing."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on adhesive surfaces or coatings without creating 3D objects are excluded from the domain.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that involve traditional manufacturing processes without specific application to 3D printing are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents related to photolithography or semiconductor manufacturing processes that do not involve 3D printing are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents discussing imaging or display technologies without direct application to 3D printing are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents focusing on material compositions without specific 3D printing applications are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents focusing on adhesive surfaces, the judge should exclude them unless they directly involve the creation of 3D objects using additive manufacturing processes.",
+    "For monitoring systems, include them if they are specifically designed to enhance or monitor the 3D printing process; exclude if they are generic systems not tailored to 3D printing.",
+    "For orthodontic applications, include them if they specifically involve 3D printing technology; exclude if they are generic orthodontic methods without a 3D printing context."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen fuel cells",
+    "Hydrogen storage materials",
+    "Hydrogen recovery systems",
+    "Hydrogen production methods",
+    "Hydrogen separation technologies"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "fuel cell",
+    "alloy",
+    "generation",
+    "catalyst",
+    "electrochemical",
+    "decomposition",
+    "gas",
+    "process",
+    "electrode",
+    "production",
+    "method",
+    "battery",
+    "characteristics",
+    "separation"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for efficient energy systems",
+    "Advanced hydrogen generation systems for industrial applications",
+    "Innovative hydrogen fuel cells with improved efficiency",
+    "Novel hydrogen storage materials with high capacity",
+    "Hydrogen recovery systems for sustainable energy solutions"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower — This patent relates to cooling technology and does not focus on hydrogen storage.",
+    "Electrochemical reaction apparatus — While it involves electrochemical processes, it does not specifically address hydrogen storage.",
+    "Gasification of plastics — This patent discusses hydrogen generation from plastics but does not focus on storage technology.",
+    "Vehicle-mounted hydrogen supply system frame for hydrogen fuel logistics vehicle — This patent relates to logistics for hydrogen supply but does not detail storage technology itself.",
+    "Semiconductor manufacturing apparatus — While it mentions hydrogen, it focuses on semiconductor film production rather than hydrogen storage or utilization.",
+    "Self-rising type closestool cover — This patent does not relate to hydrogen storage technology; it is about a toilet seat mechanism.",
+    "Acid ndfeb magnet recycling — Although it mentions hydrogen gas capture, the primary focus is on magnet recycling, not hydrogen storage or production."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as significant.",
+    "The pool does not prominently feature liquid hydrogen storage, despite its importance in web evidence for concentrated hydrogen storage.",
+    "Web evidence emphasizes the environmental impact of hydrogen generation methods, which is not a major focus in the patent pool."
+  ]
+}

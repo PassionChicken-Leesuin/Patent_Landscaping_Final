@@ -1,0 +1,64 @@
+{
+  "main_clusters": [
+    "Cryptocurrency transaction systems",
+    "Smart contract applications",
+    "Identity authentication mechanisms",
+    "Blockchain-based document processing",
+    "Supply chain integrity",
+    "Data privacy protection",
+    "Digital asset management",
+    "Blockchain for energy management",
+    "Healthcare transaction validation",
+    "Voting systems",
+    "Peer-to-peer transactions",
+    "Insurance claims processing",
+    "Product provenance tracking"
+  ],
+  "vocabulary_profile": [
+    "blockchain",
+    "cryptocurrency",
+    "smart contract",
+    "distributed ledger",
+    "transaction",
+    "authentication",
+    "digital asset",
+    "data management",
+    "encryption",
+    "identity verification",
+    "public key",
+    "private key",
+    "consensus",
+    "decentralized",
+    "ledger",
+    "node",
+    "security",
+    "digital currency",
+    "network",
+    "verification"
+  ],
+  "representative_cases": [
+    "Blockchain-based document processing system",
+    "Cryptocurrency transaction systems and methods",
+    "Smart contract applications for automated trading",
+    "Distributed ledger technology for identity authentication",
+    "Supply chain integrity management using blockchain",
+    "Data privacy protection in blockchain networks",
+    "Digital asset management on distributed ledgers",
+    "Blockchain for energy management and transactions",
+    "Healthcare transaction validation using blockchain",
+    "Voting systems with blockchain-based security"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on insurance claims processing, such as 'Method and apparatus for claiming insurance benefit,' mention blockchain but are more about traditional insurance processes.",
+    "Patents like 'Intelligent water meter system with light wallet' mention blockchain peripherally, focusing instead on water metering technology.",
+    "Photography-related patents, such as 'A kind of photographs based on block chain really weighs method,' focus on user characteristics rather than blockchain's core functionalities.",
+    "Patents like 'Secure revisioning auditing system for electronic document files' involve blockchain-like audit logs but focus on document revisioning.",
+    "Energy management patents, such as 'Electric power mobile terminal identity authentication mechanism based on block chain,' discuss identity authentication without direct relation to cryptocurrency or financial transactions."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes clusters like 'Insurance claims processing' and 'Product provenance tracking,' which are not emphasized in the web evidence.",
+    "Web evidence highlights DApps and their challenges, but the patent pool does not show a strong focus on DApps.",
+    "The web evidence discusses consensus algorithms like proof-of-work and proof-of-stake, but these are not prominently featured in the patent pool.",
+    "Web evidence mentions legal aspects of blockchain, such as smart legal contracts and DLT law, which are not a major focus in the patent pool."
+  ]
+}

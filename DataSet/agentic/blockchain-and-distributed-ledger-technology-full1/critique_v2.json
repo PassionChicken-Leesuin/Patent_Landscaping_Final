@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the facilitation of decentralized applications (DApps), which are mentioned in the domain definition and evidence.",
+      "suggestion": "Add a criterion that requires the invention to support or facilitate the operation of decentralized applications (DApps) on a blockchain or distributed ledger.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not clearly 'rule-match-but-not-the-task' shaped. They are more general exclusions rather than specific adjacent technologies.",
+      "suggestion": "Refine the exclusion criteria to focus on technologies that are similar but do not perform the core tasks of blockchain, such as centralized databases that mimic some blockchain features without decentralization.",
+      "severity": "minor"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for patents involving identity verification or authentication that do not directly leverage blockchain's unique capabilities.",
+      "suggestion": "Clarify the boundary guidance for identity verification patents to specify what constitutes leveraging blockchain's unique capabilities, such as decentralized identity management or cryptographic verification methods.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

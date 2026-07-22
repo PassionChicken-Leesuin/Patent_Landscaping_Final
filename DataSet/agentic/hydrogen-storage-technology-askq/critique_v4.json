@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a testable full sentence as it requires inference from the abstract rather than directly stating a task performed by the invention.",
+      "suggestion": "Rephrase C6 to explicitly state that the invention must demonstrate enhanced hydrogen storage capacity and efficiency through specific means, such as the use of advanced materials like MOFs or nanomaterials.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not clearly distinct from the domain's focus, as general gas treatment technologies could overlap with hydrogen storage if they involve containment or efficiency improvements.",
+      "suggestion": "Clarify E3 to specify that it excludes gas treatment technologies unless they specifically address hydrogen storage challenges such as containment or efficiency.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The guidance for hydrail applications is vague and does not clearly resolve the borderline pattern reported in the pool digest.",
+      "suggestion": "Provide more specific criteria for including hydrail applications, such as requiring explicit mention of hydrogen storage methods or integration with transport systems in the patent.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

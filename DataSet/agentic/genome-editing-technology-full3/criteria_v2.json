@@ -1,0 +1,145 @@
+{
+  "domain_name": "Genome Editing Technology",
+  "domain_definition": "Genome Editing Technology encompasses techniques and tools that enable the precise alteration of DNA sequences within the genomes of living organisms. This includes the ability to insert, delete, or replace specific DNA segments, allowing for targeted modifications at specific genomic loci. The technology must facilitate the study and manipulation of gene function, including gene knockout or modification, and be applicable across a wide range of organisms, such as plants, animals, and microorganisms. The core functionality involves the use of programmable nucleases or other molecular tools to achieve high accuracy in targeting and editing specific genes or genomic regions.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the precise alteration of DNA sequences in living organisms through insertion, deletion, or replacement of specific DNA segments.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must utilize a programmable nuclease or similar molecular tool to target specific genes or genomic regions with high accuracy.",
+      "sources": [
+        "corpus: technique",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must facilitate the study or manipulation of gene function, such as through gene knockout or modification.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must be applicable to a wide range of organisms, including plants, animals, and microorganisms.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must include prime editing as a recognized genome editing technique, allowing for direct writing of new genetic information into a targeted DNA site.",
+      "sources": [
+        "corpus: definition",
+        "corpus: technique"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Genome Editing Technology includes patents that describe methods, tools, or applications specifically designed for the precise modification of genetic material in living organisms. This encompasses technologies that enable targeted gene editing, such as CRISPR-Cas9, TALENs, and prime editing, and their applications in various fields including medicine, agriculture, and biotechnology. Patents that focus on enabling technologies, such as delivery systems for genome editing tools, are also within scope if they are specifically designed for genome editing purposes.",
+  "scope_decisions": [
+    {
+      "topic": "CRISPR-Cas9 technology",
+      "verdict": "in",
+      "rationale": "CRISPR-Cas9 technology is a core genome editing tool that enables precise DNA modifications, fitting the domain's defining tasks."
+    },
+    {
+      "topic": "gene editing methods",
+      "verdict": "in",
+      "rationale": "Gene editing methods that involve precise DNA sequence alterations are central to the domain of genome editing technology."
+    },
+    {
+      "topic": "homologous recombination",
+      "verdict": "in",
+      "rationale": "Homologous recombination techniques are used in genome editing to achieve targeted DNA modifications, aligning with the domain's purpose."
+    },
+    {
+      "topic": "gene knockout methods",
+      "verdict": "in",
+      "rationale": "Gene knockout methods are a form of genome editing that involves precise gene function manipulation, fitting the domain's criteria."
+    },
+    {
+      "topic": "gene therapy applications",
+      "verdict": "conditional",
+      "rationale": "Gene therapy applications are in scope if they involve direct genome editing techniques to modify genetic material for therapeutic purposes."
+    },
+    {
+      "topic": "plant genetic engineering",
+      "verdict": "conditional",
+      "rationale": "Plant genetic engineering is in scope if it involves precise genome editing techniques such as CRISPR or prime editing, rather than general genetic modification."
+    },
+    {
+      "topic": "RNA-guided gene editing",
+      "verdict": "in",
+      "rationale": "RNA-guided gene editing, such as CRISPR, is a key technology for precise genome modifications, fitting the domain's criteria."
+    },
+    {
+      "topic": "genome engineering applications",
+      "verdict": "in",
+      "rationale": "Applications that involve precise genome engineering techniques are within the scope of genome editing technology."
+    },
+    {
+      "topic": "nucleic acid therapeutics",
+      "verdict": "conditional",
+      "rationale": "Nucleic acid therapeutics are in scope if they involve genome editing techniques to achieve therapeutic outcomes."
+    },
+    {
+      "topic": "viral gene editing",
+      "verdict": "conditional",
+      "rationale": "Viral gene editing is in scope if it involves precise genome editing techniques rather than general viral manipulation."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on gene expression modulation without direct genome editing methods are excluded.",
+      "sources": [
+        "corpus: boundary_case",
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to vector production without direct genome editing techniques are excluded.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents discussing nucleic acid-based therapeutics without specific genome editing technologies are excluded as they do not perform genome editing tasks.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents involving genetic modification for agricultural applications without precise genome editing techniques are excluded as they do not meet the domain's criteria for precision.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents focusing on detection methods rather than genome editing are excluded.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents focusing on gene expression modulation without direct genome editing methods should be excluded, as seen in 'The multi-functional gene expression platform of protocatechuic acid regulation and its application'.",
+    "Patents related to vector production without direct genome editing techniques, such as 'Method for producing adenovirus vector', should be excluded.",
+    "Nucleic acid-based therapeutics must involve specific genome editing technologies to be included, otherwise, they are excluded as in 'Nucleic acid-based therapeutics'.",
+    "Genetic modification for agricultural applications must involve precise genome editing techniques, such as CRISPR or prime editing, to be included, otherwise, they are excluded as in 'Method for preparing tomato material with high lycopene content'.",
+    "Detection methods without direct genome editing involvement, such as 'Method for detecting the antibiotic resistance gene blavim-2', should be excluded."
+  ]
+}

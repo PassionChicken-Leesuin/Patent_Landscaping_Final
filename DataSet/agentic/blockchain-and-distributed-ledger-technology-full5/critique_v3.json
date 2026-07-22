@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is redundant with C2 as both address consensus mechanisms. C6 should be integrated into C2 or removed.",
+      "suggestion": "Integrate C6 into C2 to avoid redundancy and ensure clarity.",
+      "severity": "minor"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the C-criteria. They restate exclusions rather than providing clear adjacent technologies.",
+      "suggestion": "Clarify E-criteria to focus on technologies that are similar but not performing blockchain tasks, such as centralized databases using similar cryptographic techniques.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not resolve the ambiguity in cases where blockchain is mentioned but not central.",
+      "suggestion": "Provide clearer criteria for determining when blockchain is integral versus peripheral, possibly by specifying the role of blockchain in the invention's primary function.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Energy transactions using blockchain' and 'Healthcare transaction validation' is weak and not supported by evidence.",
+      "suggestion": "Reassess these exclusions or provide stronger evidence-based rationale for their exclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,59 @@
+{
+  "main_clusters": [
+    "Cryptocurrency transaction systems",
+    "Smart contract applications",
+    "Digital identity management",
+    "Data management and privacy",
+    "Distributed ledger technology",
+    "Energy transactions using blockchain",
+    "Healthcare transaction validation",
+    "Supply chain integrity",
+    "Voting systems",
+    "Digital asset management",
+    "Peer-to-peer transactions",
+    "Insurance claims processing",
+    "Product provenance tracking"
+  ],
+  "vocabulary_profile": [
+    "blockchain",
+    "cryptocurrency",
+    "smart contract",
+    "distributed ledger",
+    "digital asset",
+    "authentication",
+    "transaction",
+    "decentralized",
+    "verification",
+    "identity",
+    "node",
+    "security",
+    "data management",
+    "ledger",
+    "consensus",
+    "encryption",
+    "digital currency",
+    "peer-to-peer",
+    "asset management",
+    "provenance"
+  ],
+  "representative_cases": [
+    "Blockchain-based document processing",
+    "Cryptocurrency transaction systems",
+    "Smart contract applications",
+    "Distributed ledger technology",
+    "Identity authentication mechanisms",
+    "Real-time validation in blockchain",
+    "Healthcare transaction validation"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on insurance claims processing, such as 'Method and apparatus for claiming insurance benefit,' mention blockchain but are more about insurance than blockchain technology.",
+    "Patents like 'Intelligent water meter system with light wallet' mention blockchain peripherally, focusing instead on water metering.",
+    "Photography-related patents, such as 'A kind of photographs based on block chain really weighs method, device and equipment,' may not align with core blockchain functionalities.",
+    "Patents like 'Method for Providing Asynchronous Reverse Direction Payment by using Sound Signal Device and Blockchain' focus on payment processing using sound signals, with blockchain as a secondary element."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes clusters like 'Energy transactions using blockchain' and 'Healthcare transaction validation,' which are not emphasized in the web evidence.",
+    "The web evidence highlights consensus algorithms like proof-of-work and proof-of-stake, but these are not prominently featured in the patent pool.",
+    "The web evidence discusses DApps and their challenges, which are not a major focus in the patent pool."
+  ]
+}

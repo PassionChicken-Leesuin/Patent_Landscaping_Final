@@ -1,0 +1,65 @@
+{
+  "main_clusters": [
+    "Hydrogen storage materials",
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen production methods",
+    "Fuel cell technologies",
+    "Hydrogen storage systems",
+    "Electrolysis techniques",
+    "Hydrogen purification methods"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "generation",
+    "production",
+    "alloy",
+    "fuel cell",
+    "purification",
+    "electrolyzer",
+    "chemical hydride",
+    "temperature",
+    "pressure",
+    "system",
+    "method",
+    "device",
+    "catalyst",
+    "electrolysis",
+    "compressor",
+    "tank",
+    "material",
+    "gas",
+    "reaction",
+    "electrode",
+    "battery",
+    "synthesis",
+    "hydrocarbon",
+    "metal hydride"
+  ],
+  "representative_cases": [
+    "Hydrogen storage materials and methods",
+    "Hydrogen storage alloys for energy applications",
+    "Hydrogen generation systems using electrolysis",
+    "Hydrogen production methods from renewable sources",
+    "Fuel cell technologies for hydrogen utilization",
+    "Hydrogen storage systems for vehicles",
+    "Electrolysis techniques for hydrogen production",
+    "Hydrogen purification methods for fuel cells"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on hydrogen production without addressing storage, such as 'Method for producing hydrogen gas from marine algae using anaerobic microorganisms'.",
+    "Patents related to fuel cells and air supply systems rather than storage, like 'Air supply system used for fuel cell and capable of strengthening safety discharge of hydrogen gas'.",
+    "Patents discussing hydrogen utilization rather than storage, such as 'Hydrogen gas utilizing method'.",
+    "Patents involving hydrogen in unrelated contexts, like 'Hydrogen-containing sake and method for producing the same'.",
+    "Patents on safety during refueling rather than storage technology, such as 'Driver interactive system for reducing the possibility of a static discharge during the refill of high pressure storage tanks in hydrogen fuel cell powered vehicles'.",
+    "Patents on hydrogen detection rather than storage, like 'Hydrogen gas sensor'.",
+    "Patents on hydrogen in chemical processes not focused on storage, such as 'Preparation of styrene'.",
+    "Patents on hydrogen in energy production systems not focused on storage, like 'High Purity Hydrogen and Electric Power Co-Generation Apparatus and Method'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool emphasizes hydrogen storage alloys and materials, while the web evidence highlights metal-organic frameworks (MOFs) as a key technology, which is less represented in the pool.",
+    "The web evidence discusses hydrogen storage in vehicles and its environmental impact, but the patent pool has fewer patents directly addressing vehicle storage solutions.",
+    "The web evidence emphasizes the role of nanomaterials in enhancing hydrogen storage, which is not a prominent focus in the patent pool."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "domain_name": "Humanoid Robot Commercialization Technology",
+  "domain_definition": "Humanoid Robot Commercialization Technology encompasses the development and deployment of technologies that enable humanoid robots to be effectively and efficiently used in commercial settings. This includes systems that ensure safe and intuitive human-robot interaction, cost-effective production and maintenance, robust navigation and mobility in diverse environments, and compliance with regulatory and safety standards. The domain also covers the integration of humanoid robots into various industries, addressing challenges such as data scarcity, cybersecurity, and the establishment of supportive ecosystems for mass production and market viability.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable humanoid robots to perform tasks in real-world environments safely and efficiently.",
+      "sources": [
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include systems for human-robot interaction that are intuitive and reliable.",
+      "sources": [
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the cost-effective production and maintenance of humanoid robots.",
+      "sources": [
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must include robust navigation and mobility systems for humanoid robots in diverse settings.",
+      "sources": [
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must address regulatory and safety standards for deploying humanoid robots in public and private sectors.",
+      "sources": [
+        "corpus: task"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Humanoid Robot Commercialization Technology includes patents that specifically contribute to the development, deployment, and commercialization of humanoid robots. This encompasses technologies that enhance the functionality, safety, and market readiness of humanoid robots, including their integration into various industries. Patents that merely use humanoid robots for unrelated purposes or lack specific contributions to their commercialization are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Robot control systems",
+      "verdict": "in",
+      "rationale": "These systems are essential for the safe and efficient operation of humanoid robots in commercial environments."
+    },
+    {
+      "topic": "Humanoid robot design",
+      "verdict": "in",
+      "rationale": "Design innovations are crucial for the commercial viability and functionality of humanoid robots."
+    },
+    {
+      "topic": "Robotic manipulation techniques",
+      "verdict": "in",
+      "rationale": "Manipulation techniques are vital for humanoid robots to perform tasks in real-world settings."
+    },
+    {
+      "topic": "Mobile robot systems",
+      "verdict": "conditional",
+      "rationale": "Include locomotion technologies that directly transfer to humanoid robots — bipedal/legged walking, balance control, whole-body motion control, fall prevention and recovery — even when not exclusively designed for a humanoid platform. Exclude generic wheeled mobile platforms, AGVs, logistics/transport robots, and navigation or fleet control of generic (non-legged, non-humanoid) mobile robots."
+    },
+    {
+      "topic": "Human-robot interaction",
+      "verdict": "in",
+      "rationale": "Intuitive and reliable interaction systems are key to the commercial deployment of humanoid robots."
+    },
+    {
+      "topic": "Robotic arms and end effectors",
+      "verdict": "in",
+      "rationale": "These components are critical for humanoid robots to perform complex tasks."
+    },
+    {
+      "topic": "Robot safety mechanisms",
+      "verdict": "in",
+      "rationale": "Safety mechanisms are necessary for the deployment of humanoid robots in public and private sectors."
+    },
+    {
+      "topic": "Robot teaching and programming",
+      "verdict": "in",
+      "rationale": "Teaching and programming systems are essential for adapting humanoid robots to various commercial applications."
+    },
+    {
+      "topic": "Wearable robotic systems",
+      "verdict": "out",
+      "rationale": "These systems do not specifically contribute to humanoid robot commercialization."
+    },
+    {
+      "topic": "Soft robotic actuators",
+      "verdict": "conditional",
+      "rationale": "Include actuators, joints and robot hands used for human-like manipulation — multi-fingered robot hands, dexterous grippers, grasping mechanisms, tactile-sensing hands, and joint/actuator modules (including soft actuators and reducers/servo modules) serving robot arms, hands or legs — even when not exclusively designed for humanoids, because actuators and robot hands are the representative commercialization bottleneck of this domain. Exclude actuators exclusively dedicated to unrelated fields (e.g., implantable medical devices, vehicle powertrains) with no human-like manipulation or humanoid-joint role."
+    },
+    {
+      "topic": "Robot navigation and mobility",
+      "verdict": "in",
+      "rationale": "Robust navigation and mobility systems are crucial for humanoid robots in diverse environments."
+    },
+    {
+      "topic": "Collaborative robots",
+      "verdict": "conditional",
+      "rationale": "Include human-robot safety and physical human-robot interaction technologies — proximity/co-working safety, collision detection and mitigation, compliant/impedance control for safe contact, safe handover — as these transfer directly to humanoid commercialization. Exclude fixed industrial collaborative robot arms as complete systems when they have no humanoid features and their contribution is not a transferable safety/HRI technology."
+    },
+    {
+      "topic": "Robot calibration methods",
+      "verdict": "in",
+      "rationale": "Calibration methods are important for ensuring the precision and reliability of humanoid robots."
+    },
+    {
+      "topic": "Robotic sensors and feedback",
+      "verdict": "in",
+      "rationale": "Sensors and feedback systems are essential for the functionality and safety of humanoid robots."
+    },
+    {
+      "topic": "Robotic object manipulation",
+      "verdict": "in",
+      "rationale": "Object manipulation capabilities are critical for humanoid robots to perform tasks in commercial settings."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on robotic systems without specific humanoid features or commercialization aspects are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that describe generic robotic applications not specifically related to humanoid robots are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents focusing on cleaning robots are out unless they specifically address humanoid robot features or commercialization aspects.",
+    "Patents describing industrial robots are out unless they include humanoid features or commercialization aspects.",
+    "Patents on specific robotic applications are out unless they focus on humanoid capabilities."
+  ],
+  "open_questions": []
+}

@@ -1,0 +1,160 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring its safe containment and controlled release for subsequent use. This includes methods and systems that optimize the volume and weight efficiency of hydrogen storage, such as through compression, liquefaction, or chemical bonding, and are compatible with existing hydrogen infrastructure. The technology must specifically address the challenges of maintaining hydrogen in a usable form under various conditions, facilitating its use in applications ranging from vehicular fuel to industrial processes.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the storage of hydrogen in a stable form, such as through compression, liquefaction, or chemical bonding.",
+      "sources": [
+        "corpus: Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand."
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the efficient release of hydrogen when needed, ensuring usability in applications like fuel cells or industrial processes.",
+      "sources": [
+        "corpus: Electrochemical hydrogen storage allows controlled release of hydrogen using electricity.",
+        "corpus: Hydrogen can be converted back to electrical power using a fuel cell or hydrogen turbine."
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the safety of hydrogen storage under various conditions, preventing leaks or explosions.",
+      "sources": [
+        "corpus: Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form for sufficient driving range.",
+        "corpus: Liquid hydrogen must be cooled below its critical point of 33 K to exist as a liquid."
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must optimize the volume and weight efficiency of hydrogen storage, making it practical for applications such as transportation or industrial use.",
+      "sources": [
+        "corpus: Storing hydrogen as a liquid takes less space than storing it as a gas at normal temperature and pressure.",
+        "corpus: Nanomaterials can improve hydrogen storage by enhancing sorption kinetics and storage capacity."
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be compatible with existing hydrogen infrastructure, facilitating integration into current systems.",
+      "sources": [
+        "corpus: Hydrogen technologies can be carbon neutral and may help prevent climate change."
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Hydrogen Storage Technology includes patents that specifically address the storage of hydrogen in a stable, efficient, and safe manner, with a focus on methods and systems that facilitate its use in various applications. This includes technologies related to compression, liquefaction, chemical bonding, and other innovative storage solutions. Patents that merely involve hydrogen in contexts unrelated to storage, such as production, utilization, or unrelated chemical processes, are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Hydrogen storage materials",
+      "verdict": "in",
+      "rationale": "These patents focus on materials specifically designed for storing hydrogen, which is a core task of the domain."
+    },
+    {
+      "topic": "Hydrogen production methods",
+      "verdict": "out",
+      "rationale": "These patents focus on the production of hydrogen, not its storage, which is outside the domain's scope."
+    },
+    {
+      "topic": "Hydrogen storage alloys",
+      "verdict": "in",
+      "rationale": "These patents involve alloys specifically designed to store hydrogen, aligning with the domain's core purpose."
+    },
+    {
+      "topic": "Hydrogen generation systems",
+      "verdict": "out",
+      "rationale": "These patents focus on generating hydrogen, not storing it, which is outside the domain's scope."
+    },
+    {
+      "topic": "Fuel cell technologies",
+      "verdict": "out",
+      "rationale": "These patents focus on the utilization of hydrogen in fuel cells, not its storage."
+    },
+    {
+      "topic": "Hydrogen refueling stations",
+      "verdict": "conditional",
+      "rationale": "In if the technology specifically addresses the storage aspect within the refueling process; out if it focuses solely on refueling logistics."
+    },
+    {
+      "topic": "Hydrogen storage systems",
+      "verdict": "in",
+      "rationale": "These patents focus on systems specifically designed for storing hydrogen, which is a core task of the domain."
+    },
+    {
+      "topic": "Hydrogen supply systems",
+      "verdict": "conditional",
+      "rationale": "In if the supply system includes specific storage technology; out if it focuses solely on distribution logistics."
+    },
+    {
+      "topic": "Hydrogen compressors",
+      "verdict": "conditional",
+      "rationale": "In if the compressor is specifically designed for hydrogen storage purposes; out if it is a general-purpose compressor."
+    },
+    {
+      "topic": "Hydrogen purification",
+      "verdict": "out",
+      "rationale": "These patents focus on purifying hydrogen, not storing it, which is outside the domain's scope."
+    },
+    {
+      "topic": "Hydrogen absorption and desorption",
+      "verdict": "in",
+      "rationale": "These patents focus on the processes of absorbing and releasing hydrogen, which are integral to storage technology."
+    },
+    {
+      "topic": "Electrolysis systems",
+      "verdict": "out",
+      "rationale": "These patents focus on producing hydrogen through electrolysis, not storing it."
+    },
+    {
+      "topic": "Hydrogenation processes",
+      "verdict": "out",
+      "rationale": "These patents focus on chemical processes involving hydrogen, not its storage."
+    },
+    {
+      "topic": "Gas purification and separation",
+      "verdict": "out",
+      "rationale": "These patents focus on purifying and separating gases, not specifically on hydrogen storage."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on hydrogen production methods without specific storage technology are excluded.",
+      "sources": [
+        "corpus: Patents focusing on hydrogen production without specific storage technology, such as 'Method for producing hydrogen gas from marine algae using anaerobic microorganisms'."
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to fuel cells but not directly about hydrogen storage are excluded.",
+      "sources": [
+        "corpus: Patents related to fuel cells but not directly about hydrogen storage, like 'Air supply system used for fuel cell and capable of strengthening safety discharge of hydrogen gas'."
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents discussing hydrogen utilization rather than storage or generation are excluded.",
+      "sources": [
+        "corpus: Patents discussing hydrogen utilization rather than storage or generation, such as 'Hydrogen gas utilizing method'."
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents pertaining to hydrogen engines, not directly to storage technology, are excluded.",
+      "sources": [
+        "corpus: Patents pertaining to hydrogen engines, not directly to storage technology, like 'Control method of air fuel ratio of hydrogen engine'."
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents involving hydrogen in a different context, such as semiconductor manufacturing or oil production, are excluded.",
+      "sources": [
+        "corpus: Patents discussing hydrogen in semiconductor manufacturing, not storage, such as 'Manufacture of semiconductor device'.",
+        "corpus: Patents discussing hydrogen in the context of oil production, not storage, like 'Method for producing special lubricating oil base oil'."
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents related to hydrogen refueling stations, include them if they specifically address storage technology within the refueling process.",
+    "For hydrogen supply systems, include them if they incorporate specific storage technology, otherwise exclude.",
+    "For hydrogen compressors, include them if they are specifically designed for hydrogen storage purposes, otherwise exclude."
+  ]
+}

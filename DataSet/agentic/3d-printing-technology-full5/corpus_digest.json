@@ -1,0 +1,56 @@
+{
+  "main_clusters": [
+    "Additive Manufacturing Methods",
+    "3D Printing Systems",
+    "Material Compositions",
+    "Stereolithography",
+    "Powder Bed Fusion",
+    "Metal 3D Printing",
+    "Bioprinting",
+    "Composite Materials",
+    "Laser Additive Manufacturing",
+    "Multi-Material Printing"
+  ],
+  "vocabulary_profile": [
+    "additive manufacturing",
+    "3D printing",
+    "layer",
+    "material",
+    "method",
+    "system",
+    "device",
+    "powder",
+    "sintering",
+    "laser",
+    "curing",
+    "composition",
+    "thermoplastic",
+    "stereolithography",
+    "fabrication",
+    "biocompatible",
+    "polymer",
+    "composite",
+    "support structure",
+    "build platform"
+  ],
+  "representative_cases": [
+    "Method for producing three-dimensional shaped object",
+    "Photocurable composition for 3D stereolithography and 3D model",
+    "Method for 3D printing manufacturing of components for use in lighting devices",
+    "Active-energy-ray-curable composition, active-energy-ray-curable ink, composition stored container, method and apparatus for forming two-dimensional or three-dimensional image",
+    "Method for automatic identification of material deposition deficiencies during an additive manufacturing process and manufacturing device"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on adhesive bonding surfaces rather than creating 3D printed objects directly, such as 'Method for producing adhesive-bonding surfaces by means of a 3d printing device'.",
+    "Patents discussing monitoring and identifying deficiencies rather than the core process of additive manufacturing itself, like 'Method for automatic identification of material deposition deficiencies during an additive manufacturing process and manufacturing device'.",
+    "Patents involving recycling materials but not directly pertaining to the creation of new 3D printed objects, such as 'Method for regenerating spherical aggregate in laminate molding material, regenerated laminate molding material, and method for producing laminate molded article'.",
+    "Patents that mention 3D printing but focus on integrating electronic devices rather than traditional 3D printing of objects, like 'Printed active device'.",
+    "Patents that involve 3D printing but focus on biological support design, potentially placing them outside traditional 3D printing technology applications, such as 'A kind of composable biological support Digital Design and 3D printing preparation method'.",
+    "Patents that involve 3D modeling but focus on surgical instruments rather than 3D printing technology itself, like 'Generating patient specific instruments for use as surgical aids'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on photolithography and semiconductor manufacturing, which are not emphasized in the web evidence for 3D printing.",
+    "The web evidence highlights 3D concrete printing and construction applications, which are not prominently represented in the patent pool.",
+    "The web evidence emphasizes FDM as the most common 3D printing process, but this is not reflected in the patent pool's main clusters."
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "domain_name": "Autonomous Vehicle Technology",
+  "domain_definition": "Autonomous Vehicle Technology encompasses systems and methods that enable vehicles to operate without human intervention by autonomously navigating roads, detecting and responding to environmental conditions and obstacles, ensuring passenger safety through collision avoidance and emergency handling, integrating with traffic management systems for route optimization and compliance with traffic laws, and providing real-time data processing and decision-making capabilities for dynamic driving conditions.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable a vehicle to navigate roads and traffic autonomously without human input.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include systems for detecting and responding to environmental conditions and obstacles.",
+      "sources": [
+        "corpus: technique",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure passenger safety through collision avoidance and emergency handling.",
+      "sources": [
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must integrate with traffic management systems for route optimization and compliance with traffic laws.",
+      "sources": [
+        "corpus: technique",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must provide real-time data processing and decision-making capabilities for dynamic driving conditions.",
+      "sources": [
+        "corpus: technique",
+        "corpus: task"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Autonomous Vehicle Technology includes patents that implement, improve, or provide enabling components or methods specific to autonomous vehicle systems. This includes technologies for autonomous navigation, environmental sensing, collision avoidance, traffic system integration, and real-time decision-making. Patents that merely use autonomous vehicle outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Object detection systems",
+      "verdict": "in",
+      "rationale": "Object detection systems are crucial for autonomous vehicles to identify and respond to environmental conditions and obstacles, fulfilling a core task of the domain."
+    },
+    {
+      "topic": "Traffic sign recognition",
+      "verdict": "in",
+      "rationale": "Traffic sign recognition is essential for autonomous vehicles to comply with traffic laws and integrate with traffic management systems."
+    },
+    {
+      "topic": "Vehicle parking assistance",
+      "verdict": "conditional",
+      "rationale": "Vehicle parking assistance is in scope if it enables autonomous parking without human intervention, otherwise out if it merely assists human drivers."
+    },
+    {
+      "topic": "Collision avoidance systems",
+      "verdict": "in",
+      "rationale": "Collision avoidance systems are integral to ensuring passenger safety, a defining task of autonomous vehicle technology."
+    },
+    {
+      "topic": "Robotic driving status determination",
+      "verdict": "in",
+      "rationale": "Robotic driving status determination is necessary for autonomous navigation and decision-making processes."
+    },
+    {
+      "topic": "Driving assistance systems",
+      "verdict": "conditional",
+      "rationale": "Driving assistance systems are in scope if they enable or enhance autonomous driving capabilities, otherwise out if they only assist human drivers."
+    },
+    {
+      "topic": "Autonomous vehicle systems",
+      "verdict": "in",
+      "rationale": "Autonomous vehicle systems directly implement the core tasks of autonomous navigation and operation without human intervention."
+    },
+    {
+      "topic": "Sensor technologies for vehicles",
+      "verdict": "conditional",
+      "rationale": "Sensor technologies are in scope if specifically designed for autonomous vehicle applications, otherwise out if generic."
+    },
+    {
+      "topic": "V2X communication systems",
+      "verdict": "in",
+      "rationale": "V2X communication systems are essential for integrating autonomous vehicles with traffic management systems and other vehicles."
+    },
+    {
+      "topic": "Pedestrian detection methods",
+      "verdict": "in",
+      "rationale": "Pedestrian detection methods are crucial for autonomous vehicles to safely navigate and avoid collisions with pedestrians."
+    },
+    {
+      "topic": "Vehicle imaging systems",
+      "verdict": "conditional",
+      "rationale": "Vehicle imaging systems are in scope if they are specifically used for autonomous navigation and environmental sensing."
+    },
+    {
+      "topic": "Autonomous navigation systems",
+      "verdict": "in",
+      "rationale": "Autonomous navigation systems are central to the domain, enabling vehicles to navigate without human input."
+    },
+    {
+      "topic": "Vehicle communication systems",
+      "verdict": "conditional",
+      "rationale": "Vehicle communication systems are in scope if they facilitate autonomous vehicle operations, otherwise out if generic."
+    },
+    {
+      "topic": "Radar and sensor technologies",
+      "verdict": "conditional",
+      "rationale": "Radar and sensor technologies are in scope if specifically tailored for autonomous vehicle applications."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents related to general sensor technologies not specific to autonomous vehicles are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents focused on non-vehicle related technologies, such as furniture design or medical rehabilitation, are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents involving general control systems not directly related to vehicle automation are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents on general imaging or camera systems not specifically for vehicle applications are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For 'Vehicle parking assistance', include if the system enables autonomous parking without human intervention.",
+    "For 'Driving assistance systems', include if the system enhances or enables autonomous driving capabilities.",
+    "For 'Sensor technologies for vehicles', include if the sensors are specifically designed for autonomous vehicle applications.",
+    "For 'Vehicle imaging systems', include if the imaging is used for autonomous navigation and environmental sensing.",
+    "For 'Vehicle communication systems', include if the communication facilitates autonomous vehicle operations."
+  ]
+}

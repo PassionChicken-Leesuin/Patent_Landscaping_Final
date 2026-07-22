@@ -1,0 +1,9 @@
+{
+  "_comment": "Fresh user-style natural-language queries per gold domain. Deliberately NOT copied from the benchmark's official definitions; hydrogenstorage is Korean on purpose (multilingual intake check).",
+  "autonomous_driving": "self-driving car technology — vehicles that drive themselves without a human driver",
+  "additivemanufacturing": "3D printing (additive manufacturing) technology",
+  "blockchain": "blockchain and distributed ledger technology",
+  "computervision": "computer vision — machines that understand images and video",
+  "genomeediting": "genome editing technology such as CRISPR",
+  "hydrogenstorage": "수소 저장 기술"
+}

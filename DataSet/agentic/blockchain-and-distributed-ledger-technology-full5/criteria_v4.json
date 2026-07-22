@@ -1,0 +1,181 @@
+{
+  "domain_name": "Blockchain and Distributed Ledger Technology",
+  "domain_definition": "Blockchain and Distributed Ledger Technology (DLT) encompasses systems that enable the secure, immutable recording and sharing of transactions across multiple nodes in a decentralized network. These systems must facilitate consensus mechanisms to validate and agree on the state of the ledger among participants, ensuring data integrity and privacy through cryptographic security. They should support decentralized control, eliminating the need for a central authority, and allow for the execution of smart contracts, which are self-executing agreements with terms directly written into code.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the secure and immutable recording of transactions across multiple nodes in a decentralized network.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must facilitate a consensus mechanism, such as proof-of-work or proof-of-stake, to validate and agree on the state of the ledger among participants.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Proof_of_work",
+        "https://en.wikipedia.org/wiki/Proof_of_stake"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must provide mechanisms for cryptographic security to ensure data integrity and privacy.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Cryptographic_hash_function",
+        "https://en.wikipedia.org/wiki/Public-key_cryptography"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must support decentralized control, eliminating the need for a central authority.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Decentralized_computing",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must support the execution of smart contracts, which are self-executing contracts with the terms of the agreement directly written into code.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Smart_contract",
+        "https://en.wikipedia.org/wiki/Ethereum"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Blockchain and Distributed Ledger Technology includes patents that implement, improve, or provide enabling components or methods specific to blockchain and distributed ledger systems. This encompasses inventions that facilitate secure, decentralized transaction recording, consensus mechanisms, cryptographic security, and smart contract execution. Patents that merely use blockchain outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Cryptocurrency transaction systems",
+      "verdict": "in",
+      "rationale": "These systems implement blockchain technology to enable secure and decentralized financial transactions."
+    },
+    {
+      "topic": "Smart contract applications",
+      "verdict": "in",
+      "rationale": "Smart contracts are a core functionality of blockchain systems, executing agreements autonomously."
+    },
+    {
+      "topic": "Digital identity management",
+      "verdict": "in",
+      "rationale": "Digital identity management using blockchain ensures secure and decentralized identity verification."
+    },
+    {
+      "topic": "Data management and privacy",
+      "verdict": "in",
+      "rationale": "Data management solutions that leverage blockchain for secure and immutable data storage are included."
+    },
+    {
+      "topic": "Distributed ledger technology",
+      "verdict": "in",
+      "rationale": "This cluster directly pertains to the core technology of the domain."
+    },
+    {
+      "topic": "Energy transactions using blockchain",
+      "verdict": "in",
+      "rationale": "Energy transactions using blockchain can enhance transparency and efficiency, aligning with the domain's core tasks."
+    },
+    {
+      "topic": "Healthcare transaction validation",
+      "verdict": "in",
+      "rationale": "Healthcare transaction validation using blockchain ensures secure and tamper-proof processes, aligning with the domain's core tasks."
+    },
+    {
+      "topic": "Supply chain integrity",
+      "verdict": "in",
+      "rationale": "Blockchain enhances supply chain transparency and traceability, aligning with the domain's core tasks."
+    },
+    {
+      "topic": "Voting systems",
+      "verdict": "in",
+      "rationale": "Blockchain-based voting systems ensure secure and tamper-proof election processes."
+    },
+    {
+      "topic": "Digital asset management",
+      "verdict": "in",
+      "rationale": "Managing digital assets on a blockchain ensures secure and decentralized asset control."
+    },
+    {
+      "topic": "Peer-to-peer transactions",
+      "verdict": "in",
+      "rationale": "These transactions utilize blockchain to enable direct, decentralized exchanges between parties."
+    },
+    {
+      "topic": "Insurance claims processing",
+      "verdict": "conditional",
+      "rationale": "In if the blockchain is integral to the claims process, not merely mentioned; otherwise, out."
+    },
+    {
+      "topic": "Product provenance tracking",
+      "verdict": "in",
+      "rationale": "Blockchain is used to verify and track the origin and history of products, ensuring authenticity."
+    },
+    {
+      "topic": "Photography-related patents",
+      "verdict": "out",
+      "rationale": "These patents do not align with core blockchain functionalities and focus on photography."
+    },
+    {
+      "topic": "Payment processing using sound signals",
+      "verdict": "out",
+      "rationale": "These patents focus on payment processing using sound signals, with blockchain as a secondary element."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that mention blockchain but focus primarily on unrelated fields, such as traditional insurance processes, are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that use blockchain terminology but do not implement or improve blockchain technology are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that focus on centralized systems or traditional databases using similar terminology are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Method and apparatus for claiming insurance benefit,' determine if blockchain is integral to the claims process or merely mentioned.",
+    "For patents like 'Intelligent water meter system with light wallet,' assess whether blockchain is a core component or a peripheral mention.",
+    "For patents like 'A kind of photographs based on block chain really weighs method, device and equipment,' exclude if the focus is on photography rather than blockchain technology.",
+    "For patents like 'Method for Providing Asynchronous Reverse Direction Payment by using Sound Signal Device and Blockchain,' exclude if blockchain is not the primary focus."
+  ],
+  "open_questions": [
+    {
+      "id": "Q2",
+      "question": "Should patents that mention blockchain peripherally, focusing on other technologies, be included?",
+      "why_it_matters": "측정: 풀 표본 60건 중 18건(~30%)의 판정이 넓게/좁게에 따라 갈립니다. This affects the inclusion of patents where blockchain is not the primary focus.",
+      "options": [
+        "Include if blockchain is mentioned.",
+        "Exclude if blockchain is not the primary focus."
+      ],
+      "tentative_default": "Exclude if blockchain is not the primary focus.",
+      "broad_rule": "Include patents where blockchain is mentioned in any capacity.",
+      "narrow_rule": "Exclude patents where blockchain is not the primary focus."
+    },
+    {
+      "id": "Q1",
+      "question": "Should patents that mention blockchain but focus on traditional insurance processes be included?",
+      "why_it_matters": "측정: 풀 표본 60건 중 12건(~20%)의 판정이 넓게/좁게에 따라 갈립니다. This determines whether the domain includes applications where blockchain is not central to the invention.",
+      "options": [
+        "Include if blockchain is integral to the process.",
+        "Exclude if blockchain is merely mentioned."
+      ],
+      "tentative_default": "Exclude if blockchain is merely mentioned.",
+      "broad_rule": "Include patents where blockchain is mentioned in any capacity related to the process.",
+      "narrow_rule": "Exclude patents where blockchain is not integral to the process."
+    }
+  ]
+}

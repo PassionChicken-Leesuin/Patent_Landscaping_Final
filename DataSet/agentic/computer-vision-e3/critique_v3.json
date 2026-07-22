@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C4 requires the invention to explicitly mention machine learning techniques, which is a vocabulary requirement rather than a task performance criterion.",
+      "suggestion": "Revise C4 to require the invention to perform visual recognition tasks using machine learning techniques, rather than just mentioning them.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3 is too broad and could include image processing tasks that do not contribute to computer vision, such as simple image enhancement for aesthetic purposes.",
+      "suggestion": "Clarify C3 to specify that image processing tasks must contribute to the interpretation or understanding of visual data within a computer vision system.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E2 are not clearly distinct from the scope statement and could be seen as restatements of what is irrelevant.",
+      "suggestion": "Ensure E1 and E2 provide clear examples of adjacent technologies that are not in scope, such as image processing for artistic purposes or data storage without interpretation.",
+      "severity": "minor"
+    },
+    {
+      "field": "Boundary guidance",
+      "problem": "The guidance for 'Graph generation methods' is vague and does not clearly resolve borderline cases where graph generation might involve visual data interpretation.",
+      "suggestion": "Provide specific examples or criteria for when graph generation methods are considered in scope, such as when they are used for visual data interpretation in computer vision tasks.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

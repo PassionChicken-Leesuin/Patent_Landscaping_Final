@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, there is no criterion addressing the use of AI and machine learning for autonomous vehicle operation, which is a significant aspect of the domain as evidenced by the focus on companies like Wayve.",
+      "suggestion": "Add a criterion that requires the invention to utilize AI or machine learning techniques for autonomous vehicle operation, as this is a key component of modern autonomous vehicle technology.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not adequately differentiate between adjacent technologies and those that are genuinely out of scope. For example, the exclusion of 'general vehicle components' without specifying their relevance to autonomy could lead to inconsistent judgments.",
+      "suggestion": "Refine the exclusion criteria to clearly differentiate between technologies that are adjacent but not relevant to autonomy and those that are genuinely out of scope. This could involve specifying examples of general vehicle components that are excluded unless they have a direct application to autonomous functions.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest. Specifically, the guidance does not address the inclusion of AI-driven approaches like those of Wayve, which are highlighted in the web evidence but not reflected in the patent pool.",
+      "suggestion": "Update the boundary guidance to include AI-driven approaches as a key component of autonomous vehicle technology, ensuring that patents utilizing these techniques are considered within scope.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decisions do not cover every main cluster of the pool digest. For example, 'Adaptive Motion Control' is listed as conditional, but the rationale does not clearly differentiate when it is in or out of scope based on the evidence.",
+      "suggestion": "Provide clearer guidance on the conditions under which 'Adaptive Motion Control' and similar technologies are considered in scope, based on their application to autonomous vehicle operation.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

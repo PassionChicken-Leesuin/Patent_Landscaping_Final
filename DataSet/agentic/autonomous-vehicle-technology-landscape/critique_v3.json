@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the integration of perception, localization, and planning modules, which are essential for autonomous vehicle operation as noted in the evidence.",
+      "suggestion": "Add a criterion that requires the invention to integrate perception, localization, and planning modules for autonomous vehicle operation.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not adequately differentiate between general technologies and those specifically adapted for autonomous vehicles. For example, E3 and E4 could be interpreted to exclude technologies that are crucial for autonomous vehicles if not explicitly stated as such.",
+      "suggestion": "Clarify E3 and E4 to ensure they only exclude technologies that are not specifically adapted or applied to autonomous vehicle technology, even if they are related to vehicle applications.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding the mismatch with web evidence on 'Lane departure warning systems' and 'Lane keeping assistance'.",
+      "suggestion": "Provide more detailed guidance on how to handle patents related to 'Lane departure warning systems' and 'Lane keeping assistance', considering their extensive discussion in web evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decision for 'Lane departure warning systems' and 'Lane keeping assistance' is inconsistent with the exclusion criteria, which could lead to contradictory judgments.",
+      "suggestion": "Re-evaluate the scope decisions for 'Lane departure warning systems' and 'Lane keeping assistance' to ensure consistency with the exclusion criteria and provide clear guidance on their inclusion or exclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

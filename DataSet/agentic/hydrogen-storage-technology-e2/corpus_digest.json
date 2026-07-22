@@ -1,0 +1,55 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen fuel cells",
+    "Hydrogen generation and recovery",
+    "Hydrogen storage systems",
+    "Hydrogenation processes",
+    "Fuel reforming devices",
+    "Nickel-hydrogen batteries",
+    "Electrochemical separation",
+    "Hydrogen occlusion alloy",
+    "Hydrogen production catalyst"
+  ],
+  "vocabulary_profile": [
+    "hydrogen storage",
+    "hydrogen gas",
+    "fuel cell",
+    "hydrogen generation",
+    "hydrogen storage alloy",
+    "hydrogen fuel cell",
+    "hydrogen recovery",
+    "hydrogen supply system",
+    "hydrogen generating device",
+    "hydrogen storage tank",
+    "nickel-hydrogen battery",
+    "electrochemical",
+    "hydrogen occlusion",
+    "hydrogen discharge",
+    "hydrogen absorption"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for efficient energy systems",
+    "Advanced hydrogen fuel cells for clean energy",
+    "Innovative hydrogen generation and recovery methods",
+    "Comprehensive hydrogen storage systems for industrial use",
+    "Hydrogenation processes for enhanced fuel production",
+    "Fuel reforming devices for hydrogen extraction",
+    "Nickel-hydrogen batteries for renewable energy storage",
+    "Electrochemical separation techniques for hydrogen purification",
+    "Hydrogen occlusion alloys for improved storage capacity",
+    "Catalysts for efficient hydrogen production"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower patents mention cooling and refrigeration but are not related to hydrogen storage, e.g., 'Cooling tower :: The utility model relates to a kind of recirculated cooling water cooling tower.'",
+    "Electrochemical reaction apparatus patents involve electrochemical reactions but are not specific to hydrogen storage, e.g., 'Electrochemical reaction apparatus :: An object of the present invention is to increase the production efficiency of a reduction product.'",
+    "Gasification of plastics patents involve hydrogen production but not storage, e.g., 'Gasification of plastics :: PROBLEM TO BE SOLVED: To efficiently decompose plastics into hydrogen gas.'",
+    "Semiconductor manufacturing apparatus patents mention hydrogen but focus on semiconductor film quality, not hydrogen storage or production, e.g., 'Semiconductor manufacturing apparatus.'",
+    "Process for the treatment of crude oil using hydrogen patents use hydrogen in oil processing, not directly related to hydrogen storage technology, e.g., 'Process for the treatment of crude oil using hydrogen in a special unit.'"
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool emphasizes hydrogen storage alloys and nickel-hydrogen batteries, whereas the web evidence highlights metal-organic frameworks (MOFs) as a key storage method, which is not prominently featured in the patent pool.",
+    "The web evidence discusses hydrogen's role in ammonia production and oil refining, tasks that are not prominently reflected in the patent pool's main clusters.",
+    "The web evidence emphasizes the challenges of storing hydrogen at low temperatures, a topic not extensively covered in the patent pool."
+  ]
+}

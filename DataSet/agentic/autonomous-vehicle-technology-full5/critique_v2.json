@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence. Specifically, 'Obstacle Detection and Avoidance' is a fundamental task for autonomous vehicle navigation but is not explicitly covered by any C-criterion.",
+      "suggestion": "Add a new C-criterion that explicitly requires the invention to perform obstacle detection and avoidance.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria are not fully testable from title+abstract alone. For example, C5 requires 'real-time decision-making capabilities for route optimization and obstacle management,' which may not be discernible from a title+abstract without specific mention of these capabilities.",
+      "suggestion": "Refine C5 to ensure it can be assessed from title+abstract, possibly by specifying key terms or technologies that indicate real-time decision-making capabilities.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria E1 and E2 are not genuinely 'rule-match-but-not-the-task' shaped. They are restatements of 'irrelevant' rather than identifying adjacent technologies.",
+      "suggestion": "Refine E1 and E2 to specify technologies or systems that are adjacent to but not part of autonomous vehicle technology, such as specific driver assistance systems that do not contribute to autonomy.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "Boundary guidance does not resolve all borderline patterns reported in the pool digest. Specifically, the guidance does not address 'Object Detection' and 'Traffic Lane Detection,' which are significant clusters in the pool digest.",
+      "suggestion": "Expand boundary guidance to include specific instructions for 'Object Detection' and 'Traffic Lane Detection' to clarify their inclusion or exclusion.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Cruise Control Systems' is weak given the overlap with adaptive driving assistance systems, which are conditionally included.",
+      "suggestion": "Re-evaluate the exclusion of 'Cruise Control Systems' to ensure consistency with the inclusion of adaptive driving assistance systems that contribute to autonomy.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

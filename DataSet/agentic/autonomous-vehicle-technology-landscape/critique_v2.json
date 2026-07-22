@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the integration of V2X communication systems, which is highlighted as essential in the evidence.",
+      "suggestion": "Add a criterion that requires the invention to integrate V2X communication systems for vehicle-to-everything interactions, as this is crucial for autonomous vehicle operations.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria do not adequately differentiate between general and specific technologies related to autonomous vehicles. For example, E3 and E4 could be interpreted to exclude technologies that are actually relevant if they are not explicitly stated to be for autonomous vehicles.",
+      "suggestion": "Clarify E3 and E4 to ensure they only exclude technologies that are not specifically adapted or applied to autonomous vehicle contexts, even if they are general in nature.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve all borderline patterns reported in the pool digest, particularly regarding the mismatch with web evidence on 'Lane departure warning systems' and 'Lane keeping assistance'.",
+      "suggestion": "Provide more detailed guidance on how to handle patents related to 'Lane departure warning systems' and 'Lane keeping assistance', especially in light of their prominence in web evidence but not in the patent pool.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decisions do not cover every main cluster of the pool digest. Specifically, 'Radar and sensor technologies' are not clearly addressed in the scope decisions, leading to potential inconsistencies.",
+      "suggestion": "Include a scope decision for 'Radar and sensor technologies' to clarify their inclusion or exclusion based on their application to autonomous vehicles.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

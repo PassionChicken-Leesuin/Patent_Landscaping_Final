@@ -1,0 +1,42 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not testable from title+abstract alone as it requires comparison with traditional manufacturing methods, which is external data.",
+      "suggestion": "Revise C5 to focus on the invention's inherent capability to minimize material waste in the 3D printing process itself, without needing external comparison.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E5 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance than adjacency.",
+      "suggestion": "Clarify E1 and E5 to focus on technologies that might appear similar but do not perform the core tasks of 3D printing, such as coating technologies that do not build objects layer by layer.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not address the mismatch with web evidence regarding photolithography and semiconductor manufacturing, which are present in the patent pool but not emphasized in the web evidence.",
+      "suggestion": "Add guidance to clarify the exclusion of photolithography and semiconductor manufacturing unless they directly involve 3D printing processes.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Photolithography Systems' and 'Semiconductor Manufacturing Processes' is not fully supported by the evidence, which shows these are present in the patent pool.",
+      "suggestion": "Ask human to clarify whether photolithography and semiconductor manufacturing processes that involve 3D printing should be included or excluded.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should photolithography and semiconductor manufacturing processes that involve 3D printing be included in the scope?",
+      "why_needed": "The current scope decisions exclude these processes, but evidence shows they are present in the patent pool, indicating a potential mismatch with the intended scope.",
+      "options": [
+        "Include if they involve 3D printing processes",
+        "Exclude regardless of 3D printing involvement"
+      ]
+    }
+  ]
+}

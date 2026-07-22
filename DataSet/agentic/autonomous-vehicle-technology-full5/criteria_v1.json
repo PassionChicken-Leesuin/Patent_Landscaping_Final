@@ -1,0 +1,153 @@
+{
+  "domain_name": "Autonomous Vehicle Technology",
+  "domain_definition": "Autonomous Vehicle Technology encompasses systems and methods that enable vehicles to operate without human intervention by navigating roads, detecting and responding to dynamic environmental conditions, ensuring passenger safety through collision avoidance, integrating with existing transportation infrastructure, and providing real-time decision-making capabilities for route optimization and obstacle management.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable a vehicle to navigate roads and traffic without human input, using technologies such as sensors, cameras, or GPS.",
+      "sources": [
+        "corpus: Autonomous Navigation and Path Planning",
+        "corpus: Sensor Integration for Autonomous Driving"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include systems for detecting and responding to dynamic environmental conditions, such as pedestrians and other vehicles, using technologies like LiDAR, RADAR, or V2X communication.",
+      "sources": [
+        "corpus: Pedestrian Detection",
+        "corpus: Vehicle-to-Everything (V2X) Communication"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must incorporate collision avoidance systems that ensure passenger safety through technologies like forward collision prevention or lane keeping assistance.",
+      "sources": [
+        "corpus: Collision Avoidance Systems",
+        "corpus: Lane Keeping and Departure Systems"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must integrate with existing transportation infrastructure, such as traffic signals and road signs, potentially using V2I communication.",
+      "sources": [
+        "corpus: Vehicle-to-Infrastructure (V2I) Communication",
+        "corpus: Traffic Sign Recognition"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must provide real-time decision-making capabilities for route optimization and obstacle management, potentially using AI or machine learning algorithms.",
+      "sources": [
+        "corpus: Adaptive Motion Control",
+        "corpus: Machine Learning for Driving"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Autonomous Vehicle Technology includes patents that implement, improve, or provide enabling components or methods specific to autonomous vehicle systems. This includes technologies for navigation, environmental detection, collision avoidance, infrastructure integration, and real-time decision-making. Patents that merely use autonomous vehicle outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Cruise Control Systems",
+      "verdict": "out",
+      "rationale": "Cruise control systems are not specific to autonomous vehicle technology as they do not enable full autonomy."
+    },
+    {
+      "topic": "Traffic Sign Recognition",
+      "verdict": "in",
+      "rationale": "Traffic sign recognition is essential for autonomous vehicles to integrate with existing transportation infrastructure."
+    },
+    {
+      "topic": "Vehicle-to-Everything (V2X) Communication",
+      "verdict": "in",
+      "rationale": "V2X communication is crucial for autonomous vehicles to interact with their environment and other vehicles."
+    },
+    {
+      "topic": "Collision Avoidance Systems",
+      "verdict": "in",
+      "rationale": "Collision avoidance systems are a core component of ensuring passenger safety in autonomous vehicles."
+    },
+    {
+      "topic": "Sensor Cross-Validation",
+      "verdict": "in",
+      "rationale": "Sensor cross-validation is important for accurate environmental detection and decision-making in autonomous vehicles."
+    },
+    {
+      "topic": "Obstacle Detection and Avoidance",
+      "verdict": "in",
+      "rationale": "Obstacle detection and avoidance are fundamental tasks for autonomous vehicle navigation."
+    },
+    {
+      "topic": "Lane Departure Warning Systems",
+      "verdict": "conditional",
+      "rationale": "In if the system is part of a broader autonomous driving system; out if it functions solely as a driver assistance feature."
+    },
+    {
+      "topic": "Autonomous Navigation and Path Planning",
+      "verdict": "in",
+      "rationale": "Autonomous navigation and path planning are central to the operation of autonomous vehicles."
+    },
+    {
+      "topic": "Adaptive Driving Assistance",
+      "verdict": "conditional",
+      "rationale": "In if it contributes to full autonomy; out if it only assists human drivers without enabling autonomy."
+    },
+    {
+      "topic": "Home Automation Integration",
+      "verdict": "out",
+      "rationale": "Home automation integration focuses on non-vehicular tasks and does not contribute to vehicle autonomy."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on driver assistance systems without enabling full autonomy are excluded.",
+      "sources": [
+        "corpus: Adaptive Driving Assistance"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to vehicle communication for non-autonomous purposes, such as home automation, are excluded.",
+      "sources": [
+        "corpus: Home Automation Integration"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that pertain to autonomous control of non-land vehicles, such as ships or aircraft, are excluded.",
+      "sources": [
+        "corpus: Unmanned ship autopilot",
+        "corpus: Automatic approach landing and go-around pitch axis control system for aircraft"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Lane Departure Warning Systems are in scope if they are integrated into a broader autonomous driving system, but out of scope if they function solely as a driver assistance feature.",
+    "Adaptive Driving Assistance is in scope if it contributes to full autonomy, but out of scope if it only assists human drivers without enabling autonomy."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Does the domain include adaptive driving assistance systems that do not enable full autonomy?",
+      "why_it_matters": "Determines whether systems that assist but do not fully automate driving are included.",
+      "options": [
+        "Include all adaptive driving assistance systems.",
+        "Include only those that contribute to full autonomy."
+      ],
+      "tentative_default": "Include only those that contribute to full autonomy.",
+      "broad_rule": "Adaptive driving assistance systems are included if they assist in any driving task.",
+      "narrow_rule": "Adaptive driving assistance systems are included only if they contribute to full autonomy."
+    },
+    {
+      "id": "Q2",
+      "question": "Should lane departure warning systems be included if they are not part of a broader autonomous system?",
+      "why_it_matters": "Clarifies the inclusion of systems that are standalone driver aids.",
+      "options": [
+        "Include all lane departure warning systems.",
+        "Include only those integrated into autonomous systems."
+      ],
+      "tentative_default": "Include only those integrated into autonomous systems.",
+      "broad_rule": "Lane departure warning systems are included regardless of integration.",
+      "narrow_rule": "Lane departure warning systems are included only if integrated into autonomous systems."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence, particularly the use of metal-organic frameworks (MOFs) for hydrogen storage, which is highlighted in the evidence but not explicitly covered in the criteria.",
+      "suggestion": "Add a criterion that specifically addresses the use of MOFs for hydrogen storage, ensuring it is testable and focused on the performance of the task."
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the C-criteria, particularly E2, which overlaps with the scope decisions and does not clearly differentiate adjacent technologies.",
+      "suggestion": "Refine E-criteria to focus on technologies that are adjacent but do not perform the storage task, such as hydrogen production or utilization technologies that do not contribute to storage."
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "Boundary guidance does not fully resolve the mismatch with web evidence, particularly regarding the emphasis on MOFs and low-temperature storage challenges.",
+      "suggestion": "Expand boundary guidance to address the inclusion of MOFs and clarify the handling of low-temperature storage technologies."
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "Scope decisions do not adequately address the mismatch with web evidence, particularly the lack of emphasis on MOFs and low-temperature storage challenges.",
+      "suggestion": "Re-evaluate scope decisions to ensure they align with the evidence, particularly regarding the inclusion of MOFs and technologies addressing low-temperature storage challenges."
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not a testable full sentence from title+abstract alone, as it requires specific mention of 'prime editing' which may not always be explicitly stated in the abstract.",
+      "suggestion": "Rephrase C5 to focus on the functionality of prime editing, such as 'The invention must enable direct writing of new genetic information into a targeted DNA site, indicative of prime editing.'",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 and E4 are not clearly 'rule-match-but-not-the-task' shaped. They restate exclusions rather than providing adjacent technology examples.",
+      "suggestion": "Clarify E3 and E4 by providing examples of technologies that are similar but do not perform genome editing tasks, such as 'nucleic acid-based therapeutics focusing on RNA interference' or 'genetic modification techniques that do not involve precise editing like CRISPR.'",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not address the mismatch with web evidence regarding plant genetic engineering and prime editing.",
+      "suggestion": "Include guidance on how to handle plant genetic engineering patents that do not explicitly mention CRISPR or prime editing, and clarify the inclusion of prime editing in the context of its applications.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'homologous recombination' is weak, as it is not explicitly linked to genome editing in the evidence provided.",
+      "suggestion": "Re-evaluate the inclusion of 'homologous recombination' based on its specific role in genome editing technologies, or seek further evidence to support its inclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

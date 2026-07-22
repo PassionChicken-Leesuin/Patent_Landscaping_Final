@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a testable full sentence that can be applied to a title+abstract alone. It requires understanding the implementation details of identity authentication, which may not be evident from a title+abstract.",
+      "suggestion": "Revise C6 to focus on whether the invention claims to use blockchain or distributed ledger technology for identity authentication, ensuring it manages identity data securely and immutably, as stated in the title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not genuinely 'rule-match-but-not-the-task' shaped. It is a restatement of 'irrelevant' by excluding patents that use blockchain terminology without implementing core functionalities.",
+      "suggestion": "Clarify E3 to focus on patents that might appear to use blockchain but are fundamentally traditional databases or centralized systems, without performing blockchain's core tasks.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for patents like 'Electric power mobile terminal identity authentication mechanism based on block chain'.",
+      "suggestion": "Add specific guidance for patents that involve identity authentication mechanisms, focusing on whether they perform secure and immutable data management using blockchain, as opposed to merely mentioning blockchain.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

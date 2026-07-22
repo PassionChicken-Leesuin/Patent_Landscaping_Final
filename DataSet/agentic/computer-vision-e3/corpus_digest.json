@@ -1,0 +1,62 @@
+{
+  "main_clusters": [
+    "Image processing methods and enhancement",
+    "Neural network applications and machine learning",
+    "Object detection and recognition",
+    "Signal processing techniques",
+    "Graph generation methods",
+    "Sports video analysis",
+    "Air quality estimation from images",
+    "Depth estimation from images",
+    "3D modeling and optimization",
+    "Image registration and tracking",
+    "Microscopic imaging methods",
+    "Network and data management",
+    "User authentication and security",
+    "Predictive modeling and customer behavior analysis",
+    "Vehicle control and road condition detection"
+  ],
+  "vocabulary_profile": [
+    "neural network",
+    "image processing",
+    "deep learning",
+    "signal processing",
+    "graph generation",
+    "object detection",
+    "sports video",
+    "air quality",
+    "depth estimation",
+    "3D modeling",
+    "image registration",
+    "microscopic imaging",
+    "network management",
+    "user authentication",
+    "predictive modeling",
+    "vehicle control",
+    "road condition detection"
+  ],
+  "representative_cases": [
+    "Image processing methods for enhanced visual quality",
+    "Neural network applications in object detection",
+    "Signal processing techniques for image analysis",
+    "Graph generation methods for visual data",
+    "Sports video analysis using computer vision",
+    "Air quality estimation from images using deep learning",
+    "Depth estimation from images for 3D reconstruction",
+    "3D hair modeling using computer vision techniques",
+    "Rain removal from images using neural networks",
+    "Prototype tracking in images with deep learning"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling device, electronic device and cooling medium — This patent focuses on cooling technology and does not involve computer vision tasks.",
+    "Exhaust valve for marine engine — This patent is related to mechanical engineering and does not involve computer vision.",
+    "Methods for electrosurgical electrolysis — This patent is related to medical procedures and does not involve computer vision.",
+    "Compressing and volumetric reducing treatment of solid waste — This patent is related to waste management and does not involve computer vision.",
+    "Impact blasting system for etching metal surfaces — This patent is related to material processing and does not involve computer vision."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes clusters like 'Air quality estimation from images' and 'Sports video analysis' which are not emphasized in the web evidence.",
+    "The web evidence highlights Structure from Motion (SfM) and stereo vision as key tasks, which are not prominently represented in the patent pool.",
+    "Graph generation methods are a main cluster in the patent pool, but the web evidence specifically discusses graph cuts, which are not mentioned in the pool."
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "domain_name": "Genome Editing Technology",
+  "domain_definition": "Genome editing technology encompasses methods and tools that enable the precise modification of DNA sequences within the genomes of living organisms. This includes the insertion, deletion, or replacement of genetic material at specific genomic locations, allowing for targeted alterations of genes or genomic regions. The technology is applicable across a wide range of organisms, including plants, animals, and microorganisms, and is used to study gene function, develop genetically modified organisms, and create therapeutic interventions. Key techniques include CRISPR-Cas9, TALENs, and prime editing, which utilize programmable nucleases and guide RNAs to achieve high precision in genome modifications.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the modification of DNA sequences in living organisms through insertion, deletion, or replacement of genetic material at specific genomic locations.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task",
+        "corpus: technique"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must utilize a programmable nuclease or similar tool to target specific genes or genomic regions with high precision.",
+      "sources": [
+        "corpus: technique",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must be applicable to a variety of organisms, including plants, animals, and microorganisms, for purposes such as research, agriculture, or therapeutic development.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must facilitate the study of gene function or the development of genetically modified organisms.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for genome editing technology includes patents that implement, improve, or provide enabling components or methods specific to genome editing. This encompasses technologies that perform precise DNA modifications, utilize programmable nucleases, or are specific applications of genome editing in research, agriculture, or therapeutics. Excluded are technologies that merely use genome editing outputs or vocabulary for unrelated purposes.",
+  "scope_decisions": [
+    {
+      "topic": "CRISPR-Cas9 technology",
+      "verdict": "in",
+      "rationale": "CRISPR-Cas9 is a core genome editing technology that enables precise DNA modifications."
+    },
+    {
+      "topic": "gene editing methods",
+      "verdict": "in",
+      "rationale": "Gene editing methods that involve precise DNA modifications fall within the domain."
+    },
+    {
+      "topic": "homologous recombination",
+      "verdict": "conditional",
+      "rationale": "In if used for precise genome editing; out if used solely for detection or unrelated applications."
+    },
+    {
+      "topic": "plant genetic engineering",
+      "verdict": "in",
+      "rationale": "Plant genetic engineering using genome editing techniques is within the domain."
+    },
+    {
+      "topic": "nucleic acid therapeutics",
+      "verdict": "conditional",
+      "rationale": "In if they involve genome editing technologies; out if they do not specify genome editing techniques."
+    },
+    {
+      "topic": "gene expression modulation",
+      "verdict": "conditional",
+      "rationale": "In if modulation is achieved through genome editing; out if it does not involve direct genome editing techniques."
+    },
+    {
+      "topic": "gene knockout methods",
+      "verdict": "in",
+      "rationale": "Gene knockout methods using genome editing technologies are within the domain."
+    },
+    {
+      "topic": "recombinant virus construction",
+      "verdict": "conditional",
+      "rationale": "In if used for genome editing purposes; out if for unrelated vector production."
+    },
+    {
+      "topic": "high-throughput gene screening",
+      "verdict": "out",
+      "rationale": "High-throughput gene screening without direct genome editing involvement is outside the domain."
+    },
+    {
+      "topic": "RNA-targeted editing",
+      "verdict": "in",
+      "rationale": "RNA-targeted editing that involves genome editing technologies is within the domain."
+    },
+    {
+      "topic": "gene therapy applications",
+      "verdict": "in",
+      "rationale": "Gene therapy applications using genome editing technologies are within the domain."
+    },
+    {
+      "topic": "transgenic plant methods",
+      "verdict": "in",
+      "rationale": "Transgenic plant methods using genome editing technologies are within the domain."
+    },
+    {
+      "topic": "RNA-guided endonucleases",
+      "verdict": "in",
+      "rationale": "RNA-guided endonucleases are a key component of genome editing technologies."
+    },
+    {
+      "topic": "gene delivery platforms",
+      "verdict": "conditional",
+      "rationale": "In if specific to genome editing; out if for general gene delivery without genome editing."
+    },
+    {
+      "topic": "non-viral vectors",
+      "verdict": "conditional",
+      "rationale": "In if used for genome editing; out if for unrelated gene delivery purposes."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on gene expression modulation without involving direct genome editing techniques are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents involving genetic modification for vector production without direct genome editing are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents discussing nucleic acid-based therapeutics without specific genome editing technologies are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents related to detection methods rather than genome editing are excluded.",
+      "sources": [
+        "corpus: suspected_boundary_cases"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents focusing on gene expression modulation without direct genome editing techniques should be excluded unless they explicitly involve genome editing.",
+    "Patents involving genetic modification for vector production should be excluded unless they specifically pertain to genome editing.",
+    "Patents discussing nucleic acid-based therapeutics should be included only if they specify genome editing technologies.",
+    "Patents related to agricultural applications using CRISPR/Cas9 should be included if they focus on genome editing technology itself."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Should patents focusing on gene expression modulation without direct genome editing techniques be included?",
+      "why_it_matters": "측정: 풀 표본 60건 중 33건(~55%)의 판정이 넓게/좁게에 따라 갈립니다. This determines whether indirect applications of genome editing are within scope.",
+      "options": [
+        "Include if they involve genome editing indirectly.",
+        "Exclude unless they involve direct genome editing techniques."
+      ],
+      "tentative_default": "Exclude unless they involve direct genome editing techniques.",
+      "broad_rule": "Include patents focusing on gene expression modulation if they involve genome editing indirectly.",
+      "narrow_rule": "Exclude patents focusing on gene expression modulation unless they involve direct genome editing techniques."
+    },
+    {
+      "id": "Q3",
+      "question": "Should patents discussing nucleic acid-based therapeutics without specific genome editing technologies be included?",
+      "why_it_matters": "측정: 풀 표본 60건 중 33건(~55%)의 판정이 넓게/좁게에 따라 갈립니다. This affects the inclusion of therapeutic applications that may not directly involve genome editing.",
+      "options": [
+        "Include if they have potential applications in genome editing.",
+        "Exclude unless they specify genome editing technologies."
+      ],
+      "tentative_default": "Exclude unless they specify genome editing technologies.",
+      "broad_rule": "Include patents discussing nucleic acid-based therapeutics if they have potential applications in genome editing.",
+      "narrow_rule": "Exclude patents discussing nucleic acid-based therapeutics unless they specify genome editing technologies."
+    },
+    {
+      "id": "Q2",
+      "question": "Should patents involving genetic modification for vector production be included?",
+      "why_it_matters": "측정: 풀 표본 60건 중 32건(~53%)의 판정이 넓게/좁게에 따라 갈립니다. This affects the inclusion of patents that support genome editing indirectly.",
+      "options": [
+        "Include if they support genome editing indirectly.",
+        "Exclude unless they specifically pertain to genome editing."
+      ],
+      "tentative_default": "Exclude unless they specifically pertain to genome editing.",
+      "broad_rule": "Include patents involving genetic modification for vector production if they support genome editing indirectly.",
+      "narrow_rule": "Exclude patents involving genetic modification for vector production unless they specifically pertain to genome editing."
+    }
+  ]
+}

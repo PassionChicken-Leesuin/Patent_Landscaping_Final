@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, tasks like 'interpreting spatial relationships between objects in an image' and 'tracking object movement across video frames' are not explicitly covered.",
+      "suggestion": "Add criteria that explicitly cover tasks such as 'interpreting spatial relationships between objects in an image' and 'tracking object movement across video frames'.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria are not genuinely 'rule-match-but-not-the-task' shaped. They are more about excluding irrelevant technologies rather than adjacent or look-alike technologies.",
+      "suggestion": "Refine E-criteria to focus on technologies that are adjacent or look-alike to computer vision but do not perform the core tasks, such as certain types of image processing that do not involve interpretation or understanding.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve the borderline patterns reported in the pool digest, particularly regarding patents that mention image processing but lack specific applications in computer vision tasks.",
+      "suggestion": "Clarify boundary guidance to address patents that mention image processing but do not specify applications in core computer vision tasks, ensuring they are excluded unless they contribute to broader computer vision applications.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Medical Imaging' is weak given the evidence that computer vision techniques are applied in medical imaging for tasks like 3D reconstruction and feature extraction.",
+      "suggestion": "Re-evaluate the exclusion of 'Medical Imaging' considering the overlap with computer vision tasks like 3D reconstruction and feature extraction, or provide a stronger rationale for its exclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

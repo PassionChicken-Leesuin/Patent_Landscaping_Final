@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C4 is not testable from title+abstract alone as it requires knowledge of whether multiple materials are relevant to the specific process being claimed.",
+      "suggestion": "Revise C4 to focus on the capability of using multiple materials in the 3D printing process without conditional relevance to specific processes.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E2 and E3 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance rather than adjacent technologies.",
+      "suggestion": "Clarify E2 and E3 to focus on technologies that are adjacent or look-alike but do not perform the core 3D printing task, such as monitoring technologies used in other manufacturing processes.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not clearly resolve the borderline pattern of biological support design patents, which is a significant cluster in the pool digest.",
+      "suggestion": "Provide clearer guidance on how to handle patents involving biological support design, possibly by specifying conditions under which they are included or excluded.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'Bioprinting' is not clearly supported by the evidence, as it overlaps with the unresolved question about biological support design.",
+      "suggestion": "Clarify the scope decision for 'Bioprinting' to ensure it aligns with the boundary guidance and open questions regarding biological applications.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

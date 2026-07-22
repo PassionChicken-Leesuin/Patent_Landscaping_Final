@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not a functional task but rather a material specification. It requires the use of advanced materials like MOFs but does not specify a task that the invention must perform.",
+      "suggestion": "Revise C6 to specify a functional task related to the use of advanced materials, such as enhancing storage capacity or efficiency through the use of MOFs.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 and E4 are not clearly distinct from each other. Both address exclusion based on lack of integration with storage, but E4 is a subset of E3.",
+      "suggestion": "Clarify the distinction between E3 and E4 or consolidate them if they address the same exclusion rationale.",
+      "severity": "minor"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not address the inclusion of liquid hydrogen storage, which is noted as significant in web evidence but not prominently featured in the patent pool.",
+      "suggestion": "Add guidance on the inclusion of liquid hydrogen storage technologies, ensuring they are considered within scope if they enhance storage efficiency or capacity.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

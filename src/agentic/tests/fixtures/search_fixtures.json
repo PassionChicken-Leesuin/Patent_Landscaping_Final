@@ -1,0 +1,48 @@
+{
+  "hydrogen": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+      "title": "Hydrogen storage - Wikipedia",
+      "content": "Hydrogen storage refers to methods of storing hydrogen for later use, including compressed gas, liquid hydrogen, and material-based storage such as metal hydrides.",
+      "raw_content": "Hydrogen storage refers to several methods of storing hydrogen for subsequent use. These methods encompass mechanical approaches such as compressed hydrogen gas at high pressure and cryogenic liquid hydrogen, and chemical or material-based approaches including metal hydrides, chemical hydrides such as ammonia and liquid organic hydrogen carriers (LOHC), and adsorption on porous materials such as metal-organic frameworks. Key performance measures are gravimetric and volumetric hydrogen density, absorption and desorption kinetics, cycling stability, and safety. Applications include hydrogen-powered vehicles with on-board storage tanks, stationary energy storage, and transport of hydrogen as an energy carrier. Distinct from storage, hydrogen production methods such as electrolysis and steam methane reforming create the hydrogen itself, and fuel cells convert stored hydrogen into electricity.",
+      "score": 0.95
+    },
+    {
+      "url": "https://patcit.github.io/benchmark/antiseed",
+      "title": "PatCit patent landscaping benchmark anti-seed",
+      "content": "Benchmark anti-seed construction and expansion-level definitions for hydrogen storage.",
+      "raw_content": "This page describes the anti-seed and expansion-level construction of the patent landscaping benchmark by Bergeaud and Verluise, S2 Appendix.",
+      "score": 0.9
+    },
+    {
+      "url": "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+      "title": "Hydrogen Storage | Department of Energy",
+      "content": "DOE overview of hydrogen storage technologies: physical storage as compressed gas or cryogenic liquid, and materials-based storage in hydrides, sorbents, and chemical carriers.",
+      "raw_content": "Hydrogen can be stored physically as a compressed gas in high-pressure tanks (350-700 bar) or as a cryogenic liquid at -253 C. Hydrogen can also be stored in materials: on the surfaces of solid sorbents by adsorption, within metal hydrides by absorption, or in chemical hydrogen storage materials from which it is released by reaction. Research targets include improving gravimetric capacity, volumetric capacity, and the kinetics and thermodynamics of hydrogen uptake and release. Related but distinct areas include hydrogen production (electrolyzers, reforming), hydrogen delivery infrastructure (pipelines, tube trailers), and fuel cells that convert hydrogen to power.",
+      "score": 0.92
+    },
+    {
+      "url": "https://www.cooperativepatentclassification.org/cpc/scheme/C/C01B",
+      "title": "CPC scheme C01B - non-metallic elements; compounds thereof",
+      "content": "C01B 3/00 covers hydrogen; gaseous mixtures containing hydrogen; separation or purification of hydrogen; C01B 3/0005 storage of hydrogen.",
+      "raw_content": "C01B 3/00 Hydrogen; Gaseous mixtures containing hydrogen; Separation of hydrogen from mixtures containing it; Purification of hydrogen. Subgroups include C01B 3/0005 relating to the storage of hydrogen, hydrogen storage in metal hydrides, reversible uptake of hydrogen by an appropriate medium, and hydrogen storage materials. Related classes: F17C vessels for containing or storing compressed, liquefied or solidified gases; H01M fuel cells.",
+      "score": 0.88
+    }
+  ],
+  "default": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Example_technology",
+      "title": "Example technology - Wikipedia",
+      "content": "An example technology page used as a generic fixture for offline smoke tests of the agentic research loop.",
+      "raw_content": "An example technology is a field of engineering concerned with performing example tasks. Core techniques include example method A and example method B. It is applied in example industry settings. Adjacent but distinct fields include counter-example technology, which does not perform the example task. Common terminology includes example, exemplar, and sample-based processing. Classification systems place this technology under example classes.",
+      "score": 0.8
+    },
+    {
+      "url": "https://patcit.github.io/benchmark/antiseed",
+      "title": "PatCit patent landscaping benchmark anti-seed",
+      "content": "Benchmark anti-seed construction and expansion-level definitions.",
+      "raw_content": "This page describes the anti-seed and expansion-level construction of the patent landscaping benchmark by Bergeaud and Verluise, S2 Appendix.",
+      "score": 0.7
+    }
+  ]
+}

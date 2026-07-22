@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, augmented reality and structure from motion (SfM) are mentioned in the domain definition but not adequately covered by the C-criteria.",
+      "suggestion": "Add specific criteria for augmented reality and structure from motion (SfM) to ensure all defining tasks are covered.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria E2 and E5 are not genuinely 'rule-match-but-not-the-task' shaped. They are more like restatements of 'irrelevant' rather than identifying adjacent technologies.",
+      "suggestion": "Refine E2 and E5 to better capture adjacent technologies that are not performing computer vision tasks, rather than just stating irrelevance.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not resolve the borderline patterns reported in the pool digest, particularly for LED display control and character recognition.",
+      "suggestion": "Provide clearer guidance on how to handle patents that involve LED display control and character recognition, ensuring they are assessed for broader computer vision tasks.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decision for 'autonomous vehicle systems' is inconsistent with the exclusion criteria, which could lead to contradictory judgments.",
+      "suggestion": "Clarify the scope decision for autonomous vehicle systems to ensure consistency with the exclusion criteria and boundary guidance.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

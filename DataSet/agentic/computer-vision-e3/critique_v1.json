@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence, such as feature detection and extraction, which are fundamental to computer vision.",
+      "suggestion": "Add a criterion that addresses feature detection and extraction as a core task in computer vision.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria are not fully testable from title+abstract alone, particularly C4, which requires understanding the use of machine learning models in detail.",
+      "suggestion": "Rephrase C4 to focus on the presence of machine learning techniques for visual recognition tasks, which can be inferred from title+abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria E1 and E2 are not clearly distinct from the scope statement and do not provide specific adjacent technologies.",
+      "suggestion": "Clarify E-criteria to focus on technologies that are closely related but not performing computer vision tasks, such as basic image storage or display technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary guidance",
+      "problem": "Boundary guidance does not address all reported borderline patterns, such as microscopic imaging methods.",
+      "suggestion": "Include guidance on how to handle cases involving microscopic imaging methods, specifying when they might fall within the scope of computer vision.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope decisions",
+      "problem": "The rationale for excluding 'Microscopic imaging methods' is weak, as it does not consider cases where these methods might involve computer vision tasks.",
+      "suggestion": "Re-evaluate the exclusion of microscopic imaging methods, considering scenarios where they involve tasks like object detection or 3D modeling.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

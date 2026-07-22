@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The C-criteria do not cover all defining functional tasks found in the evidence. Specifically, augmented reality and its applications are not explicitly covered, despite being mentioned in the domain definition and evidence.",
+      "suggestion": "Add a criterion that explicitly covers augmented reality tasks, such as overlaying virtual objects onto real-world scenes.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The E-criteria do not include any specific exclusions for augmented reality applications, which are mentioned in the boundary guidance as in scope only if they involve overlaying virtual objects onto real-world scenes.",
+      "suggestion": "Add an exclusion criterion for augmented reality applications that do not involve overlaying virtual objects onto real-world scenes.",
+      "severity": "minor"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not resolve the mismatch with web evidence regarding augmented reality and its applications, which are not prominently featured in the patent pool clusters.",
+      "suggestion": "Clarify the boundary guidance to explicitly address the inclusion of augmented reality applications, specifying the conditions under which they are considered in scope.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The scope decision for augmented reality applications is not explicitly listed, despite its mention in the boundary guidance and evidence notes.",
+      "suggestion": "Add a scope decision for augmented reality applications, specifying the conditions under which they are considered in scope.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

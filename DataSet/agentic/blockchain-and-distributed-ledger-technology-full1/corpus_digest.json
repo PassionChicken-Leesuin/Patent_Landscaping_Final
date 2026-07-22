@@ -1,0 +1,62 @@
+{
+  "main_clusters": [
+    "cryptocurrency transaction systems",
+    "smart contract applications",
+    "identity authentication mechanisms",
+    "data management using blockchain",
+    "digital asset management",
+    "secure payment methods",
+    "distributed ledger technology",
+    "blockchain-based document processing",
+    "energy management using blockchain",
+    "supply chain provenance"
+  ],
+  "vocabulary_profile": [
+    "blockchain",
+    "cryptocurrency",
+    "smart contract",
+    "distributed ledger",
+    "transaction",
+    "authentication",
+    "digital asset",
+    "data management",
+    "encryption",
+    "public key",
+    "private key",
+    "node",
+    "verification",
+    "consensus",
+    "decentralized",
+    "ledger",
+    "identity",
+    "system",
+    "method",
+    "secure",
+    "digital currency"
+  ],
+  "representative_cases": [
+    "Blockchain-based document processing",
+    "Cryptocurrency transaction systems",
+    "Smart contract applications",
+    "Distributed ledger technology",
+    "Identity authentication mechanisms",
+    "Real estate transaction information",
+    "Healthcare transaction validation",
+    "Asset tracking and supply chain integrity",
+    "Data transmission methods using blockchain",
+    "Secure key storage and transfer"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on specific applications like insurance claims or water metering where blockchain is a secondary feature, such as 'Method and apparatus for claiming insurance benefit'.",
+    "Patents involving data management or encryption without a clear blockchain context, like 'Secure revisioning auditing system for electronic document files'.",
+    "Patents related to voting or communication systems that mention blockchain but focus on other primary functions, such as 'Method for providing secret electronic voting service on the basis of blockchain'.",
+    "Patents discussing payment methods or financial transactions without explicit blockchain integration, like 'Method for Providing Asynchronous Reverse Direction Payment by using Sound Signal Device and Blockchain'.",
+    "Patents involving identity verification or authentication that do not directly leverage blockchain's unique capabilities, such as 'Electric power mobile terminal identity authentication mechanism based on block chain'."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes many patents on blockchain applications in energy management and supply chain, which are not emphasized in the web evidence.",
+    "Web evidence highlights consensus mechanisms like proof-of-work and proof-of-stake, but these are not prominently featured in the patent pool.",
+    "The web evidence discusses DApps and their challenges, which are not a major focus in the patent pool.",
+    "The patent pool includes a significant number of patents on digital identity and authentication, which is less emphasized in the web evidence."
+  ]
+}

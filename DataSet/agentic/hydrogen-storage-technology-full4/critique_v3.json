@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 is not fully testable as it requires understanding if the method is specifically applied to hydrogen storage, which may not be clear from the title or abstract alone.",
+      "suggestion": "Clarify C1 to ensure it specifies that the method must be explicitly linked to hydrogen storage in the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C4 is not fully testable as it requires understanding if the optimization is specifically for hydrogen storage, which may not be clear from the title or abstract alone.",
+      "suggestion": "Clarify C4 to ensure it specifies that the optimization must be explicitly linked to hydrogen storage in the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is not a clear 'rule-match-but-not-the-task' criterion as it overlaps with C5, which includes purification as part of storage.",
+      "suggestion": "Refine E3 to clearly differentiate between purification methods integral to storage and those that are not, ensuring it does not overlap with C5.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not address the mismatch with web evidence regarding MOFs and vehicle storage, which are significant in the domain.",
+      "suggestion": "Include guidance on how to handle patents related to MOFs and vehicle storage, ensuring they are considered within the domain if they meet the criteria.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

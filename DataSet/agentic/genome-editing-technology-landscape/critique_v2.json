@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the use of genome editing for therapeutic applications, which is a significant task mentioned in the evidence.",
+      "suggestion": "Add a criterion that requires the invention to facilitate therapeutic applications of genome editing, such as treating genetic diseases or developing new medical treatments.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the core tasks. For example, E2 excludes patents that enhance gene expression without genome editing tools, but this overlaps with C4, which involves gene function studies.",
+      "suggestion": "Clarify E2 to ensure it only excludes technologies that enhance gene expression without any genome editing context, such as those purely focused on transcriptional regulation without DNA modification.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "Boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding genetic engineering applications and their overlap with genome editing.",
+      "suggestion": "Provide more detailed guidance on distinguishing between genetic engineering applications that are in scope due to their use of genome editing tools and those that are not.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The scope decision for 'genetic engineering applications' is conditional but lacks clear criteria for determining when they are in scope.",
+      "suggestion": "Define specific conditions or examples that clarify when genetic engineering applications are considered in scope, such as the use of specific genome editing tools or methods.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

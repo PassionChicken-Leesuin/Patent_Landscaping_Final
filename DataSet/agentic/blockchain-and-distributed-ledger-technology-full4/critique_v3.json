@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks found in the evidence. Specifically, the criteria do not explicitly address the prevention of double-spending, which is a critical task in blockchain systems.",
+      "suggestion": "Add a criterion that requires the invention to address or prevent double-spending, a key issue in decentralized systems.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the C-criteria. They restate the exclusion of patents that do not perform defining tasks, rather than focusing on adjacent technologies that might superficially match but do not perform the task.",
+      "suggestion": "Refine E-criteria to focus on technologies that might appear similar but do not perform the core tasks, such as distributed databases that do not ensure immutability or consensus.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "Boundary guidance does not fully resolve borderline patterns, particularly for patents that mention blockchain peripherally or focus on traditional processes.",
+      "suggestion": "Expand boundary guidance to include more examples of patents that mention blockchain but do not perform core tasks, such as those focusing on traditional processes with blockchain as a minor component.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "Scope decisions do not cover every main cluster from the pool digest, specifically missing clusters like 'Data privacy protection' and 'Digital asset management'.",
+      "suggestion": "Include scope decisions for 'Data privacy protection' and 'Digital asset management', ensuring they align with the domain's core functionalities.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

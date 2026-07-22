@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C-criteria do not cover all defining functional tasks. They focus on precise DNA alterations and delivery mechanisms but miss tasks like ensuring specificity and minimizing off-target effects, which are critical in genome editing.",
+      "suggestion": "Add a criterion that requires the invention to demonstrate specificity in targeting and minimizing off-target effects.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E-criteria are not sufficiently distinct from the core tasks. Some exclusions, like E1 and E7, are restatements of irrelevance rather than adjacent technologies.",
+      "suggestion": "Refine E-criteria to focus on technologies that are adjacent but not performing genome editing, such as gene expression profiling or traditional genetic engineering without precision editing.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "Boundary guidance does not resolve all borderline patterns. It lacks clarity on how to handle cases involving emerging techniques like prime editing, which are not explicitly covered.",
+      "suggestion": "Include guidance on emerging techniques like prime editing and their inclusion criteria.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding high-throughput gene screening is weak, as it could be relevant if it involves genome editing components.",
+      "suggestion": "Clarify the conditions under which high-throughput screening could be included, such as when it directly involves genome editing techniques.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

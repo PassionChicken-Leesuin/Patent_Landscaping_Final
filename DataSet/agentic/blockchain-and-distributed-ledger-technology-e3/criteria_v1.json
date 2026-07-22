@@ -1,0 +1,129 @@
+{
+  "domain_name": "Blockchain and Distributed Ledger Technology",
+  "domain_definition": "An invention belongs to the domain of Blockchain and Distributed Ledger Technology if it enables the secure, immutable recording and management of transactions or data across a distributed network without a central authority. This includes facilitating consensus among distributed nodes to validate transactions, ensuring data integrity and preventing unauthorized alterations, and supporting the execution of smart contracts. The technology must provide transparency and traceability of transactions to all participants in the network, leveraging cryptographic methods to secure data and consensus algorithms to maintain the ledger's integrity.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable secure and immutable recording of transactions or data across a distributed network.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must facilitate consensus among distributed nodes to validate transactions without a central authority.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure data integrity and prevent unauthorized alterations to the ledger.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must support the execution of smart contracts, which are self-executing contracts with the terms of the agreement directly written into code.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Smart_contract",
+        "https://en.wikipedia.org/wiki/Blockchain"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must provide transparency and traceability of transactions to all participants in the network.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Blockchain",
+        "https://en.wikipedia.org/wiki/Distributed_ledger"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for this domain includes patents that involve the core functionalities of blockchain and distributed ledger technologies, such as secure transaction recording, consensus mechanisms, smart contract execution, and data integrity assurance. It excludes technologies that merely use blockchain outputs or vocabulary without performing these core functions.",
+  "scope_decisions": [
+    {
+      "topic": "Blockchain-based systems",
+      "verdict": "in",
+      "rationale": "These systems are central to the domain as they involve the core functionalities of blockchain technology, including secure transaction recording and consensus mechanisms."
+    },
+    {
+      "topic": "Cryptocurrency transactions and trading",
+      "verdict": "in",
+      "rationale": "Cryptocurrency systems inherently rely on blockchain technology for secure and immutable transaction recording and consensus."
+    },
+    {
+      "topic": "Data encryption and protection methods",
+      "verdict": "out",
+      "rationale": "While encryption is used in blockchain, this cluster focuses on encryption methods generally, not specifically on blockchain or distributed ledger technology."
+    },
+    {
+      "topic": "Smart contracts",
+      "verdict": "in",
+      "rationale": "Smart contracts are a defining feature of blockchain technology, enabling self-executing agreements on the blockchain."
+    },
+    {
+      "topic": "User identity authentication and management",
+      "verdict": "out",
+      "rationale": "Unless specifically tied to blockchain or distributed ledger technology, identity management systems do not inherently belong to this domain."
+    },
+    {
+      "topic": "Distributed ledger technology",
+      "verdict": "in",
+      "rationale": "This cluster directly pertains to the domain as it encompasses the broader category of technologies that include blockchain."
+    },
+    {
+      "topic": "Asset management in blockchain",
+      "verdict": "in",
+      "rationale": "Managing digital assets on a blockchain involves core blockchain functionalities such as secure transaction recording and consensus."
+    },
+    {
+      "topic": "Electronic settlement systems",
+      "verdict": "out",
+      "rationale": "Unless these systems specifically use blockchain or distributed ledger technology, they do not belong to this domain."
+    },
+    {
+      "topic": "Medical record sharing",
+      "verdict": "out",
+      "rationale": "While blockchain can be used for secure medical record sharing, this cluster does not inherently involve blockchain technology unless specified."
+    },
+    {
+      "topic": "Secure communication protocols",
+      "verdict": "out",
+      "rationale": "This cluster focuses on communication security generally, not specifically on blockchain or distributed ledger technology."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on data encryption methods without specific application to blockchain or distributed ledger technology are excluded.",
+      "sources": [
+        "corpus: Data encryption and protection methods"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that involve user identity authentication and management without explicit use of blockchain or distributed ledger technology are excluded.",
+      "sources": [
+        "corpus: User identity authentication and management"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that describe electronic settlement systems without specific implementation of blockchain or distributed ledger technology are excluded.",
+      "sources": [
+        "corpus: Electronic settlement systems"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Web application exploit mitigation in an information technology environment,' if the security measures are not specifically tied to blockchain or distributed ledger technology, they should be excluded.",
+    "For 'User identity authentication method and system for discovery service,' unless the method explicitly involves blockchain or distributed ledger technology, it should be excluded.",
+    "For 'Data security service,' if the service does not detail the use of blockchain or distributed ledger technology, it should be excluded.",
+    "For 'Architecture for an extensible real-time collaboration system,' unless blockchain or distributed ledger technology is a core component, it should be excluded.",
+    "For 'Method and system for storing data using a continuous data protection system,' if blockchain or distributed ledger technology is not specifically mentioned, it should be excluded."
+  ]
+}

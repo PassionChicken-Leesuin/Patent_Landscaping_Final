@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C3 is not fully testable from title+abstract alone as it requires knowledge of the variety of organisms the invention can be applied to, which may not be evident from the abstract.",
+      "suggestion": "Revise C3 to focus on the capability of the invention to perform genome editing tasks, without specifying the variety of organisms, or ensure that the abstract must explicitly mention the range of organisms.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E3 are not clearly 'rule-match-but-not-the-task' shaped. They are more restatements of irrelevance rather than identifying adjacent technologies.",
+      "suggestion": "Refine E1 and E3 to specify technologies that are adjacent or look-alike but do not perform genome editing tasks, such as gene expression modulation tools that mimic editing outcomes without altering DNA.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases involving indirect applications of genome editing.",
+      "suggestion": "Expand boundary guidance to address indirect applications and clarify the inclusion/exclusion of technologies that support genome editing indirectly.",
+      "severity": "critical"
+    },
+    {
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding 'high-throughput gene screening' is weak as it does not consider potential overlaps with genome editing technologies that might be used in such screenings.",
+      "suggestion": "Re-evaluate the exclusion of 'high-throughput gene screening' to consider cases where genome editing technologies are integral to the screening process.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

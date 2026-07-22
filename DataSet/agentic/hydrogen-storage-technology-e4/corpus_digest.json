@@ -1,0 +1,48 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen fuel cells",
+    "Hydrogen storage materials",
+    "Hydrogen recovery and separation technologies"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "fuel cell",
+    "alloy",
+    "generation",
+    "system",
+    "catalyst",
+    "electrode",
+    "decomposition",
+    "gas",
+    "process",
+    "production",
+    "method",
+    "battery",
+    "characteristics",
+    "separation"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for improved energy density",
+    "Advanced hydrogen generation systems using renewable resources",
+    "Innovative hydrogen fuel cells with enhanced efficiency",
+    "Novel hydrogen storage materials with high capacity",
+    "Hydrogen recovery systems for industrial applications"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower — This patent relates to cooling technology and does not focus on hydrogen storage.",
+    "Electrochemical reaction apparatus — While it involves electrochemical processes, it does not specifically address hydrogen storage.",
+    "Gasification of plastics — This patent discusses hydrogen generation from plastics but does not focus on storage technology.",
+    "Vehicle-mounted hydrogen supply system frame for hydrogen fuel logistics vehicle — This patent relates to logistics for hydrogen supply but does not detail storage technology itself.",
+    "Semiconductor manufacturing apparatus — While it mentions hydrogen, it focuses on semiconductor processes rather than hydrogen storage or production.",
+    "Self-rising type closestool cover — This patent does not relate to hydrogen technology; it is about a toilet seat cover.",
+    "Acid ndfeb magnet recycling — Although it mentions hydrogen gas capture, the primary focus is on magnet recycling, not hydrogen storage or production."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence as a significant technique.",
+    "The pool does not reflect the web evidence's focus on liquid hydrogen storage and its challenges, such as cryogenic temperatures and energy requirements.",
+    "Hydrail applications, which are noted in web evidence as significant for hydrogen storage in transportation, are not prominently featured in the patent pool."
+  ]
+}

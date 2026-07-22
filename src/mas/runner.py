@@ -60,8 +60,16 @@ def _backoff(attempt: int, base: float = 1.5, cap: float = 30.0) -> float:
 # ----------------------------------------------------------------- driver
 def run_pool(rows: list[dict], rubric: dict, pool: KeyPool,
              workers: int = 40, max_attempts: int = 6,
-             audit_path=MC.AUDIT_JSONL, log_every: int = 200, append: bool = False) -> dict:
-    MC.MAS_OUT_DIR.mkdir(parents=True, exist_ok=True)
+             audit_path=MC.AUDIT_JSONL, log_every: int = 200, append: bool = False,
+             process_fn=None, audit_keys: tuple | None = None,
+             slim_keys: tuple | None = None) -> dict:
+    """process_fn(state, fast, strong, usage) defaults to the MAS process_patent;
+    the agentic judge injects its own. audit_keys/slim_keys override the persisted/
+    returned field sets (None = legacy MAS fields)."""
+    if process_fn is None:
+        process_fn = process_patent
+    from pathlib import Path
+    Path(audit_path).parent.mkdir(parents=True, exist_ok=True)
     lock = threading.Lock()
     agg = Usage()
     results: list[dict] = []
@@ -81,7 +89,7 @@ def run_pool(rows: list[dict], rubric: dict, pool: KeyPool,
             fast, strong = pool.clients[key_idx]
             u = Usage()
             try:
-                res = process_patent(state0, fast, strong, u)
+                res = process_fn(state0, fast, strong, u)
                 with lock:
                     pool.per_key_usage[key_idx].merge(u)
                     agg.merge(u)
@@ -106,8 +114,8 @@ def run_pool(rows: list[dict], rubric: dict, pool: KeyPool,
                 if res.get("_error"):
                     failures.append(res)
                 else:
-                    audit_f.write(json.dumps(_audit_view(res), ensure_ascii=False) + "\n")
-                    results.append(_slim(res))
+                    audit_f.write(json.dumps(_audit_view(res, audit_keys), ensure_ascii=False) + "\n")
+                    results.append(_slim(res, slim_keys))
             if done % log_every == 0 or done == len(rows):
                 el = time.time() - t0
                 print(f"[{done}/{len(rows)}] {el:5.0f}s  calls={agg.calls}  "
@@ -119,17 +127,19 @@ def run_pool(rows: list[dict], rubric: dict, pool: KeyPool,
             "elapsed_s": time.time() - t0}
 
 
-def _audit_view(res: dict) -> dict:
-    keep = ("record_id", "patent_id", "domain", "route", "core_stance", "core_score",
-            "exclusion_stance", "exclusion_risk", "confusable_category",
-            "final_score", "candidate_type", "functional_evidence", "technical_evidence")
-    return {k: res.get(k) for k in keep}
+_MAS_AUDIT_KEYS = ("record_id", "patent_id", "domain", "route", "core_stance", "core_score",
+                   "exclusion_stance", "exclusion_risk", "confusable_category",
+                   "final_score", "candidate_type", "functional_evidence", "technical_evidence")
+_MAS_SLIM_KEYS = ("record_id", "patent_id", "domain", "title", "abstract",
+                  "final_score", "candidate_type", "route")
 
 
-def _slim(res: dict) -> dict:
-    return {k: res.get(k) for k in
-            ("record_id", "patent_id", "domain", "title", "abstract",
-             "final_score", "candidate_type", "route")}
+def _audit_view(res: dict, keys: tuple | None = None) -> dict:
+    return {k: res.get(k) for k in (keys or _MAS_AUDIT_KEYS)}
+
+
+def _slim(res: dict, keys: tuple | None = None) -> dict:
+    return {k: res.get(k) for k in (keys or _MAS_SLIM_KEYS)}
 
 
 # ----------------------------------------------------------------- Stage D

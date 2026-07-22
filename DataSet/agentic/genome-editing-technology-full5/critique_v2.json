@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C3 and C4 do not explicitly require the invention to perform a task. They could be interpreted as merely requiring applicability or facilitation, which is not a direct performance of a task.",
+      "suggestion": "Rephrase C3 to require the invention to actively perform genome editing across a variety of organisms. Rephrase C4 to require the invention to actively facilitate the study of gene function or the development of genetically modified organisms through genome editing.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E3 are not clearly 'rule-match-but-not-the-task' shaped. They are more like restatements of 'irrelevant' rather than focusing on adjacent technologies.",
+      "suggestion": "Clarify E1 and E3 to focus on technologies that are adjacent or look-alike but do not perform genome editing tasks, such as gene expression modulation technologies that do not involve genome editing or nucleic acid therapeutics that do not specify genome editing technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for cases involving gene expression modulation and nucleic acid therapeutics.",
+      "suggestion": "Provide more detailed guidance on how to handle patents that involve indirect applications of genome editing, such as those focusing on gene expression modulation or nucleic acid therapeutics without direct genome editing techniques.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including or excluding certain clusters, such as nucleic acid therapeutics and gene expression modulation, is not fully supported by evidence. The decisions appear to rely on tentative defaults rather than clear evidence-based rationale.",
+      "suggestion": "Re-evaluate the scope decisions for clusters like nucleic acid therapeutics and gene expression modulation, ensuring that each verdict is supported by clear evidence from the pool digest or evidence notes.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

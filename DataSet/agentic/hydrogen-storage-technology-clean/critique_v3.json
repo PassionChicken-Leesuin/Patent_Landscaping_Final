@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C7 is not testable from title+abstract alone as it requires assessing environmental impact, which is not typically detailed in these sections.",
+      "suggestion": "Revise C7 to focus on whether the invention claims to address environmental impact, rather than assessing the impact itself.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E2 and E4 are not clearly 'rule-match-but-not-the-task' shaped. They restate exclusions rather than identifying adjacent technologies.",
+      "suggestion": "Clarify E2 and E4 to focus on technologies that are similar but do not perform the storage task, such as hydrogen use in unrelated applications or purification for non-storage purposes.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not address the mismatch with web evidence regarding MOFs and environmental impact.",
+      "suggestion": "Add guidance on including MOFs as a significant technique and addressing environmental impact considerations.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding hydrogen generation systems and production methods is not fully supported by evidence, as these could be part of integrated storage solutions.",
+      "suggestion": "Re-evaluate the exclusion of hydrogen generation systems and production methods to consider if they contribute to storage technology.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

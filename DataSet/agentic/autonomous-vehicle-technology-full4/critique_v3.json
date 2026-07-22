@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 is not fully testable from title+abstract alone as it requires understanding the level of autonomy, which may not be explicitly stated.",
+      "suggestion": "Rephrase C1 to focus on the presence of autonomous navigation features rather than the complete absence of human input.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C6 and C7 are not fully testable from title+abstract alone as they require specific technical details about sensor integration and AI usage.",
+      "suggestion": "Rephrase C6 and C7 to focus on the presence of features that imply sensor integration and AI usage, such as specific sensor types or AI-driven decision-making processes.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E4 contradicts the scope decision for 'Unmanned Aerial Vehicles', which is conditional rather than outright exclusion.",
+      "suggestion": "Clarify E4 to align with the conditional inclusion of UAVs when they are used for autonomous navigation similar to ground vehicles.",
+      "severity": "critical"
+    },
+    {
+      "field": "Boundary Guidance",
+      "problem": "The boundary guidance for 'Electric Vehicle Technology' is inconsistent with the scope decision, which is conditional.",
+      "suggestion": "Ensure the boundary guidance explicitly states the conditions under which electric vehicle technology is included or excluded.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

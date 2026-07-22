@@ -1,0 +1,51 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "The criteria do not explicitly cover all defining functional tasks found in the evidence, such as the use of prime editing and TALENs, which are mentioned in the domain definition but not explicitly in the criteria.",
+      "suggestion": "Add criteria that specifically mention and require the use of prime editing and TALENs as part of the genome editing technologies.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "The exclusion criteria are not sufficiently distinct from the core criteria, as they focus on what is not included rather than providing clear adjacent technologies that might be confused with genome editing.",
+      "suggestion": "Clarify exclusion criteria by providing examples of adjacent technologies that are similar but do not perform genome editing tasks, such as traditional genetic engineering methods that do not involve programmable nucleases.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly regarding agricultural applications and plant genetic engineering.",
+      "suggestion": "Provide more detailed guidance on how to handle patents related to agricultural applications and plant genetic engineering, ensuring they align with the domain's core purpose of direct genome editing.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding homologous recombination is weak, as it is a method that can be used in conjunction with programmable nucleases for precise genome editing.",
+      "suggestion": "Re-evaluate the exclusion of homologous recombination, considering its potential role in genome editing when used with programmable nucleases.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should the scope include technologies like prime editing and TALENs explicitly, given their mention in the domain definition but absence in the criteria?",
+      "why_needed": "To ensure the criteria fully cover all relevant genome editing technologies as defined in the domain.",
+      "options": [
+        "Yes, include them explicitly in the criteria.",
+        "No, they are implicitly covered by existing criteria."
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Should homologous recombination be included in the scope when used in conjunction with programmable nucleases for precise genome editing?",
+      "why_needed": "To clarify the scope decision regarding homologous recombination, which can be part of genome editing processes.",
+      "options": [
+        "Yes, include it when used with programmable nucleases.",
+        "No, keep it excluded as it is not primarily associated with programmable nucleases."
+      ]
+    }
+  ]
+}

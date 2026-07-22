@@ -1,0 +1,44 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require evidence of specific mechanisms or processes that may not be explicitly detailed in these sections.",
+      "suggestion": "Revise C1 and C2 to ensure they can be applied based solely on information typically found in titles and abstracts, possibly by focusing on the mention of relevant mechanisms or processes rather than requiring detailed evidence.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3 lacks a clear testable element that can be verified from the title+abstract alone, as safety measures are often detailed in the body of the patent.",
+      "suggestion": "Revise C3 to focus on the mention of safety-related terms or concepts that can be identified in the title or abstract, such as 'leak prevention' or 'explosion-proof'.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C5 requires compatibility with existing infrastructure, which may not be explicitly stated in the title or abstract.",
+      "suggestion": "Revise C5 to focus on the mention of integration or compatibility with existing systems, which can be more readily identified in the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 and E4 are not clearly distinct from the task of hydrogen storage, as they could involve storage as a secondary function.",
+      "suggestion": "Clarify E3 and E4 to ensure they exclude patents where storage is not a primary or significant function, possibly by specifying contexts where storage is incidental.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance for hydrogen refueling stations and supply systems is vague and may not resolve borderline cases effectively.",
+      "suggestion": "Provide more specific examples or criteria for determining when these technologies are 'in' or 'out', such as specific storage capacities or integration features.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding 'Hydrogen purification' is inconsistent with the conditional inclusion of purification processes integral to storage.",
+      "suggestion": "Clarify the scope decision for 'Hydrogen purification' to ensure consistency with the conditional inclusion criteria, possibly by specifying what makes a purification process integral to storage.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

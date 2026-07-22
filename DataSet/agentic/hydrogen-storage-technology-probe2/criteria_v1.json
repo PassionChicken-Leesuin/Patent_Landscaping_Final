@@ -1,0 +1,120 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen storage technology encompasses methods and systems specifically designed to store hydrogen in a stable and energy-efficient manner, allowing for its safe containment and controlled release when needed. This includes technologies that utilize physical, chemical, or hybrid approaches to maintain hydrogen in a dense form, minimize energy loss during storage and retrieval, and ensure scalability to accommodate varying quantities of hydrogen. The technology must also address safety concerns related to hydrogen's flammability and potential for leakage.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the storage of hydrogen in a stable form, either through physical compression, liquefaction, or chemical bonding.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hydrogen_storage",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the safe release of hydrogen when needed, ensuring controlled and efficient retrieval of stored hydrogen.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919319335"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must minimize energy loss during the storage and retrieval process, optimizing energy efficiency in hydrogen storage systems.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919319335"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must ensure the containment of hydrogen to prevent leaks, addressing safety concerns associated with hydrogen's flammability.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919319335"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be scalable to accommodate varying quantities of hydrogen, allowing for flexibility in storage capacity.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage",
+        "https://www.sciencedirect.com/science/article/pii/S0360319919319335"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for hydrogen storage technology includes patents that specifically address the storage, containment, and controlled release of hydrogen. This encompasses physical, chemical, and hybrid storage methods, as well as materials and systems designed to enhance the efficiency, safety, and scalability of hydrogen storage. Patents that focus on hydrogen production, conversion, or unrelated applications are outside the scope unless they directly contribute to or improve hydrogen storage capabilities.",
+  "scope_decisions": [
+    {
+      "topic": "Hydrogen storage alloys",
+      "verdict": "in",
+      "rationale": "These alloys are specifically designed to store hydrogen, improving energy density and efficiency."
+    },
+    {
+      "topic": "Hydrogen generation systems",
+      "verdict": "out",
+      "rationale": "These systems focus on producing hydrogen, not storing it."
+    },
+    {
+      "topic": "Hydrogen fuel cells",
+      "verdict": "out",
+      "rationale": "Fuel cells use hydrogen for energy conversion, not storage."
+    },
+    {
+      "topic": "Hydrogen storage materials",
+      "verdict": "in",
+      "rationale": "These materials are specifically developed to store hydrogen efficiently and safely."
+    },
+    {
+      "topic": "Hydrogen recovery systems",
+      "verdict": "conditional",
+      "rationale": "In if the system is specifically designed to recover hydrogen for storage purposes; out if it focuses on recovery for immediate use or conversion."
+    },
+    {
+      "topic": "Hydrogen production methods",
+      "verdict": "out",
+      "rationale": "These methods focus on producing hydrogen, not storing it."
+    },
+    {
+      "topic": "Hydrogen separation technologies",
+      "verdict": "conditional",
+      "rationale": "In if the separation is specifically for storage purposes; out if it is for purification or other uses."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on hydrogen production or conversion without addressing storage are excluded.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that use hydrogen in unrelated applications, such as semiconductor manufacturing or plastic decomposition, are excluded unless they specifically enhance hydrogen storage capabilities.",
+      "sources": [
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Cooling tower patents are out as they focus on cooling technology, not hydrogen storage.",
+    "Electrochemical reaction apparatus patents are out unless they specifically address hydrogen storage.",
+    "Gasification of plastics patents are out as they focus on plastic decomposition, not hydrogen storage.",
+    "Low alloy steel patents are out unless they specifically enhance hydrogen storage capabilities in high-pressure environments."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Should hydrail applications be included in the hydrogen storage domain?",
+      "why_it_matters": "Hydrail applications involve hydrogen storage for transportation, which could be considered a specific application of storage technology.",
+      "options": [
+        "Include hydrail applications as they involve hydrogen storage for transportation.",
+        "Exclude hydrail applications as they primarily focus on transportation rather than storage."
+      ],
+      "tentative_default": "Exclude hydrail applications as they primarily focus on transportation rather than storage.",
+      "broad_rule": "Include patents that involve hydrogen storage for transportation applications like hydrail.",
+      "narrow_rule": "Exclude patents that primarily focus on transportation applications, even if they involve hydrogen storage."
+    }
+  ]
+}

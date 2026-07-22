@@ -1,0 +1,1 @@
+{"layer": "llm_flag", "rule": "page_is_benchmark_leak", "url": "local://A2_도메인설명.md#chunk0", "title": "A2_도메인설명.md", "intent_type": "local_document"}

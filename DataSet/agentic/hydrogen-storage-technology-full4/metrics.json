@@ -1,0 +1,56 @@
+{
+  "n": 1145,
+  "threshold": 0.5,
+  "accuracy": 0.8436681222707424,
+  "precision": 0.7934782608695652,
+  "recall": 0.5087108013937283,
+  "macro_f1": 0.7607759098639157,
+  "auc": 0.8987008926033315,
+  "average_precision": 0.7147764989270087,
+  "confusion": [
+    [
+      820,
+      38
+    ],
+    [
+      141,
+      146
+    ]
+  ],
+  "auc_seed_vs_hard": 0.8267006983856489,
+  "auc_seed_vs_easy": 0.9811411149825784,
+  "by_expansion_level": {
+    "SEED": {
+      "n": 287,
+      "recall(TP rate)": 0.5087108013937283
+    },
+    "ANTISEED-manual": {
+      "n": 458,
+      "specificity(TN rate)": 0.9170305676855895
+    },
+    "ANTISEED-AF": {
+      "n": 400,
+      "specificity(TN rate)": 1.0
+    }
+  },
+  "domain": "hydrogenstorage",
+  "query": "수소 저장 기술",
+  "slug": "hydrogen-storage-technology-full4",
+  "stance_distribution": {
+    "out_of_domain": 961,
+    "in_domain": 183,
+    "boundary": 1
+  },
+  "abstain_rate": 0.0,
+  "criteria_citation_counts": {
+    "E1": 951,
+    "E2": 722,
+    "C1": 179,
+    "C2": 63,
+    "E3": 54,
+    "C4": 52,
+    "C3": 18,
+    "C5": 7
+  },
+  "n_unjudged": 0
+}

@@ -1,0 +1,240 @@
+{
+  "domain_name": "Computer Vision",
+  "domain_definition": "Computer vision is a field of artificial intelligence that enables machines to interpret and understand visual information from the world, such as images and videos. It involves tasks such as object detection and recognition, image segmentation, tracking of movement and changes in visual scenes, 3D reconstruction, and image enhancement or restoration. These tasks are achieved through the use of algorithms and models that process and analyze visual data to extract meaningful information, often mimicking the capabilities of the human visual system.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve the detection or recognition of objects within images or video streams.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must be capable of interpreting spatial relationships and context within visual data.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must involve tracking movement and changes in visual scenes over time.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must perform image segmentation to divide images into meaningful parts or regions for further analysis.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must enhance or restore images to improve visual quality or extract more information.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must involve 3D reconstruction or modeling from 2D image sequences.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C7",
+      "statement": "The invention must involve overlaying virtual objects onto real-world scenes, as in augmented reality applications.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for the computer vision domain includes patents that perform tasks related to the interpretation and understanding of visual data, such as object detection, image segmentation, tracking, 3D reconstruction, and image enhancement. Patents that merely use visual data for unrelated purposes or focus on non-visual data processing are outside the scope.",
+  "scope_decisions": [
+    {
+      "topic": "image processing methods",
+      "verdict": "in",
+      "rationale": "These methods are in scope as they often involve tasks like object detection, image segmentation, and enhancement, which are core to computer vision."
+    },
+    {
+      "topic": "object detection",
+      "verdict": "in",
+      "rationale": "Object detection is a fundamental task in computer vision, involving the identification and localization of objects within images or videos."
+    },
+    {
+      "topic": "neural networks",
+      "verdict": "conditional",
+      "rationale": "Neural networks are in scope when they are applied to computer vision tasks such as object detection, image segmentation, or 3D reconstruction. The decisive test is whether the neural network is specifically used for visual data interpretation."
+    },
+    {
+      "topic": "biometric recognition",
+      "verdict": "in",
+      "rationale": "Biometric recognition involves the detection and analysis of visual features, which aligns with computer vision tasks."
+    },
+    {
+      "topic": "video analysis",
+      "verdict": "in",
+      "rationale": "Video analysis is in scope as it involves tracking and interpreting changes in visual scenes over time."
+    },
+    {
+      "topic": "medical imaging",
+      "verdict": "conditional",
+      "rationale": "Medical imaging is in scope when it involves computer vision tasks like image segmentation or enhancement. The decisive test is whether the imaging method performs a computer vision task."
+    },
+    {
+      "topic": "feature extraction",
+      "verdict": "in",
+      "rationale": "Feature extraction is a key process in computer vision for analyzing and interpreting visual data."
+    },
+    {
+      "topic": "deep learning applications",
+      "verdict": "conditional",
+      "rationale": "Deep learning applications are in scope when they are used for computer vision tasks. The decisive test is whether the application involves visual data interpretation."
+    },
+    {
+      "topic": "image segmentation",
+      "verdict": "in",
+      "rationale": "Image segmentation is a core computer vision task, dividing images into meaningful parts for analysis."
+    },
+    {
+      "topic": "tracking systems",
+      "verdict": "in",
+      "rationale": "Tracking systems are in scope as they involve monitoring movement and changes in visual scenes."
+    },
+    {
+      "topic": "3D reconstruction and modeling",
+      "verdict": "in",
+      "rationale": "3D reconstruction is a computer vision task that involves creating 3D models from 2D images."
+    },
+    {
+      "topic": "facial recognition and analysis",
+      "verdict": "in",
+      "rationale": "Facial recognition involves detecting and analyzing visual features, aligning with computer vision tasks."
+    },
+    {
+      "topic": "environmental monitoring using images",
+      "verdict": "conditional",
+      "rationale": "Environmental monitoring is in scope when it involves computer vision tasks like object detection or 3D modeling. The decisive test is whether the monitoring uses visual data for interpretation."
+    },
+    {
+      "topic": "pose estimation",
+      "verdict": "in",
+      "rationale": "Pose estimation involves interpreting spatial relationships in visual data, a core computer vision task."
+    },
+    {
+      "topic": "image quality evaluation",
+      "verdict": "in",
+      "rationale": "Image quality evaluation and enhancement are part of image processing tasks in computer vision."
+    },
+    {
+      "topic": "real-time video analysis",
+      "verdict": "in",
+      "rationale": "Real-time video analysis involves tracking and interpreting changes in visual scenes, a computer vision task."
+    },
+    {
+      "topic": "autonomous vehicle driving",
+      "verdict": "conditional",
+      "rationale": "Autonomous driving is in scope when it involves computer vision tasks like object detection or tracking. The decisive test is whether the driving system uses visual data for navigation."
+    },
+    {
+      "topic": "optical character recognition",
+      "verdict": "in",
+      "rationale": "Optical character recognition involves detecting and interpreting text in images, a computer vision task."
+    },
+    {
+      "topic": "image depth estimation",
+      "verdict": "in",
+      "rationale": "Image depth estimation involves interpreting spatial relationships in visual data, a computer vision task."
+    },
+    {
+      "topic": "vision sensing devices",
+      "verdict": "conditional",
+      "rationale": "Vision sensing devices are in scope when they are used for computer vision tasks. The decisive test is whether the device is designed for visual data interpretation."
+    },
+    {
+      "topic": "pedestrian detection",
+      "verdict": "in",
+      "rationale": "Pedestrian detection is a specific application of object detection, a core computer vision task."
+    },
+    {
+      "topic": "human body behavior recognition",
+      "verdict": "in",
+      "rationale": "Human body behavior recognition involves interpreting visual data to understand actions, a computer vision task."
+    },
+    {
+      "topic": "defect detection in images",
+      "verdict": "in",
+      "rationale": "Defect detection involves analyzing images to identify anomalies, a computer vision task."
+    },
+    {
+      "topic": "video signal processing",
+      "verdict": "conditional",
+      "rationale": "Video signal processing is in scope when it involves computer vision tasks like tracking or segmentation. The decisive test is whether the processing is for visual data interpretation."
+    },
+    {
+      "topic": "neural network applications in imaging",
+      "verdict": "conditional",
+      "rationale": "Neural network applications are in scope when used for computer vision tasks. The decisive test is whether the application involves visual data interpretation."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on display technology without performing computer vision tasks are excluded.",
+      "sources": [
+        "corpus: confusable"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that involve image processing focused solely on aesthetic enhancements without analytical tasks are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents focused on audio or text processing rather than visual data interpretation are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents involving optimization problems or hardware implementation not related to computer vision tasks are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents focused on non-visual data processing, such as biological signals or wireless technology, are excluded.",
+      "sources": [
+        "corpus: boundary_case"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "LED display control methods are out of scope unless they perform computer vision tasks like image analysis.",
+    "Methods for processing images are in scope only if they involve specific computer vision tasks like object detection or segmentation.",
+    "Recognition systems for tattoos are in scope if they involve computer vision tasks like feature extraction or pattern recognition.",
+    "Character input devices are out of scope unless they perform computer vision tasks like optical character recognition.",
+    "Medical imaging systems are in scope if they perform computer vision tasks like image segmentation or enhancement.",
+    "Environmental monitoring methods are in scope if they involve computer vision tasks like object detection or 3D modeling.",
+    "Systems focused on audio processing are out of scope unless they involve visual data interpretation.",
+    "Methods involving signal processing related to biological signals are out of scope unless they involve visual data interpretation.",
+    "Systems focused on text processing are out of scope unless they involve visual data interpretation.",
+    "Methods involving optimization problems are out of scope unless they are directly related to computer vision tasks.",
+    "Augmented reality applications are in scope if they involve overlaying virtual objects onto real-world scenes."
+  ]
+}

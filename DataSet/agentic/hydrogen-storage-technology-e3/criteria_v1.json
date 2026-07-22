@@ -1,0 +1,122 @@
+{
+  "domain_name": "Hydrogen Storage Technology",
+  "domain_definition": "Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring its safe containment and controlled release for use in various applications. This includes methods and systems that optimize the volume and weight efficiency of hydrogen storage, maintain safety under different conditions, and are compatible with existing hydrogen infrastructure. The technology must specifically address the challenges of storing hydrogen in gaseous, liquid, or solid forms, and facilitate its retrieval for energy conversion or other uses.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable the storage of hydrogen in a stable form, either as a gas, liquid, or solid.",
+      "sources": [
+        "corpus: Hydrogen storage systems",
+        "corpus: Metal hydride tanks",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must allow for the efficient release of hydrogen when needed, ensuring that the stored hydrogen can be accessed for its intended use.",
+      "sources": [
+        "corpus: Hydrogen storage alloys",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must ensure the safety of hydrogen storage under various conditions, including high pressure and low temperature environments.",
+      "sources": [
+        "corpus: Hydrogen storage systems",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must optimize the volume and weight efficiency of hydrogen storage, making it feasible for applications such as transportation.",
+      "sources": [
+        "corpus: Hydrogen storage systems",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must be compatible with existing hydrogen infrastructure, facilitating integration into current systems for hydrogen distribution and use.",
+      "sources": [
+        "corpus: Hydrogen storage systems",
+        "https://www.energy.gov/eere/fuelcells/hydrogen-storage"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Hydrogen Storage Technology includes patents that specifically address the storage of hydrogen in various forms, focusing on stability, efficiency, safety, and compatibility with existing infrastructure. It excludes technologies that merely use hydrogen for other purposes without addressing its storage challenges.",
+  "scope_decisions": [
+    {
+      "topic": "Hydrogen storage alloys",
+      "verdict": "in",
+      "rationale": "These alloys are directly involved in the storage of hydrogen, addressing stability and efficiency, which are core to the domain."
+    },
+    {
+      "topic": "Hydrogen fuel cells",
+      "verdict": "out",
+      "rationale": "Fuel cells focus on the conversion of hydrogen to energy, not on the storage of hydrogen itself."
+    },
+    {
+      "topic": "Hydrogen generation and recovery",
+      "verdict": "out",
+      "rationale": "These processes focus on producing hydrogen, not on storing it."
+    },
+    {
+      "topic": "Hydrogen storage systems",
+      "verdict": "in",
+      "rationale": "These systems are directly related to the storage of hydrogen, addressing the core tasks of the domain."
+    },
+    {
+      "topic": "Hydrogen purification methods",
+      "verdict": "out",
+      "rationale": "Purification methods focus on refining hydrogen, not on its storage."
+    },
+    {
+      "topic": "Nickel-hydrogen batteries",
+      "verdict": "out",
+      "rationale": "These batteries focus on energy storage and conversion, not specifically on hydrogen storage."
+    },
+    {
+      "topic": "Hydrogen production methods",
+      "verdict": "out",
+      "rationale": "Production methods focus on generating hydrogen, not on storing it."
+    },
+    {
+      "topic": "Fuel cell technology",
+      "verdict": "out",
+      "rationale": "Fuel cell technology focuses on energy conversion, not on hydrogen storage."
+    },
+    {
+      "topic": "Hydrogen separation and storage",
+      "verdict": "in",
+      "rationale": "This cluster includes storage as a key component, aligning with the domain's focus."
+    },
+    {
+      "topic": "Metal hydride tanks",
+      "verdict": "in",
+      "rationale": "These tanks are specifically designed for hydrogen storage, addressing stability and efficiency."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on hydrogen production or conversion without addressing storage challenges are excluded.",
+      "sources": [
+        "corpus: Hydrogen production methods",
+        "corpus: Fuel cell technology"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that mention hydrogen in unrelated applications, such as cooling or oil processing, are excluded.",
+      "sources": [
+        "corpus: Cooling tower technologies",
+        "corpus: Processes involving hydrogen in unrelated fields"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents mentioning electrochemical devices should be included only if they specifically address hydrogen storage, not just reactions involving hydrogen (e.g., 'Electrochemical devices focus on reactions but not specifically on hydrogen storage').",
+    "Technologies that capture hydrogen gas in recycling processes should be excluded unless they specifically address the storage of hydrogen as a primary function (e.g., 'Recycling processes that capture hydrogen gas but focus on other materials')."
+  ]
+}

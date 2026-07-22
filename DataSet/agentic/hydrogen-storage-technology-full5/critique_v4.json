@@ -1,0 +1,38 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require specific claims or features which may not be explicitly stated in these sections.",
+      "suggestion": "Rephrase C1 and C2 to ensure they can be evaluated based on the information typically found in titles and abstracts, such as mentioning specific storage methods or retrieval mechanisms without needing detailed claims.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C3 and C4 do not explicitly require the invention to perform a task related to safety or efficiency improvements, only to mention features or claims.",
+      "suggestion": "Rephrase C3 and C4 to require demonstration of safety measures or efficiency improvements in the title or abstract, not just mention of related features.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E1 and E2 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance than adjacency.",
+      "suggestion": "Clarify E1 and E2 to focus on technologies that are adjacent or look-alike but do not perform the storage task, such as technologies that handle hydrogen but do not store it.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The boundary guidance does not fully resolve the borderline patterns reported in the pool digest, particularly for hydrogen purification and compression devices.",
+      "suggestion": "Expand boundary guidance to include more detailed criteria for determining when purification and compression devices are part of a storage system.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including hydrogen storage alloys and materials is not fully supported by evidence, as the pool digest indicates a mismatch with web evidence emphasizing MOFs.",
+      "suggestion": "Provide additional evidence or rationale for including hydrogen storage alloys and materials, or adjust the scope decision to reflect the emphasis on MOFs.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C6 is not testable from title+abstract alone as it requires understanding the conversion process beyond mere release, which may not be detailed in these sections.",
+      "suggestion": "Revise C6 to focus on whether the invention facilitates conversion processes that are explicitly mentioned in the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "C-criteria",
+      "problem": "C7 is not testable from title+abstract alone as it requires detailed environmental impact analysis, which is unlikely to be covered in these sections.",
+      "suggestion": "Revise C7 to focus on whether the invention claims to address environmental impacts in a way that can be inferred from the title or abstract.",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 is a restatement of 'irrelevant' rather than a rule-match-but-not-the-task shape. It excludes patents that mention storage but do not focus on it, which is a restatement of irrelevance.",
+      "suggestion": "Clarify E3 to focus on patents that might technically involve storage but do not address the core challenges of hydrogen storage technology.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance on electrochemical devices is vague and does not clearly resolve borderline cases, as it relies on subjective interpretation of 'primary function'.",
+      "suggestion": "Provide specific examples or criteria for determining when electrochemical devices are primarily focused on hydrogen storage.",
+      "severity": "critical"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,246 @@
+{
+  "domain_name": "Computer Vision",
+  "domain_definition": "Computer vision is a field focused on enabling machines to interpret and understand visual information from the world, such as images and videos, by performing tasks like object detection, scene segmentation, feature extraction, 3D reconstruction, augmented reality integration, Structure from Motion (SfM), and pose estimation. It involves the development of algorithms and systems that can process, analyze, and derive meaningful insights from visual data, often mimicking human visual perception capabilities.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve the detection or identification of objects within images or video streams.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include methods for interpreting spatial relationships or context within visual data.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must involve tracking movement or changes in visual scenes over time.",
+      "sources": [
+        "corpus: task",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must involve reconstructing 3D models from 2D images or video.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must involve classifying or categorizing visual data into predefined categories.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must involve feature extraction from images or videos, such as detecting edges, corners, or other significant points.",
+      "sources": [
+        "corpus: technique",
+        "corpus: definition"
+      ]
+    },
+    {
+      "id": "C7",
+      "statement": "The invention must involve augmented reality techniques that integrate virtual objects with real-world environments using computer vision.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C8",
+      "statement": "The invention must involve Structure from Motion (SfM) techniques for estimating 3D structures from 2D image sequences.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C9",
+      "statement": "The invention must involve scene segmentation, dividing an image into meaningful segments.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    },
+    {
+      "id": "C10",
+      "statement": "The invention must involve pose estimation, determining the position and orientation of objects or people.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for the computer vision domain includes patents that implement, improve, or provide enabling components or methods specific to computer vision tasks such as object detection, scene segmentation, feature extraction, 3D reconstruction, augmented reality integration, Structure from Motion (SfM), and pose estimation. It also includes specific applications of these technologies, provided they are integral to the computer vision process. Patents that merely use computer vision outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "Image Processing",
+      "verdict": "conditional",
+      "rationale": "In-scope if the processing is specifically for computer vision tasks like object detection or feature extraction; out if it is generic image enhancement or unrelated processing."
+    },
+    {
+      "topic": "Object Detection",
+      "verdict": "in",
+      "rationale": "Object detection is a core task of computer vision, involving identifying and locating objects within images or videos."
+    },
+    {
+      "topic": "Neural Networks",
+      "verdict": "conditional",
+      "rationale": "In-scope if the neural networks are specifically designed for computer vision tasks; out if they are for general-purpose applications."
+    },
+    {
+      "topic": "Video Analysis",
+      "verdict": "in",
+      "rationale": "Video analysis is in-scope as it involves interpreting and understanding visual information over time, a key aspect of computer vision."
+    },
+    {
+      "topic": "Biometric Recognition",
+      "verdict": "conditional",
+      "rationale": "In-scope if it involves computer vision techniques for recognizing biometric features; out if it relies solely on non-visual data."
+    },
+    {
+      "topic": "Medical Imaging",
+      "verdict": "conditional",
+      "rationale": "In-scope if it uses computer vision techniques for analyzing medical images; out if it focuses solely on imaging technology without computer vision analysis."
+    },
+    {
+      "topic": "Feature Extraction",
+      "verdict": "in",
+      "rationale": "Feature extraction is a fundamental computer vision task, involving identifying significant points or patterns in images."
+    },
+    {
+      "topic": "Scene Segmentation",
+      "verdict": "in",
+      "rationale": "Scene segmentation is a core computer vision task, involving dividing an image into meaningful segments."
+    },
+    {
+      "topic": "Deep Learning",
+      "verdict": "conditional",
+      "rationale": "In-scope if deep learning is applied to computer vision tasks; out if used for non-vision-related purposes."
+    },
+    {
+      "topic": "Character Recognition",
+      "verdict": "conditional",
+      "rationale": "In-scope if it involves computer vision techniques for recognizing characters; out if it is purely about input device technology."
+    },
+    {
+      "topic": "3D Reconstruction",
+      "verdict": "in",
+      "rationale": "3D reconstruction from 2D images is a key computer vision task, involving creating 3D models from visual data."
+    },
+    {
+      "topic": "Facial Recognition",
+      "verdict": "in",
+      "rationale": "Facial recognition is a specific application of computer vision, involving identifying or verifying faces in images or videos."
+    },
+    {
+      "topic": "Autonomous Vehicle Systems",
+      "verdict": "conditional",
+      "rationale": "In-scope if the systems use computer vision for navigation or object detection; out if they rely on non-vision sensors."
+    },
+    {
+      "topic": "Image Enhancement",
+      "verdict": "out",
+      "rationale": "Image enhancement is out of scope unless it specifically supports a computer vision task."
+    },
+    {
+      "topic": "Multi-object Tracking",
+      "verdict": "in",
+      "rationale": "Multi-object tracking is a computer vision task involving tracking multiple objects over time in video data."
+    },
+    {
+      "topic": "Pose Estimation",
+      "verdict": "in",
+      "rationale": "Pose estimation is a computer vision task involving determining the position and orientation of objects or people."
+    },
+    {
+      "topic": "Image Quality Evaluation",
+      "verdict": "out",
+      "rationale": "Image quality evaluation is out of scope unless it directly supports a computer vision task."
+    },
+    {
+      "topic": "Environmental Monitoring using Images",
+      "verdict": "conditional",
+      "rationale": "In-scope if it involves computer vision techniques for analyzing environmental data; out if it is purely about data collection."
+    },
+    {
+      "topic": "Real-time Image Capture",
+      "verdict": "out",
+      "rationale": "Real-time image capture is out of scope unless it specifically supports a computer vision task."
+    },
+    {
+      "topic": "Optical Character Recognition",
+      "verdict": "conditional",
+      "rationale": "In-scope if it involves computer vision techniques; out if it is purely about text input technology."
+    },
+    {
+      "topic": "Augmented Reality",
+      "verdict": "conditional",
+      "rationale": "In-scope if the AR system uses computer vision techniques to integrate virtual objects with real-world environments; out if it is purely about display technology."
+    },
+    {
+      "topic": "Structure from Motion (SfM)",
+      "verdict": "in",
+      "rationale": "SfM is a core computer vision task involving estimating 3D structures from 2D image sequences."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on image processing without specific applications in computer vision tasks are excluded unless they directly support a computer vision task.",
+      "sources": [
+        "corpus: boundary_case",
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to display technology, such as LED display control, are excluded unless they specifically involve computer vision tasks.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that involve character recognition purely as input devices without computer vision techniques are excluded.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Medical imaging patents that do not apply computer vision techniques for analysis are excluded.",
+      "sources": [
+        "patent-pool: suspected_boundary_cases"
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents related to augmented reality that do not use computer vision techniques for integrating virtual objects with real-world environments are excluded.",
+      "sources": [
+        "corpus: definition",
+        "corpus: task"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents like 'Method and apparatus for processing image', determine if the processing is specifically for computer vision tasks; if not, exclude.",
+    "For 'Detection and tracking system using tattoos', assess if the system uses computer vision techniques for broader applications; if not, exclude.",
+    "For 'System and method for cardioembolic stroke risk prediction based on medical images', include only if computer vision techniques are used for image analysis.",
+    "For patents related to augmented reality, include only if they use computer vision techniques to integrate virtual objects with real-world environments.",
+    "For patents involving Structure from Motion (SfM), include as they are core to computer vision tasks.",
+    "Ensure that augmented reality and Structure from Motion (SfM) are adequately considered during patent analysis, even if underrepresented in the patent pool."
+  ]
+}

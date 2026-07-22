@@ -1,0 +1,49 @@
+{
+  "main_clusters": [
+    "Additive Manufacturing Methods",
+    "3D Printing Systems",
+    "Material Compositions",
+    "Stereolithography",
+    "Metal 3D Printing",
+    "Bioprinting",
+    "Powder Bed Fusion",
+    "Composite Materials",
+    "Laser Sintering",
+    "Photopolymerization"
+  ],
+  "vocabulary_profile": [
+    "additive manufacturing",
+    "3D printing",
+    "layer",
+    "material",
+    "method",
+    "system",
+    "device",
+    "composition",
+    "powder",
+    "laser",
+    "curing",
+    "fabrication",
+    "process",
+    "component",
+    "polymer"
+  ],
+  "representative_cases": [
+    "Method for producing three-dimensional shaped object",
+    "Direct 3D-printed orthodontic aligners with torque, rotation, and full control anchors",
+    "Use of 3d printing for anticounterfeiting",
+    "Heater comprising a part manufactured by additive manufacturing",
+    "Method for 3D printing manufacturing of components for use in lighting devices"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on specific applications like orthodontics or lighting devices, such as 'Direct 3D-printed orthodontic aligners with torque, rotation, and full control anchors', may not align with broader 3D printing technology.",
+    "Patents that involve monitoring or auxiliary processes, like 'Method for automatic identification of material deposition deficiencies during an additive manufacturing process and manufacturing device', focus on peripheral aspects rather than core 3D printing processes.",
+    "Patents that mention 3D printing but focus on unrelated fields, such as 'Use of 3d printing for anticounterfeiting', which does not detail a specific 3D printing method or application.",
+    "Patents that describe components or materials without a clear link to 3D printing processes, like 'Stabilized resin cross-linking agent', which focuses on a cross-linking agent rather than a specific additive manufacturing method."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool includes a significant focus on photolithography and semiconductor manufacturing, which are not emphasized in the web evidence for 3D printing.",
+    "The web evidence highlights construction 3D printing, particularly concrete, which is not a prominent cluster in the patent pool.",
+    "The web evidence emphasizes rapid prototyping and its role in 3D printing, which is not a distinct cluster in the patent pool."
+  ]
+}

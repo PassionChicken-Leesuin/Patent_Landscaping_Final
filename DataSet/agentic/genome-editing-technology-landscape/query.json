@@ -1,0 +1,54 @@
+{
+  "query_original": "genome editing technology such as CRISPR",
+  "mock": false,
+  "variant": "landscape",
+  "scope": {
+    "canonical_name_en": "Genome Editing Technology",
+    "language_detected": "en",
+    "disambiguation_notes": "The query specifically mentions CRISPR, which is a prominent example of genome editing technology. The focus is on technologies that enable precise modifications to the genetic material of organisms.",
+    "initial_task_hypotheses": [
+      "The technology must enable the precise alteration of DNA sequences in living organisms.",
+      "It must allow for the insertion, deletion, or replacement of specific DNA segments.",
+      "The technology should be capable of targeting specific genes or genomic regions with high accuracy.",
+      "It must facilitate the study of gene function by enabling gene knockout or modification.",
+      "The technology should be applicable to a wide range of organisms, including plants, animals, and microorganisms."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of genome editing technology",
+        "rationale": "To establish a clear understanding of what constitutes genome editing technology."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of genome editing technology",
+        "rationale": "To identify the various branches and specializations within genome editing technology."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in genome editing such as CRISPR, TALEN, ZFN",
+        "rationale": "To explore the fundamental methods used in genome editing, including CRISPR and other techniques."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of genome editing technology",
+        "rationale": "To understand the practical uses and implications of genome editing across different fields."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to genome editing but not genome editing",
+        "rationale": "To identify technologies that may appear similar but do not perform the core tasks of genome editing."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC classification codes for genome editing technology",
+        "rationale": "To find the official classification codes that categorize genome editing technology in patent databases."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for genome editing technology",
+        "rationale": "To gather alternative terms and phrases that refer to genome editing technology."
+      }
+    ]
+  }
+}

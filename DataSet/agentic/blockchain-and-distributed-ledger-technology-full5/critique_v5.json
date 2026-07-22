@@ -1,0 +1,9 @@
+{
+  "warning": "criteria loop budget exhausted",
+  "finalized_version": 3,
+  "critical_counts": {
+    "2": 5,
+    "3": 3,
+    "4": 4
+  }
+}

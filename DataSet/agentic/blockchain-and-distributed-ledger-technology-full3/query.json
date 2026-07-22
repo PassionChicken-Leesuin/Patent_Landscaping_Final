@@ -1,0 +1,54 @@
+{
+  "query_original": "blockchain and distributed ledger technology",
+  "mock": false,
+  "variant": "full3",
+  "scope": {
+    "canonical_name_en": "Blockchain and Distributed Ledger Technology",
+    "language_detected": "en",
+    "disambiguation_notes": "The query refers to both blockchain and distributed ledger technology, which are often used interchangeably but can have distinct meanings. Blockchain is a type of distributed ledger technology, but not all distributed ledgers use blockchain structures. The focus here is on technologies that manage decentralized records and transactions.",
+    "initial_task_hypotheses": [
+      "The technology must enable the secure and immutable recording of transactions across a distributed network.",
+      "It must facilitate consensus mechanisms to validate and agree on the state of the ledger among participants.",
+      "The system should allow for decentralized control, eliminating the need for a central authority.",
+      "It must provide mechanisms for cryptographic security to ensure data integrity and privacy.",
+      "The technology should support the execution of smart contracts, which are self-executing contracts with the terms directly written into code."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of blockchain and distributed ledger technology",
+        "rationale": "To understand the fundamental concepts and distinctions between blockchain and distributed ledger technology."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "subfields of blockchain and distributed ledger technology",
+        "rationale": "To identify the various branches and specializations within the domain of blockchain and distributed ledger technology."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in blockchain and distributed ledger technology",
+        "rationale": "To discover the primary methods and technologies used to implement blockchain and distributed ledger systems."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of blockchain and distributed ledger technology",
+        "rationale": "To explore the practical uses and industries that benefit from blockchain and distributed ledger technology."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to blockchain but not distributed ledger",
+        "rationale": "To identify technologies that may appear similar to blockchain but do not perform the same functional tasks, such as centralized databases."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC codes for blockchain and distributed ledger technology",
+        "rationale": "To find the official classification codes that categorize blockchain and distributed ledger technology in patent systems."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for blockchain and distributed ledger technology",
+        "rationale": "To gather alternative terms and phrases that are used interchangeably with blockchain and distributed ledger technology."
+      }
+    ]
+  }
+}

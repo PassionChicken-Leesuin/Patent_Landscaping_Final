@@ -1,0 +1,222 @@
+{
+  "domain_name": "Computer Vision",
+  "domain_definition": "Computer vision is a field that involves the development of algorithms and systems that enable machines to interpret and understand visual information from the world, such as images and videos. This includes tasks such as object detection and recognition, image segmentation, 3D reconstruction from 2D images, motion tracking, spatial relationship interpretation, augmented reality, and structure from motion (SfM). The goal is to automate visual tasks that the human visual system can perform, using techniques like neural networks, feature extraction, and image processing.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must involve the detection or recognition of objects within images or video streams.",
+      "sources": [
+        "corpus: object detection",
+        "corpus: image processing"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must include methods for interpreting spatial relationships or context within visual data.",
+      "sources": [
+        "corpus: spatial relationships",
+        "corpus: image segmentation"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must be capable of tracking movement or changes in visual scenes over time.",
+      "sources": [
+        "corpus: tracking systems",
+        "corpus: video analysis"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must involve segmenting images into meaningful regions or objects.",
+      "sources": [
+        "corpus: image segmentation",
+        "corpus: feature extraction"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must include techniques for reconstructing 3D models from 2D images.",
+      "sources": [
+        "corpus: 3D reconstruction",
+        "corpus: structure from motion"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must involve augmented reality applications that integrate real and virtual worlds in real-time.",
+      "sources": [
+        "corpus: augmented reality",
+        "corpus: 3D human–computer interaction"
+      ]
+    },
+    {
+      "id": "C7",
+      "statement": "The invention must involve structure from motion (SfM) techniques for estimating 3D structures from 2D image sequences.",
+      "sources": [
+        "corpus: structure from motion",
+        "corpus: photogrammetric range imaging"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for the computer vision domain includes patents that implement, improve, or provide enabling components or methods specific to computer vision tasks. This encompasses inventions related to object detection, image segmentation, 3D reconstruction, motion tracking, spatial interpretation, augmented reality, and structure from motion. Patents that merely use computer vision outputs or vocabulary for unrelated purposes are excluded.",
+  "scope_decisions": [
+    {
+      "topic": "image processing",
+      "verdict": "in",
+      "rationale": "Image processing is integral to computer vision as it involves techniques for enhancing and analyzing images to extract meaningful information."
+    },
+    {
+      "topic": "object detection",
+      "verdict": "in",
+      "rationale": "Object detection is a core task in computer vision, involving the identification and localization of objects within images or videos."
+    },
+    {
+      "topic": "neural networks",
+      "verdict": "conditional",
+      "rationale": "Neural networks are in scope when they are specifically applied to computer vision tasks such as image recognition or segmentation."
+    },
+    {
+      "topic": "video analysis",
+      "verdict": "in",
+      "rationale": "Video analysis is in scope as it involves interpreting and extracting information from video data, a key aspect of computer vision."
+    },
+    {
+      "topic": "biometric recognition",
+      "verdict": "conditional",
+      "rationale": "Biometric recognition is in scope when it involves computer vision techniques for identifying individuals based on visual data."
+    },
+    {
+      "topic": "medical imaging",
+      "verdict": "conditional",
+      "rationale": "Medical imaging is in scope when it applies computer vision techniques for analyzing and interpreting medical images."
+    },
+    {
+      "topic": "feature extraction",
+      "verdict": "in",
+      "rationale": "Feature extraction is a fundamental process in computer vision for identifying and describing important image features."
+    },
+    {
+      "topic": "deep learning",
+      "verdict": "conditional",
+      "rationale": "Deep learning is in scope when it is used for computer vision tasks such as object detection or image classification."
+    },
+    {
+      "topic": "image segmentation",
+      "verdict": "in",
+      "rationale": "Image segmentation is a key computer vision task that involves dividing an image into meaningful parts."
+    },
+    {
+      "topic": "tracking systems",
+      "verdict": "in",
+      "rationale": "Tracking systems are in scope as they involve monitoring and analyzing movement within visual data."
+    },
+    {
+      "topic": "autonomous vehicle systems",
+      "verdict": "conditional",
+      "rationale": "Autonomous vehicle systems are in scope when they use computer vision for navigation and environment understanding."
+    },
+    {
+      "topic": "3D reconstruction",
+      "verdict": "in",
+      "rationale": "3D reconstruction is a computer vision task that involves creating three-dimensional models from two-dimensional images."
+    },
+    {
+      "topic": "pose estimation",
+      "verdict": "in",
+      "rationale": "Pose estimation is in scope as it involves determining the position and orientation of objects within images."
+    },
+    {
+      "topic": "image enhancement",
+      "verdict": "in",
+      "rationale": "Image enhancement is in scope as it involves improving image quality for better analysis and interpretation in computer vision."
+    },
+    {
+      "topic": "machine learning",
+      "verdict": "conditional",
+      "rationale": "Machine learning is in scope when it is specifically applied to computer vision tasks."
+    },
+    {
+      "topic": "robotics",
+      "verdict": "conditional",
+      "rationale": "Robotics is in scope when it involves computer vision for tasks such as navigation, object manipulation, or environment interaction."
+    },
+    {
+      "topic": "sensor data processing",
+      "verdict": "conditional",
+      "rationale": "Sensor data processing is in scope when it involves integrating visual data for computer vision tasks."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus solely on LED display control without performing computer vision tasks are excluded.",
+      "sources": [
+        "corpus: LED display control"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents that involve image processing without specific applications in computer vision tasks such as object detection, segmentation, or 3D reconstruction are excluded.",
+      "sources": [
+        "corpus: image processing"
+      ]
+    },
+    {
+      "id": "E3",
+      "statement": "Patents that focus on recognition tasks specific to non-general objects, such as tattoos, without broader computer vision applications are excluded.",
+      "sources": [
+        "corpus: recognition"
+      ]
+    },
+    {
+      "id": "E4",
+      "statement": "Patents related to character recognition that do not encompass broader computer vision tasks are excluded.",
+      "sources": [
+        "corpus: character recognition"
+      ]
+    },
+    {
+      "id": "E5",
+      "statement": "Patents focused on medical imaging without applying computer vision techniques such as segmentation or feature extraction are excluded.",
+      "sources": [
+        "corpus: medical imaging"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "For patents involving neural networks, assess whether the network is applied to a computer vision task such as image recognition or segmentation.",
+    "For biometric recognition patents, determine if the recognition involves computer vision techniques for identifying individuals based on visual data.",
+    "For medical imaging patents, verify if they apply computer vision techniques for analyzing and interpreting medical images.",
+    "For autonomous vehicle systems, check if they use computer vision for navigation and environment understanding.",
+    "For machine learning patents, ensure the learning is applied to computer vision tasks.",
+    "For augmented reality patents, confirm they involve real-time integration of virtual and real-world elements using computer vision techniques.",
+    "For structure from motion (SfM) patents, ensure they involve estimating 3D structures from 2D image sequences using computer vision methods."
+  ],
+  "open_questions": [
+    {
+      "id": "Q2",
+      "question": "Should autonomous vehicle systems be included when they use computer vision for navigation?",
+      "why_it_matters": "측정: 풀 표본 60건 중 6건(~10%)의 판정이 넓게/좁게에 따라 갈립니다. Including these systems recognizes the role of computer vision in enabling autonomous navigation, a major application area.",
+      "options": [
+        "Include autonomous vehicle systems when they use computer vision for navigation.",
+        "Exclude autonomous vehicle systems unless they perform general computer vision tasks."
+      ],
+      "tentative_default": "Include autonomous vehicle systems when they use computer vision for navigation.",
+      "broad_rule": "Include patents that use computer vision for navigation in autonomous vehicle systems.",
+      "narrow_rule": "Exclude patents that focus on autonomous vehicle systems unless they perform general computer vision tasks."
+    },
+    {
+      "id": "Q1",
+      "question": "Does the domain include medical imaging when it applies computer vision techniques?",
+      "why_it_matters": "측정: 풀 표본 60건 중 5건(~8%)의 판정이 넓게/좁게에 따라 갈립니다. Including medical imaging expands the domain to cover a significant area of application where computer vision techniques are used.",
+      "options": [
+        "Include medical imaging when it applies computer vision techniques.",
+        "Exclude medical imaging unless it is a general computer vision task."
+      ],
+      "tentative_default": "Include medical imaging when it applies computer vision techniques.",
+      "broad_rule": "Include patents that apply computer vision techniques to medical imaging.",
+      "narrow_rule": "Exclude patents that focus on medical imaging unless they perform general computer vision tasks."
+    }
+  ]
+}

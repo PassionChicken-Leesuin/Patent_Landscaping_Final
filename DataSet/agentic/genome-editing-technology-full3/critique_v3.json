@@ -1,0 +1,42 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "C-criteria",
+      "problem": "C5 is not a testable full sentence from title+abstract alone, as it requires specific evidence of prime editing capabilities.",
+      "suggestion": "Rephrase C5 to ensure it can be assessed from title+abstract alone, such as 'The invention must claim the ability to directly write new genetic information into a targeted DNA site, indicative of prime editing.'",
+      "severity": "critical"
+    },
+    {
+      "field": "E-criteria",
+      "problem": "E3 and E4 are not clearly 'rule-match-but-not-the-task' shaped; they are more about relevance than adjacency.",
+      "suggestion": "Clarify E3 and E4 to focus on technologies that might appear similar but do not perform genome editing tasks, such as focusing on RNA interference or general genetic modification without precision editing.",
+      "severity": "critical"
+    },
+    {
+      "field": "boundary_guidance",
+      "problem": "The guidance does not clearly resolve the borderline pattern of plant genetic engineering without explicit mention of CRISPR or prime editing.",
+      "suggestion": "Add specific guidance on evaluating plant genetic engineering patents for precise genome editing techniques even if CRISPR or prime editing is not explicitly mentioned.",
+      "severity": "critical"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for excluding homologous recombination is weak given its potential role in precise genome editing.",
+      "suggestion": "Re-evaluate the exclusion of homologous recombination, considering its use in precise genome editing tasks, or provide stronger evidence for its exclusion.",
+      "severity": "critical"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "scope_decision_homologous_recombination",
+      "question": "Should homologous recombination be included in the scope of genome editing technology, given its potential role in precise genome editing tasks?",
+      "why_needed": "The current exclusion of homologous recombination lacks strong evidence and may overlook its relevance to precise genome editing.",
+      "options": [
+        "Include homologous recombination if it involves precise genome editing tasks.",
+        "Exclude homologous recombination unless it explicitly uses CRISPR or similar technologies."
+      ]
+    }
+  ]
+}
