@@ -1,0 +1,40 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "scope_decision",
+      "problem": "The scope decision for 'Hydrogen recovery systems' is conditional, but the rationale provided is not fully supported by evidence. The decision to include or exclude based on the purpose of recovery (storage vs. immediate use) is not clearly justified with specific examples or evidence from the pool digest.",
+      "suggestion": "Clarify the rationale for including or excluding hydrogen recovery systems based on their purpose, and provide specific examples or evidence to support this decision.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "Hydrogen recovery systems"
+      ],
+      "issue_code": "SCOPE_DECISION:HYDROGEN_RECOVERY_SYSTEMS"
+    },
+    {
+      "field": "coverage",
+      "problem": "The criteria do not explicitly cover the task of ensuring environmental safety and impact, which is mentioned in the evidence notes as a concern for hydrogen storage technologies.",
+      "suggestion": "Consider adding a criterion that addresses the environmental safety and impact of hydrogen storage technologies, as this is a relevant task mentioned in the evidence.",
+      "severity": "minor",
+      "category": "coverage",
+      "target_ids": [
+        "C2"
+      ],
+      "issue_code": "COVERAGE:C2"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should hydrogen recovery systems be included if they focus on recovery for storage purposes?",
+      "why_needed": "This decision affects whether patents that recover hydrogen specifically for storage are included, impacting the domain's breadth.",
+      "options": [
+        "Include only if recovery is for storage purposes.",
+        "Exclude all recovery systems regardless of purpose."
+      ]
+    }
+  ]
+}

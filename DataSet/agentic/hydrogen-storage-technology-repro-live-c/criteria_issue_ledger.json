@@ -1,0 +1,19 @@
+{
+  "issues": {
+    "SCOPE_DECISION:HYDROGEN_RECOVERY_SYSTEMS": {
+      "issue_code": "SCOPE_DECISION:HYDROGEN_RECOVERY_SYSTEMS",
+      "first_round": 1,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "scope_decision",
+      "target_ids": [
+        "Hydrogen recovery systems"
+      ],
+      "field": "scope_decision",
+      "problem": "The scope decision for 'Hydrogen recovery systems' is conditional, but the rationale provided is not fully supported by evidence. The decision to include or exclude based on the purpose of recovery (storage vs. immediate use) is not clearly justified with specific examples or evidence from the pool digest.",
+      "resolved_round": 2
+    }
+  }
+}

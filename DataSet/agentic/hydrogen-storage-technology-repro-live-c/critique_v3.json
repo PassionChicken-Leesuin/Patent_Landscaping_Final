@@ -1,0 +1,17 @@
+{
+  "approved": false,
+  "issues": [],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should hydrogen recovery systems be included if they focus on recovery for storage purposes?",
+      "why_needed": "This decision affects whether patents that recover hydrogen specifically for storage are included, impacting the domain's breadth.",
+      "options": [
+        "Include only if recovery is for storage purposes.",
+        "Exclude all recovery systems regardless of purpose."
+      ]
+    }
+  ]
+}
