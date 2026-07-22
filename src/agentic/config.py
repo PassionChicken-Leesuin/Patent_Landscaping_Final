@@ -46,6 +46,7 @@ BOUNDARY_MAX_QUESTIONS = 4       # cap the questions actually shown to the human
 
 # ---- feedback loops ----
 CRITERIA_MAX_ITERS = 5           # criteria validator loop budget; critical remains -> block
+CRITERIA_NO_PROGRESS_LIMIT = 2   # consecutive rounds resolving no ledger critical -> stop early
 JUDGE_VALIDATE_MAX_ITERS = 2     # judgment validator loop budget
 JUDGE_AUDIT_SAMPLE = 40          # suspicious judgments re-examined per validator round
 DECISION_CONFIDENCE_AUDIT_MAX = 0.65  # low certainty -> confirmation/audit, not exclusion

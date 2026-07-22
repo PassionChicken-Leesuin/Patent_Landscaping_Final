@@ -70,6 +70,10 @@ class Workspace:
     @property
     def criteria_blocked_json(self) -> Path: return self.root / "criteria_blocked.json"
     @property
+    def criteria_issue_ledger_json(self) -> Path: return self.root / "criteria_issue_ledger.json"
+    @property
+    def provenance_repairs_jsonl(self) -> Path: return self.root / "provenance_repairs.jsonl"
+    @property
     def judge_dir(self) -> Path: return self.root / "judge"
     @property
     def judge_audit_jsonl(self) -> Path: return self.judge_dir / "audit.jsonl"

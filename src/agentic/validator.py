@@ -8,6 +8,7 @@ action writes criteria_blocked.json and stops without a final document.
 """
 from __future__ import annotations
 import json
+import re
 
 import pandas as pd
 
@@ -17,10 +18,12 @@ from src.agentic import config as AC
 from src.agentic import research as R
 from src.agentic.axes import allowed_source_references
 from src.agentic.boundary_probe import measured_questions, probe_boundaries
-from src.agentic.criteria import draft_criteria, resolve_open_questions, save_final
+from src.agentic.criteria import (PatchApplyError, draft_criteria, patch_criteria,
+                                  resolve_open_questions, save_final)
 from src.agentic.hitl import HITL
 from src.agentic.schemas import (AxisSynthesisOut, CriteriaCritiqueOut, CriteriaDocOut,
-                                 CorpusDigestOut, CritiqueIssue, QueryScopeOut)
+                                 CorpusDigestOut, CritiqueIssue, HITLQuestion,
+                                 QueryScopeOut)
 from src.agentic.search import SearchClient
 from src.agentic.workspace import Workspace
 
@@ -28,8 +31,11 @@ _CRITIQUE_SYSTEM = (
     "You are the Criteria Validator — an adversarial patent-domain expert reviewing the "
     "criteria document that will govern patent judgments for the domain: {domain}.\n"
     "Check rigorously:\n"
-    "1. Is every C-criterion a testable full sentence an expert could apply to a "
-    "title+abstract alone (no external data needed)?\n"
+    "1. TESTABILITY CONTRACT: a C/E criterion is testable when it (a) states a functional "
+    "task and (b) lists non-exclusive observable_signals (title/abstract cues). Flag "
+    "testability ONLY when a criterion lacks a functional task or has no usable signals. "
+    "Signals are indicative cues, never required keywords; do not demand certainty from a "
+    "title+abstract, and never reject a criterion merely for relying on indicative terms.\n"
     "2. Do the C-criteria cover ALL defining functional tasks found in the evidence, and do "
     "they demand that the invention PERFORMS a task (not merely mentions vocabulary)?\n"
     "3. Are the E-criteria genuinely 'rule-match-but-not-the-task' shaped (adjacent/look-"
@@ -78,6 +84,25 @@ _PROVENANCE_CRITIQUE = (
     "were supplemented where research/corpus evidence supports doing so.\n"
 )
 
+_LEDGER_CRITIQUE = (
+    "\nISSUE IDENTITY & LEDGER PROTOCOL:\n"
+    "- For EVERY issue fill category, target_ids (the specific C/E/A ids or scope topics "
+    "affected), and issue_code formatted 'CATEGORY:TARGET' (e.g. TESTABILITY:C1, "
+    "PROVENANCE:E5, SCOPE_CONFLICT:FUEL_CELLS).\n"
+    "- When a PRIOR OPEN ISSUES ledger is supplied, adjudicate each entry FIRST: if the "
+    "current document resolves it, do not re-report it; if unresolved, re-report it with "
+    "EXACTLY the same issue_code — never a reworded new code for the same problem.\n"
+    "- category=scope_decision marks a genuine owner-intent question. It is settled by the "
+    "owner, never by rewriting. Do not re-litigate an explicitly recorded human ruling, and "
+    "when an unattended run documents a provisional system assumption for a boundary (kept "
+    "in open_questions), accept it as resolved-for-this-run instead of repeating the "
+    "conflict every round.\n"
+    "- NEW-CRITICAL CONSTRAINT (after a targeted patch revision): a NEW critical on an "
+    "untouched field is allowed only with concrete evidence — a violated invariant, the "
+    "conflicting criterion ids in target_ids, or an affected patent counterexample. "
+    "Otherwise report it as minor.\n"
+)
+
 
 class CriteriaValidationBlocked(RuntimeError):
     """Raised when the criteria budget ends with material faults unresolved."""
@@ -88,6 +113,23 @@ class CriteriaValidationBlocked(RuntimeError):
         super().__init__(
             f"criteria validation blocked with {critical_count} critical issue(s); see {path}"
         )
+
+
+def _norm_code(code: str) -> str:
+    return re.sub(r"[^A-Za-z0-9:_,.-]+", "_", str(code).strip()).upper()[:80]
+
+
+def issue_code_for(issue: CritiqueIssue) -> str:
+    """Stable structural identity: prose wording drifts every round, codes must not."""
+    if issue.issue_code.strip():
+        return _norm_code(issue.issue_code)
+    target = "-".join(issue.target_ids) if issue.target_ids else issue.field
+    return _norm_code(f"{issue.category}:{target}")
+
+
+# Codes in this namespace come from deterministic checks — they can never be
+# downgraded by the new-critical constraint.
+_DETERMINISTIC_PREFIXES = ("AXIS_COVERAGE:", "AXIS_IDS:", "PROVENANCE")
 
 
 def criteria_integrity_issues(doc: CriteriaDocOut,
@@ -101,25 +143,27 @@ def criteria_integrity_issues(doc: CriteriaDocOut,
     active_ids = {a.id for a in axes.technology_axes
                   if a.status in ("core", "supplemental")}
     mapped = {aid for c in doc.domain_criteria for aid in c.axis_ids}
-    missing = sorted(active_ids - mapped)
-    if missing:
+    for aid in sorted(active_ids - mapped):
         issues.append(CritiqueIssue(
             field="domain_criteria.axis_ids",
-            problem=f"Active technology axes lack a C-criterion mapping: {missing}",
-            suggestion="Map every active axis to a testable inclusion criterion.",
-            severity="critical"))
+            problem=f"Active technology axis {aid} lacks a C-criterion mapping.",
+            suggestion="Map the axis to a testable inclusion criterion.",
+            severity="critical", category="coverage", target_ids=[aid],
+            issue_code=f"AXIS_COVERAGE:{aid}"))
     if not axes.technology_axes:
         issues.append(CritiqueIssue(
             field="technology_axes", problem="No technology axes were synthesized.",
             suggestion="Synthesize an auditable axis inventory before drafting criteria.",
-            severity="critical"))
+            severity="critical", category="coverage", target_ids=[],
+            issue_code="AXIS_COVERAGE:NONE"))
     for axis in axes.technology_axes:
         if not axis.source_refs:
             issues.append(CritiqueIssue(
                 field=f"technology_axes.{axis.id}.source_refs",
                 problem=f"Axis {axis.id} has no typed provenance.",
                 suggestion="Attach a real query/owner/web/corpus source reference.",
-                severity="critical"))
+                severity="critical", category="provenance", target_ids=[axis.id],
+                issue_code=f"PROVENANCE:{axis.id}"))
         for ref in axis.source_refs:
             malformed = ((ref.source_type == "web" and not ref.reference.startswith(("http://", "https://")))
                          or (ref.source_type == "owner_doc" and not ref.reference.startswith("local://"))
@@ -129,7 +173,8 @@ def criteria_integrity_issues(doc: CriteriaDocOut,
                     field=f"technology_axes.{axis.id}.source_refs",
                     problem=f"Axis {axis.id} has a malformed {ref.source_type} reference: {ref.reference}",
                     suggestion="Use the exact typed reference format from the input catalog.",
-                    severity="critical"))
+                    severity="critical", category="provenance", target_ids=[axis.id],
+                    issue_code=f"PROVENANCE_FORMAT:{axis.id}"))
     for item in [*doc.domain_criteria, *doc.exclusion_criteria]:
         unknown = sorted(set(item.axis_ids) - axis_ids)
         if unknown:
@@ -137,13 +182,15 @@ def criteria_integrity_issues(doc: CriteriaDocOut,
                 field=f"{item.id}.axis_ids",
                 problem=f"Criterion {item.id} cites unknown axes: {unknown}",
                 suggestion="Use only ids from the approved axis synthesis.",
-                severity="critical"))
+                severity="critical", category="consistency", target_ids=[item.id],
+                issue_code=f"AXIS_IDS:{item.id}"))
         if not item.source_refs:
             issues.append(CritiqueIssue(
                 field=f"{item.id}.source_refs",
                 problem=f"Criterion {item.id} has no typed provenance.",
                 suggestion="Copy supporting typed references from mapped axes/evidence.",
-                severity="critical"))
+                severity="critical", category="provenance", target_ids=[item.id],
+                issue_code=f"PROVENANCE:{item.id}"))
         unknown_refs = sorted({ref.reference for ref in item.source_refs
                                if ref.source_type != "hitl"
                                and ref.reference not in valid_refs})
@@ -151,28 +198,104 @@ def criteria_integrity_issues(doc: CriteriaDocOut,
             issues.append(CritiqueIssue(
                 field=f"{item.id}.source_refs",
                 problem=f"Criterion {item.id} cites references absent from the allowed evidence catalog: {unknown_refs}",
-                suggestion="Copy an exact reference from the axis synthesis or allowed evidence catalog.",
-                severity="critical"))
+                suggestion="Cite an exact reference id from the allowed evidence catalog.",
+                severity="critical", category="provenance", target_ids=[item.id],
+                issue_code=f"PROVENANCE_REF:{item.id}"))
     return issues
+
+
+class IssueLedger:
+    """Cross-round identity for critical issues (criteria_issue_ledger.json).
+    Prose critics reword the same fault every round; the ledger pins each fault to a
+    structural code so convergence is measurable and re-reports stay recognizable."""
+
+    def __init__(self, ws: Workspace):
+        self.ws = ws
+        self.data = (ws.read_json(ws.criteria_issue_ledger_json)
+                     if ws.criteria_issue_ledger_json.exists() else {"issues": {}})
+
+    def open_codes(self) -> set[str]:
+        return {code for code, rec in self.data["issues"].items()
+                if rec.get("status") == "open"}
+
+    def update(self, rnd: int, version: int, critique: CriteriaCritiqueOut) -> None:
+        seen: set[str] = set()
+        for issue in critique.issues:
+            if issue.severity != "critical":
+                continue
+            code = issue_code_for(issue)
+            issue.issue_code = code
+            seen.add(code)
+            rec = self.data["issues"].setdefault(code, {
+                "issue_code": code, "first_round": rnd, "rounds_open": 0})
+            rec.update({"status": "open", "last_round": rnd, "last_version": version,
+                        "category": issue.category, "target_ids": issue.target_ids,
+                        "field": issue.field, "problem": issue.problem,
+                        "rounds_open": rec.get("rounds_open", 0) + 1})
+        for code, rec in self.data["issues"].items():
+            if rec.get("status") == "open" and code not in seen:
+                rec["status"] = "resolved"
+                rec["resolved_round"] = rnd
+        self.ws.write_json(self.ws.criteria_issue_ledger_json, self.data)
+
+    def prompt_block(self) -> str:
+        rows = [rec for rec in self.data["issues"].values()
+                if rec.get("status") == "open"]
+        if not rows:
+            return ""
+        return ("\n=== PRIOR OPEN ISSUES (adjudicate each; reuse the exact issue_code "
+                "when re-reporting) ===\n"
+                + "\n".join(f"- {r['issue_code']} [{r.get('category', '?')}] "
+                            f"(open {r.get('rounds_open', 1)} round(s)): {r.get('problem', '')}"
+                            for r in rows))
+
+
+def constrain_new_criticals(critique: CriteriaCritiqueOut, prev_open: set[str],
+                            touched: set[str]) -> list[str]:
+    """After a targeted patch: a brand-new critical on an untouched field must carry
+    invariant-level evidence (consistency category naming >= 2 concrete ids), else it
+    is demoted to minor. Deterministic codes are never demoted. Returns demoted codes."""
+    demoted: list[str] = []
+    for issue in critique.issues:
+        if issue.severity != "critical":
+            continue
+        code = issue_code_for(issue)
+        if code in prev_open or code.startswith(_DETERMINISTIC_PREFIXES):
+            continue
+        touches_patched = any(t in touched for t in issue.target_ids) or (
+            issue.field in touched)
+        if touches_patched:
+            continue
+        evidenced = issue.category == "consistency" and len(set(issue.target_ids)) >= 2
+        if not evidenced:
+            issue.severity = "minor"
+            issue.suggestion += (" [demoted: new issue on an untouched field without "
+                                 "invariant-level evidence]")
+            demoted.append(code)
+    return demoted
 
 
 def critique_criteria(llm: StructuredLLM, doc: CriteriaDocOut, scope: QueryScopeOut,
                       digest: CorpusDigestOut, axes: AxisSynthesisOut,
                       evidence_summary: str,
                       usage: Usage,
-                      allowed_refs: set[str] | None = None) -> CriteriaCritiqueOut:
+                      allowed_refs: set[str] | None = None,
+                      ledger_block: str = "") -> CriteriaCritiqueOut:
     user = (f"=== Criteria document ===\n{json.dumps(doc.model_dump(), ensure_ascii=False)}\n\n"
             f"=== Approved axis synthesis ===\n{json.dumps(axes.model_dump(), ensure_ascii=False)}\n\n"
             f"=== Pool digest ===\n{json.dumps(digest.model_dump(), ensure_ascii=False)}\n\n"
-            f"=== Evidence notes ===\n{evidence_summary}")
+            f"=== Evidence notes ===\n{evidence_summary}"
+            + (f"\n{ledger_block}" if ledger_block else ""))
     out, pt, ct = llm.parse(_CRITIQUE_SYSTEM.format(domain=scope.canonical_name_en)
-                            + _PROVENANCE_CRITIQUE,
+                            + _PROVENANCE_CRITIQUE + _LEDGER_CRITIQUE,
                             user, CriteriaCritiqueOut)
     usage.add(pt, ct)
+    for issue in out.issues:
+        issue.issue_code = issue_code_for(issue)
     deterministic = criteria_integrity_issues(doc, axes, allowed_refs)
     if deterministic:
-        known = {(i.field, i.problem) for i in out.issues}
-        out.issues.extend(i for i in deterministic if (i.field, i.problem) not in known)
+        known = {issue_code_for(i) for i in out.issues}
+        out.issues.extend(i for i in deterministic if issue_code_for(i) not in known)
         out.approved = False
         if out.action == "approve":
             out.action = "revise"
@@ -229,18 +352,31 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             ws.criteria_pending_json.unlink(missing_ok=True)   # answered -> clear
 
     versions: dict[int, tuple[CriteriaDocOut, int, CriteriaCritiqueOut]] = {}
+    ledger = IssueLedger(ws)
+    prev_open: set[str] | None = None
+    no_progress = 0
+    touched: set[str] = set()          # fields edited by the LAST revision
+    last_was_patch = False
+    stop_reason = "criteria loop budget exhausted"
 
     for rnd in range(1, AC.CRITERIA_MAX_ITERS + 1):
         critique = critique_criteria(llm, doc, scope, digest, axes, evidence_summary, usage,
-                                     allowed_refs=allowed_refs)
+                                     allowed_refs=allowed_refs,
+                                     ledger_block=ledger.prompt_block())
+        if last_was_patch:
+            demoted = constrain_new_criticals(critique, prev_open or set(), touched)
+            if demoted:
+                print(f"  [criteria] {len(demoted)} unevidenced new critical(s) on "
+                      f"untouched fields demoted to minor: {demoted}")
+        ledger.update(rnd, ver, critique)
         ws.write_json(ws.critique_json(ver), critique.model_dump())
-        n_crit = sum(1 for i in critique.issues if i.severity == "critical")
+        criticals = [i for i in critique.issues if i.severity == "critical"]
+        n_crit = len(criticals)
         versions[ver] = (doc, n_crit, critique)
         print(f"  [criteria] v{ver} validator: action={critique.action} "
               f"issues={len(critique.issues)} (critical={n_crit})")
 
-        no_critical = not any(i.severity == "critical" for i in critique.issues)
-        if no_critical and critique.action in ("approve", "revise"):
+        if not criticals and critique.action in ("approve", "revise"):
             if critique.action == "revise":
                 print("  [criteria] only minor issues — treating as approve")
             save_final(ws, doc)
@@ -249,41 +385,88 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
         if rnd == AC.CRITERIA_MAX_ITERS:
             break
 
+        # Convergence guard: a round that resolves NO open ledger critical is churn,
+        # not progress — burning the remaining budget on it never converges (관찰: 8→7→6→6→7).
+        open_now = {issue_code_for(i) for i in criticals}
+        if prev_open is not None and not (prev_open - open_now):
+            no_progress += 1
+            if no_progress >= AC.CRITERIA_NO_PROGRESS_LIMIT:
+                stop_reason = (f"no ledger critical resolved for {no_progress} "
+                               "consecutive rounds")
+                print(f"  [criteria] early stop: {stop_reason}")
+                break
+        else:
+            no_progress = 0
+        prev_open = open_now
+
+        # ---- routing by issue class ----
+        # scope decisions belong to the owner; rewriting cannot settle them
+        scope_issues = [i for i in criticals if i.category == "scope_decision"]
+        if scope_issues or (critique.action == "ask_human" and critique.human_questions):
+            questions = critique.human_questions or [HITLQuestion(
+                id=i.issue_code, question=f"{i.problem} 어떻게 처리할까요? ({i.suggestion})",
+                why_needed=i.problem, options=[]) for i in scope_issues]
+            human_qa_all += hitl.ask(questions, context=f"기준서 v{ver} 검증 중 범위 결정")
         if critique.action == "collect_more" and critique.followup_queries:
             R.collect_more(ws, llm, client, critique.followup_queries,
                            scope.canonical_name_en, usage)
             evidence_summary = R.notes_summary_by_type(ws)
             allowed_refs = allowed_source_references(ws, digest)
-        elif critique.action == "ask_human" and critique.human_questions:
-            human_qa_all += hitl.ask(critique.human_questions,
-                                     context=f"기준서 v{ver} 검증 중")
-        # revise (and every non-approve path) -> redraft with full feedback
-        doc = draft_criteria(ws, llm, scope, digest, axes, evidence_summary, usage,
-                             version=ver + 1, prior=doc, critique=critique,
-                             human_qa=human_qa_all or None)
+
+        # ---- issue-specific patch first; whole-document redraft only when there is
+        # nothing to patch (fresh human answers / new evidence) or patching fails ----
+        if criticals:
+            try:
+                doc, touched, unresolvable = patch_criteria(
+                    ws, llm, scope, digest, axes, doc, criticals, usage,
+                    version=ver + 1, human_qa=human_qa_all or None)
+                last_was_patch = True
+                if unresolvable:
+                    print(f"  [criteria] patch reviser left unresolved: {unresolvable}")
+            except PatchApplyError as err:
+                print(f"  [criteria] patch failed ({err}) — full redraft fallback")
+                doc = draft_criteria(ws, llm, scope, digest, axes, evidence_summary, usage,
+                                     version=ver + 1, prior=doc, critique=critique,
+                                     human_qa=human_qa_all or None)
+                touched = set()
+                last_was_patch = False
+        else:
+            doc = draft_criteria(ws, llm, scope, digest, axes, evidence_summary, usage,
+                                 version=ver + 1, prior=doc, critique=critique,
+                                 human_qa=human_qa_all or None)
+            touched = set()
+            last_was_patch = False
         ver += 1
 
-    # Budget exhausted: a criteria document with material faults is not a valid
-    # output. Persist an actionable report and stop instead of silently blessing it.
+    # Budget exhausted or non-convergent: a criteria document with material faults is
+    # not a valid output. Persist an actionable report and stop instead of blessing it.
     best_v_checked = min(versions, key=lambda v: (versions[v][1], -v))
     checked_doc, checked_n, checked_critique = versions[best_v_checked]
+    checked_criticals = [i for i in checked_critique.issues if i.severity == "critical"]
+    human_pending = [i for i in checked_criticals if i.category == "scope_decision"]
+    quality = [i for i in checked_criticals if i.category != "scope_decision"]
     unresolved_action = checked_critique.action in ("ask_human", "collect_more")
+    status = ("approved_without_more_revisions" if not (checked_n or unresolved_action)
+              else "blocked_pending_human" if human_pending and not quality
+              else "blocked")
     blocked_report = {
-        "status": "blocked" if (checked_n or unresolved_action)
-                  else "approved_without_more_revisions",
-        "reason": "criteria loop budget exhausted",
+        "status": status,
+        "reason": stop_reason,
         "best_version": best_v_checked,
         "critical_counts": {str(v): versions[v][1] for v in versions},
-        "critical_issues": [i.model_dump() for i in checked_critique.issues
-                            if i.severity == "critical"],
+        # 미결 소유자 결정(human_pending)과 품질 결함(quality)은 다른 처방을 가진다
+        "quality_critical_issues": [i.model_dump() for i in quality],
+        "human_pending_issues": [i.model_dump() for i in human_pending],
+        "critical_issues": [i.model_dump() for i in checked_criticals],
         "unresolved_action": checked_critique.action if unresolved_action else None,
+        "issue_ledger": str(ws.criteria_issue_ledger_json),
     }
     if checked_n or unresolved_action:
         ws.write_json(ws.criteria_blocked_json, blocked_report)
         reported_n = max(1, checked_n)
-        print(f"  [criteria] BLOCKED: v{best_v_checked} has {checked_n} critical "
-              f"issue(s), unresolved action={checked_critique.action}; final criteria "
-              "were not written.")
+        print(f"  [criteria] BLOCKED ({status}): v{best_v_checked} has "
+              f"{len(quality)} quality critical(s) + {len(human_pending)} pending owner "
+              f"decision(s); final criteria were not written.")
         raise CriteriaValidationBlocked(ws.criteria_blocked_json, reported_n)
     save_final(ws, checked_doc)
     return checked_doc

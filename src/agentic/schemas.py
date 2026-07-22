@@ -126,6 +126,9 @@ class CriterionOut(BaseModel):
     sources: list[str]               # evidence URLs / "corpus: <case>"
     axis_ids: list[str] = Field(default_factory=list)
     source_refs: list[EvidenceSourceRef] = Field(default_factory=list)
+    # Non-exclusive title/abstract cues that indicate the criterion MAY apply.
+    # They make testability concrete; absence of a signal alone never excludes.
+    observable_signals: list[str] = Field(default_factory=list)
 
 
 class ScopeDecisionOut(BaseModel):
@@ -191,11 +194,19 @@ class HITLQuestion(BaseModel):
     options: list[str]               # suggested answers ([] = free-form)
 
 
+IssueCategory = Literal["testability", "coverage", "provenance", "consistency",
+                        "scope_decision", "definition", "other"]
+
+
 class CritiqueIssue(BaseModel):
     field: str
     problem: str
     suggestion: str
     severity: Literal["critical", "minor"]   # critical = would change judgments materially
+    # Structural identity for the cross-round ledger (prose wording drifts each round).
+    category: IssueCategory = "other"
+    target_ids: list[str] = Field(default_factory=list)  # C/E/A ids or scope topics
+    issue_code: str = ""             # "CATEGORY:TARGET", stable across rounds
 
 
 class CriteriaCritiqueOut(BaseModel):
@@ -204,6 +215,27 @@ class CriteriaCritiqueOut(BaseModel):
     action: Literal["approve", "revise", "collect_more", "ask_human"]
     followup_queries: list[SearchIntent]       # when action == collect_more
     human_questions: list[HITLQuestion]        # when action == ask_human
+
+
+# ---------------- [5b] issue-specific criteria patching ----------------
+class CriteriaFieldPatch(BaseModel):
+    """One targeted edit addressing specific ledger issues; everything not named
+    here stays byte-identical (whole-document redrafts churn unrelated fields)."""
+    issue_codes: list[str]           # ledger codes this patch resolves
+    target: Literal["domain_criteria", "exclusion_criteria", "scope_decisions",
+                    "boundary_guidance", "domain_definition", "scope_statement"]
+    op: Literal["replace", "add", "remove"]
+    target_id: str                   # criterion id / scope topic / 1-based guidance index; "" for prose fields
+    new_criterion: Optional[CriterionOut] = None       # criteria targets
+    new_scope_decision: Optional[ScopeDecisionOut] = None
+    new_text: str = ""               # prose targets / boundary_guidance
+    rationale: str = ""
+
+
+class CriteriaPatchOut(BaseModel):
+    patches: list[CriteriaFieldPatch]
+    unresolvable_issue_codes: list[str] = Field(default_factory=list)  # need human/evidence
+    notes: str = ""
 
 
 # ---------------- [6] judgment ----------------

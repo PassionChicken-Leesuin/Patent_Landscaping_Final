@@ -117,6 +117,37 @@
 - [x] validator 예산 소진 시 critical이 남으면 `criteria_blocked.json`을 기록하고
   `CriteriaValidationBlocked`로 중단한다. `criteria_final`을 자동 확정하지 않는다.
 
+### P7. 이슈 원장 + 라우팅 + issue-specific 패치 리바이저 — ✅ 완료 (2026-07-22)
+repro-live-a 차단 분석(critical 8→7→6→6→7 비수렴)의 처방. critical은 세 부류이며 각각
+다른 처리기를 가진다.
+
+- [x] **결정론 수리(mechanical)**: corpus 근거에 `corpus:<kind>:<n>` 안정 ID 발급(문장은
+  표시용으로 분리, `axes.corpus_reference_ids`). 인용 복구는 (i) 접두사 누락, (ii) 동일
+  source_type + 정규화 토큰 경계 + 후보 유일일 때의 unique-prefix 매칭만 허용, 전부
+  `provenance_repairs.jsonl`에 감사 기록. 미해결 ref는 **다른 유효 출처가 있을 때만**
+  drop — 유일한 근거는 남겨서 critical로 유지(조용한 provenance 약화 방지).
+- [x] **구조적 이슈 원장**: `CritiqueIssue`에 `category/target_ids/issue_code` 추가,
+  결정론 검사는 코드 직접 발급(`AXIS_COVERAGE:A6`, `PROVENANCE_REF:E5`...). 비평자는
+  이전 open 이슈를 같은 코드로 재보고하거나 해소 처리(`criteria_issue_ledger.json`).
+  **수렴 가드**: 원장 critical이 하나도 해소되지 않는 라운드가 `CRITERIA_NO_PROGRESS_LIMIT`
+  (2)회 연속이면 예산을 태우지 않고 조기 차단.
+- [x] **라우팅**: `scope_decision` critical은 재작성 금지 → 즉시 HITL. 나머지 critical은
+  **필드 단위 패치 리바이저**(`patch_criteria`/`apply_patches`)가 지목된 필드만 수정하고
+  나머지는 동결(전체 재작성 churn 제거). 패치 불가 시에만 full redraft fallback.
+- [x] **제약된 재비평**: 패치 후 건드리지 않은 필드의 신규 critical은 invariant 수준
+  근거(consistency + 구체 id ≥2) 또는 결정론 검사 출신일 때만 인정, 아니면 minor로 강등
+  (`constrain_new_criticals`). 차단 보고서는 `quality_critical_issues`와
+  `human_pending_issues`(미결 소유자 결정)를 분리하고 status `blocked_pending_human` 구분.
+- [x] **HITL 권위 오인 수정**: `ask()` 반환에 `answered_by` 포함. auto 답변은
+  "Human expert answers (authoritative)"가 아닌 **"SYSTEM ASSUMPTIONS (NOT owner
+  decisions)"** 블록으로 주입되고, judge amendment 라벨도 "Provisional system assumption"으로
+  구분. 사람이 결정해야 할 것은 open_questions에 유지된다.
+- [x] **testability 계약 고정**: `CriterionOut.observable_signals`(비배타적 관찰 단서)
+  추가. 기준은 "기능 task + signals"면 testable로 인정, signal 부재만으로 제외 금지
+  (드래프터·비평자·judge 프롬프트 3곳에 명시) — v5→v6 골대 이동 재발 방지.
+- 검증: 단위테스트 37개 통과(신규 13: prefix 수리 조건 4종, sole-ref 보존, 원장
+  open→resolved, 강등 규칙, 패치 적용 4종), mock E2E(축→기준서→판정→검증) 정상.
+
 부가: TAVILY 키 확보 (현재 Wikipedia fallback — A의 웹 리서치가 Boston Dynamics 1페이지였음).
 
 ## 5. 다음 A2 재실행 체크리스트 (P1·P2 + 실행 격리 적용 후)

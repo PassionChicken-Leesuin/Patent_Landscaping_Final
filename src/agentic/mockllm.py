@@ -158,6 +158,38 @@ class MockAgentLLM(StructuredLLM):
             exclusion_criteria=E,
             boundary_guidance=["If a patent mentions hydrogen supply to a fuel cell, judge whether storage itself is the claimed contribution (C1) or mere context (E1)."])
 
+    def _CriteriaPatchOut(self, system, user):
+        """Replace each criterion named in the ledger issues; leave the rest frozen."""
+        import json as _json
+        import re as _re
+        from src.agentic.schemas import CriteriaFieldPatch, CriteriaPatchOut
+        doc_part = user.split("=== Current criteria document (patch targets) ===", 1)[-1]
+        doc_json = doc_part.split("\n=== UNRESOLVED", 1)[0].strip()
+        issues_part = user.split("=== UNRESOLVED LEDGER ISSUES", 1)[-1].split("\n===", 1)[0]
+        try:
+            doc = CriteriaDocOut(**_json.loads(doc_json))
+        except Exception:
+            return CriteriaPatchOut(patches=[], unresolvable_issue_codes=["MOCK:PARSE"],
+                                    notes="mock could not parse the document")
+        by_id = {c.id: (c, "domain_criteria") for c in doc.domain_criteria}
+        by_id.update({e.id: (e, "exclusion_criteria") for e in doc.exclusion_criteria})
+        patches = []
+        for cid in dict.fromkeys(_re.findall(r"\b([CE]\d+)\b", issues_part)):
+            if cid not in by_id:
+                continue
+            crit, target = by_id[cid]
+            fixed = crit.model_copy(deep=True)
+            if not fixed.observable_signals:
+                fixed.observable_signals = ["hydrogen storage", "hydride", "tank"]
+            fixed.statement = fixed.statement.rstrip(".") + ", as evidenced in the text."
+            patches.append(CriteriaFieldPatch(
+                issue_codes=[f"MOCK:{cid}"], target=target, op="replace",
+                target_id=cid, new_criterion=fixed, rationale="mock targeted fix"))
+        if not patches:
+            return CriteriaPatchOut(patches=[], unresolvable_issue_codes=["MOCK:NONE"],
+                                    notes="no criterion ids named in the issues")
+        return CriteriaPatchOut(patches=patches)
+
     def _CriteriaCritiqueOut(self, system, user):
         first = self.calls["CriteriaCritiqueOut"] == 1
         if first:

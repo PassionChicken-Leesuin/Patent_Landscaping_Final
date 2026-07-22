@@ -70,7 +70,10 @@ class HITL:
         self.stage = stage
 
     def ask(self, questions: list[HITLQuestion], context: str = "") -> list[dict]:
-        """Return [{'id', 'question', 'answer'}, ...] for every question."""
+        """Return [{'id', 'question', 'answer', 'answered_by'}, ...] for every
+        question. answered_by='auto' entries are UNATTENDED SYSTEM ASSUMPTIONS,
+        never owner decisions — downstream prompts must not present them as
+        authoritative human answers."""
         if not questions:
             return []
         questions = _uniquify(questions)
@@ -163,4 +166,7 @@ class HITL:
         entry = {"stage": self.stage, "id": q.id, "question": q.question,
                  "why_needed": q.why_needed, "answer": answer, "answered_by": who}
         self.ws.append_jsonl(self.ws.human_qa_jsonl, entry)
-        return {"id": q.id, "question": q.question, "answer": answer}
+        # answered_by travels with the answer: callers must distinguish a human
+        # ruling from an unattended auto-assumption (권위 오인 방지)
+        return {"id": q.id, "question": q.question, "answer": answer,
+                "answered_by": who}

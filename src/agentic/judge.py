@@ -53,14 +53,21 @@ def criteria_prompt_block(doc: CriteriaDocOut, amendments: list[str] | None = No
         lines += ["", "TECHNOLOGY AXES (anchored inventory):"]
         lines += [f"  [{a.status.upper()}] {a.id}. {a.name}: {a.description}"
                   for a in doc.technology_axes]
+    def _crit_line(c) -> str:
+        sig = (f" (signals: {'; '.join(c.observable_signals)})"
+               if getattr(c, "observable_signals", None) else "")
+        return f"  {c.id}. {c.statement}{sig}"
+
     if doc.scope_decisions:
         lines += ["", "SCOPE DECISIONS (binding per-cluster rulings; CONDITIONAL = apply the "
                       "stated decisive test to the individual patent):"]
         lines += [f"  [{s.verdict.upper()}] {s.topic}: {s.rationale}" for s in doc.scope_decisions]
-    lines += ["", "INCLUSION CRITERIA (a patent is domain-valid when it satisfies at least one):"]
-    lines += [f"  {c.id}. {c.statement}" for c in doc.domain_criteria]
+    lines += ["", "INCLUSION CRITERIA (a patent is domain-valid when it satisfies at least "
+                  "one; 'signals' are NON-EXCLUSIVE indicative cues — the absence of a "
+                  "signal alone never excludes):"]
+    lines += [_crit_line(c) for c in doc.domain_criteria]
     lines += ["", "EXCLUSION CRITERIA (a patent is NOT domain-valid when one applies):"]
-    lines += [f"  {e.id}. {e.statement}" for e in doc.exclusion_criteria]
+    lines += [_crit_line(e) for e in doc.exclusion_criteria]
     lines += ["", "BOUNDARY GUIDANCE:"]
     lines += [f"  - {g}" for g in doc.boundary_guidance]
     if amendments:
@@ -367,7 +374,10 @@ def validate_judgments(ws: Workspace, doc: CriteriaDocOut, llm: StructuredLLM,
 
         if questions:
             for qa in hitl.ask(questions, context=f"판정 감사 round {it}"):
-                amendments.append(f"Human decision — Q: {qa['question']} A: {qa['answer']}")
+                label = ("Human decision" if qa.get("answered_by", "human") != "auto"
+                         else "Provisional system assumption (no human available; "
+                              "NOT an owner decision)")
+                amendments.append(f"{label} — Q: {qa['question']} A: {qa['answer']}")
         if followups and client is not None:
             R.collect_more(ws, llm, client, followups, canonical_name, usage)
             # fresh evidence informs future amendments only via the auditor's next round
@@ -451,7 +461,12 @@ def boundary_feedback_round(ws: Workspace, doc: CriteriaDocOut, llm: StructuredL
     hqs = [HITLQuestion(id=f"BL-{q.id}", question=f"{q.question} (현재 가정: {q.tentative_default})",
                         why_needed=q.why_it_matters, options=q.options) for q in kept]
     qa = hitl.ask(hqs, context=f"{canonical_name} 판정 후 미해결 경계")
-    amendments = [f"Scope decision (post-judgment) — {a['question']} => {a['answer']}" for a in qa]
+    amendments = [
+        (f"Scope decision (post-judgment) — {a['question']} => {a['answer']}"
+         if a.get("answered_by", "human") != "auto" else
+         f"Provisional assumption (post-judgment, no human available) — "
+         f"{a['question']} => {a['answer']}")
+        for a in qa]
     rows = [dict(r) for r in uncertain]
     print(f"  [boundary-loop] re-judging {len(rows)} uncertain cases under {len(amendments)} answer(s)")
     judge_rows(ws, doc, rows, judge_pool, workers=workers, append=True,
