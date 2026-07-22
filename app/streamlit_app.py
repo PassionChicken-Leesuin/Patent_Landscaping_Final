@@ -1,10 +1,13 @@
 """MAS 유효특허 선별 시스템 — Streamlit UI.
 
-실행:  .venv-mac/bin/streamlit run app/streamlit_app.py
+실행:
+  Windows:  python -m streamlit run app/streamlit_app.py
+  macOS:    .venv-mac/bin/streamlit run app/streamlit_app.py
 
 업로드(특허 xlsx + 도메인 설명 + 참고자료) → agentic 파이프라인 실행(batch HITL) →
-질문이 나오면 UI에서 실시간 답변 → 중간 산출물(기준서·Q&A·리서치·판정)을 모두 표시 →
-선별 특허 xlsx 다운로드.
+질문이 나오면 UI에서 실시간 답변 → 중간 산출물(기준서·기술축·Q&A·이슈원장·판정)을
+모두 표시 → 선별 특허 xlsx 다운로드. 기준서 차단(fail-loud) 시 차단 보고서와
+재시작 버튼을 제공한다.
 """
 from __future__ import annotations
 
@@ -25,6 +28,8 @@ STATUS_LABEL = {
     "new": ("⚪ 대기", "실행 전입니다."),
     "running": ("🔵 실행 중", "파이프라인이 동작하고 있습니다."),
     "waiting_human": ("🟠 인간 답변 대기", "시스템이 범위 질문에 대한 답을 기다립니다."),
+    "blocked": ("🛑 기준서 차단", "기준서에 critical 결함이 남아 판정을 시작하지 않았습니다 "
+                                "(fail-loud). 아래 차단 보고서를 확인하세요."),
     "done": ("🟢 완료", "판정이 끝났습니다. 아래에서 결과를 확인하세요."),
     "stopped": ("⏹️ 중단됨", "사용자가 중단했습니다. 재시작하면 이어서 실행됩니다."),
     "error": ("🔴 오류", "로그를 확인하세요. 재시작하면 캐시된 단계부터 이어서 실행됩니다."),
@@ -106,6 +111,13 @@ def render_setup():
                                         "과제 배경 등을 자유롭게 서술")
         refs = st.file_uploader("참고자료 업로드 (선택, pdf/txt/md — 근거 노트로 반영)",
                                 type=["pdf", "txt", "md"], accept_multiple_files=True)
+        st.caption("⚠️ 도메인 출제문·소유자 정의 문서는 **반드시 여기에 업로드**하세요. "
+                   "짧은 문서(≤8KB)는 기준서 작성의 최상위 범위 근거로 원문 주입됩니다.")
+        allow_flagged = st.checkbox(
+            "유출 차단에 걸려도 참고자료 강행 주입 (--local-doc-allow-flagged)",
+            value=False,
+            help="벤치마크 누출 스캔이 소유자 문서를 오탐하면 실행이 중단됩니다(fail-loud). "
+                 "문서를 검토했고 안전하다고 확신할 때만 체크하세요.")
 
     with col2:
         st.subheader("3) 실행 옵션")
@@ -148,6 +160,7 @@ def render_setup():
             docs.append(str(p))
         m["local_docs"] = docs
         m["description"] = desc.strip()
+        m["allow_flagged"] = bool(allow_flagged)
         runner.save_manifest(run_dir, m)
         runner.launch(run_dir)
         _go(run_dir)
@@ -232,6 +245,35 @@ def render_hitl(run_dir: Path):
                 st.rerun()
 
 
+def render_blocked(run_dir: Path, ws: Path | None):
+    st.error("**기준서 검증이 통과하지 못해 판정을 시작하지 않았습니다** (fail-loud). "
+             "결함 있는 기준으로 특허를 판정하지 않기 위한 의도된 중단입니다.", icon="🛑")
+    rep = artifacts.blocked_report(ws) if ws is not None else None
+    if rep is None:
+        st.info("차단 보고서(criteria_blocked.json)를 찾지 못했습니다 — 로그를 확인하세요.")
+        return
+    st.caption(f"사유: {rep.get('reason','?')} · 최선 버전: v{rep.get('best_version','?')} "
+               f"· 라운드별 critical: {rep.get('critical_counts', {})}")
+    quality = rep.get("quality_critical_issues", rep.get("critical_issues", []))
+    pending = rep.get("human_pending_issues", [])
+    if quality:
+        st.markdown("**품질 결함 (시스템이 고쳐야 함)**")
+        for i in quality:
+            st.markdown(f"- 🔴 `{i.get('issue_code','')}` {i.get('problem','')}")
+            if i.get("suggestion"):
+                st.caption(f"  제안: {i['suggestion']}")
+    if pending:
+        st.markdown("**미결 소유자 결정 (사람이 답해야 함)**")
+        for i in pending:
+            st.markdown(f"- 🙋 `{i.get('issue_code','')}` {i.get('problem','')}")
+    st.info("🔁 **재시작**하면 기준서 루프를 다시 돌며, 범위 질문은 이 화면에서 답변할 수 "
+            "있습니다. 이미 답한 질문(동일 문구)은 자동으로 재사용됩니다.")
+    if st.button("▶️ 기준서 루프 재시작", type="primary"):
+        runner.launch(run_dir)
+        st.session_state["last_status"] = "running"
+        st.rerun()
+
+
 def render_results(run_dir: Path, ws: Path):
     df = artifacts.ranked(ws)
     if df.empty:
@@ -297,6 +339,10 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
             labels = [v[0] for v in vers]
             pick = st.selectbox("버전", labels, index=len(labels) - 1)
             st.markdown(dict(vers)[pick])
+        ax = artifacts.axis_md(ws)
+        if ax:
+            with st.expander("🧭 기술축 합성 (axis synthesis — 기준서의 골격·출처)"):
+                st.markdown(ax)
 
     with tabs[1]:
         qa = artifacts.human_qa(ws)
@@ -304,7 +350,9 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
             st.info("아직 질문/답변이 없습니다.")
         for e in qa:
             who = {"human": "🧑 인간 답변", "human_batch": "🧑 인간 답변(UI)",
-                   "auto": "🤖 자동 답변"}.get(e.get("answered_by"), e.get("answered_by"))
+                   "human_prior": "🧑 인간 답변(같은 실행에서 재사용)",
+                   "auto": "🤖 자동 가정 (소유자 결정 아님)"}.get(
+                       e.get("answered_by"), e.get("answered_by"))
             st.markdown(f"**[{e.get('stage','')}] Q ({e.get('id','')}):** "
                         f"{e.get('question','')}")
             if e.get("why_needed"):
@@ -350,15 +398,37 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
                                     f"flip {s.get('flip')}건")
 
     with tabs[4]:
+        ledger = artifacts.issue_ledger(ws)
+        if ledger:
+            st.markdown("**이슈 원장 (critical 추적)** — 같은 결함은 라운드가 바뀌어도 "
+                        "같은 코드로 추적됩니다.")
+            st.dataframe(pd.DataFrame([{
+                "상태": "🟠 open" if r.get("status") == "open" else "✅ resolved",
+                "코드": r.get("issue_code", ""), "분류": r.get("category", ""),
+                "등장": f"r{r.get('first_round','?')}→r{r.get('last_round','?')}",
+                "지속 라운드": r.get("rounds_open", ""),
+                "내용": (r.get("problem", "") or "")[:90],
+            } for r in ledger]), width="stretch", height=200)
+        repairs = artifacts.provenance_repairs(ws)
+        if repairs:
+            with st.expander(f"🔧 출처 자동수리·패치 감사 로그 ({len(repairs)}건)"):
+                for r in repairs:
+                    st.caption(f"[{r.get('stage','')}] {r.get('op', r.get('patched',''))} "
+                               f"· {r.get('context','')} "
+                               f"{('· ' + str(r.get('from',''))[:60] + ' → ' + str(r.get('to',''))[:60]) if r.get('from') else ''}")
         for c in artifacts.critiques(ws):
             issues = c.get("issues", [])
             ncrit = sum(1 for i in issues if i.get("severity") == "critical")
             st.markdown(f"**기준서 v{c.get('_version')}** — 검증 액션: "
-                        f"`{c.get('action', c.get('warning', '?'))}` · "
+                        f"`{c.get('action', c.get('warning', c.get('status', '?')))}` · "
                         f"지적 {len(issues)}건 (critical {ncrit})")
             for i in issues:
                 sev = "🔴" if i.get("severity") == "critical" else "🟡"
-                st.caption(f"{sev} {i.get('issue', i)}")
+                code = f"`{i['issue_code']}` " if i.get("issue_code") else ""
+                body = i.get("problem", i.get("issue", "")) or str(i)
+                st.caption(f"{sev} {code}{body}")
+                if i.get("suggestion"):
+                    st.caption(f"    ↳ 제안: {i['suggestion']}")
             st.markdown("---")
 
 
@@ -387,6 +457,8 @@ def render_run(run_dir: Path):
 
     if status == "waiting_human":
         render_hitl(run_dir)
+    if status == "blocked":
+        render_blocked(run_dir, ws)
 
     if status in ("running", "waiting_human"):
         live_panel(run_dir)

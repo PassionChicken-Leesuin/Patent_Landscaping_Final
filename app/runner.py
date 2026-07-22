@@ -10,14 +10,16 @@ Each UI run lives under DataSet/agentic_ui/<run_id>/ :
 The pipeline itself is scripts.run_agentic with --hitl batch: on a human question it
 writes questions_pending.json into its workspace and exits with code 2; we surface
 the questions in the UI, write answers.json, and relaunch — every finished stage is
-cached in the workspace, so the run resumes exactly where it stopped.
+cached in the workspace, so the run resumes exactly where it stopped. Exit code 3 =
+fail-loud block (criteria/axis validation): criteria_blocked.json holds the report.
+
+Cross-platform: launching goes through app/_run_wrapper.py (no bash), stopping uses
+taskkill on Windows / killpg on POSIX.
 """
 from __future__ import annotations
 
 import json
 import os
-import shlex
-import signal
 import subprocess
 import sys
 import time
@@ -26,13 +28,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 UI_DIR = ROOT / "DataSet" / "agentic_ui"
 AGENTIC_DIR = ROOT / "DataSet" / "agentic"
+IS_WINDOWS = os.name == "nt"
 
 STAGES = [
     ("[1] scoping", "① 질의 스코핑"),
     ("[2] research", "② 웹 자료수집"),
     ("[2b] local docs", "②b 사용자 자료 반영"),
     ("[3] corpus", "③ 특허 풀 통독"),
-    ("[4-5] criteria", "④⑤ 기준서 작성·검증(HITL)"),
+    ("technology-axis synthesis", "④a 기술축 합성"),
+    ("criteria drafting + validator loop", "④⑤ 기준서 작성·검증(HITL)"),
     ("[6] judge", "⑥ 특허 판정"),
     ("[7] judgment validator", "⑦ 판정 감사"),
     ("[3-loop]", "⑧ 경계 피드백 루프"),
@@ -107,11 +111,13 @@ def build_command(run_dir: Path, m: dict) -> list[str]:
         args.append("--boundary-loop")
     for doc in m.get("local_docs", []):
         args += ["--local-doc", doc]
+    if m.get("allow_flagged"):
+        args.append("--local-doc-allow-flagged")
     return args
 
 
 def launch(run_dir: Path) -> int:
-    """Start (or resume) the pipeline; returns the process-group leader pid."""
+    """Start (or resume) the pipeline detached; returns the wrapper pid."""
     m = load_manifest(run_dir)
     log = run_dir / "run.log"
     exit_file = run_dir / "exit_code"
@@ -120,15 +126,21 @@ def launch(run_dir: Path) -> int:
     cmd = build_command(run_dir, m)
     stamp = time.strftime("%Y-%m-%d %H:%M:%S")
     with open(log, "a", encoding="utf-8") as f:
-        f.write(f"\n===== launch {stamp} =====\n$ {shlex.join(cmd)}\n\n")
+        f.write(f"\n===== launch {stamp} =====\n$ {' '.join(cmd)}\n\n")
 
-    shell = (shlex.join(cmd)
-             + f" >> {shlex.quote(str(log))} 2>&1"
-             + f"; echo $? > {shlex.quote(str(exit_file))}")
-    env = {**os.environ, "PYTHONUNBUFFERED": "1", "PYTHONPATH": str(ROOT)}
-    p = subprocess.Popen(["bash", "-c", shell], cwd=str(ROOT), env=env,
-                         start_new_session=True,
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    env = {**os.environ, "PYTHONUNBUFFERED": "1", "PYTHONPATH": str(ROOT),
+           "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
+    wrapper = [sys.executable, "-m", "app._run_wrapper",
+               str(log), str(exit_file)] + cmd
+    if IS_WINDOWS:
+        flags = (subprocess.CREATE_NEW_PROCESS_GROUP
+                 | getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        p = subprocess.Popen(wrapper, cwd=str(ROOT), env=env, creationflags=flags,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    else:
+        p = subprocess.Popen(wrapper, cwd=str(ROOT), env=env,
+                             start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     m["pid"] = p.pid
     m.setdefault("launches", []).append({"time": stamp, "pid": p.pid})
     save_manifest(run_dir, m)
@@ -138,7 +150,15 @@ def launch(run_dir: Path) -> int:
 def stop(run_dir: Path) -> None:
     m = load_manifest(run_dir)
     pid = m.get("pid")
-    if pid and _pid_alive(pid):
+    if not pid or not _pid_alive(pid):
+        return
+    if IS_WINDOWS:
+        subprocess.run(["taskkill", "/F", "/T", "/PID", str(pid)],
+                       capture_output=True)
+        # a force-killed wrapper never writes exit_code — record the stop here
+        (run_dir / "exit_code").write_text("130", encoding="utf-8")
+    else:
+        import signal
         try:
             os.killpg(os.getpgid(pid), signal.SIGTERM)
         except (ProcessLookupError, PermissionError):
@@ -146,6 +166,11 @@ def stop(run_dir: Path) -> None:
 
 
 def _pid_alive(pid: int) -> bool:
+    if IS_WINDOWS:
+        out = subprocess.run(
+            ["tasklist", "/FI", f"PID eq {pid}", "/NH", "/FO", "CSV"],
+            capture_output=True, text=True)
+        return str(pid) in (out.stdout or "")
     try:
         os.kill(pid, 0)
     except (ProcessLookupError, PermissionError):
@@ -155,7 +180,7 @@ def _pid_alive(pid: int) -> bool:
 
 # ------------------------------------------------------------------ status
 def get_status(run_dir: Path) -> str:
-    """new | running | waiting_human | done | stopped | error"""
+    """new | running | waiting_human | blocked | done | stopped | error"""
     m = load_manifest(run_dir)
     exit_file = run_dir / "exit_code"
     if exit_file.exists():
@@ -167,6 +192,8 @@ def get_status(run_dir: Path) -> str:
             return "done"
         if code == 2:
             return "waiting_human"
+        if code == 3:
+            return "blocked"
         if code in (-15, 143, 130):
             return "stopped"
         return "error"

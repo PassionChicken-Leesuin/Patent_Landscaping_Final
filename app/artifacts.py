@@ -62,6 +62,28 @@ def human_qa(ws: Path) -> list[dict]:
     return _read_jsonl(ws / "human_qa.jsonl")
 
 
+def axis_md(ws: Path) -> str | None:
+    p = ws / "axis_synthesis.md"
+    return p.read_text(encoding="utf-8") if p.exists() else None
+
+
+def blocked_report(ws: Path) -> dict | None:
+    """criteria_blocked.json — fail-loud stop report (quality vs human_pending)."""
+    return _read_json(ws / "criteria_blocked.json")
+
+
+def issue_ledger(ws: Path) -> list[dict]:
+    """Ledger rows sorted open-first then by first_round."""
+    d = _read_json(ws / "criteria_issue_ledger.json") or {}
+    rows = list(d.get("issues", {}).values())
+    return sorted(rows, key=lambda r: (r.get("status") != "open",
+                                       r.get("first_round", 0)))
+
+
+def provenance_repairs(ws: Path) -> list[dict]:
+    return _read_jsonl(ws / "provenance_repairs.jsonl")
+
+
 def research_notes(ws: Path) -> pd.DataFrame:
     notes = _read_jsonl(ws / "research" / "notes.jsonl")
     if not notes:
