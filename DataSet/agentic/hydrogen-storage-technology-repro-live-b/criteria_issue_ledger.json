@@ -1,0 +1,53 @@
+{
+  "issues": {
+    "COVERAGE:ADVANCED_MATERIALS": {
+      "issue_code": "COVERAGE:ADVANCED_MATERIALS",
+      "first_round": 1,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "coverage",
+      "target_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "field": "domain_criteria",
+      "problem": "The criteria do not cover the use of advanced materials such as MOFs and nanomaterials for hydrogen storage, which are highlighted in web evidence.",
+      "resolved_round": 2
+    },
+    "SCOPE_DECISION:ELECTROCHEMICAL_APPARATUS": {
+      "issue_code": "SCOPE_DECISION:ELECTROCHEMICAL_APPARATUS",
+      "first_round": 1,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "scope_decision",
+      "target_ids": [
+        "Electrochemical reaction apparatus"
+      ],
+      "field": "scope_decisions",
+      "problem": "The decision on electrochemical reaction apparatus is conditional, but the rationale is not fully supported by evidence. The pool digest indicates a significant number of patents could be affected by this decision.",
+      "resolved_round": 2
+    },
+    "AXIS_COVERAGE:A6": {
+      "issue_code": "AXIS_COVERAGE:A6",
+      "first_round": 1,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "coverage",
+      "target_ids": [
+        "A6"
+      ],
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axis A6 lacks a C-criterion mapping.",
+      "resolved_round": 2
+    }
+  }
+}

@@ -238,6 +238,13 @@ class CriteriaPatchOut(BaseModel):
     notes: str = ""
 
 
+class IssueResolutionOut(BaseModel):
+    """Blind per-issue verification by a fresh judge (no ledger in context) —
+    breaks the anchoring loop where a critic re-reports an already-fixed issue."""
+    resolved: bool
+    evidence: str                    # the exact criterion/section that resolves it
+
+
 # ---------------- [6] judgment ----------------
 class JudgmentOut(BaseModel):
     matched_criteria: list[str]      # cited C-ids supporting inclusion

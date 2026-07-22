@@ -2,43 +2,48 @@
   "approved": false,
   "issues": [
     {
-      "field": "C-criteria",
-      "problem": "C1 and C2 are not fully testable from title+abstract alone as they require specific identification of methods or materials and efficiency of release, which may not be explicitly stated in the abstract.",
-      "suggestion": "Refine C1 and C2 to ensure they can be assessed based on the presence of indicative terms or descriptions in the title or abstract that imply these functionalities.",
-      "severity": "critical"
-    },
-    {
-      "field": "E-criteria",
-      "problem": "E5 is not a genuine 'rule-match-but-not-the-task' criterion as it restates the exclusion of technologies managing hydrogen post-storage, which is already covered by the scope statement.",
-      "suggestion": "Clarify E5 to focus on specific adjacent technologies that might appear relevant but do not perform the storage task, such as distribution systems that do not alter storage methods.",
-      "severity": "critical"
-    },
-    {
-      "field": "boundary_guidance",
-      "problem": "The boundary guidance does not resolve the contradiction in the inclusion of fuel cell systems, which are conditionally included in scope decisions but excluded in E3.",
-      "suggestion": "Clarify the conditions under which fuel cell systems are included, ensuring consistency with E3 and the scope statement.",
-      "severity": "critical"
+      "field": "domain_criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the use of Metal-Organic Frameworks (MOFs) for hydrogen storage is not explicitly covered by the C-criteria, despite being highlighted in the evidence.",
+      "suggestion": "Include a criterion that explicitly addresses the use of MOFs for hydrogen storage, leveraging their high surface area and porosity to enhance storage capacity.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "C6"
+      ],
+      "issue_code": "COVERAGE:MOFS"
     },
     {
       "field": "scope_decisions",
-      "problem": "The rationale for excluding hydrogen generation systems is weak, as it does not address potential overlaps with storage technologies that might be integrated into generation systems.",
-      "suggestion": "Reassess the exclusion of hydrogen generation systems to determine if any integrated storage technologies should be considered within scope.",
-      "severity": "critical"
-    },
-    {
-      "field": "definition",
-      "problem": "The domain definition does not explicitly cover all functional tasks, such as the enhancement of storage capacity and kinetics, which are critical to the domain.",
-      "suggestion": "Expand the domain definition to explicitly include the enhancement of storage capacity and kinetics as part of hydrogen storage technology.",
-      "severity": "critical"
-    },
-    {
-      "field": "E5.source_refs",
-      "problem": "Criterion E5 cites references absent from the allowed evidence catalog: ['corpus: Liquid hydrogen handling technologies']",
-      "suggestion": "Copy an exact reference from the axis synthesis or allowed evidence catalog.",
-      "severity": "critical"
+      "problem": "The rationale for excluding 'Liquid hydrogen handling technologies' is weak, as handling can be integral to storage solutions, especially in terms of safety and efficiency.",
+      "suggestion": "Re-evaluate the exclusion of liquid hydrogen handling technologies, considering their potential role in safety and efficiency of storage solutions.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "LIQUID_HANDLING"
+      ],
+      "issue_code": "SCOPE_DECISION:LIQUID_HANDLING"
     }
   ],
-  "action": "revise",
+  "action": "ask_human",
   "followup_queries": [],
-  "human_questions": []
+  "human_questions": [
+    {
+      "id": "Q3",
+      "question": "Should the domain include Metal-Organic Frameworks (MOFs) for hydrogen storage, given their significance in web evidence but lack of emphasis in the patent pool?",
+      "why_needed": "MOFs are significant in web evidence for hydrogen storage but are underrepresented in the patent pool, affecting the domain's scope.",
+      "options": [
+        "Include MOFs for hydrogen storage",
+        "Exclude MOFs for hydrogen storage"
+      ]
+    },
+    {
+      "id": "Q4",
+      "question": "Should the domain include liquid hydrogen handling technologies, considering their potential role in safety and efficiency of storage solutions?",
+      "why_needed": "Handling technologies can be integral to storage solutions, especially in terms of safety and efficiency, which may affect the domain's scope.",
+      "options": [
+        "Include liquid hydrogen handling technologies",
+        "Exclude liquid hydrogen handling technologies"
+      ]
+    }
+  ]
 }

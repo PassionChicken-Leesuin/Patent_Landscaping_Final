@@ -190,6 +190,10 @@ class MockAgentLLM(StructuredLLM):
                                     notes="no criterion ids named in the issues")
         return CriteriaPatchOut(patches=patches)
 
+    def _IssueResolutionOut(self, system, user):
+        from src.agentic.schemas import IssueResolutionOut
+        return IssueResolutionOut(resolved=True, evidence="mock verification")
+
     def _CriteriaCritiqueOut(self, system, user):
         first = self.calls["CriteriaCritiqueOut"] == 1
         if first:

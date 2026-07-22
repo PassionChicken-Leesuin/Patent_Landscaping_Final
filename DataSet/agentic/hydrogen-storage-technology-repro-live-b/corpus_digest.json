@@ -1,0 +1,42 @@
+{
+  "main_clusters": [
+    "Hydrogen storage alloys",
+    "Hydrogen generation systems",
+    "Hydrogen fuel cells",
+    "High-pressure hydrogen environments",
+    "Hydrogen recovery systems"
+  ],
+  "vocabulary_profile": [
+    "hydrogen",
+    "storage",
+    "alloy",
+    "fuel cell",
+    "gas",
+    "system",
+    "catalyst",
+    "electrochemical",
+    "decomposition",
+    "reaction",
+    "temperature"
+  ],
+  "representative_cases": [
+    "Hydrogen storage alloys for improved efficiency",
+    "Advanced hydrogen generation systems for industrial applications",
+    "Innovative hydrogen fuel cells with enhanced performance",
+    "Materials for high-pressure hydrogen environments",
+    "Efficient hydrogen recovery systems for sustainable energy"
+  ],
+  "suspected_boundary_cases": [
+    "Cooling tower — focuses on cooling technology, not directly related to hydrogen storage.",
+    "Electrochemical reaction apparatus — involves electrochemical processes but does not specifically address hydrogen storage.",
+    "Process for preparing aromatic polyamides — relates to chemical processes, not hydrogen storage.",
+    "Gasification of plastics — discusses hydrogen generation but not storage.",
+    "Low-temperature plasma device — involves hydrogen sulfide decomposition, not hydrogen storage.",
+    "Home fuel cell boiler system having combustion catalysis device — relates to fuel cells but not specifically to hydrogen storage."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence.",
+    "The pool does not prominently feature liquid hydrogen storage, despite its significance in web evidence.",
+    "Nanomaterials for enhancing hydrogen storage are not a major focus in the patent pool, contrary to web evidence."
+  ]
+}

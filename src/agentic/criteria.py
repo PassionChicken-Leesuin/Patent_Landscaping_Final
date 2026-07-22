@@ -261,6 +261,12 @@ def apply_patches(doc: CriteriaDocOut, patches) -> tuple[CriteriaDocOut, set[str
             if p.op == "add":
                 if p.new_criterion is None:
                     raise PatchApplyError(f"add {p.target} without new_criterion")
+                norm = " ".join(p.new_criterion.statement.lower().split())
+                dup = next((x for x in lst
+                            if " ".join(x.statement.lower().split()) == norm), None)
+                if dup is not None:      # re-adding an existing criterion is a no-op
+                    touched.add(dup.id)
+                    continue
                 c = p.new_criterion.model_copy(deep=True)
                 prefix = "C" if p.target == "domain_criteria" else "E"
                 used = {x.id for x in lst}

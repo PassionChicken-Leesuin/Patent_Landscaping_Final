@@ -16,7 +16,8 @@ from src.agentic.schemas import (
     CriteriaCritiqueOut, CriteriaDocOut, CriteriaFieldPatch, CriterionOut,
     CritiqueIssue, EvidenceSourceRef, ScopeDecisionOut,
 )
-from src.agentic.validator import IssueLedger, constrain_new_criticals, issue_code_for
+from src.agentic.validator import (IssueLedger, constrain_new_criticals, issue_code_for,
+                                   reconcile_issues)
 from src.agentic.workspace import Workspace
 
 
@@ -146,7 +147,39 @@ class TestIssueLedger(unittest.TestCase):
         self.assertEqual(by_code["TESTABILITY:C1"], "critical")
 
 
+class TestReconcileIssues(unittest.TestCase):
+    def test_critic_echo_of_fixed_deterministic_code_is_dropped(self):
+        # observed live: after C6/C7 covered A6/A7 the critic kept re-reporting
+        # AXIS_COVERAGE:A6 from the ledger; mechanical truth belongs to code
+        echo = CritiqueIssue(field="domain_criteria.axis_ids", problem="A6 uncovered.",
+                             suggestion="map it", severity="critical",
+                             category="coverage", target_ids=["A6"],
+                             issue_code="AXIS_COVERAGE:A6")
+        prose = CritiqueIssue(field="C-criteria", problem="C1 vague.", suggestion="fix",
+                              severity="critical", category="testability",
+                              target_ids=["C1"])
+        kept = reconcile_issues([echo, prose], deterministic=[])
+        self.assertEqual([i.issue_code for i in kept], ["TESTABILITY:C1"])
+
+    def test_current_deterministic_issues_are_authoritative(self):
+        det = CritiqueIssue(field="E5.source_refs", problem="unknown ref",
+                            suggestion="cite catalog", severity="critical",
+                            category="provenance", target_ids=["E5"],
+                            issue_code="PROVENANCE_REF:E5")
+        kept = reconcile_issues([], deterministic=[det])
+        self.assertEqual([i.issue_code for i in kept], ["PROVENANCE_REF:E5"])
+
+
 class TestApplyPatches(unittest.TestCase):
+    def test_duplicate_add_is_a_noop(self):
+        doc = _doc()
+        dup = CriterionOut(id="x", statement="Performs  the task.", sources=[])
+        out, touched = apply_patches(doc, [CriteriaFieldPatch(
+            issue_codes=["COVERAGE:X"], target="domain_criteria", op="add",
+            target_id="", new_criterion=dup)])
+        self.assertEqual(len(out.domain_criteria), 2)   # no C3 duplicate created
+        self.assertEqual(touched, {"C1"})
+
     def test_replace_keeps_other_fields_frozen_and_ids_stable(self):
         doc = _doc()
         fixed = doc.domain_criteria[0].model_copy(deep=True)

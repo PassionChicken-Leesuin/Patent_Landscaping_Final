@@ -23,7 +23,7 @@ from src.agentic.criteria import (PatchApplyError, draft_criteria, patch_criteri
 from src.agentic.hitl import HITL
 from src.agentic.schemas import (AxisSynthesisOut, CriteriaCritiqueOut, CriteriaDocOut,
                                  CorpusDigestOut, CritiqueIssue, HITLQuestion,
-                                 QueryScopeOut)
+                                 IssueResolutionOut, QueryScopeOut)
 from src.agentic.search import SearchClient
 from src.agentic.workspace import Workspace
 
@@ -250,6 +250,31 @@ class IssueLedger:
                             for r in rows))
 
 
+_VERIFY_SYSTEM = (
+    "You are a fresh verification judge for a patent-criteria document. You are given ONE "
+    "previously reported issue and the CURRENT document. Decide whether the current "
+    "document demonstrably resolves this specific issue.\n"
+    "- Judge ONLY this issue, from the document text alone.\n"
+    "- Default to resolved=false unless you can cite the exact criterion id, scope "
+    "decision, or sentence that resolves it (put it in evidence).\n"
+    "- For a scope_decision issue, an explicit conditional ruling with a decisive test, "
+    "or an explicitly documented provisional assumption, counts as resolved for this "
+    "document (the owner question may still be listed for later review).\n"
+    "Output JSON only."
+)
+
+
+def verify_issue_resolution(llm: StructuredLLM, doc: CriteriaDocOut,
+                            issue: CritiqueIssue, usage: Usage) -> IssueResolutionOut:
+    """Blind check by a clean context: no ledger, no critique history — this breaks
+    critic anchoring (관찰: C6가 MOF를 명시 커버해도 COVERAGE:MOFS를 계속 재보고)."""
+    user = (f"=== REPORTED ISSUE ===\n{json.dumps(issue.model_dump(), ensure_ascii=False)}\n\n"
+            f"=== CURRENT DOCUMENT ===\n{json.dumps(doc.model_dump(), ensure_ascii=False)}")
+    out, pt, ct = llm.parse(_VERIFY_SYSTEM, user, IssueResolutionOut)
+    usage.add(pt, ct)
+    return out
+
+
 def constrain_new_criticals(critique: CriteriaCritiqueOut, prev_open: set[str],
                             touched: set[str]) -> list[str]:
     """After a targeted patch: a brand-new critical on an untouched field must carry
@@ -290,16 +315,32 @@ def critique_criteria(llm: StructuredLLM, doc: CriteriaDocOut, scope: QueryScope
                             + _PROVENANCE_CRITIQUE + _LEDGER_CRITIQUE,
                             user, CriteriaCritiqueOut)
     usage.add(pt, ct)
-    for issue in out.issues:
-        issue.issue_code = issue_code_for(issue)
     deterministic = criteria_integrity_issues(doc, axes, allowed_refs)
-    if deterministic:
-        known = {issue_code_for(i) for i in out.issues}
-        out.issues.extend(i for i in deterministic if issue_code_for(i) not in known)
+    out.issues = reconcile_issues(out.issues, deterministic)
+    if any(i.severity == "critical" and i.issue_code.startswith(_DETERMINISTIC_PREFIXES)
+           for i in out.issues):
         out.approved = False
         if out.action == "approve":
             out.action = "revise"
     return out
+
+
+def reconcile_issues(llm_issues: list[CritiqueIssue],
+                     deterministic: list[CritiqueIssue]) -> list[CritiqueIssue]:
+    """Mechanical truth belongs to code: a deterministic-namespace code the current
+    checks no longer produce is FIXED, however insistently the prose critic re-reports
+    it (observed: ledger echo kept AXIS_COVERAGE:A6/A7 open after C6/C7 covered them)."""
+    det_codes = {issue_code_for(i) for i in deterministic}
+    kept = []
+    for issue in llm_issues:
+        issue.issue_code = issue_code_for(issue)
+        if (issue.issue_code.startswith(_DETERMINISTIC_PREFIXES)
+                and issue.issue_code not in det_codes):
+            continue
+        kept.append(issue)
+    known = {i.issue_code for i in kept}
+    kept.extend(i for i in deterministic if issue_code_for(i) not in known)
+    return kept
 
 
 def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
@@ -368,6 +409,16 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             if demoted:
                 print(f"  [criteria] {len(demoted)} unevidenced new critical(s) on "
                       f"untouched fields demoted to minor: {demoted}")
+        # Blind verification: a persistent non-deterministic critical gets one clean
+        # per-issue check; a critic anchored on the ledger cannot close its own reports.
+        for issue in [i for i in list(critique.issues) if i.severity == "critical"
+                      and i.issue_code in (prev_open or set())
+                      and not i.issue_code.startswith(_DETERMINISTIC_PREFIXES)]:
+            verdict = verify_issue_resolution(llm, doc, issue, usage)
+            if verdict.resolved:
+                critique.issues.remove(issue)
+                print(f"  [criteria] blind verification closed {issue.issue_code} "
+                      f"({verdict.evidence[:80]})")
         ledger.update(rnd, ver, critique)
         ws.write_json(ws.critique_json(ver), critique.model_dump())
         criticals = [i for i in critique.issues if i.severity == "critical"]
@@ -379,6 +430,18 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
         if not criticals and critique.action in ("approve", "revise"):
             if critique.action == "revise":
                 print("  [criteria] only minor issues — treating as approve")
+            save_final(ws, doc)
+            return doc
+
+        # Unattended run + every remaining critical is an owner decision: the recorded
+        # system assumptions (tentative defaults) let work proceed — that is exactly what
+        # ScopeQuestion.tentative_default exists for. The questions stay open in the
+        # ledger for the owner; only quality faults hard-block an unattended run.
+        quality_criticals = [i for i in criticals if i.category != "scope_decision"]
+        if rnd > 1 and not quality_criticals and hitl.mode == "off":
+            pending = [i.issue_code for i in criticals]
+            print(f"  [criteria] finalizing UNATTENDED with {len(pending)} scope "
+                  f"assumption(s) pending owner review: {pending}")
             save_final(ws, doc)
             return doc
 

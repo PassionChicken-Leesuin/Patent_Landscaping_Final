@@ -3,54 +3,73 @@
   "issues": [
     {
       "field": "C-criteria",
-      "problem": "C1 is not fully testable from title+abstract alone as it requires understanding if the method or material is specifically designed for hydrogen storage, which may not be explicit in brief descriptions.",
-      "suggestion": "Clarify C1 to ensure it can be assessed from title+abstract by specifying indicators or keywords that suggest a specific design for hydrogen storage.",
-      "severity": "critical"
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the use of Metal-Organic Frameworks (MOFs) for hydrogen storage is not explicitly covered by the C-criteria, despite being highlighted in the evidence.",
+      "suggestion": "Include a criterion that addresses the use of MOFs for hydrogen storage, as this is a significant technique mentioned in the evidence.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "issue_code": "COVERAGE:MOFS"
     },
     {
-      "field": "C-criteria",
-      "problem": "C5's requirement for compatibility with existing systems may not be discernible from title+abstract alone, as integration details are often in the full text.",
-      "suggestion": "Refine C5 to include observable indicators in title+abstract that suggest compatibility, such as mentions of integration with known systems or standards.",
-      "severity": "critical"
-    },
-    {
-      "field": "E-criteria",
-      "problem": "E5 is not clearly distinct from C-criteria as it excludes handling technologies without addressing storage, which overlaps with the scope of C1.",
-      "suggestion": "Clarify E5 to focus on technologies that manage hydrogen post-storage, ensuring it does not overlap with storage-specific criteria.",
-      "severity": "critical"
-    },
-    {
-      "field": "boundary_guidance",
-      "problem": "The guidance does not address the inclusion of nanomaterials and MOFs, which are significant in web evidence but underrepresented in the patent pool.",
-      "suggestion": "Include explicit guidance on how to handle patents involving nanomaterials and MOFs, considering their supplemental status and potential impact on storage technology.",
-      "severity": "critical"
-    },
-    {
-      "field": "scope_decisions",
-      "problem": "The exclusion of 'Liquid hydrogen handling technologies' contradicts the potential inclusion of storage methods involving liquid hydrogen, creating inconsistency.",
-      "suggestion": "Clarify the scope decision to differentiate between handling and storage technologies, ensuring liquid hydrogen storage methods are not inadvertently excluded.",
-      "severity": "critical"
-    },
-    {
-      "field": "technology_axes",
-      "problem": "A6 and A7 are marked as supplemental but lack clear criteria for inclusion, leading to potential underrepresentation of significant technologies.",
-      "suggestion": "Develop specific criteria for A6 and A7 to ensure they are adequately represented in the domain, reflecting their importance in web evidence.",
-      "severity": "critical"
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding 'Liquid hydrogen handling technologies' is weak, as handling can be integral to storage solutions, especially in terms of safety and efficiency.",
+      "suggestion": "Re-evaluate the exclusion of liquid hydrogen handling technologies, considering their potential role in storage solutions.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "LIQUID_HANDLING"
+      ],
+      "issue_code": "SCOPE_DECISION:LIQUID_HANDLING"
     },
     {
       "field": "domain_criteria.axis_ids",
-      "problem": "Active technology axes lack a C-criterion mapping: ['A6', 'A7']",
-      "suggestion": "Map every active axis to a testable inclusion criterion.",
-      "severity": "critical"
+      "problem": "Active technology axis A6 lacks a C-criterion mapping.",
+      "suggestion": "Map the axis to a testable inclusion criterion.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "A6"
+      ],
+      "issue_code": "AXIS_COVERAGE:A6"
     },
     {
-      "field": "E5.source_refs",
-      "problem": "Criterion E5 cites references absent from the allowed evidence catalog: ['corpus: Liquid hydrogen handling technologies']",
-      "suggestion": "Copy an exact reference from the axis synthesis or allowed evidence catalog.",
-      "severity": "critical"
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axis A7 lacks a C-criterion mapping.",
+      "suggestion": "Map the axis to a testable inclusion criterion.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "A7"
+      ],
+      "issue_code": "AXIS_COVERAGE:A7"
     }
   ],
-  "action": "revise",
+  "action": "ask_human",
   "followup_queries": [],
-  "human_questions": []
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should the domain include Metal-Organic Frameworks (MOFs) specifically for hydrogen storage?",
+      "why_needed": "MOFs are highlighted in web evidence as significant for hydrogen storage, but are not explicitly covered by the current C-criteria. Including them could align the criteria with the evidence.",
+      "options": [
+        "Include MOFs for hydrogen storage",
+        "Exclude MOFs for hydrogen storage"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Should the domain include liquid hydrogen handling technologies as part of hydrogen storage solutions?",
+      "why_needed": "Handling technologies can be integral to storage solutions, especially in terms of safety and efficiency, and the current exclusion rationale may not fully consider this aspect.",
+      "options": [
+        "Include liquid hydrogen handling technologies",
+        "Exclude liquid hydrogen handling technologies"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,55 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "domain_criteria",
+      "problem": "The criteria do not cover the use of advanced materials such as MOFs and nanomaterials for hydrogen storage, which are highlighted in web evidence.",
+      "suggestion": "Add a criterion that addresses the use of advanced materials like MOFs and nanomaterials for enhancing hydrogen storage capabilities.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "issue_code": "COVERAGE:ADVANCED_MATERIALS"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The decision on electrochemical reaction apparatus is conditional, but the rationale is not fully supported by evidence. The pool digest indicates a significant number of patents could be affected by this decision.",
+      "suggestion": "Clarify the scope decision for electrochemical reaction apparatus by providing more detailed evidence or consulting the human owner for a definitive ruling.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "Electrochemical reaction apparatus"
+      ],
+      "issue_code": "SCOPE_DECISION:ELECTROCHEMICAL_APPARATUS"
+    },
+    {
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axis A6 lacks a C-criterion mapping.",
+      "suggestion": "Map the axis to a testable inclusion criterion.",
+      "severity": "critical",
+      "category": "coverage",
+      "target_ids": [
+        "A6"
+      ],
+      "issue_code": "AXIS_COVERAGE:A6"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "Q1",
+      "question": "Should the domain include electrochemical reaction apparatuses that do not specifically address hydrogen storage?",
+      "why_needed": "The current scope decision is conditional and affects a significant portion of the patent pool. A clear decision is needed to ensure consistent patent judgments.",
+      "options": [
+        "Include all electrochemical apparatuses related to hydrogen.",
+        "Include only those specifically addressing hydrogen storage."
+      ]
+    }
+  ]
+}

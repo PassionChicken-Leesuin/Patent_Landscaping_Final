@@ -2,7 +2,7 @@
 
 ## 도메인 정의
 
-Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, ensuring safe containment and release of hydrogen under various conditions. This includes methods and materials specifically designed for hydrogen storage, such as mechanical, chemical, and nanomaterial-based approaches, as well as technologies that optimize the volume and weight of storage systems and ensure compatibility with existing hydrogen production and utilization systems.
+Hydrogen Storage Technology encompasses inventions that enable the storage of hydrogen in a stable and efficient manner, allowing for its safe containment and subsequent release when needed. This includes methods and materials specifically designed to store hydrogen, optimize storage capacity, and ensure compatibility with existing hydrogen production and utilization systems. The technology must address the challenges of volume and weight optimization, safety under various conditions, and efficient hydrogen release, while being applicable to both stationary and mobile applications.
 
 ## 기술축
 
@@ -84,81 +84,74 @@ Application of MOFs in hydrogen storage due to their high surface area and poros
 
 ## 포함 판단 기준 (C)
 
-- **C1.** The invention must involve a method or material specifically designed for storing hydrogen, such as mechanical, chemical, or nanomaterial-based approaches.
+- **C1.** The invention must involve a method or material specifically designed for storing hydrogen in a stable form.
+  - 관찰 신호(비배타적 단서): hydrogen storage, mechanical storage, chemical storage, nanomaterials, metal hydrides
   - 기술축: A1
   - [web/high] https://en.wikipedia.org/wiki/Hydrogen_storage: Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.
   - [corpus/high] corpus: hydrogen storage materials: Hydrogen storage materials and methods for enhancing storage capacity
-  - 레거시 출처: https://en.wikipedia.org/wiki/Hydrogen_storage, corpus: hydrogen storage materials
-- **C2.** The invention must enable the efficient release of stored hydrogen when needed, such as through controlled temperature or pressure changes.
+  - 레거시 출처: https://en.wikipedia.org/wiki/Hydrogen_storage, corpus:case:1
+- **C2.** The invention must enable the efficient release of stored hydrogen when needed.
+  - 관찰 신호(비배타적 단서): hydrogen release, controlled release, temperature control, release efficiency
   - 기술축: A2
   - [web/high] https://en.wikipedia.org/wiki/Hydrogen_storage: The release temperature of hydrogen storage materials affects the cost of chemical storage strategies.
   - [user_query/high] query.json: The technology must allow for the efficient release of hydrogen when needed.
   - 레거시 출처: https://en.wikipedia.org/wiki/Hydrogen_storage, query.json
 - **C3.** The invention must ensure the safety of hydrogen storage under various conditions, including pressure and temperature extremes.
+  - 관찰 신호(비배타적 단서): safety mechanisms, pressure control, temperature control, safety standards
   - 기술축: A3
   - [user_query/high] query.json: The technology must ensure the safety of hydrogen storage under various conditions.
   - 레거시 출처: query.json
 - **C4.** The invention must optimize the volume and weight of hydrogen storage systems to enhance energy density and portability.
+  - 관찰 신호(비배타적 단서): volume optimization, weight reduction, energy density, portable storage
   - 기술축: A4
   - [user_query/high] query.json: The technology must optimize the volume and weight of hydrogen storage systems.
   - [web/high] https://en.wikipedia.org/wiki/Hydrogen_storage: Hydrogen storage in vehicles requires storing hydrogen in an energy-dense form to provide sufficient driving range.
-  - 레거시 출처: query.json, https://en.wikipedia.org/wiki/Hydrogen_storage
-- **C5.** The invention must be compatible with existing hydrogen production and utilization systems, facilitating integration and scalability.
+  - 레거시 출처: https://en.wikipedia.org/wiki/Hydrogen_storage, query.json
+- **C5.** The invention must be compatible with existing hydrogen production and utilization systems.
+  - 관찰 신호(비배타적 단서): system compatibility, integration with fuel cells, hydrogen production, utilization systems
   - 기술축: A5
   - [user_query/high] query.json: The technology must be compatible with existing hydrogen production and utilization systems.
   - [corpus/high] corpus: hydrogen production methods: Innovative hydrogen production methods using renewable energy sources
-  - 레거시 출처: query.json, corpus: hydrogen production methods
+  - 레거시 출처: query.json, corpus:case:3
 
 ## 분석 대상 특허의 범위
 
-The scope of analysis for Hydrogen Storage Technology includes patents that implement, improve, or provide enabling components or methods specifically for hydrogen storage. This encompasses mechanical, chemical, and nanomaterial-based storage methods, as well as technologies that ensure safety, optimize volume and weight, and ensure compatibility with existing hydrogen systems. Patents that merely use hydrogen storage outputs for unrelated purposes or focus on handling rather than storage are excluded.
+The scope of analysis for Hydrogen Storage Technology includes patents that specifically address the storage, release, and safety of hydrogen as a fuel. This encompasses methods and materials designed for hydrogen storage, including mechanical, chemical, and nanomaterial-based approaches, as well as technologies that ensure compatibility with existing hydrogen systems. Patents that focus on the handling or production of hydrogen without a specific storage component are excluded.
 
 ## 범위 결정
 
-- [OUT] **hydrogen production methods** — While related to hydrogen technology, production methods do not specifically address the storage of hydrogen.
-- [IN] **hydrogen storage materials** — These patents directly involve materials designed for storing hydrogen, aligning with the core domain tasks.
-- [OUT] **hydrogen purification techniques** — Purification techniques focus on refining hydrogen rather than storing it.
-- [OUT] **fuel cell systems** — Fuel cells utilize hydrogen but do not specifically address its storage.
-- [OUT] **hydrogen recovery systems** — Recovery systems focus on reclaiming hydrogen rather than storing it.
-- [OUT] **hydrogen generation systems** — Generation systems produce hydrogen but do not specifically address its storage.
-- [OUT] **Air supply systems for fuel cells** — These systems focus on air management rather than hydrogen storage.
-- [OUT] **Liquid hydrogen handling technologies** — Handling technologies relate to the management of liquid hydrogen rather than its storage.
+- [OUT] **hydrogen production methods** — While related to hydrogen technology, production methods do not specifically address the storage of hydrogen, which is the core focus of this domain.
+- [IN] **hydrogen storage materials** — These patents directly involve materials and methods for storing hydrogen, aligning with the core purpose of the domain.
+- [OUT] **hydrogen purification techniques** — Purification techniques focus on refining hydrogen rather than storing it, thus falling outside the domain's scope.
+- [OUT] **fuel cell systems** — Fuel cell systems utilize hydrogen but do not specifically address its storage, which is the domain's focus.
+- [OUT] **hydrogen recovery systems** — Recovery systems focus on reclaiming hydrogen rather than storing it, which is outside the domain's scope.
+- [OUT] **hydrogen generation systems** — Generation systems focus on producing hydrogen, not storing it, thus they are outside the domain's scope.
+- [OUT] **Air supply systems for fuel cells** — These systems focus on air management rather than hydrogen storage, which is the domain's focus.
+- [OUT] **Liquid hydrogen handling technologies** — Handling technologies focus on the management of liquid hydrogen rather than its storage, which is the domain's focus.
 
 ## 제외 판단 기준 (E)
 
-- **E1.** Patents that focus on hydrogen production methods without addressing storage are excluded.
-  - 기술축: A5
-  - [corpus/high] corpus: hydrogen production methods: Innovative hydrogen production methods using renewable energy sources
-  - 레거시 출처: corpus: hydrogen production methods
-- **E2.** Patents that focus on hydrogen purification techniques without addressing storage are excluded.
-  - 기술축: A5
-  - [corpus/high] corpus: hydrogen purification techniques: Advanced hydrogen purification techniques for fuel cell applications
-  - 레거시 출처: corpus: hydrogen purification techniques
-- **E3.** Patents that focus on fuel cell systems without addressing storage are excluded.
-  - 기술축: A5
-  - [corpus/high] corpus: fuel cell systems: fuel cell systems
-  - 레거시 출처: corpus: fuel cell systems
-- **E4.** Patents that focus on hydrogen recovery systems without addressing storage are excluded.
-  - 기술축: A5
-  - [corpus/high] corpus: hydrogen recovery systems: Hydrogen recovery systems for industrial applications
-  - 레거시 출처: corpus: hydrogen recovery systems
-- **E5.** Patents that focus on liquid hydrogen handling technologies without addressing storage are excluded.
-  - 기술축: A5
-  - [corpus/high] corpus: Liquid hydrogen handling technologies: Liquid hydrogen handling technologies, like 'Liquid hydrogen stand and liquid hydrogen automobile', relate to handling rather than the storage technology itself.
-  - 레거시 출처: corpus: Liquid hydrogen handling technologies
+- **E1.** Patents that focus solely on hydrogen production methods without addressing storage are excluded.
+  - 관찰 신호(비배타적 단서): hydrogen production, electrolysis, renewable hydrogen
+  - [corpus/high] corpus:cluster:1: hydrogen production methods
+  - 레거시 출처: corpus:cluster:1
+- **E2.** Patents that focus on hydrogen purification techniques without a storage component are excluded.
+  - 관찰 신호(비배타적 단서): purification, refining, hydrogen purity
+  - [corpus/high] corpus:cluster:3: hydrogen purification techniques
+  - 레거시 출처: corpus:cluster:3
+- **E3.** Patents that focus on fuel cell systems without addressing hydrogen storage are excluded.
+  - 관찰 신호(비배타적 단서): fuel cell, electricity generation, hydrogen utilization
+  - [corpus/high] corpus:cluster:4: fuel cell systems
+  - 레거시 출처: corpus:cluster:4
 
 ## 경계 판정 지침
 
-- Patents focusing on air supply systems for fuel cells are excluded as they do not address hydrogen storage.
-- Patents related to liquid hydrogen handling are excluded unless they specifically address storage methods.
+- Air supply systems for fuel cells are out of scope as they focus on air management rather than hydrogen storage.
+- Liquid hydrogen handling technologies are out of scope as they focus on handling rather than storage.
 
 ## HITL이 필요한 범위 질문
 
-- **Q1. Should the domain include nanomaterials for hydrogen storage, despite their underrepresentation in the patent pool?**
-  - 영향: Nanomaterials could significantly enhance hydrogen storage capacity and kinetics, impacting the domain's technological breadth.
-  - 선택지: Include nanomaterials as a core part of the domain., Exclude nanomaterials due to their current underrepresentation.
-  - 미응답 기본값: Include nanomaterials as a supplemental part of the domain.
-- **Q2. Should the domain include metal-organic frameworks (MOFs) for hydrogen storage, given their significance in web evidence but lack of emphasis in the patent pool?**
-  - 영향: MOFs are highlighted in web evidence as significant for hydrogen storage, potentially broadening the domain's scope.
-  - 선택지: Include MOFs as a core part of the domain., Exclude MOFs due to their lack of emphasis in the patent pool.
-  - 미응답 기본값: Include MOFs as a supplemental part of the domain.
+- **Q1. Should the domain include nanomaterials specifically for enhancing hydrogen storage capacity?**
+  - 영향: 측정: 풀 표본 20건 중 2건(~10%)의 판정이 넓게/좁게에 따라 갈립니다. Nanomaterials are highlighted in web evidence as significant for hydrogen storage, but are underrepresented in the patent pool.
+  - 선택지: Include nanomaterials for hydrogen storage, Exclude nanomaterials for hydrogen storage
+  - 미응답 기본값: Include nanomaterials for hydrogen storage

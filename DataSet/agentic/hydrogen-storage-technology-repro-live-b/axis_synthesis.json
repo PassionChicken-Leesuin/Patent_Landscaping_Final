@@ -1,0 +1,210 @@
+{
+  "owner_document_assessment": {
+    "present": false,
+    "overall_quality": "none",
+    "scope_clarity": "none",
+    "technical_completeness": "none",
+    "factual_reliability": "none",
+    "strengths": [],
+    "gaps": [
+      "No owner document provided, leading to reliance on external sources and corpus evidence."
+    ],
+    "conflicts": []
+  },
+  "technology_axes": [
+    {
+      "id": "A1",
+      "name": "Hydrogen Storage Methods",
+      "description": "Methods for storing hydrogen, including mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Hydrogen storage methods include mechanical approaches like high pressures and low temperatures, and chemical compounds that release H2 on demand.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:cluster:1",
+          "claim": "Hydrogen storage alloys are a main cluster in the patent pool.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Supported by both web evidence and corpus clusters, indicating a core aspect of the domain.",
+      "boundary_examples": [
+        "corpus:boundary:1",
+        "corpus:boundary:2"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Safety and Stability of Hydrogen Storage",
+      "description": "Ensuring the safety and stability of hydrogen storage under various conditions, including pressure and temperature management.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure the safety of hydrogen storage under various conditions.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Compressed hydrogen storage involves keeping hydrogen gas under pressure to increase storage density.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:cluster:4",
+          "claim": "Materials for high-pressure hydrogen environments are a main cluster in the patent pool.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Safety is a critical aspect of hydrogen storage, supported by user query, web evidence, and corpus clusters.",
+      "boundary_examples": [
+        "corpus:boundary:4"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Efficiency of Hydrogen Release",
+      "description": "Technologies that allow for the efficient release of hydrogen when needed, including electrochemical and thermal methods.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must allow for the efficient release of hydrogen when needed.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Electrochemical hydrogen storage allows controlled release of hydrogen using electricity.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:1",
+          "claim": "Hydrogen storage alloys for improved efficiency.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Efficiency in hydrogen release is essential for practical applications, supported by user query, web evidence, and corpus cases.",
+      "boundary_examples": [
+        "corpus:boundary:2"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Volume and Weight Efficiency",
+      "description": "Optimizing the volume and weight efficiency of hydrogen storage systems to enhance portability and usability.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must optimize the volume and weight efficiency of hydrogen storage.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Liquid_hydrogen",
+          "claim": "Storing hydrogen as a liquid takes less space than storing it as a gas at normal temperature and pressure.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:mismatch:2",
+          "claim": "The pool does not prominently feature liquid hydrogen storage, despite its significance in web evidence.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Volume and weight efficiency is crucial for mobile applications, supported by user query and web evidence, though underrepresented in the corpus.",
+      "boundary_examples": [
+        "corpus:boundary:5"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Compatibility with Hydrogen Systems",
+      "description": "Ensuring compatibility of hydrogen storage technologies with existing hydrogen production and utilization systems.",
+      "status": "core",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must be compatible with existing hydrogen production and utilization systems.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_technologies",
+          "claim": "Hydrogen technologies can be carbon neutral and contribute to preventing climate change.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:2",
+          "claim": "Advanced hydrogen generation systems for industrial applications.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Compatibility is necessary for integration into existing systems, supported by user query, web evidence, and corpus cases.",
+      "boundary_examples": [
+        "corpus:boundary:6"
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Advanced Materials for Hydrogen Storage",
+      "description": "Use of advanced materials such as metal-organic frameworks (MOFs) and nanomaterials to enhance hydrogen storage capabilities.",
+      "status": "supplemental",
+      "confidence": "medium",
+      "owner_documented": false,
+      "observed_in_corpus": false,
+      "source_refs": [
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Metal–organic_framework",
+          "claim": "Metal–organic frameworks (MOFs) are used for hydrogen storage due to their porous nature.",
+          "strength": "high"
+        },
+        {
+          "source_type": "web",
+          "reference": "https://en.wikipedia.org/wiki/Hydrogen_storage",
+          "claim": "Nanomaterials can enhance hydrogen storage by improving sorption kinetics and storage capacity.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:mismatch:1",
+          "claim": "The patent pool lacks emphasis on Metal–Organic Frameworks (MOFs) for hydrogen storage, which are highlighted in web evidence.",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Advanced materials are highlighted in web evidence but are underrepresented in the patent pool, suggesting a supplemental role.",
+      "boundary_examples": [
+        "corpus:mismatch:3"
+      ]
+    }
+  ],
+  "unresolved_conflicts": []
+}

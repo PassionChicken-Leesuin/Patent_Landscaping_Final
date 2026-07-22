@@ -145,8 +145,15 @@ repro-live-a 차단 분석(critical 8→7→6→6→7 비수렴)의 처방. crit
 - [x] **testability 계약 고정**: `CriterionOut.observable_signals`(비배타적 관찰 단서)
   추가. 기준은 "기능 task + signals"면 testable로 인정, signal 부재만으로 제외 금지
   (드래프터·비평자·judge 프롬프트 3곳에 명시) — v5→v6 골대 이동 재발 방지.
-- 검증: 단위테스트 37개 통과(신규 13: prefix 수리 조건 4종, sole-ref 보존, 원장
-  open→resolved, 강등 규칙, 패치 적용 4종), mock E2E(축→기준서→판정→검증) 정상.
+- 검증: 단위테스트 40개 통과, mock E2E 정상.
+- **실전 검증(2026-07-22, hydro 80건 ×2 무인 독립실행)**: 1차 실행에서 발견된 잔여
+  비수렴 3원인을 추가 해소 — ① 결정론 코드 앵무새 재보고는 `reconcile_issues`가 코드
+  검사 결과로만 판정, ② 비결정론 앵커링(critical 2라운드 지속)은 원장 없는 blind
+  검증자(`verify_issue_resolution`)가 문서만 보고 닫음, ③ add 패치 중복은 정규화 문장
+  dedup. off 모드에서 scope_decision만 남으면 가정 기록 후 확정(무인 운영). 결과: 두
+  실행 모두 2~3라운드에 critical 0 승인, **통제 재현성 기준선 stance 0.900 / κ 0.781 /
+  positive 자카드 0.741** (비통제 0.584 대비), `--strict` 게이트는 기준선 직하로 보정.
+  상세: `experiments/EXPERIMENTS.md` repro1.
 
 부가: TAVILY 키 확보 (현재 Wikipedia fallback — A의 웹 리서치가 Boston Dynamics 1페이지였음).
 

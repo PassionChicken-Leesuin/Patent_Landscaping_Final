@@ -1,0 +1,68 @@
+{
+  "issues": {
+    "COVERAGE:MOFS": {
+      "issue_code": "COVERAGE:MOFS",
+      "first_round": 1,
+      "rounds_open": 8,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "coverage",
+      "target_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "field": "C-criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence. Specifically, the use of Metal-Organic Frameworks (MOFs) for hydrogen storage is not explicitly covered by the C-criteria, despite being highlighted in the evidence.",
+      "resolved_round": 2
+    },
+    "SCOPE_DECISION:LIQUID_HANDLING": {
+      "issue_code": "SCOPE_DECISION:LIQUID_HANDLING",
+      "first_round": 1,
+      "rounds_open": 8,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "scope_decision",
+      "target_ids": [
+        "LIQUID_HANDLING"
+      ],
+      "field": "Scope Decisions",
+      "problem": "The rationale for excluding 'Liquid hydrogen handling technologies' is weak, as handling can be integral to storage solutions, especially in terms of safety and efficiency.",
+      "resolved_round": 2
+    },
+    "AXIS_COVERAGE:A6": {
+      "issue_code": "AXIS_COVERAGE:A6",
+      "first_round": 1,
+      "rounds_open": 5,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "coverage",
+      "target_ids": [
+        "A6"
+      ],
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axis A6 lacks a C-criterion mapping.",
+      "resolved_round": 2
+    },
+    "AXIS_COVERAGE:A7": {
+      "issue_code": "AXIS_COVERAGE:A7",
+      "first_round": 1,
+      "rounds_open": 5,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "coverage",
+      "target_ids": [
+        "A7"
+      ],
+      "field": "domain_criteria.axis_ids",
+      "problem": "Active technology axis A7 lacks a C-criterion mapping.",
+      "resolved_round": 2
+    }
+  }
+}
