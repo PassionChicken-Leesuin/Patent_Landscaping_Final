@@ -1,4 +1,10 @@
-# Patent Landscaping MAS — 질의 기반 유효특허 선별 시스템
+# Patent Landscaping MAS — 2026-07 질의 기반 유효특허 선별 시스템
+
+> **문서 범위:** 이 문서는 7월에 확장한 **학습 없는 직접판정 시스템**만 다룬다.
+> 6월 논문의 Snorkel-vs-MAS 약지도·SciBERT 비교는
+> [Patent_Landscaping_Final](https://github.com/PassionChicken-Leesuin/Patent_Landscaping_Final),
+> 통합 작업 폴더에서 두 프로젝트의 전체 관계는 `PROJECT_MAP.md`를 참고한다. 여기서
+> MAS는 학습용 의사라벨러가 아니라 기준서를 만들고 특허를 최종 판정하는 실행 시스템이다.
 
 자연어 도메인 질의 하나로 **어떤 기술 도메인이든** 특허 풀에서 유효특허(domain-valid
 patents)를 선별하는 Multi-Agent System. 학습이 필요 없고, 도메인 정의(판단 기준서)를
@@ -9,6 +15,13 @@ patents)를 선별하는 Multi-Agent System. 학습이 필요 없고, 도메인 
 > 6개 골드 도메인(Bergeaud & Verluise) 전수 평가에서 평균 **Macro-F1 0.849 / AUC 0.928**
 > — 같은 골드셋으로 학습한 MAS+SciBERT(0.833)를 무학습·벤치마크 블라인드 조건에서 상회.
 > 실험 기록: `experiments/EXPERIMENTS.md`, `experiments/FINAL_REPORT.md`.
+
+## 현재 상태
+
+- 6개 벤치마크 도메인 full5 평가는 완료됐다.
+- 사용자 문서 우선 처리, HITL 질문 ID 무결성, 도메인 판결 프로파일 영속화는 구현됐다.
+- 기준서 기술축 앵커링, 판정 점수·선별 컷 안정화, 반복 실행 재현성 평가는 남아 있다.
+- 기존 휴머노이드 A/B 결과는 위 수정 전 실행이므로 최신 코드로 통제 재실행해야 한다.
 
 ## 파이프라인
 
@@ -69,5 +82,7 @@ scripts/        run_agentic, eval_agentic, score_agentic, hitl_report 등
 experiments/    실험 기록 (E1~full5) + 평가 결과
 ```
 
-원 팀 프로젝트(Snorkel vs MAS 약지도 비교, SciBERT 다운스트림)는 별도 레포
-[Patent_Landscaping_Final](https://github.com/PassionChicken-Leesuin/Patent_Landscaping_Final)에 있다.
+6월 논문 연구(Snorkel vs MAS 약지도 비교, SciBERT 다운스트림)는 별도 레포
+[Patent_Landscaping_Final](https://github.com/PassionChicken-Leesuin/Patent_Landscaping_Final)에,
+이 7월 시스템은
+[Patent_Landscaping_MAS](https://github.com/PassionChicken-Leesuin/Patent_Landscaping_MAS)에 저장한다.

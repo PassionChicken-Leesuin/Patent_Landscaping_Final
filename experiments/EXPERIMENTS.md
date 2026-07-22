@@ -1,5 +1,10 @@
 # Agentic 시스템 실험 로그
 
+> **범위:** 2026년 7월 질의 기반 직접판정 시스템의 실험 기록이다. 6월 논문의
+> Snorkel/MAS+SciBERT 수치는 비교 기준으로만 인용하며, 아래 Agentic 실험과는
+> 학습·판정 경로가 다르다. 통합 작업 폴더의 전체 구분은 `../PROJECT_MAP.md`,
+> 7월 시스템 설명은 `../README_MAS.md`를 참고한다.
+
 목표: 자연어 질의 → 자료수집 → 문장형 기준서(validator+HITL 루프) → 기준 엄밀 판정(validator 루프) 시스템을
 6개 골드 도메인에서 기존 Snorkel/MAS+SciBERT 대비 최고 성능으로 끌어올리기.
 
