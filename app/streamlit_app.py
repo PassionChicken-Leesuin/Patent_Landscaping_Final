@@ -51,7 +51,8 @@ def _go(run_dir: Path | None):
 # ================================================================ sidebar
 with st.sidebar:
     st.title("🛰️ MAS 특허 선별")
-    st.caption("자연어 질의 → 자료수집 → 기준서(HITL) → 전수 판정")
+    st.caption("질의 → 정합 진단 → 설계안 → 사례 매핑(자기수정) → "
+               "범위 결정(HITL) → 기준서 → 전수 판정")
     if st.button("➕ 새 실행 만들기", width="stretch"):
         _go(None)
     runs = runner.list_runs()
