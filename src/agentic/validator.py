@@ -432,6 +432,12 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             print(f"  [criteria] probed {len(doc.open_questions)} candidate boundaries "
                   f"-> {len(kept)} move real patents")
             doc.open_questions = kept
+            # Enrich these scope questions into decision cards (stake/포함·제외 논리+예시/영향/
+            # 권고, Korean) so the UI shows them with the SAME card as the upfront decisions.
+            from src.agentic.decisions import enrich_open_questions
+            kept_ids = {q.id for q in kept}
+            enrich_open_questions(ws, llm, [(q, f, n) for q, f, n in ranked if q.id in kept_ids],
+                                  usage)
         if doc.open_questions:
             # persist BEFORE asking so a batch-mode stop resumes on the same questions
             ws.write_json(ws.criteria_pending_json, doc.model_dump())

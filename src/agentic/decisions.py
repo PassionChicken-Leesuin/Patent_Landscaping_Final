@@ -12,8 +12,9 @@ import pandas as pd
 
 from src.agentic.boundary_probe import probe_boundaries
 from src.agentic.hitl import HITL, question_id
-from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, DecisionQuestion,
-                                 DecisionQuestionsOut, HITLQuestion, ScopeQuestion)
+from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, DecisionEnrichOut,
+                                 DecisionQuestion, DecisionQuestionsOut, HITLQuestion,
+                                 ScopeQuestion)
 from src.agentic.workspace import Workspace
 from src.mas.llm import StructuredLLM, Usage
 from src.mas.runner import KeyPool
@@ -90,6 +91,67 @@ def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[HITLQuestion]:
                f"[권고] {d.recommendation}")
         out.append(HITLQuestion(id=d.id, question=d.stake, why_needed=why, options=d.options))
     return out
+
+
+_ENRICH_SYSTEM = """
+You turn a raw scope question raised during criteria drafting into a decision card for the
+Korean domain owner — the SAME shape the upfront decisions use. Given the question, its
+broad-vs-narrow inclusion rules, and verified boundary example patents, produce (in KOREAN):
+- stake: 무엇을 결정하는지 (1-2문장)
+- include_argument + include_examples: 포함하자는 논리 + 근거 patent_id 2-3개 (예시 목록에서만)
+- exclude_argument + exclude_examples: 제외하자는 논리 + 근거 patent_id 2-3개
+- recommendation: 권고안과 한 줄 근거
+Cite only patent_ids from the supplied examples; copy them verbatim. Output JSON only.
+"""
+
+
+def _boundary_examples(ws: Workspace) -> list[tuple[str, str]]:
+    out = []
+    d = ws.casemap_dir
+    if d.exists():
+        for p in sorted(d.glob("*.json")):
+            c = Workspace.read_json(p)
+            for r in (c.get("boundary", []) + c.get("confirmed", [])[:3]
+                      + c.get("false_positive", [])[:3]):
+                out.append((str(r.get("patent_id", "")), str(r.get("gist", ""))))
+    return out[:60]
+
+
+def enrich_open_questions(ws: Workspace, llm: StructuredLLM,
+                          ranked: list[tuple[ScopeQuestion, int, int]], usage: Usage) -> None:
+    """Enrich the criteria loop's scope questions into decision cards and merge them into
+    decisions.json, so the UI renders them with the SAME card as the upfront decisions.
+    The card id matches the HITL question id (hash of the exact asked text)."""
+    if not ranked:
+        return
+    ex = _boundary_examples(ws)
+    ex_block = "\n".join(f"[{pid}] {gist}" for pid, gist in ex if pid) or "(none)"
+    existing = []
+    if ws.decisions_json.exists():
+        existing = Workspace.read_json(ws.decisions_json).get("decisions", [])
+    seen = {d["id"] for d in existing}
+    for q, flip, n in ranked:
+        asked = f"{q.question} (현재 가정: {q.tentative_default})"   # matches resolve_open_questions
+        qid = question_id(asked)
+        if qid in seen:
+            continue
+        user = (f"QUESTION: {q.question}\nBROAD RULE (include): {q.broad_rule}\n"
+                f"NARROW RULE (include): {q.narrow_rule}\n\nBOUNDARY EXAMPLE PATENTS:\n{ex_block}")
+        try:
+            out, pt, ct = llm.parse(_ENRICH_SYSTEM, user, DecisionEnrichOut)
+            usage.add(pt, ct)
+        except Exception:
+            continue
+        card = DecisionQuestion(
+            id=qid, stake=out.stake, include_argument=out.include_argument,
+            include_examples=out.include_examples, exclude_argument=out.exclude_argument,
+            exclude_examples=out.exclude_examples, impact_flips=flip, impact_sample_n=n,
+            recommendation=out.recommendation, options=q.options,
+            tentative_default=q.tentative_default, broad_rule=q.broad_rule,
+            narrow_rule=q.narrow_rule)
+        existing.append(card.model_dump())
+        seen.add(qid)
+    ws.write_json(ws.decisions_json, {"decisions": existing})
 
 
 def run_decisions(ws: Workspace, llm: StructuredLLM, cats: list[CaseMapCategoryOut],

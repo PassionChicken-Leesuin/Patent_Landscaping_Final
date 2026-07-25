@@ -323,3 +323,9 @@ class MockAgentLLM(StructuredLLM):
 
     def _DecisionQuestionsOut(self, system, user):
         return DecisionQuestionsOut(questions=[])
+
+    def _DecisionEnrichOut(self, system, user):
+        from src.agentic.schemas import DecisionEnrichOut
+        return DecisionEnrichOut(stake="mock 쟁점", include_argument="mock 포함",
+                                 include_examples=[], exclude_argument="mock 제외",
+                                 exclude_examples=[], recommendation="mock 권고")

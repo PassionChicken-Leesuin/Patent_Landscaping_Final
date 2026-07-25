@@ -417,6 +417,17 @@ class DecisionQuestionsOut(BaseModel):
     questions: list[DecisionQuestion]
 
 
+class DecisionEnrichOut(BaseModel):
+    """Enriches a criteria-loop scope question into the same decision-card shape as [4c]
+    (Korean), so every human scope decision shares one UI and one logic."""
+    stake: str
+    include_argument: str
+    include_examples: list[str]
+    exclude_argument: str
+    exclude_examples: list[str]
+    recommendation: str
+
+
 # ---------------- [6.5] Tier-B boundary specialist ----------------
 class BoundaryJudgeOut(BaseModel):
     """Claim-scope verdict for one contested look-alike patent, reasoned from the
