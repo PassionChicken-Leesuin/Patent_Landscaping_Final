@@ -114,6 +114,16 @@ _CASEMAP_CLAUSE = (
     "authoritative for THIS domain: turn the tiers into C/E criteria and scope_decisions, "
     "encode the false-positive cues as observable-signal cautions, and record each answered "
     "decision VERBATIM as a scope_decision (never summarize an answer into its opposite).\n"
+    "EXCLUSION SHARPNESS (critical for precision): each exclusion family must be an "
+    "ENFORCEABLE E-criterion, not a soft caution. Do NOT write 'exclude ... unless it "
+    "provides a transferable capability' or 'unless relevant to <domain>' — that phrasing "
+    "is unenforceable and lets every look-alike back in. Instead write the DECISIVE "
+    "CLAIM-SCOPE test: 'Exclude a patent whose independent claim is DIRECTED TO <the family's "
+    "specific use / process / fixed equipment>, identified by signals <concrete markers from "
+    "the false-positive examples>; such a patent is in-scope ONLY if its claim also covers a "
+    "general, transferable robot capability (hand/grasp, manipulation, actuator/joint, "
+    "control/learning) that is NOT tied to that use.' Put the concrete markers in "
+    "observable_signals so the judge can apply the test.\n"
 )
 
 _REVISE_SUFFIX = (
