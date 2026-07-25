@@ -82,15 +82,30 @@ def _corpus_map_llm(mock: bool, llm: StructuredLLM) -> StructuredLLM:
         temperature=AC.LLM_TEMPERATURE))
 
 
-def _front_matter(ws: Workspace, plan, cm_summary, answered: list[dict]) -> str:
+def _front_matter(ws: Workspace, plan, cm_summary, cats, answered: list[dict]) -> str:
     """Assemble the case-mapping product as authoritative context for the criteria draft."""
     lines = ["=== TIERED DESIGN PLAN ==="]
     for t in plan.tiers:
         lines.append(f"- [{t.tier}] {t.name} (axes {', '.join(t.axis_ids)}): {t.definition}")
+    # Enforced exclusion contract: each E-tier MUST become an exclusion criterion.
+    e_tiers = [t for t in plan.tiers if t.tier == "E"]
+    if e_tiers:
+        lines.append("\n=== REQUIRED EXCLUSION FAMILIES (create ONE exclusion criterion per "
+                     "family; state the DECISIVE CLAIM-SCOPE test — exclude when the claim is "
+                     "bound to this use/process/equipment, keep the transferable capability in "
+                     "scope) ===")
+        fp_by_cat = {c.category: c.false_positive for c in (cats or [])}
+        for t in e_tiers:
+            lines.append(f"- {t.name}: {t.definition}")
+            fps = fp_by_cat.get(f"{t.tier}_{t.name}", [])
+            if fps:
+                lines.append("    예 (제외): " + "; ".join(
+                    f"[{r.patent_id}] {r.gist}" for r in fps[:4]))
     lines.append("\n=== CROSS-CUTTING INSIGHTS ===")
     for i in cm_summary.insights:
         lines.append(f"- {i.title}: {i.detail}")
-    lines.append("\n=== REUSABLE FALSE-POSITIVE CUES ===")
+    lines.append("\n=== REUSABLE FALSE-POSITIVE CUES (encode as observable-signal cautions "
+                 "on the matching exclusion criteria) ===")
     lines.append("; ".join(cm_summary.false_positive_cues) or "(none)")
     human = [a for a in answered
              if a.get("answered_by") in ("human", "human_batch", "human_prior")]
@@ -260,11 +275,17 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
     answered = run_decisions(ws, llm, cats, cm_summary, pool_df, probe_pool,
                              scope.canonical_name_en, hitl, usage)
 
-    # [4b-5] criteria + validator feedback loop — now seeded by the front-half product
+    # [4b-5] criteria + validator feedback loop — now seeded by the front-half product.
+    # The design plan's E-tiers become an ENFORCED exclusion-coverage contract so the
+    # look-alikes case-mapping found are actually encoded as exclusion criteria (else
+    # they leak into positives — the precision failure mode, general to every domain).
     print("[4b-5] criteria drafting + validator loop")
-    front_matter = _front_matter(ws, plan, cm_summary, answered)
+    front_matter = _front_matter(ws, plan, cm_summary, cats, answered)
+    excl_fams = [{"name": t.name, "definition": t.definition}
+                 for t in plan.tiers if t.tier == "E"]
     doc = criteria_loop(ws, llm, client, scope, digest, axes, usage, hitl,
-                        pool_df=pool_df, probe_pool=probe_pool, front_matter=front_matter)
+                        pool_df=pool_df, probe_pool=probe_pool, front_matter=front_matter,
+                        exclusion_families=excl_fams)
 
     print(f"[criteria approved] {len(doc.domain_criteria)} C / "
           f"{len(doc.exclusion_criteria)} E -> {ws.criteria_final_md}")

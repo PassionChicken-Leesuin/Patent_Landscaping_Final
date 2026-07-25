@@ -129,14 +129,61 @@ def issue_code_for(issue: CritiqueIssue) -> str:
 
 # Codes in this namespace come from deterministic checks — they can never be
 # downgraded by the new-critical constraint.
-_DETERMINISTIC_PREFIXES = ("AXIS_COVERAGE:", "AXIS_IDS:", "PROVENANCE")
+_DETERMINISTIC_PREFIXES = ("AXIS_COVERAGE:", "AXIS_IDS:", "PROVENANCE", "EXCL_COVERAGE:")
+
+# Generic words that do not distinguish one exclusion family from another.
+_EXCL_STOP = {"and", "or", "the", "of", "for", "with", "technologies", "technology",
+              "systems", "system", "robot", "robotic", "robots", "general", "based",
+              "other", "device", "devices", "method", "methods", "look", "alike",
+              "adjacent", "excluded", "exclusion", "non", "type"}
+
+
+def _family_tokens(name: str) -> list[str]:
+    import re as _re
+    return [t for t in _re.findall(r"[a-z]{4,}", (name or "").lower())
+            if t not in _EXCL_STOP]
+
+
+def exclusion_coverage_issues(doc: CriteriaDocOut,
+                              exclusion_families: list[dict] | None) -> list[CritiqueIssue]:
+    """Every exclusion family the case-mapping stage identified (a design-plan E-tier =
+    an empirically-found look-alike cluster) MUST be encoded as an enforceable exclusion,
+    or the pool's look-alikes leak into the positives (the precision failure mode). This
+    is domain-general: it fires for any domain's adjacent-out-of-scope families, not just
+    the humanoid industrial-lookalike cluster."""
+    issues: list[CritiqueIssue] = []
+    if not exclusion_families:
+        return issues
+    haystack = " ".join(c.statement.lower() for c in doc.exclusion_criteria)
+    haystack += " " + " ".join(
+        (s.topic + " " + s.rationale).lower()
+        for s in doc.scope_decisions if s.verdict in ("out", "conditional"))
+    for fam in exclusion_families:
+        toks = _family_tokens(fam.get("name", ""))
+        if not toks:
+            continue                              # no distinctive term to check
+        if not any(t in haystack for t in toks):
+            slug = fam.get("name", "?")[:40]
+            issues.append(CritiqueIssue(
+                field="exclusion_criteria",
+                problem=(f"Exclusion family '{fam.get('name','')}' found by case-mapping "
+                         f"has no exclusion criterion. Its look-alike patents will be "
+                         f"admitted as positives."),
+                suggestion=(f"Add an E-criterion for '{fam.get('name','')}' stating the "
+                            f"decisive CLAIM-SCOPE test (exclude when the claim is bound to "
+                            f"this use/process; keep the transferable capability in scope): "
+                            f"{fam.get('definition','')[:160]}"),
+                severity="critical", category="coverage", target_ids=[],
+                issue_code=f"EXCL_COVERAGE:{slug}"))
+    return issues
 
 
 def criteria_integrity_issues(doc: CriteriaDocOut,
                               axes: AxisSynthesisOut,
-                              allowed_refs: set[str] | None = None) -> list[CritiqueIssue]:
+                              allowed_refs: set[str] | None = None,
+                              exclusion_families: list[dict] | None = None) -> list[CritiqueIssue]:
     """Deterministic checks that cannot be waived by a prose validator."""
-    issues: list[CritiqueIssue] = []
+    issues: list[CritiqueIssue] = list(exclusion_coverage_issues(doc, exclusion_families))
     axis_ids = {a.id for a in axes.technology_axes}
     anchored_refs = {ref.reference for a in axes.technology_axes for ref in a.source_refs}
     valid_refs = anchored_refs | (allowed_refs or set())
@@ -305,7 +352,8 @@ def critique_criteria(llm: StructuredLLM, doc: CriteriaDocOut, scope: QueryScope
                       evidence_summary: str,
                       usage: Usage,
                       allowed_refs: set[str] | None = None,
-                      ledger_block: str = "") -> CriteriaCritiqueOut:
+                      ledger_block: str = "",
+                      exclusion_families: list[dict] | None = None) -> CriteriaCritiqueOut:
     user = (f"=== Criteria document ===\n{json.dumps(doc.model_dump(), ensure_ascii=False)}\n\n"
             f"=== Approved axis synthesis ===\n{json.dumps(axes.model_dump(), ensure_ascii=False)}\n\n"
             f"=== Pool digest ===\n{json.dumps(digest.model_dump(), ensure_ascii=False)}\n\n"
@@ -315,7 +363,7 @@ def critique_criteria(llm: StructuredLLM, doc: CriteriaDocOut, scope: QueryScope
                             + _PROVENANCE_CRITIQUE + _LEDGER_CRITIQUE,
                             user, CriteriaCritiqueOut)
     usage.add(pt, ct)
-    deterministic = criteria_integrity_issues(doc, axes, allowed_refs)
+    deterministic = criteria_integrity_issues(doc, axes, allowed_refs, exclusion_families)
     out.issues = reconcile_issues(out.issues, deterministic)
     if any(i.severity == "critical" and i.issue_code.startswith(_DETERMINISTIC_PREFIXES)
            for i in out.issues):
@@ -348,7 +396,8 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
                   axes: AxisSynthesisOut, usage: Usage,
                   hitl: HITL, pool_df: pd.DataFrame | None = None,
                   probe_pool: KeyPool | None = None,
-                  front_matter: str = "") -> CriteriaDocOut:
+                  front_matter: str = "",
+                  exclusion_families: list[dict] | None = None) -> CriteriaDocOut:
     """Draft -> (probe + ask author's own scope questions) -> critique -> {approve |
     revise | collect_more | ask_human} loop."""
     evidence_summary = R.notes_summary_by_type(ws)
@@ -404,7 +453,8 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
     for rnd in range(1, AC.CRITERIA_MAX_ITERS + 1):
         critique = critique_criteria(llm, doc, scope, digest, axes, evidence_summary, usage,
                                      allowed_refs=allowed_refs,
-                                     ledger_block=ledger.prompt_block())
+                                     ledger_block=ledger.prompt_block(),
+                                     exclusion_families=exclusion_families)
         if last_was_patch:
             demoted = constrain_new_criticals(critique, prev_open or set(), touched)
             if demoted:
