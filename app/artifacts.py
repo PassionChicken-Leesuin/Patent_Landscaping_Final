@@ -103,6 +103,45 @@ def boundary_probe(ws: Path) -> list[dict]:
     return _read_jsonl(ws / "boundary_probe.jsonl")
 
 
+# ---- case-mapping front-half surfaces ----
+def pool_profile(ws: Path) -> dict | None:
+    return _read_json(ws / "pool_profile.json")
+
+
+def diagnosis(ws: Path) -> dict | None:
+    return _read_json(ws / "diagnosis.json")
+
+
+def design_plan(ws: Path) -> dict | None:
+    return _read_json(ws / "design_plan.json")
+
+
+def casemap_categories(ws: Path) -> list[dict]:
+    d = ws / "casemap"
+    if not d.exists():
+        return []
+    out = []
+    for p in sorted(d.glob("*.json")):
+        c = _read_json(p)
+        if c:
+            out.append(c)
+    return out
+
+
+def casemap_revisions(ws: Path, category: str) -> list[dict]:
+    from src.agentic.workspace import slugify
+    return _read_jsonl(ws / "casemap" / f"{slugify(category)}.revisions.jsonl")
+
+
+def casemap_summary(ws: Path) -> dict | None:
+    return _read_json(ws / "casemap_summary.json")
+
+
+def decisions(ws: Path) -> list[dict]:
+    d = _read_json(ws / "decisions.json") or {}
+    return d.get("decisions", [])
+
+
 def judge_progress(ws: Path) -> int:
     """Distinct record_ids already judged (audit.jsonl grows during stage [6])."""
     seen = set()

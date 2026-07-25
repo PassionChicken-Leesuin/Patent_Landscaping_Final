@@ -215,12 +215,34 @@ def render_hitl(run_dir: Path):
              "boundary-loop": "경계 루프"}.get(qp.get("stage", ""), qp.get("stage", ""))
     if qp.get("context"):
         st.caption(f"단계: {stage} · 맥락: {qp['context']}")
+    # Rich decision cards: join pending questions to decisions.json by id.
+    _ws = runner.find_workspace(run_dir)
+    cards = {d["id"]: d for d in artifacts.decisions(_ws)} if _ws else {}
     with st.form("hitl_form"):
         answers: dict[str, str] = {}
         for q in qp.get("questions", []):
-            st.markdown(f"**{q['id']}. {q['question']}**")
-            if q.get("why_needed"):
-                st.caption(f"왜 필요한가: {q['why_needed']}")
+            card = cards.get(q["id"])
+            if card:
+                st.markdown(f"**🧭 {card['stake']}**")
+                cc1, cc2 = st.columns(2)
+                with cc1:
+                    st.markdown("**✅ 포함 논리**")
+                    st.caption(card.get("include_argument", ""))
+                    if card.get("include_examples"):
+                        st.caption("예: " + ", ".join(card["include_examples"]))
+                with cc2:
+                    st.markdown("**⛔ 제외 논리**")
+                    st.caption(card.get("exclude_argument", ""))
+                    if card.get("exclude_examples"):
+                        st.caption("예: " + ", ".join(card["exclude_examples"]))
+                flips, n = card.get("impact_flips", 0), card.get("impact_sample_n", 0)
+                st.progress(min(1.0, flips / n) if n else 0.0,
+                            text=f"영향 규모: 표본 {n}건 중 {flips}건 판정이 갈림")
+                st.info(f"💡 권고: {card.get('recommendation', '')}")
+            else:
+                st.markdown(f"**{q['id']}. {q['question']}**")
+                if q.get("why_needed"):
+                    st.caption(f"왜 필요한가: {q['why_needed']}")
             opts = q.get("options") or []
             if opts:
                 choice = st.radio("선택", opts + ["직접 입력"], key=f"r_{q['id']}",
@@ -322,14 +344,133 @@ def render_results(run_dir: Path, ws: Path):
                            "판단기준서.md", "text/markdown", width="stretch")
 
 
+def render_diagnosis_tab(ws: Path):
+    prof = artifacts.pool_profile(ws)
+    diag = artifacts.diagnosis(ws)
+    if not prof and not diag:
+        st.info("정합 진단이 아직 생성되지 않았습니다 (③⁺ 단계 이후 표시).")
+        return
+    if prof:
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("총 특허", f"{prof.get('n_total', 0):,}")
+        c2.metric("패밀리 대표", f"{prof.get('n_family_dedup', 0):,}",
+                  f"-{prof.get('family_dup_rows', 0)} 중복")
+        c3.metric("직접 도메인 언급",
+                  f"{prof.get('direct_domain_mention', 0):,}",
+                  f"{prof.get('direct_domain_pct', 0) * 100:.1f}%")
+        c4.metric("상위10 출원인 집중도", f"{prof.get('top10_assignee_share', 0) * 100:.0f}%")
+        if prof.get("direct_domain_terms"):
+            st.caption("직접 도메인 용어: " + ", ".join(prof["direct_domain_terms"]))
+        cc1, cc2 = st.columns(2)
+        with cc1:
+            st.markdown("**상위 출원인**")
+            st.dataframe(pd.DataFrame(prof.get("top_assignees", []))
+                         .rename(columns={"name": "출원인", "count": "건수"}),
+                         width="stretch", height=240, hide_index=True)
+        with cc2:
+            st.markdown("**국적 분포**")
+            st.dataframe(pd.DataFrame(prof.get("nationality_dist", []))
+                         .rename(columns={"name": "국적", "count": "건수"}),
+                         width="stretch", height=240, hide_index=True)
+        if prof.get("reference_player_coverage"):
+            st.markdown("**참고자료 등장 기업의 풀 내 존재**")
+            st.dataframe(pd.DataFrame(prof["reference_player_coverage"])
+                         .rename(columns={"name": "기업", "in_pool": "풀 내 특허"}),
+                         width="stretch", hide_index=True)
+    if diag:
+        badge = "✅ 자료 충분" if diag.get("sufficiency") == "sufficient" else "🔎 웹 검색 필요"
+        st.markdown(f"### {badge}")
+        st.markdown(f"**① 문제 파악**  \n{diag.get('problem_understanding', '')}")
+        st.markdown(f"**② 참고자료 파악**  \n{diag.get('reference_understanding', '')}")
+        if diag.get("alignment_notes"):
+            st.markdown("**③ 정합 진단**")
+            for n in diag["alignment_notes"]:
+                st.markdown(f"- {n}")
+        if diag.get("gaps"):
+            st.caption("웹 검색 대상 갭: " + "; ".join(diag["gaps"]))
+
+
+def _case_table(rows: list[dict], kind: str):
+    if not rows:
+        st.caption("(해당 없음)")
+        return
+    cols = {"confirmed": ["patent_id", "assignee", "gist", "tier", "basis"],
+            "boundary": ["patent_id", "assignee", "gist", "basis", "recommendation"],
+            "false_positive": ["patent_id", "assignee", "gist", "basis"]}[kind]
+    df = pd.DataFrame(rows)
+    df = df[[c for c in cols if c in df.columns]]
+    hdr = {"patent_id": "등록번호", "assignee": "출원인", "gist": "제목 요지",
+           "tier": "귀속", "basis": "근거/애매점/오탐사유", "recommendation": "권고"}
+    st.dataframe(df.rename(columns=hdr), width="stretch", hide_index=True,
+                 height=min(360, 40 + 34 * len(df)))
+
+
+def render_casemap_tab(ws: Path):
+    cats = artifacts.casemap_categories(ws)
+    if not cats:
+        st.info("사례 매핑이 아직 생성되지 않았습니다 (④b 단계 이후 표시).")
+        return
+    names = [c.get("category", "?") for c in cats]
+    pick = st.selectbox("카테고리", names,
+                        format_func=lambda n: f"{n} "
+                        f"(확정 {len(next(c for c in cats if c['category']==n)['confirmed'])}/"
+                        f"경계 {len(next(c for c in cats if c['category']==n)['boundary'])}/"
+                        f"오탐 {len(next(c for c in cats if c['category']==n)['false_positive'])})")
+    cat = next(c for c in cats if c["category"] == pick)
+    st.markdown(f"#### 확정 사례 ({len(cat['confirmed'])})")
+    _case_table(cat["confirmed"], "confirmed")
+    st.markdown(f"#### 경계 사례 ({len(cat['boundary'])}) — 판정을 가르는 인사이트")
+    _case_table(cat["boundary"], "boundary")
+    st.markdown(f"#### 오탐 ({len(cat['false_positive'])})")
+    _case_table(cat["false_positive"], "false_positive")
+    if cat.get("false_positive_cues"):
+        st.caption("오탐 사전: " + " · ".join(cat["false_positive_cues"]))
+    revs = artifacts.casemap_revisions(ws, pick)
+    if revs:
+        st.markdown("#### 🔁 자기수정 이력 (스스로 재분류한 과정)")
+        for i, r in enumerate(revs, 1):
+            with st.expander(f"라운드 {i}: {len(r.get('changed', []))}건 재분류 — "
+                             f"{r.get('rationale', '')[:70]}"):
+                for ch in r.get("changed", []):
+                    st.markdown(f"- `{ch.get('patent_id')}` → **{ch.get('verdict')}**"
+                                f"/{ch.get('tier', '?')} : {ch.get('basis', '')}")
+
+
+def render_insights_tab(ws: Path):
+    summ = artifacts.casemap_summary(ws)
+    if not summ:
+        st.info("핵심 인사이트가 아직 생성되지 않았습니다 (④b 집계 이후 표시).")
+        return
+    st.markdown("### 💡 핵심 인사이트")
+    for ins in summ.get("insights", []):
+        st.markdown(f"**{ins.get('title', '')}**")
+        st.markdown(ins.get("detail", ""))
+        if ins.get("evidence_ids"):
+            st.caption("근거: " + ", ".join(ins["evidence_ids"]))
+        st.markdown("---")
+    if summ.get("false_positive_cues"):
+        st.markdown("**오탐 사전 (전 카테고리 병합)**")
+        st.caption(" · ".join(summ["false_positive_cues"]))
+    reps = summ.get("representative_confirmed", [])
+    if reps:
+        st.markdown("**대표 확정 사례**")
+        _case_table(reps, "confirmed")
+
+
 def render_artifact_tabs(run_dir: Path, ws: Path | None):
-    tabs = st.tabs(["📜 기준서", "🙋 HITL Q&A", "🔎 리서치·코퍼스", "⚖️ 경계 검증",
-                    "🧾 검증 이력"])
+    tabs = st.tabs(["📜 기준서", "📊 정합 진단", "🗂️ 사례 매핑", "💡 인사이트",
+                    "🙋 HITL Q&A", "🔎 리서치·코퍼스", "⚖️ 경계 검증", "🧾 검증 이력"])
     if ws is None:
         for t in tabs:
             with t:
                 st.info("워크스페이스 생성 전입니다 (스코핑 단계 이후 표시).")
         return
+    with tabs[1]:
+        render_diagnosis_tab(ws)
+    with tabs[2]:
+        render_casemap_tab(ws)
+    with tabs[3]:
+        render_insights_tab(ws)
 
     with tabs[0]:
         vers = artifacts.criteria_versions(ws)
@@ -344,7 +485,7 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
             with st.expander("🧭 기술축 합성 (axis synthesis — 기준서의 골격·출처)"):
                 st.markdown(ax)
 
-    with tabs[1]:
+    with tabs[4]:
         qa = artifacts.human_qa(ws)
         if not qa:
             st.info("아직 질문/답변이 없습니다.")
@@ -360,7 +501,7 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
             st.markdown(f"> {who}: {e.get('answer','')}")
             st.markdown("---")
 
-    with tabs[2]:
+    with tabs[5]:
         notes = artifacts.research_notes(ws)
         if notes.empty:
             st.info("리서치 노트가 아직 없습니다.")
@@ -384,7 +525,7 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
                 for b in dg["suspected_boundary_cases"]:
                     st.markdown(f"- ⚠️ {b}")
 
-    with tabs[3]:
+    with tabs[6]:
         probe = artifacts.boundary_probe(ws)
         if not probe:
             st.info("경계 검증(broad/narrow 판정 diff) 기록이 없습니다.")
@@ -397,7 +538,7 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
                         st.markdown(f"- **{s.get('id')}**: 표본 {s.get('n')}건 중 "
                                     f"flip {s.get('flip')}건")
 
-    with tabs[4]:
+    with tabs[7]:
         ledger = artifacts.issue_ledger(ws)
         if ledger:
             st.markdown("**이슈 원장 (critical 추적)** — 같은 결함은 라운드가 바뀌어도 "
