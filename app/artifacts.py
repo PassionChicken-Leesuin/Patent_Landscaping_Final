@@ -142,6 +142,26 @@ def decisions(ws: Path) -> list[dict]:
     return d.get("decisions", [])
 
 
+def pool_lookup(run_dir: Path) -> dict:
+    """patent_id / record_id -> (title, abstract) from the run's judge pool, so decision
+    cards can show the example patents' real title + abstract."""
+    p = Path(run_dir) / "pool.csv"
+    if not p.exists():
+        return {}
+    try:
+        df = pd.read_csv(p, dtype=str).fillna("")
+    except Exception:
+        return {}
+    out: dict = {}
+    for _, r in df.iterrows():
+        t, a = str(r.get("title", "")), str(r.get("abstract", ""))
+        for key in (r.get("patent_id", ""), r.get("record_id", "")):
+            k = str(key).strip()
+            if k:
+                out.setdefault(k, (t, a))
+    return out
+
+
 def judge_progress(ws: Path) -> int:
     """Distinct record_ids already judged (audit.jsonl grows during stage [6])."""
     seen = set()

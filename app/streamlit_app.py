@@ -230,6 +230,16 @@ def render_hitl(run_dir: Path):
     # Rich decision cards: join pending questions to decisions.json by id.
     _ws = runner.find_workspace(run_dir)
     cards = {d["id"]: d for d in artifacts.decisions(_ws)} if _ws else {}
+    pool_lk = artifacts.pool_lookup(run_dir) if cards else {}
+
+    def _example_patents(ids: list[str]):
+        for pid in ids:
+            title, abstract = pool_lk.get(str(pid), ("", ""))
+            with st.expander(f"📄 {pid}" + (f" — {title[:70]}" if title else "")):
+                if title:
+                    st.markdown(f"**{title}**")
+                st.caption(abstract[:600] if abstract else "(초록 없음 — 풀에서 조회 실패)")
+
     with st.form("hitl_form"):
         answers: dict[str, str] = {}
         for q in qp.get("questions", []):
@@ -241,12 +251,14 @@ def render_hitl(run_dir: Path):
                     st.markdown("**✅ 포함 논리**")
                     st.caption(card.get("include_argument", ""))
                     if card.get("include_examples"):
-                        st.caption("예: " + ", ".join(card["include_examples"]))
+                        st.markdown("**예시 특허 (포함):**")
+                        _example_patents(card["include_examples"])
                 with cc2:
                     st.markdown("**⛔ 제외 논리**")
                     st.caption(card.get("exclude_argument", ""))
                     if card.get("exclude_examples"):
-                        st.caption("예: " + ", ".join(card["exclude_examples"]))
+                        st.markdown("**예시 특허 (제외):**")
+                        _example_patents(card["exclude_examples"])
                 flips, n = card.get("impact_flips", 0), card.get("impact_sample_n", 0)
                 st.progress(min(1.0, flips / n) if n else 0.0,
                             text=f"영향 규모: 표본 {n}건 중 {flips}건 판정이 갈림")

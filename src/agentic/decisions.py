@@ -35,7 +35,12 @@ For each decision produce:
 - tentative_default: the option to apply if the human does not answer.
 - broad_rule / narrow_rule: one-sentence inclusion rules under the broad vs narrow reading,
   written so a judge can apply them to a single patent (these MEASURE the decision's impact).
-Leave impact_flips and impact_sample_n at 0 — they are measured after you output. Output JSON only.
+Leave impact_flips and impact_sample_n at 0 — they are measured after you output.
+
+LANGUAGE: write stake, include_argument, exclude_argument, recommendation, options, and
+tentative_default in KOREAN (자연스러운 한국어) — these are shown to a Korean domain owner.
+Keep patent_ids verbatim. broad_rule / narrow_rule may stay in English (judge-facing).
+Output JSON only.
 """
 
 
