@@ -14,8 +14,12 @@ from src.mas.llm import OpenAIStructuredLLM, StructuredLLM, Usage, load_openai_k
 from src.agentic import config as AC
 from src.agentic import research as R
 from src.agentic.axes import synthesize_axes
+from src.agentic.casemap import run_casemap, summarize_casemap
 from src.agentic.corpus import read_corpus
 from src.agentic.criteria import load_final
+from src.agentic.decisions import run_decisions
+from src.agentic.designplan import build_design_plan
+from src.agentic.diagnose import diagnose_alignment, sufficiency_precheck
 from src.agentic.hitl import HITL, HITLMode
 from src.agentic.mockllm import MockAgentLLM
 from src.agentic.schemas import CriteriaDocOut, QueryScopeOut
@@ -66,6 +70,35 @@ def _judge_pool(mock: bool = False):
         return mock_pool(3)
     keys = load_openai_keys(str(C.ROOT / ".env"))
     return KeyPool(keys, AC.MODEL_JUDGE_FAST, AC.MODEL_JUDGE_STRONG, AC.LLM_TEMPERATURE)
+
+
+def _corpus_map_llm(mock: bool, llm: StructuredLLM) -> StructuredLLM:
+    """The cheap mini model used for mass mapping (corpus reading, case-mapping)."""
+    if mock:
+        return llm
+    keys = load_openai_keys(str(C.ROOT / ".env"))
+    return RetryingLLM(OpenAIStructuredLLM(
+        api_key=keys[min(1, len(keys) - 1)], model=AC.MODEL_CORPUS_MAP,
+        temperature=AC.LLM_TEMPERATURE))
+
+
+def _front_matter(ws: Workspace, plan, cm_summary, answered: list[dict]) -> str:
+    """Assemble the case-mapping product as authoritative context for the criteria draft."""
+    lines = ["=== TIERED DESIGN PLAN ==="]
+    for t in plan.tiers:
+        lines.append(f"- [{t.tier}] {t.name} (axes {', '.join(t.axis_ids)}): {t.definition}")
+    lines.append("\n=== CROSS-CUTTING INSIGHTS ===")
+    for i in cm_summary.insights:
+        lines.append(f"- {i.title}: {i.detail}")
+    lines.append("\n=== REUSABLE FALSE-POSITIVE CUES ===")
+    lines.append("; ".join(cm_summary.false_positive_cues) or "(none)")
+    human = [a for a in answered
+             if a.get("answered_by") in ("human", "human_batch", "human_prior")]
+    if human:
+        lines.append("\n=== OWNER-ANSWERED SCOPE DECISIONS (record verbatim) ===")
+        for a in human:
+            lines.append(f"Q: {a['question']}\nA: {a['answer']}")
+    return "\n".join(lines)
 
 
 def research_llm(mock: bool = False) -> StructuredLLM:
@@ -145,23 +178,32 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
         ws.criteria_final_json.unlink(missing_ok=True)
         ws.criteria_final_md.unlink(missing_ok=True)
 
-    # [2] web research (staged, leakage-guarded, cached)
     client = make_search_client(mock)
-    if no_research:
-        print("[2] research: SKIPPED (ablation — criteria from LLM internal knowledge)")
-    elif force or not ws.notes_jsonl.exists():
-        print("[2] research: staged web collection")
-        R.research(ws, llm, client, scope, usage)
-    else:
-        print(f"[2] research: reusing {len(ws.read_jsonl(ws.notes_jsonl))} cached notes")
 
-    # [2b] owner-supplied local reference documents (idempotent per chunk;
-    # fail-loud on leak-scan hits — an owner document is never silently dropped)
+    # [2b] owner-supplied local reference documents FIRST (idempotent per chunk;
+    # fail-loud on leak-scan hits — an owner document is never silently dropped).
+    # Ingesting before research lets the sufficiency gate read the owner material.
     if local_docs:
         from src.agentic.localdocs import ingest_local_docs
         print(f"[2b] local docs: ingesting {len(local_docs)} file(s)")
         ingest_local_docs(ws, llm, local_docs, scope.canonical_name_en, usage,
                           allow_flagged=local_docs_allow_flagged)
+
+    # [2-gate] sufficiency: is the supplied material enough, or is web research needed?
+    web_done = ws.searches_jsonl.exists()
+    if no_research:
+        print("[2] research: SKIPPED (ablation — criteria from LLM internal knowledge)")
+    elif web_done and not force:
+        print(f"[2] research: reusing cached web notes")
+    else:
+        suff = sufficiency_precheck(llm, scope, ws, usage)
+        need_web = suff.sufficiency != "sufficient" or not local_docs
+        if need_web:
+            reason = "; ".join(suff.gaps[:4]) or "owner material thin/absent"
+            print(f"[2] research: material insufficient -> web collection ({reason})")
+            R.research(ws, llm, client, scope, usage)
+        else:
+            print("[2] research: SKIPPED — owner material judged sufficient")
 
     # [3] corpus reading (the actual pool text)
     if no_corpus:
@@ -183,17 +225,46 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
                              R.notes_summary_by_type(ws), usage, force=force,
                              llm_map=llm_map)
 
+    # [3.5] alignment diagnosis: quantitative pool profile + LLM reading of problem /
+    # reference / alignment, with the direct-domain terms & key players code counts back.
+    print("[3.5] alignment diagnosis (pool profile + sufficiency)")
+    diagnosis = diagnose_alignment(ws, llm, scope, digest, pool_df, usage, force=force)
+    prof = Workspace.read_json(ws.pool_profile_json)
+    print(f"  [diagnose] direct-domain {prof['direct_domain_mention']} "
+          f"({prof['direct_domain_pct']:.1%}) · sufficiency={diagnosis.sufficiency}")
+
     # [4a] quality-aware axis anchoring from query/owner doc + research + pool
     print("[4a] technology-axis synthesis + provenance anchoring")
     axes = synthesize_axes(ws, llm, scope, digest, usage, force=force)
     print(f"  [axes] {len(axes.technology_axes)} axes -> {ws.axis_synthesis_md}")
 
-    # [4b]+[5] criteria + validator feedback loop (with HITL + boundary probing)
-    print("[4b-5] criteria drafting + validator loop")
     hitl = HITL(ws, mode=hitl_mode, stage="criteria")
-    probe_pool = _judge_pool(mock)   # cheap model, reused by the boundary probe
+    probe_pool = _judge_pool(mock)   # cheap model, reused by the boundary probe + casemap
+
+    # [4a+] tiered design plan (axes -> T1/T2/E categories, domain-general)
+    print("[4a+] design plan (axes -> tiers)")
+    from src.agentic.schemas import PoolProfile
+    plan = build_design_plan(ws, llm, axes, PoolProfile(**prof), diagnosis, usage, force=force)
+    print(f"  [design] {len(plan.tiers)} tiers")
+
+    # [4b-map] category case-mapping with self-correction, then aggregate
+    print("[4b-map] category case-mapping (confirmed/boundary/false-positive + self-correction)")
+    llm_map = _corpus_map_llm(mock, llm)
+    cats = run_casemap(ws, llm, llm_map, plan, pool_df, usage, force=force)
+    cm_summary = summarize_casemap(ws, llm, cats, usage, force=force)
+    print(f"  [casemap] {sum(len(c.confirmed) for c in cats)} confirmed, "
+          f"{sum(len(c.boundary) for c in cats)} boundary, {len(cm_summary.insights)} insights")
+
+    # [4c] decision cards: frame the hard scope calls for the owner (measured impact)
+    print("[4c] scope decisions (measured impact -> HITL)")
+    answered = run_decisions(ws, llm, cats, cm_summary, pool_df, probe_pool,
+                             scope.canonical_name_en, hitl, usage)
+
+    # [4b-5] criteria + validator feedback loop — now seeded by the front-half product
+    print("[4b-5] criteria drafting + validator loop")
+    front_matter = _front_matter(ws, plan, cm_summary, answered)
     doc = criteria_loop(ws, llm, client, scope, digest, axes, usage, hitl,
-                        pool_df=pool_df, probe_pool=probe_pool)
+                        pool_df=pool_df, probe_pool=probe_pool, front_matter=front_matter)
 
     print(f"[criteria approved] {len(doc.domain_criteria)} C / "
           f"{len(doc.exclusion_criteria)} E -> {ws.criteria_final_md}")

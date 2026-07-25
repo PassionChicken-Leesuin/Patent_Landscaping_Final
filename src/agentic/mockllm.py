@@ -18,7 +18,10 @@ from src.agentic.schemas import (
     EvidenceSourceRef, GapAnalysisOut, HITLQuestion, INTENT_TYPES, JudgeAuditOut, JudgmentOut,
     OwnerDocumentAssessmentOut, QueryScopeOut, ScopeDecisionOut, ScopeQuestion,
     SearchIntent, SecondPassOut, TechnologyAxisOut,
+    AlignmentDiagnosisOut, DesignPlanOut, DesignTier, CaseRow, CaseMapCategoryOut,
+    CaseMapReviseOut, CaseInsight, CaseMapSummaryOut, DecisionQuestion, DecisionQuestionsOut,
 )
+from src.agentic.diagnose import SufficiencyOut
 
 
 @dataclass
@@ -286,3 +289,37 @@ class MockAgentLLM(StructuredLLM):
         return JudgeAuditOut(verdict_ok=True, problem="", action="confirm",
                              followup_queries=[], human_questions=[],
                              criteria_amendments=[])
+
+    # --------------------------------------------- [3.5]/[4a+]/[4b-map]/[4c] front-half
+    def _SufficiencyOut(self, system, user):
+        return SufficiencyOut(sufficiency="sufficient", gaps=[])
+
+    def _AlignmentDiagnosisOut(self, system, user):
+        return AlignmentDiagnosisOut(
+            problem_understanding="Mock: select domain-valid patents.",
+            reference_understanding="Mock: reference names core value-chain axes.",
+            direct_domain_terms=["mock"], reference_key_players=[],
+            alignment_notes=["Mock alignment note."], sufficiency="sufficient", gaps=[])
+
+    def _DesignPlanOut(self, system, user):
+        return DesignPlanOut(judging_unit="family representative", notes=[], tiers=[
+            DesignTier(tier="T1", name="direct", axis_ids=["A1"], definition="direct domain",
+                       expected_signals=["mock"], est_count_lo=1, est_count_hi=10),
+            DesignTier(tier="E", name="adjacent", axis_ids=[], definition="look-alike",
+                       expected_signals=["conversion"], est_count_lo=1, est_count_hi=10)])
+
+    def _CaseMapCategoryOut(self, system, user):
+        return CaseMapCategoryOut(category="mock", confirmed=[], boundary=[],
+                                  false_positive=[], false_positive_cues=[])
+
+    def _CaseMapReviseOut(self, system, user):
+        return CaseMapReviseOut(changed=[], rationale="mock", settled=True)
+
+    def _CaseMapSummaryOut(self, system, user):
+        return CaseMapSummaryOut(representative_confirmed=[],
+                                 insights=[CaseInsight(title="Mock insight", detail="d",
+                                                       evidence_ids=[])],
+                                 false_positive_cues=["mock cue"])
+
+    def _DecisionQuestionsOut(self, system, user):
+        return DecisionQuestionsOut(questions=[])

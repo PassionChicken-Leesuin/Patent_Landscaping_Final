@@ -107,6 +107,15 @@ _AXIS_CLAUSE = (
     "legacy sources for readable export. Do not invent references.\n"
 )
 
+_CASEMAP_CLAUSE = (
+    "\nCASE-MAPPING POLICY: a case-mapping pass over the pool already produced the tiered "
+    "design, confirmed/boundary/false-positive examples, cross-cutting insights, reusable "
+    "false-positive cues, and the owner's answered scope decisions (below). Treat them as "
+    "authoritative for THIS domain: turn the tiers into C/E criteria and scope_decisions, "
+    "encode the false-positive cues as observable-signal cautions, and record each answered "
+    "decision VERBATIM as a scope_decision (never summarize an answer into its opposite).\n"
+)
+
 _REVISE_SUFFIX = (
     "\n\nA validator reviewed the previous version of this document and demanded changes. "
     "Produce a MINIMALLY-EDITED revision: fix EXACTLY the flagged issues and keep every "
@@ -131,7 +140,8 @@ def draft_criteria(ws: Workspace, llm: StructuredLLM, scope: QueryScopeOut,
                    version: int = 1,
                    prior: CriteriaDocOut | None = None,
                    critique: CriteriaCritiqueOut | None = None,
-                   human_qa: list[dict] | None = None) -> CriteriaDocOut:
+                   human_qa: list[dict] | None = None,
+                   front_matter: str = "") -> CriteriaDocOut:
     from src.agentic.axes import allowed_source_references, render_allowed_refs
     allowed_refs = allowed_source_references(ws, digest)
     system = _SYSTEM.format(domain=scope.canonical_name_en) + _scope_clause() + _AXIS_CLAUSE
@@ -157,6 +167,13 @@ def draft_criteria(ws: Workspace, llm: StructuredLLM, scope: QueryScopeOut,
         parts.append("\n=== CANDIDATE SCOPE BOUNDARIES (evaluate EACH as a possible "
                      "open_question with a broad_rule and narrow_rule) ===\n"
                      + "\n".join(f"- {c}" for c in cand))
+    # Front-half (case-mapping) product: the tiered design, the confirmed/boundary
+    # case tables, the cross-cutting insights, the merged false-positive cues, and the
+    # human's answered scope decisions. Authoritative for the FIRST draft only; the
+    # revise loop then works from the critique like before.
+    if front_matter and prior is None:
+        system += _CASEMAP_CLAUSE
+        parts.append(front_matter)
     if prior is not None:
         system += _REVISE_SUFFIX
         parts.append(f"\n=== Previous document ===\n{json.dumps(prior.model_dump(), ensure_ascii=False)}")

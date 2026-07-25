@@ -347,7 +347,8 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
                   scope: QueryScopeOut, digest: CorpusDigestOut,
                   axes: AxisSynthesisOut, usage: Usage,
                   hitl: HITL, pool_df: pd.DataFrame | None = None,
-                  probe_pool: KeyPool | None = None) -> CriteriaDocOut:
+                  probe_pool: KeyPool | None = None,
+                  front_matter: str = "") -> CriteriaDocOut:
     """Draft -> (probe + ask author's own scope questions) -> critique -> {approve |
     revise | collect_more | ask_human} loop."""
     evidence_summary = R.notes_summary_by_type(ws)
@@ -366,7 +367,7 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
               f"answered question(s)")
     else:
         doc = draft_criteria(ws, llm, scope, digest, axes, evidence_summary, usage, version=1,
-                             human_qa=human_qa_all or None)
+                             human_qa=human_qa_all or None, front_matter=front_matter)
 
     # PROACTIVE scope questions: the author flags candidate boundaries; we MEASURE each by
     # judging a pool sample under its broad vs narrow rule and keep only those that flip a

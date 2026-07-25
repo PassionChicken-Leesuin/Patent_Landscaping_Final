@@ -39,6 +39,14 @@ CORPUS_BATCH_SIZE = 50           # patents (title+abstract) per map call
 CORPUS_MAX_BATCHES = 200         # safety cap (200*50 = 10k patents)
 CORPUS_ABSTRACT_CHARS = 600      # per-patent abstract truncation in corpus reading
 
+# ---- case-mapping-based criteria authoring (front-half) ----
+DIAGNOSE_TITLE_SAMPLE = 40        # pool titles shown to the alignment-diagnosis LLM
+DIAGNOSE_TOP_ASSIGNEES = 20       # assignees profiled
+CASEMAP_SAMPLE_PER_CATEGORY = 110 # candidate patents mapped per category
+CASEMAP_CROSS_PRIORITY = 60       # cross-matched (exclusion x tier) candidates prioritized
+CASEMAP_REVISE_ROUNDS = 2         # self-correction rounds with no change -> settle
+CASEMAP_MAX_CATEGORIES = 20       # safety cap on categories derived from the design plan
+
 # ---- proactive scope questions (boundary probing) ----
 BOUNDARY_PROBE_SAMPLE = 60       # pool patents judged under broad-vs-narrow rules
 BOUNDARY_MIN_FLIP_RATE = 0.08    # a boundary is "real" only if >= this share of the sample flips

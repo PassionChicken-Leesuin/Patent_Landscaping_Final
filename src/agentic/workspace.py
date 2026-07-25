@@ -47,6 +47,25 @@ class Workspace:
     def owner_docs_json(self) -> Path: return self.root / "owner_docs.json"
     @property
     def corpus_digest_json(self) -> Path: return self.root / "corpus_digest.json"
+    # ---- case-mapping front-half artifacts ----
+    @property
+    def pool_profile_json(self) -> Path: return self.root / "pool_profile.json"
+    @property
+    def diagnosis_json(self) -> Path: return self.root / "diagnosis.json"
+    @property
+    def design_plan_json(self) -> Path: return self.root / "design_plan.json"
+    @property
+    def casemap_dir(self) -> Path: return self.root / "casemap"
+    def casemap_json(self, category: str) -> Path:
+        return self.casemap_dir / f"{slugify(category)}.json"
+    def casemap_revisions_jsonl(self, category: str) -> Path:
+        return self.casemap_dir / f"{slugify(category)}.revisions.jsonl"
+    @property
+    def casemap_summary_json(self) -> Path: return self.root / "casemap_summary.json"
+    @property
+    def false_positive_cues_json(self) -> Path: return self.root / "false_positive_cues.json"
+    @property
+    def decisions_json(self) -> Path: return self.root / "decisions.json"
     @property
     def axis_synthesis_json(self) -> Path: return self.root / "axis_synthesis.json"
     @property

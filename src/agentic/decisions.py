@@ -1,0 +1,103 @@
+"""[4c] Decision cards: frame the hard boundary calls for the human owner.
+
+The system form of the "결정 ①②③" the assistant put to the human (4족 / 물류학습 /
+산업용 회색지대): each is a stake with the include and exclude arguments, example patents
+for each side, a MEASURED impact (how many pool patents flip — reused from boundary_probe,
+not re-derived), and a recommendation. The human answers once; the answers are binding scope
+context for the criteria draft. broad_rule/narrow_rule keep every card machine-testable.
+"""
+from __future__ import annotations
+
+import pandas as pd
+
+from src.agentic.boundary_probe import probe_boundaries
+from src.agentic.hitl import HITL, question_id
+from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, DecisionQuestion,
+                                 DecisionQuestionsOut, HITLQuestion, ScopeQuestion)
+from src.agentic.workspace import Workspace
+from src.mas.llm import StructuredLLM, Usage
+from src.mas.runner import KeyPool
+
+_SYSTEM = """
+You are the Decision-Framing agent of a patent-landscaping system. From the case-mapping
+results — especially the categories with many boundary cases and the cross-cutting insights —
+identify the FEW genuine scope decisions that only the domain owner should make (typically 2-4:
+a look-alike form to include or not, a component/application that transfers or not, an
+industrial-lookalike cluster's dividing line).
+
+For each decision produce:
+- stake: what exactly is being decided (one or two sentences).
+- include_argument + include_examples: the case FOR inclusion, with 2-3 patent_ids from the
+  mapping that exemplify it.
+- exclude_argument + exclude_examples: the case AGAINST, with 2-3 patent_ids.
+- recommendation: your recommended call with its one-line justification.
+- options: the concrete choices (usually ["include ...", "exclude ..."]).
+- tentative_default: the option to apply if the human does not answer.
+- broad_rule / narrow_rule: one-sentence inclusion rules under the broad vs narrow reading,
+  written so a judge can apply them to a single patent (these MEASURE the decision's impact).
+Leave impact_flips and impact_sample_n at 0 — they are measured after you output. Output JSON only.
+"""
+
+
+def derive_decisions(ws: Workspace, llm: StructuredLLM, cats: list[CaseMapCategoryOut],
+                     summary: CaseMapSummaryOut, usage: Usage) -> list[DecisionQuestion]:
+    blocks = []
+    for c in cats:
+        if not c.boundary:
+            continue
+        ex = "; ".join(f"[{r.patent_id}] {r.gist} — {r.basis} (rec: {r.recommendation})"
+                       for r in c.boundary[:6])
+        blocks.append(f"### {c.category} ({len(c.boundary)} boundary)\n{ex}")
+    ins = "\n".join(f"- {i.title}: {i.detail} (ev: {', '.join(i.evidence_ids[:4])})"
+                    for i in summary.insights)
+    user = ("INSIGHTS:\n" + ins + "\n\nBOUNDARY-HEAVY CATEGORIES:\n" + "\n\n".join(blocks))
+    out, pt, ct = llm.parse(_SYSTEM, user, DecisionQuestionsOut)
+    usage.add(pt, ct)
+    # stamp each id = hash of the stake text so it joins to the HITL answer + the UI card
+    for d in out.questions:
+        d.id = question_id(d.stake)
+    return out.questions
+
+
+def measure_decisions(decisions: list[DecisionQuestion], pool_df: pd.DataFrame,
+                      probe_pool: KeyPool, domain: str, ws: Workspace) -> list[DecisionQuestion]:
+    """Reuse the boundary probe to fill impact_flips (measured, not guessed)."""
+    if not decisions:
+        return decisions
+    shims = [ScopeQuestion(id=d.id, question=d.stake, why_it_matters="", options=d.options,
+                           tentative_default=d.tentative_default, broad_rule=d.broad_rule,
+                           narrow_rule=d.narrow_rule) for d in decisions]
+    ranked = probe_boundaries(shims, pool_df, probe_pool, domain, ws.boundary_probe_jsonl)
+    flips = {q.id: (f, n) for q, f, n in ranked}
+    for d in decisions:
+        d.impact_flips, d.impact_sample_n = flips.get(d.id, (0, 0))
+    ws.write_json(ws.decisions_json, {"decisions": [d.model_dump() for d in decisions]})
+    return decisions
+
+
+def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[HITLQuestion]:
+    """Present the rich card through the standard answer channel (batch/interactive).
+    The full card is in decisions.json; the UI joins by id."""
+    out = []
+    for d in decisions:
+        why = (f"영향: 표본 {d.impact_sample_n}건 중 {d.impact_flips}건 판정이 갈림. "
+               f"[포함] {d.include_argument} [제외] {d.exclude_argument} "
+               f"[권고] {d.recommendation}")
+        out.append(HITLQuestion(id=d.id, question=d.stake, why_needed=why, options=d.options))
+    return out
+
+
+def run_decisions(ws: Workspace, llm: StructuredLLM, cats: list[CaseMapCategoryOut],
+                  summary: CaseMapSummaryOut, pool_df: pd.DataFrame, probe_pool: KeyPool,
+                  domain: str, hitl: HITL, usage: Usage) -> list[dict]:
+    """Derive -> measure -> ask. Returns the answered decisions (binding scope context)."""
+    if ws.decisions_json.exists():
+        decisions = [DecisionQuestion(**d)
+                     for d in Workspace.read_json(ws.decisions_json)["decisions"]]
+    else:
+        decisions = derive_decisions(ws, llm, cats, summary, usage)
+        decisions = measure_decisions(decisions, pool_df, probe_pool, domain, ws)
+    if not decisions:
+        return []
+    print(f"  [decisions] {len(decisions)} scope decision(s) framed for the owner")
+    return hitl.ask(as_hitl_questions(decisions), context="사례 매핑에서 도출된 범위 결정")

@@ -286,3 +286,132 @@ class JudgeAuditOut(BaseModel):
     followup_queries: list[SearchIntent]
     human_questions: list[HITLQuestion]
     criteria_amendments: list[str]   # sentence-form clarifications to append for re-judging
+
+
+# ================= case-mapping-based criteria authoring (front-half) =================
+# The stages below replace the single-shot criteria draft with the procedure a human
+# domain owner and the assistant used to build the humanoid A2 gold set:
+#   [3.5] alignment diagnosis -> [4a] design plan -> [4b-map] category case-mapping
+#   (with self-correction) -> [4c] decision cards (HITL) -> [4d] initial criteria.
+# The back-half ([5] validator loop, [6] judge, [7] judge validator) is unchanged;
+# its contract is CriteriaDocOut, which these stages feed but never alter.
+
+# ---------------- [3.5] alignment diagnosis ----------------
+class NameCount(BaseModel):
+    name: str
+    count: int
+
+
+class PlayerCoverage(BaseModel):
+    name: str            # a key player named by the reference material / research
+    in_pool: int         # how many pool patents that normalized name authored
+
+
+class PoolProfile(BaseModel):
+    """Code-computed quantitative profile of the judge pool (never an LLM output).
+    Domain-general: every metric degrades gracefully when a column is absent."""
+    n_total: int
+    n_family_dedup: int
+    family_dup_rows: int
+    ai_summary_fill_rate: float                       # richer-text columns available?
+    direct_domain_terms: list[str] = Field(default_factory=list)   # from diagnosis LLM
+    direct_domain_mention: int = 0                    # rows whose text hits a direct term
+    direct_domain_pct: float = 0.0
+    top_assignees: list[NameCount] = Field(default_factory=list)
+    top10_assignee_share: float = 0.0                # assignee concentration (general)
+    nationality_dist: list[NameCount] = Field(default_factory=list)
+    cpc_main_dist: list[NameCount] = Field(default_factory=list)
+    reference_player_coverage: list[PlayerCoverage] = Field(default_factory=list)
+
+
+class AlignmentDiagnosisOut(BaseModel):
+    """LLM interpretation of the pool profile vs the owner/reference material.
+    Emits the direct-domain terms and key players the code then counts (auditable),
+    and judges whether the supplied material is enough or web research is needed."""
+    problem_understanding: str                       # (1) the task / problem
+    reference_understanding: str                     # (2) the core reference material
+    direct_domain_terms: list[str]                   # literal terms = direct domain hit
+    reference_key_players: list[str]                 # companies/orgs named by the material
+    alignment_notes: list[str]                       # (3) alignment diagnosis, boundary flags
+    sufficiency: Literal["sufficient", "need_web"]
+    gaps: list[str]                                  # if need_web: what to search for
+
+
+# ---------------- [4a] design plan (tiers anchored to axes) ----------------
+class DesignTier(BaseModel):
+    tier: Literal["T1", "T2", "E"]
+    name: str
+    axis_ids: list[str]                              # anchoring technology axes (A1..)
+    definition: str
+    expected_signals: list[str]                      # title/abstract cues
+    est_count_lo: int
+    est_count_hi: int
+
+
+class DesignPlanOut(BaseModel):
+    tiers: list[DesignTier]
+    judging_unit: str                                # e.g. "family representative"
+    notes: list[str]
+
+
+# ---------------- [4b-map] category case-mapping ----------------
+class CaseRow(BaseModel):
+    patent_id: str
+    assignee: str
+    gist: str                                        # short title gist
+    verdict: Literal["confirmed", "boundary", "false_positive"]
+    tier: str                                        # T1/T2/E (recommended assignment; "" if none)
+    basis: str                                       # basis / what is ambiguous / why false-positive
+    recommendation: str                              # boundary rows: recommended tier + reason
+
+
+class CaseMapCategoryOut(BaseModel):
+    category: str                                    # e.g. "T1_direct" / "E_surgical"
+    confirmed: list[CaseRow]
+    boundary: list[CaseRow]
+    false_positive: list[CaseRow]
+    false_positive_cues: list[str]                   # 'recycling != rehab' style exclusion cues
+
+
+class CaseMapReviseOut(BaseModel):
+    """One self-correction step over an already-drafted category (shown live in the UI)."""
+    changed: list[CaseRow]                           # rows whose verdict/tier changed
+    rationale: str                                   # why the reclassification
+    settled: bool                                    # True = no further change needed
+
+
+class CaseInsight(BaseModel):
+    title: str                                       # e.g. "OEM must be split 3 ways"
+    detail: str
+    evidence_ids: list[str]                          # patent_ids supporting it
+
+
+class CaseMapSummaryOut(BaseModel):
+    representative_confirmed: list[CaseRow]          # a few strong confirmations per category
+    insights: list[CaseInsight]
+    false_positive_cues: list[str]                   # merged, deduped across categories
+
+
+# ---------------- [4c] decision cards (rich HITL) ----------------
+class DecisionQuestion(BaseModel):
+    """A boundary decision framed for the human owner the way the assistant framed the
+    4족 / 물류학습 / 산업용 회색지대 calls: stake, both arguments with example patents,
+    measured impact, and a recommendation. broad_rule/narrow_rule stay machine-testable
+    so boundary_probe can MEASURE impact_flips (reused, not re-implemented)."""
+    id: str
+    stake: str                                       # 쟁점: what the decision is about
+    include_argument: str
+    include_examples: list[str]                      # patent_ids for the include side
+    exclude_argument: str
+    exclude_examples: list[str]                      # patent_ids for the exclude side
+    impact_flips: int                                # measured by boundary_probe
+    impact_sample_n: int
+    recommendation: str                              # 권고안
+    options: list[str]
+    tentative_default: str
+    broad_rule: str
+    narrow_rule: str
+
+
+class DecisionQuestionsOut(BaseModel):
+    questions: list[DecisionQuestion]
