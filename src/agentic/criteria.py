@@ -237,7 +237,26 @@ def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeO
         why_needed=q.why_it_matters,
         options=q.options,
     ) for q in doc.open_questions]
-    qa = hitl.ask(questions, context=f"{scope.canonical_name_en} 기준 작성 중 범위 결정")
+    # Stable-identity guard: the drafter re-raises the same boundary in new words each
+    # round, so the text-hash id drifts and HITL cannot match it to the answer already
+    # given. Semantically settle new questions against THIS run's human rulings first
+    # (the same mechanism the judge stage uses) — a boundary already decided is not
+    # re-asked; its prior ruling is reapplied verbatim.
+    from src.agentic.judge import _prior_rulings, settle_against_prior
+    prior = _prior_rulings(ws)
+    fresh, settled = settle_against_prior(llm, questions, prior, usage)
+    qa: list[dict] = []
+    for q, ruling in settled:
+        entry = {"stage": hitl.stage, "id": q.id, "question": q.question,
+                 "answer": ruling.get("answer", ""), "answered_by": "human_prior",
+                 "settled_from": ruling.get("question", "")}
+        ws.append_jsonl(ws.human_qa_jsonl, entry)
+        qa.append({"id": q.id, "question": q.question,
+                   "answer": ruling.get("answer", ""), "answered_by": "human_prior"})
+    if settled:
+        print(f"  [criteria] {len(settled)} boundary(s) already decided this run "
+              f"-> reapplied prior ruling (no re-ask)")
+    qa += hitl.ask(fresh, context=f"{scope.canonical_name_en} 기준 작성 중 범위 결정")
     # if the human just accepted every default (or off-mode auto-answers), no revision needed
     doc2 = draft_criteria(ws, llm, scope, digest, axis_synthesis, evidence_summary, usage,
                           version=version + 1, prior=doc, human_qa=qa)

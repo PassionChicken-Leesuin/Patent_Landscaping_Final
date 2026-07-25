@@ -470,7 +470,22 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             questions = critique.human_questions or [HITLQuestion(
                 id=i.issue_code, question=f"{i.problem} 어떻게 처리할까요? ({i.suggestion})",
                 why_needed=i.problem, options=[]) for i in scope_issues]
-            human_qa_all += hitl.ask(questions, context=f"기준서 v{ver} 검증 중 범위 결정")
+            # Stable-identity guard: a validator re-flagging the same boundary in new
+            # words must not re-ask a boundary the owner already decided this run.
+            from src.agentic.judge import _prior_rulings, settle_against_prior
+            fresh, settled = settle_against_prior(llm, questions, _prior_rulings(ws), usage)
+            for q, ruling in settled:
+                entry = {"stage": hitl.stage, "id": q.id, "question": q.question,
+                         "answer": ruling.get("answer", ""), "answered_by": "human_prior",
+                         "settled_from": ruling.get("question", "")}
+                ws.append_jsonl(ws.human_qa_jsonl, entry)
+                human_qa_all.append({"id": q.id, "question": q.question,
+                                     "answer": ruling.get("answer", ""),
+                                     "answered_by": "human_prior"})
+            if settled:
+                print(f"  [criteria] {len(settled)} validator boundary(s) already decided "
+                      f"-> reapplied prior ruling")
+            human_qa_all += hitl.ask(fresh, context=f"기준서 v{ver} 검증 중 범위 결정")
         if critique.action == "collect_more" and critique.followup_queries:
             R.collect_more(ws, llm, client, critique.followup_queries,
                            scope.canonical_name_en, usage)
