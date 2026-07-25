@@ -200,7 +200,21 @@ class DecisionQuestion(BaseModel):            # [4c] 결정 카드 (ScopeQuestio
 
 **회귀(gold v1.1 대조)**: recall **0.964**(1201/1246 포착, 미스 45) / precision 0.566(positive 2,121, FP 920) / F1 0.713 / positive Jaccard 0.554 / κ 0.457.
 
-해석: 절차·리콜은 gold를 충실히 재현(96% 포착). precision 갭은 **산업용 회색지대 강화 부족** — 텔레옵 경계 비수렴(매 라운드 새 해시 재질문, 기존 back-half 특성)으로 `--hitl off` 자동확정하며 6C/2E로 마감돼, gold 구축 때 수동 층화검증으로 잘라낸 산업용 106건이 다시 유입. **개선 과제**: (a) 경계 재질문 해시 안정화(같은 경계=같은 id), (b) casemap의 산업용 E-tier 오탐사전을 E기준으로 더 강하게 주입, (c) `--hitl off` 대신 결정 재사용으로 수렴.
+해석: 절차·리콜은 gold를 충실히 재현(96% 포착). 이후 3개 후속 fix로 precision 개선:
+
+**후속 개선(2026-07-25)** — 동일 워크스페이스에서 기준서만 재생성하며 측정:
+| 단계 | precision | recall | F1 | κ | positive | 커밋 |
+|---|---|---|---|---|---|---|
+| 초기(off-mode) | 0.566 | 0.964 | 0.713 | 0.457 | 2,121 | — |
+| (a) 경계 재질문 해시 안정화 | 0.550 | 0.950 | 0.697 | 0.423 | 2,151 | f039a64 |
+| (b) E-tier 커버리지 결정론 강제 | 0.559 | 0.923 | 0.696 | 0.430 | 2,057 | f5bca26 |
+| (c) 제외 문구 날카롭게(도피조항 제거) | **0.750** | 0.795 | **0.772** | **0.629** | **1,321** | b… |
+
+- **(a)** `settle_against_prior`(judge 단계 것)를 criteria 루프 두 질문 지점에 적용 → 같은 경계 재질문 무한루프 해소, batch 모드 자연 수렴 (검증: "reapplied prior ruling").
+- **(b)** design-plan E-tier(=casemap이 찾은 look-alike 패밀리)는 반드시 E기준으로 커버돼야 함을 코드 결정론 검사(`EXCL_COVERAGE:`)로 강제. 축→C기준 커버리지와 동형. **도메인 범용**. E1(웨어러블)·E2(산업용팔) 생성됨 — 그러나 "unless transferable" 도피조항으로 실효 없음.
+- **(c)** 도피조항 금지 + 청구항-범위 결정 테스트 강제 → **precision 0.56→0.75, F1 0.70→0.77, κ 0.43→0.63**. 산업용 FP 907→166, positive 1,321(gold 1,246 근접).
+
+**남은 트레이드오프**: (c)에서 recall 0.92→0.80(FN 255) — 날카로운 제외가 이전가능 코어 일부까지 과잉 제외. gold(수동 precision 튜닝)의 특정 지점 대비, 자동 판정자는 recall↔precision 곡선상 조절 가능. 판정자 자체가 리콜 편향(LANDSCAPING_INCLUSIVE, CONFLICT RULE로 E veto 억제)이라, precision을 더 올리려면 판정자 정밀 모드 토글이 별도 레버.
 
 ## 8. 요약
 
