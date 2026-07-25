@@ -17,10 +17,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+import os
+
 import pandas as pd
 import streamlit as st
 
 from app import artifacts, pool_convert, runner
+
+# Streamlit Cloud injects API keys via Secrets; bridge them into os.environ so the
+# pipeline subprocess (scripts.run_agentic -> load_openai_keys) inherits OPENAI_API_KEY(_N).
+try:
+    for _k, _v in dict(st.secrets).items():
+        if isinstance(_v, str):
+            os.environ.setdefault(_k, _v)
+except Exception:
+    pass
 
 st.set_page_config(page_title="MAS 유효특허 선별", page_icon="🛰️", layout="wide")
 
