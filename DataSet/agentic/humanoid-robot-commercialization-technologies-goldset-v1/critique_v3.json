@@ -1,0 +1,26 @@
+{
+  "approved": false,
+  "issues": [],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "SCOPE_DECISION:ROBOTIC_NAVIGATION",
+      "question": "Should robotic navigation and path planning be included in the scope of humanoid robot commercialization technologies, given its critical role in dynamic environments?",
+      "why_needed": "The current exclusion is not well-supported by evidence, and navigation is crucial for humanoid robots.",
+      "options": [
+        "Include",
+        "Exclude"
+      ]
+    },
+    {
+      "id": "SCOPE_DECISION:ROBOTIC_ASSEMBLY",
+      "question": "Should robotic assembly systems be included in the scope of humanoid robot commercialization technologies, considering their potential relevance in manufacturing contexts?",
+      "why_needed": "The current exclusion is not well-supported by evidence, and assembly capabilities could be relevant for humanoid robots.",
+      "options": [
+        "Include",
+        "Exclude"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'robotic navigation and path planning' is complex and conditional, which may lead to inconsistent application. The current conditional inclusion rule is detailed but may still cause confusion.",
+      "suggestion": "Clarify the conditional inclusion rule for 'robotic navigation and path planning' to ensure consistent application. Consider simplifying the conditions or providing more explicit examples of what is included and excluded.",
+      "severity": "minor",
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic navigation and path planning"
+      ],
+      "issue_code": "SCOPE_DECISION:ROBOTIC_NAVIGATION"
+    },
+    {
+      "field": "exclusion_criteria",
+      "problem": "The exclusion criteria do not explicitly address the potential overlap with adjacent technologies like telepresence or VR-focused patents, which are mentioned in the boundary guidance.",
+      "suggestion": "Add an exclusion criterion that explicitly addresses telepresence or VR-focused patents unless they contribute to humanoid robot commercialization.",
+      "severity": "minor",
+      "category": "consistency",
+      "target_ids": [
+        "E2"
+      ],
+      "issue_code": "CONSISTENCY:TELEPRESENCE_VR"
+    },
+    {
+      "field": "C7.axis_ids",
+      "problem": "Criterion C7 cites unknown axes: ['A7']",
+      "suggestion": "Use only ids from the approved axis synthesis.",
+      "severity": "critical",
+      "category": "consistency",
+      "target_ids": [
+        "C7"
+      ],
+      "issue_code": "AXIS_IDS:C7"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

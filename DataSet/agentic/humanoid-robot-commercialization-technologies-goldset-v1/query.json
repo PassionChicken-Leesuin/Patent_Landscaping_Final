@@ -1,0 +1,55 @@
+{
+  "query_original": "휴머노이드 로봇 상용화 기술: 휴머노이드(이족보행·인간형) 로봇의 상용화에 직접 쓰이거나 이전 가능한 핵심 기술 — 전신·보행·균형 제어, 로봇손·파지·촉각, 다관절 매니퓰레이션 학습·제어, 관절 액추에이터·감속기(QDD·SEA), 로봇 비전·VLA·모방학습, 텔레오퍼레이션·Sim-to-Real, 인간협업 안전. 특정 공정 전용 산업설비, 수술로봇, 착용형 외골격, 청소기, 물류 반송 전용, 완구는 제외.",
+  "mock": false,
+  "variant": "goldset-v1",
+  "scope": {
+    "canonical_name_en": "Humanoid Robot Commercialization Technologies",
+    "language_detected": "ko",
+    "disambiguation_notes": "The query focuses on technologies directly applicable or transferable to the commercialization of humanoid robots, specifically those with bipedal locomotion and human-like features. It excludes technologies for specific industrial processes, surgical robots, wearable exoskeletons, cleaning robots, logistics transport, and toys.",
+    "initial_task_hypotheses": [
+      "The technology must enable full-body control and balance in humanoid robots.",
+      "The technology must facilitate advanced manipulation capabilities, including robotic hands and tactile sensing.",
+      "The technology must involve learning and control of multi-joint manipulation.",
+      "The technology must include joint actuators and reducers, such as QDD and SEA.",
+      "The technology must support robot vision, VLA, and imitation learning.",
+      "The technology must ensure safe human-robot collaboration."
+    ],
+    "search_plan": [
+      {
+        "intent_type": "definition",
+        "query_en": "definition of humanoid robot commercialization technologies",
+        "rationale": "To understand the scope and components of technologies involved in the commercialization of humanoid robots."
+      },
+      {
+        "intent_type": "taxonomy_subfields",
+        "query_en": "taxonomy of humanoid robot technologies",
+        "rationale": "To identify the various subfields and categories within humanoid robot technologies."
+      },
+      {
+        "intent_type": "core_techniques",
+        "query_en": "core techniques in humanoid robot development",
+        "rationale": "To find the essential techniques used in developing humanoid robots."
+      },
+      {
+        "intent_type": "applications",
+        "query_en": "applications of humanoid robots",
+        "rationale": "To explore the practical uses and industries where humanoid robots are applied."
+      },
+      {
+        "intent_type": "adjacent_out_of_scope",
+        "query_en": "technologies similar to humanoid robots but not for commercialization",
+        "rationale": "To identify technologies that resemble humanoid robots but do not contribute to their commercialization, such as toys or specific industrial robots."
+      },
+      {
+        "intent_type": "classification_codes",
+        "query_en": "CPC IPC classification codes for humanoid robots",
+        "rationale": "To find the official classification codes that categorize humanoid robot technologies."
+      },
+      {
+        "intent_type": "terminology_synonyms",
+        "query_en": "synonyms for humanoid robot technologies",
+        "rationale": "To gather alternative terms and synonyms used for humanoid robot technologies."
+      }
+    ]
+  }
+}

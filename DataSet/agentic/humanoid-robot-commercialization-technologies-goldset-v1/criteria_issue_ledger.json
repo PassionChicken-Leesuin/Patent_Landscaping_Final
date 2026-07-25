@@ -1,0 +1,159 @@
+{
+  "issues": {
+    "TESTABILITY:C1": {
+      "issue_code": "TESTABILITY:C1",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C1"
+      ],
+      "field": "domain_criteria",
+      "problem": "C1 lacks a clear functional task related to commercialization technologies. It mentions enabling full-body control and balance but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "TESTABILITY:C2": {
+      "issue_code": "TESTABILITY:C2",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C2"
+      ],
+      "field": "domain_criteria",
+      "problem": "C2 lacks a clear functional task related to commercialization technologies. It mentions facilitating advanced manipulation capabilities but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "TESTABILITY:C3": {
+      "issue_code": "TESTABILITY:C3",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C3"
+      ],
+      "field": "domain_criteria",
+      "problem": "C3 lacks a clear functional task related to commercialization technologies. It mentions learning and control of multi-joint manipulation but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "TESTABILITY:C4": {
+      "issue_code": "TESTABILITY:C4",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C4"
+      ],
+      "field": "domain_criteria",
+      "problem": "C4 lacks a clear functional task related to commercialization technologies. It mentions joint actuators and reducers but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "TESTABILITY:C5": {
+      "issue_code": "TESTABILITY:C5",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C5"
+      ],
+      "field": "domain_criteria",
+      "problem": "C5 lacks a clear functional task related to commercialization technologies. It mentions robot vision and imitation learning but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "TESTABILITY:C6": {
+      "issue_code": "TESTABILITY:C6",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "testability",
+      "target_ids": [
+        "C6"
+      ],
+      "field": "domain_criteria",
+      "problem": "C6 lacks a clear functional task related to commercialization technologies. It mentions safe human-robot collaboration but does not specify how this contributes to commercialization.",
+      "resolved_round": 2
+    },
+    "SCOPE_DECISION:ROBOTIC_NAVIGATION": {
+      "issue_code": "SCOPE_DECISION:ROBOTIC_NAVIGATION",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic navigation and path planning"
+      ],
+      "field": "scope_decisions",
+      "problem": "The exclusion of 'robotic navigation and path planning' is not well-supported by evidence, as navigation is a critical component for humanoid robots operating in dynamic environments.",
+      "resolved_round": 2
+    },
+    "SCOPE_DECISION:ROBOTIC_ASSEMBLY": {
+      "issue_code": "SCOPE_DECISION:ROBOTIC_ASSEMBLY",
+      "first_round": 1,
+      "rounds_open": 3,
+      "status": "resolved",
+      "last_round": 1,
+      "last_version": 2,
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic assembly systems"
+      ],
+      "field": "scope_decisions",
+      "problem": "The exclusion of 'robotic assembly systems' is not well-supported by evidence, as assembly capabilities could be relevant for humanoid robots in manufacturing contexts.",
+      "resolved_round": 2
+    },
+    "COVERAGE:AI_INTEGRATION": {
+      "issue_code": "COVERAGE:AI_INTEGRATION",
+      "first_round": 3,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 3,
+      "last_version": 4,
+      "category": "coverage",
+      "target_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "field": "domain_criteria",
+      "problem": "The criteria do not cover all defining functional tasks found in the evidence, specifically the integration of AI and cognitive sciences in humanoid robots, which is highlighted in the evidence but not reflected in the criteria.",
+      "resolved_round": 4
+    },
+    "AXIS_IDS:C7": {
+      "issue_code": "AXIS_IDS:C7",
+      "first_round": 4,
+      "rounds_open": 1,
+      "status": "resolved",
+      "last_round": 4,
+      "last_version": 5,
+      "category": "consistency",
+      "target_ids": [
+        "C7"
+      ],
+      "field": "C7.axis_ids",
+      "problem": "Criterion C7 cites unknown axes: ['A7']",
+      "resolved_round": 5
+    }
+  }
+}

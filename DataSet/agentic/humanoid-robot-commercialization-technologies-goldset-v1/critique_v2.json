@@ -1,0 +1,115 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "domain_criteria",
+      "problem": "C1 lacks a clear functional task related to commercialization technologies. It mentions enabling full-body control and balance but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how full-body control and balance specifically contribute to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C1"
+      ],
+      "issue_code": "TESTABILITY:C1"
+    },
+    {
+      "field": "domain_criteria",
+      "problem": "C2 lacks a clear functional task related to commercialization technologies. It mentions facilitating advanced manipulation capabilities but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how advanced manipulation capabilities specifically contribute to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C2"
+      ],
+      "issue_code": "TESTABILITY:C2"
+    },
+    {
+      "field": "domain_criteria",
+      "problem": "C3 lacks a clear functional task related to commercialization technologies. It mentions learning and control of multi-joint manipulation but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how learning and control of multi-joint manipulation specifically contribute to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C3"
+      ],
+      "issue_code": "TESTABILITY:C3"
+    },
+    {
+      "field": "domain_criteria",
+      "problem": "C4 lacks a clear functional task related to commercialization technologies. It mentions joint actuators and reducers but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how joint actuators and reducers specifically contribute to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C4"
+      ],
+      "issue_code": "TESTABILITY:C4"
+    },
+    {
+      "field": "domain_criteria",
+      "problem": "C5 lacks a clear functional task related to commercialization technologies. It mentions robot vision and imitation learning but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how robot vision and imitation learning specifically contribute to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C5"
+      ],
+      "issue_code": "TESTABILITY:C5"
+    },
+    {
+      "field": "domain_criteria",
+      "problem": "C6 lacks a clear functional task related to commercialization technologies. It mentions safe human-robot collaboration but does not specify how this contributes to commercialization.",
+      "suggestion": "Clarify how safe human-robot collaboration specifically contributes to the commercialization of humanoid robots.",
+      "severity": "critical",
+      "category": "testability",
+      "target_ids": [
+        "C6"
+      ],
+      "issue_code": "TESTABILITY:C6"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The exclusion of 'robotic navigation and path planning' is not well-supported by evidence, as navigation is a critical component for humanoid robots operating in dynamic environments.",
+      "suggestion": "Re-evaluate the exclusion of robotic navigation and path planning, considering its importance for humanoid robots.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic navigation and path planning"
+      ],
+      "issue_code": "SCOPE_DECISION:ROBOTIC_NAVIGATION"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The exclusion of 'robotic assembly systems' is not well-supported by evidence, as assembly capabilities could be relevant for humanoid robots in manufacturing contexts.",
+      "suggestion": "Re-evaluate the exclusion of robotic assembly systems, considering potential relevance in manufacturing contexts for humanoid robots.",
+      "severity": "critical",
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic assembly systems"
+      ],
+      "issue_code": "SCOPE_DECISION:ROBOTIC_ASSEMBLY"
+    }
+  ],
+  "action": "ask_human",
+  "followup_queries": [],
+  "human_questions": [
+    {
+      "id": "SCOPE_DECISION:ROBOTIC_NAVIGATION",
+      "question": "Should robotic navigation and path planning be included in the scope of humanoid robot commercialization technologies, given its critical role in dynamic environments?",
+      "why_needed": "The current exclusion is not well-supported by evidence, and navigation is crucial for humanoid robots.",
+      "options": [
+        "Include",
+        "Exclude"
+      ]
+    },
+    {
+      "id": "SCOPE_DECISION:ROBOTIC_ASSEMBLY",
+      "question": "Should robotic assembly systems be included in the scope of humanoid robot commercialization technologies, considering their potential relevance in manufacturing contexts?",
+      "why_needed": "The current exclusion is not well-supported by evidence, and assembly capabilities could be relevant for humanoid robots.",
+      "options": [
+        "Include",
+        "Exclude"
+      ]
+    }
+  ]
+}

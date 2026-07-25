@@ -1,0 +1,30 @@
+{
+  "approved": false,
+  "issues": [
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for including 'robotic navigation and path planning' is complex and conditional, which may lead to inconsistent application.",
+      "suggestion": "Clarify the conditions under which robotic navigation and path planning are included, ensuring they align with the core focus on humanoid robots.",
+      "severity": "minor",
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic navigation and path planning"
+      ],
+      "issue_code": "SCOPE_DECISION:ROBOTIC_NAVIGATION"
+    },
+    {
+      "field": "scope_decisions",
+      "problem": "The rationale for 'robotic assembly systems' is complex and may lead to inconsistent application.",
+      "suggestion": "Simplify the conditions for inclusion of robotic assembly systems to ensure clarity and consistency in scope decisions.",
+      "severity": "minor",
+      "category": "scope_decision",
+      "target_ids": [
+        "robotic assembly systems"
+      ],
+      "issue_code": "SCOPE_DECISION:ROBOTIC_ASSEMBLY"
+    }
+  ],
+  "action": "revise",
+  "followup_queries": [],
+  "human_questions": []
+}

@@ -1,0 +1,59 @@
+{
+  "main_clusters": [
+    "robot control systems",
+    "robotic manipulation",
+    "humanoid robots",
+    "robotic arms and end effectors",
+    "collaborative robots",
+    "robotic grippers",
+    "robot safety systems",
+    "robotic learning and adaptation",
+    "robotic navigation and path planning",
+    "robotic assembly systems"
+  ],
+  "vocabulary_profile": [
+    "robot",
+    "control",
+    "system",
+    "method",
+    "sensor",
+    "manipulator",
+    "gripper",
+    "actuator",
+    "humanoid",
+    "task",
+    "environment",
+    "autonomous",
+    "motion",
+    "trajectory",
+    "end effector",
+    "collaborative",
+    "learning",
+    "feedback",
+    "object"
+  ],
+  "representative_cases": [
+    "Humanoid robot control methods",
+    "Robotic manipulation and control",
+    "Collaborative robotic systems",
+    "Humanoid robot technologies",
+    "Robot control systems",
+    "Robotic arms and end effectors",
+    "Robot safety systems",
+    "Robot learning and adaptation",
+    "Robot navigation and path planning",
+    "Robotic assembly systems"
+  ],
+  "suspected_boundary_cases": [
+    "Patents focusing on wearable robots, such as 'Method for the adaptive control of a wearable robot, such as an orthesis or a prosthesis,' may not fit the humanoid aspect of the domain.",
+    "Patents discussing robotic devices for specific applications, like 'Robotic gripper for writing and object creation,' focus on niche tasks rather than humanoid robot functionalities.",
+    "Patents related to industrial robots, such as 'Method for controlling an industrial robot during lead-through programming of the robot and an industrial robot,' lack humanoid context.",
+    "Patents involving telepresence or virtual reality, like 'Robotic control system using virtual reality input,' focus more on VR than humanoid robot commercialization.",
+    "Patents on specific robotic applications, such as 'Robot for mapping a synthetic sports ground,' are primarily focused on mapping rather than humanoid functionalities."
+  ],
+  "mismatch_with_web_evidence": [
+    "The patent pool emphasizes robotic manipulation and control systems, while the web evidence highlights humanoid robots in entertainment and healthcare, which are less represented in the pool.",
+    "The web evidence discusses gynoids and their applications, but the patent pool does not reflect this focus, indicating a gap in gynoid-specific technologies.",
+    "The web evidence emphasizes the importance of AI and cognitive sciences in humanoid robots, yet the patent pool shows a stronger focus on mechanical and control systems."
+  ]
+}

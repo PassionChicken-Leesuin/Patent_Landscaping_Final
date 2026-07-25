@@ -1,0 +1,3 @@
+{"stage": "patch", "version": 3, "patched": ["C1", "C2", "C3", "C4", "C5", "C6", "scope:robotic assembly systems", "scope:robotic navigation and path planning"], "unresolvable": [], "notes": ""}
+{"stage": "patch", "version": 5, "patched": ["C7"], "unresolvable": [], "notes": ""}
+{"stage": "patch", "version": 6, "patched": ["C7"], "unresolvable": [], "notes": ""}

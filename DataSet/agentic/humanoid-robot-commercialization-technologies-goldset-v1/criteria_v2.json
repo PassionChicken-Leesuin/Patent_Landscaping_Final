@@ -1,0 +1,568 @@
+{
+  "domain_name": "Humanoid Robot Commercialization Technologies",
+  "domain_definition": "The domain of Humanoid Robot Commercialization Technologies encompasses inventions that enable or enhance the commercialization of humanoid robots, specifically those with bipedal locomotion and human-like features. This includes technologies that facilitate full-body control and balance, advanced manipulation capabilities, learning and control of multi-joint manipulation, joint actuators and reducers, robot vision and imitation learning, and safe human-robot collaboration. The domain excludes technologies specific to industrial processes, surgical robots, wearable exoskeletons, cleaning robots, logistics transport, and toys unless they directly contribute to humanoid robot functionalities.",
+  "domain_criteria": [
+    {
+      "id": "C1",
+      "statement": "The invention must enable full-body control and balance in humanoid robots, including bipedal locomotion and whole-body dynamics.",
+      "sources": [
+        "query.json",
+        "local://A2_도메인설명.md#chunk0",
+        "corpus:case:1"
+      ],
+      "axis_ids": [
+        "A1"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must enable full-body control and balance in humanoid robots.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_도메인설명.md#chunk0",
+          "claim": "Humanoid robots integrate mobility, manipulation, control, and AI into a human-like system.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:1",
+          "claim": "Humanoid robot control methods",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "bipedal locomotion",
+        "whole-body dynamics",
+        "balance control",
+        "humanoid robot",
+        "full-body control"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The invention must facilitate advanced manipulation capabilities, including robotic hands, grippers, and tactile sensing.",
+      "sources": [
+        "query.json",
+        "local://A2_도메인설명.md#chunk0",
+        "corpus:case:2"
+      ],
+      "axis_ids": [
+        "A2"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must facilitate advanced manipulation capabilities, including robotic hands and tactile sensing.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_도메인설명.md#chunk0",
+          "claim": "Key technologies for humanoid robots include manipulation, control, and AI-based learning.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:2",
+          "claim": "Robotic manipulation and control",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "robotic hands",
+        "grippers",
+        "tactile sensing",
+        "manipulation",
+        "humanoid robot"
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The invention must involve learning and control of multi-joint manipulation, including motion planning and force control.",
+      "sources": [
+        "query.json",
+        "local://A2_판정규칙_v1.md",
+        "corpus:case:8"
+      ],
+      "axis_ids": [
+        "A3"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must involve learning and control of multi-joint manipulation.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Learning-based grasping and manipulation, motion planning, force and impedance control are included.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:8",
+          "claim": "Robot learning and adaptation",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "multi-joint manipulation",
+        "motion planning",
+        "force control",
+        "learning",
+        "humanoid robot"
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "The invention must include joint actuators and reducers, such as quasi-direct drive (QDD) and series elastic actuators (SEA).",
+      "sources": [
+        "query.json",
+        "local://A2_판정규칙_v1.md",
+        "corpus:case:4"
+      ],
+      "axis_ids": [
+        "A4"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must include joint actuators and reducers, such as QDD and SEA.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Joint actuators and reducers like QDD and SEA are core technologies.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:4",
+          "claim": "Humanoid robot technologies",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "joint actuators",
+        "reducers",
+        "QDD",
+        "SEA",
+        "humanoid robot"
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "The invention must support robot vision, vision-language-action (VLA) models, and imitation learning for humanoid robots.",
+      "sources": [
+        "query.json",
+        "local://KIMM_핵심자료_정리.md#chunk0",
+        "corpus:case:5"
+      ],
+      "axis_ids": [
+        "A5"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must support robot vision, VLA, and imitation learning.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://KIMM_핵심자료_정리.md#chunk0",
+          "claim": "Vision-Language-Action (VLA) and End-to-End (E2E) neural networks are crucial for autonomous learning and generalization in humanoid robots.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:5",
+          "claim": "Robot control systems",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "robot vision",
+        "VLA models",
+        "imitation learning",
+        "humanoid robot",
+        "learning"
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "The invention must ensure safe human-robot collaboration, including collision detection and avoidance, and speed and separation monitoring.",
+      "sources": [
+        "query.json",
+        "local://A2_판정규칙_v1.md",
+        "corpus:case:3"
+      ],
+      "axis_ids": [
+        "A6"
+      ],
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure safe human-robot collaboration.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Human collaboration safety, including collision detection and avoidance, is a core technology.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:3",
+          "claim": "Collaborative robotic systems",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "human-robot collaboration",
+        "collision detection",
+        "avoidance",
+        "speed monitoring",
+        "humanoid robot"
+      ]
+    }
+  ],
+  "scope_statement": "The scope of analysis for Humanoid Robot Commercialization Technologies includes patents that implement, improve, or provide enabling components or methods specific to the commercialization of humanoid robots with bipedal locomotion and human-like features. This encompasses technologies for full-body control, advanced manipulation, learning and control of multi-joint manipulation, joint actuators and reducers, robot vision and imitation learning, and safe human-robot collaboration. Excluded are technologies for specific industrial processes, surgical robots, wearable exoskeletons, cleaning robots, logistics transport, and toys unless they directly contribute to humanoid robot functionalities.",
+  "scope_decisions": [
+    {
+      "topic": "robot control systems",
+      "verdict": "in",
+      "rationale": "Patents in this cluster are included as they relate to control systems specific to humanoid robots, enabling full-body control and balance."
+    },
+    {
+      "topic": "robotic manipulation",
+      "verdict": "in",
+      "rationale": "This cluster is included as it involves advanced manipulation capabilities essential for humanoid robots."
+    },
+    {
+      "topic": "humanoid robots",
+      "verdict": "in",
+      "rationale": "This cluster is directly relevant to the domain as it focuses on humanoid robots and their commercialization."
+    },
+    {
+      "topic": "robotic arms and end effectors",
+      "verdict": "conditional",
+      "rationale": "Included if the robotic arms and end effectors are designed for humanoid robots, otherwise excluded if for general industrial use."
+    },
+    {
+      "topic": "collaborative robots",
+      "verdict": "in",
+      "rationale": "Included as they ensure safe human-robot collaboration, a core aspect of humanoid robot commercialization."
+    },
+    {
+      "topic": "robotic grippers",
+      "verdict": "conditional",
+      "rationale": "Included if the grippers are designed for humanoid robots, otherwise excluded if for niche applications."
+    },
+    {
+      "topic": "robot safety systems",
+      "verdict": "in",
+      "rationale": "Included as they ensure safe human-robot collaboration, which is essential for humanoid robots."
+    },
+    {
+      "topic": "robotic learning and adaptation",
+      "verdict": "in",
+      "rationale": "Included as it involves learning and control of multi-joint manipulation, crucial for humanoid robots."
+    },
+    {
+      "topic": "robotic navigation and path planning",
+      "verdict": "conditional",
+      "rationale": "Included if the navigation and path planning are specific to humanoid robots, otherwise excluded if for general robotics."
+    },
+    {
+      "topic": "robotic assembly systems",
+      "verdict": "out",
+      "rationale": "Excluded as they focus on industrial assembly processes not specific to humanoid robots."
+    }
+  ],
+  "exclusion_criteria": [
+    {
+      "id": "E1",
+      "statement": "Patents that focus on specific industrial processes or equipment not directly contributing to humanoid robot functionalities are excluded.",
+      "sources": [
+        "local://A2_판정규칙_v1.md"
+      ],
+      "axis_ids": [],
+      "source_refs": [
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Specific industrial process technologies are excluded unless they directly contribute to humanoid robots.",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "industrial process",
+        "specific equipment",
+        "manufacturing",
+        "assembly",
+        "non-humanoid"
+      ]
+    },
+    {
+      "id": "E2",
+      "statement": "Patents related to surgical robots, wearable exoskeletons, cleaning robots, logistics transport, and toys are excluded unless they directly contribute to humanoid robot functionalities.",
+      "sources": [
+        "local://A2_판정규칙_v1.md"
+      ],
+      "axis_ids": [],
+      "source_refs": [
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Technologies for surgical robots, exoskeletons, cleaning robots, logistics, and toys are excluded unless they contribute to humanoid robots.",
+          "strength": "high"
+        }
+      ],
+      "observable_signals": [
+        "surgical robot",
+        "wearable exoskeleton",
+        "cleaning robot",
+        "logistics transport",
+        "toy"
+      ]
+    }
+  ],
+  "boundary_guidance": [
+    "Patents focusing on wearable robots are excluded unless they contribute to humanoid robot functionalities (corpus:boundary:1).",
+    "Robotic devices for specific applications are excluded unless they serve humanoid robot functionalities (corpus:boundary:2).",
+    "Industrial robot patents are excluded unless they have a humanoid context (corpus:boundary:3).",
+    "Telepresence or VR-focused patents are excluded unless they contribute to humanoid robot commercialization (corpus:boundary:4).",
+    "Patents on specific robotic applications are excluded unless they focus on humanoid functionalities (corpus:boundary:5)."
+  ],
+  "open_questions": [],
+  "technology_axes": [
+    {
+      "id": "A1",
+      "name": "Full-Body Control and Balance",
+      "description": "Technologies enabling full-body control and balance in humanoid robots, including bipedal locomotion and whole-body dynamics.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must enable full-body control and balance in humanoid robots.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_도메인설명.md#chunk0",
+          "claim": "Humanoid robots integrate mobility, manipulation, control, and AI into a human-like system.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:1",
+          "claim": "Humanoid robot control methods",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Full-body control and balance are essential for humanoid robots to perform tasks in dynamic environments, aligning with both user query and owner documentation.",
+      "boundary_examples": [
+        "Technologies for bipedal locomotion in humanoid robots.",
+        "Whole-body dynamics control systems."
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Advanced Manipulation Capabilities",
+      "description": "Technologies facilitating advanced manipulation capabilities, including robotic hands, grippers, and tactile sensing.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must facilitate advanced manipulation capabilities, including robotic hands and tactile sensing.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_도메인설명.md#chunk0",
+          "claim": "Key technologies for humanoid robots include manipulation, control, and AI-based learning.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:2",
+          "claim": "Robotic manipulation and control",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Advanced manipulation is critical for humanoid robots to interact with their environment effectively, supported by both user query and owner documentation.",
+      "boundary_examples": [
+        "Robotic hands with tactile sensors.",
+        "Grippers designed for humanoid robots."
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Learning and Control of Multi-Joint Manipulation",
+      "description": "Technologies involving learning and control of multi-joint manipulation, including motion planning and force control.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must involve learning and control of multi-joint manipulation.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Learning-based grasping and manipulation, motion planning, force and impedance control are included.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:8",
+          "claim": "Robot learning and adaptation",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Multi-joint manipulation is a complex task requiring advanced learning and control techniques, essential for humanoid robots.",
+      "boundary_examples": [
+        "Motion planning algorithms for humanoid robots.",
+        "Force control systems for multi-joint manipulation."
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Joint Actuators and Reducers",
+      "description": "Technologies including joint actuators and reducers, such as quasi-direct drive (QDD) and series elastic actuators (SEA).",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must include joint actuators and reducers, such as QDD and SEA.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Joint actuators and reducers like QDD and SEA are core technologies.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:4",
+          "claim": "Humanoid robot technologies",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Joint actuators and reducers are fundamental components for humanoid robot movement and control, as documented by the owner and observed in the corpus.",
+      "boundary_examples": [
+        "QDD actuators for humanoid robots.",
+        "SEA for joint flexibility and control."
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Robot Vision and Imitation Learning",
+      "description": "Technologies supporting robot vision, vision-language-action (VLA) models, and imitation learning for humanoid robots.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must support robot vision, VLA, and imitation learning.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://KIMM_핵심자료_정리.md#chunk0",
+          "claim": "Vision-Language-Action (VLA) and End-to-End (E2E) neural networks are crucial for autonomous learning and generalization in humanoid robots.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:5",
+          "claim": "Robot control systems",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Vision and imitation learning are critical for humanoid robots to perceive and learn from their environment, aligning with both user query and owner documentation.",
+      "boundary_examples": [
+        "VLA models for humanoid robots.",
+        "Imitation learning algorithms for robotic tasks."
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Safe Human-Robot Collaboration",
+      "description": "Technologies ensuring safe human-robot collaboration, including collision detection and avoidance, and speed and separation monitoring.",
+      "status": "core",
+      "confidence": "high",
+      "owner_documented": true,
+      "observed_in_corpus": true,
+      "source_refs": [
+        {
+          "source_type": "user_query",
+          "reference": "query.json",
+          "claim": "The technology must ensure safe human-robot collaboration.",
+          "strength": "high"
+        },
+        {
+          "source_type": "owner_doc",
+          "reference": "local://A2_판정규칙_v1.md",
+          "claim": "Human collaboration safety, including collision detection and avoidance, is a core technology.",
+          "strength": "high"
+        },
+        {
+          "source_type": "corpus",
+          "reference": "corpus:case:3",
+          "claim": "Collaborative robotic systems",
+          "strength": "high"
+        }
+      ],
+      "rationale": "Safe collaboration is essential for humanoid robots to operate alongside humans, supported by both user query and owner documentation.",
+      "boundary_examples": [
+        "Collision detection systems for humanoid robots.",
+        "Speed and separation monitoring technologies."
+      ]
+    }
+  ],
+  "owner_document_assessment": {
+    "present": true,
+    "overall_quality": "high",
+    "scope_clarity": "high",
+    "technical_completeness": "high",
+    "factual_reliability": "high",
+    "strengths": [
+      "Comprehensive coverage of humanoid robot commercialization technologies.",
+      "Clear delineation of core and boundary technologies."
+    ],
+    "gaps": [],
+    "conflicts": []
+  }
+}
