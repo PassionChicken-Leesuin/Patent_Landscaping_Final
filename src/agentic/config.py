@@ -16,6 +16,11 @@ MODEL_RESEARCH = "gpt-4o"        # scoping, note extraction, criteria, validator
 MODEL_CORPUS_MAP = "gpt-4o-mini"     # per-batch corpus reading (mass volume, cheap)
 MODEL_JUDGE_FAST = "gpt-4o-mini"     # per-patent judgment (mass volume)
 MODEL_JUDGE_STRONG = "gpt-4o-mini"   # second-pass boundary confirmation
+# Tier-B boundary specialist: re-judges only the contested look-alike cluster, reading the
+# CLAIM (not just the abstract) with case-mapping exemplars as anchors. Only ~1k patents hit
+# this, so a strong model is affordable. Set to your GPT-5 id (e.g. "gpt-5") to use it — kept
+# at gpt-4o by default so a run can't fail on a model id your keys may not have.
+MODEL_JUDGE_BOUNDARY = "gpt-4o"
 LLM_TEMPERATURE = 0.0
 
 # ---- web research budget ----
@@ -46,6 +51,19 @@ CASEMAP_SAMPLE_PER_CATEGORY = 110 # candidate patents mapped per category
 CASEMAP_CROSS_PRIORITY = 60       # cross-matched (exclusion x tier) candidates prioritized
 CASEMAP_REVISE_ROUNDS = 2         # self-correction rounds with no change -> settle
 CASEMAP_MAX_CATEGORIES = 20       # safety cap on categories derived from the design plan
+
+# ---- Tier-B boundary specialist judge (claim-reading, anchored, strong model) ----
+# OFF by default: a documented NEGATIVE result. Re-judging the contested cluster from the
+# representative claim with gpt-4o + case-mapping anchors flipped 688/2600 verdicts but the
+# flips were anti-correlated with the gold (IN->OUT 40% correct, OUT->IN 26% correct), so it
+# LOWERED both precision (0.750->0.662) and recall (0.795->0.699). The single rep_claim plus a
+# blunt "process-bound => OUT" test is not a reliable substitute for the gold's expert
+# full-context claim-scope review. Kept for the record; do not enable without a redesign
+# (full independent claim, calibrated multi-claim reasoning, ensemble voting).
+BOUNDARY_TIER_ENABLED = False     # re-judge the contested look-alike cluster from the claim
+BOUNDARY_TIER_MAX = 2600          # cost cap: at most this many patents re-judged
+BOUNDARY_CLAIM_CHARS = 2600       # representative-claim truncation fed to the specialist
+BOUNDARY_ANCHORS_PER_SIDE = 4     # case-mapping IN / OUT exemplars shown per patent
 
 # ---- proactive scope questions (boundary probing) ----
 BOUNDARY_PROBE_SAMPLE = 60       # pool patents judged under broad-vs-narrow rules

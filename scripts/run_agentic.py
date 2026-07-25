@@ -67,6 +67,8 @@ def main():
     ap.add_argument("--criteria-only", action="store_true")
     ap.add_argument("--force", action="store_true", help="rebuild cached stages")
     ap.add_argument("--no-validate", action="store_true", help="skip the judgment validator loop")
+    ap.add_argument("--no-boundary-judge", action="store_true",
+                    help="skip the Tier-B claim-reading boundary specialist re-judge")
     ap.add_argument("--variant", default="", help="experiment tag -> separate workspace slug")
     ap.add_argument("--no-research", action="store_true", help="ablation: skip web research")
     ap.add_argument("--local-doc", action="append", default=None, metavar="PATH",
@@ -151,6 +153,25 @@ def main():
         u = out["usage"]
         print(f"judged {len(out['results'])}, failed {len(out['failures'])} in "
               f"{out['elapsed_s']:.0f}s | calls={u.calls} ~${u.cost_usd():.2f}")
+
+    # ---- stage [6.5]: Tier-B boundary specialist (claim-reading, anchored, strong model) ----
+    if AC.BOUNDARY_TIER_ENABLED and not args.no_boundary_judge and not args.mock \
+            and ws.design_plan_json.exists():
+        from src.agentic import boundary_judge as BJ
+        from src.agentic.schemas import DesignPlanOut
+        from src.agentic.workspace import Workspace
+        print("\n[6.5] Tier-B boundary specialist (claim-scope re-judge of the look-alike cluster)")
+        plan = DesignPlanOut(**Workspace.read_json(ws.design_plan_json))
+        cats = [Workspace.read_json(p) for p in sorted(ws.casemap_dir.glob("*.json"))] \
+            if ws.casemap_dir.exists() else []
+        latest = J.judgments_from_audit(ws)
+        bkeys = load_openai_keys(str(C.ROOT / ".env"))
+        strong_pool = KeyPool(bkeys, AC.MODEL_JUDGE_BOUNDARY, AC.MODEL_JUDGE_BOUNDARY,
+                              AC.LLM_TEMPERATURE)
+        busage = Usage()
+        BJ.tier_b_judge(ws, pool_df, plan, cats, doc, latest, strong_pool, busage,
+                        workers=args.workers)
+        print(f"  [tier-b] usage: calls={busage.calls} ~${busage.cost_usd():.2f}")
 
     # ---- stage [7]: judgment validator loop ----
     if not args.no_validate:

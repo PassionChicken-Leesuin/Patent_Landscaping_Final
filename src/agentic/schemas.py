@@ -415,3 +415,15 @@ class DecisionQuestion(BaseModel):
 
 class DecisionQuestionsOut(BaseModel):
     questions: list[DecisionQuestion]
+
+
+# ---------------- [6.5] Tier-B boundary specialist ----------------
+class BoundaryJudgeOut(BaseModel):
+    """Claim-scope verdict for one contested look-alike patent, reasoned from the
+    representative CLAIM against the case-mapping IN/OUT exemplars and the decisive test."""
+    in_domain: bool
+    claim_is_process_bound: bool     # is the claim tied to a specific excluded use/process?
+    decisive_factor: str             # the one claim feature that settled it
+    closest_anchor: str              # the exemplar patent_id it most resembles
+    confidence: float                # 0..1, genuinely calibrated for this hard case
+    rationale: str
