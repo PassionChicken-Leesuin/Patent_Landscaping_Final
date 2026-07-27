@@ -100,7 +100,7 @@ def _batch_block(batch: pd.DataFrame, idcol, acol) -> str:
     for i, (_, r) in enumerate(batch.iterrows()):
         pid = str(r[idcol]) if idcol else str(i)
         who = str(r[acol]) if acol else ""
-        lines.append(f"[{pid}] ({who}) {txt.loc[r.name][:520]}")
+        lines.append(f"[{pid}] ({who}) {txt.loc[r.name][:AC.CASEMAP_TEXT_CHARS]}")
     return "\n".join(lines)
 
 

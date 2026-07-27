@@ -124,6 +124,12 @@ _CASEMAP_CLAUSE = (
     "general, transferable robot capability (hand/grasp, manipulation, actuator/joint, "
     "control/learning) that is NOT tied to that use.' Put the concrete markers in "
     "observable_signals so the judge can apply the test.\n"
+    "WEB↔POOL ALIGNMENT (auditable exclusions): the pool digest carries `alignment` rows "
+    "comparing external web evidence against what is actually in the pool. For EVERY alignment "
+    "row with relation 'pool_only' or 'conflict' AND implies 'exclusion' — these are the "
+    "machine-found look-alikes — you MUST write an enforceable E-criterion, and its source_refs "
+    "MUST cite that row's id (source_type 'alignment', reference e.g. 'align:2'). This is how "
+    "each exclusion is traced back to the web↔pool comparison.\n"
 )
 
 _REVISE_SUFFIX = (

@@ -129,7 +129,8 @@ def issue_code_for(issue: CritiqueIssue) -> str:
 
 # Codes in this namespace come from deterministic checks — they can never be
 # downgraded by the new-critical constraint.
-_DETERMINISTIC_PREFIXES = ("AXIS_COVERAGE:", "AXIS_IDS:", "PROVENANCE", "EXCL_COVERAGE:")
+_DETERMINISTIC_PREFIXES = ("AXIS_COVERAGE:", "AXIS_IDS:", "PROVENANCE", "EXCL_COVERAGE:",
+                           "ALIGN_COVERAGE:")
 
 # Generic words that do not distinguish one exclusion family from another.
 _EXCL_STOP = {"and", "or", "the", "of", "for", "with", "technologies", "technology",
@@ -178,6 +179,33 @@ def exclusion_coverage_issues(doc: CriteriaDocOut,
     return issues
 
 
+def alignment_coverage_issues(doc: CriteriaDocOut, digest) -> list[CritiqueIssue]:
+    """Every web<->pool alignment row that flags a look-alike to EXCLUDE (relation
+    pool_only/conflict, implies=exclusion) MUST be cited by an exclusion criterion. This
+    grounds each exclusion in the auditable web<->pool comparison — the precision lever — and
+    makes the comparison procedure deterministically checkable (paper: 'auditable comparison').
+    Fires only when such alignment rows exist, so domains without web evidence are unaffected."""
+    issues: list[CritiqueIssue] = []
+    rows = getattr(digest, "alignment", None) or []
+    if not rows:
+        return issues
+    cited = {str(ref.reference).strip() for e in doc.exclusion_criteria for ref in e.source_refs}
+    cited |= {str(s).strip() for e in doc.exclusion_criteria for s in e.sources}
+    for a in rows:
+        if (a.relation in ("pool_only", "conflict") and a.implies == "exclusion"
+                and a.id and a.id not in cited):
+            issues.append(CritiqueIssue(
+                field="exclusion_criteria",
+                problem=(f"Web<->pool alignment {a.id} ({a.relation}) flags a look-alike to "
+                         f"exclude, but no exclusion criterion cites it: {a.statement}"),
+                suggestion=(f"Add or extend an exclusion criterion whose source_refs cite "
+                            f"{a.id} (source_type 'alignment'), excluding this look-alike by "
+                            f"its decisive claim-scope test."),
+                severity="critical", category="coverage", target_ids=[a.id],
+                issue_code=f"ALIGN_COVERAGE:{a.id}"))
+    return issues
+
+
 def criteria_integrity_issues(doc: CriteriaDocOut,
                               axes: AxisSynthesisOut,
                               allowed_refs: set[str] | None = None,
@@ -212,9 +240,11 @@ def criteria_integrity_issues(doc: CriteriaDocOut,
                 severity="critical", category="provenance", target_ids=[axis.id],
                 issue_code=f"PROVENANCE:{axis.id}"))
         for ref in axis.source_refs:
-            malformed = ((ref.source_type == "web" and not ref.reference.startswith(("http://", "https://")))
+            malformed = ((ref.source_type == "web"
+                          and not ref.reference.startswith(("http://", "https://", "web:")))
                          or (ref.source_type == "owner_doc" and not ref.reference.startswith("local://"))
-                         or (ref.source_type == "corpus" and not ref.reference.startswith("corpus:")))
+                         or (ref.source_type == "corpus" and not ref.reference.startswith("corpus:"))
+                         or (ref.source_type == "alignment" and not ref.reference.startswith("align:")))
             if malformed:
                 issues.append(CritiqueIssue(
                     field=f"technology_axes.{axis.id}.source_refs",
@@ -363,7 +393,8 @@ def critique_criteria(llm: StructuredLLM, doc: CriteriaDocOut, scope: QueryScope
                             + _PROVENANCE_CRITIQUE + _LEDGER_CRITIQUE,
                             user, CriteriaCritiqueOut)
     usage.add(pt, ct)
-    deterministic = criteria_integrity_issues(doc, axes, allowed_refs, exclusion_families)
+    deterministic = (criteria_integrity_issues(doc, axes, allowed_refs, exclusion_families)
+                     + alignment_coverage_issues(doc, digest))
     out.issues = reconcile_issues(out.issues, deterministic)
     if any(i.severity == "critical" and i.issue_code.startswith(_DETERMINISTIC_PREFIXES)
            for i in out.issues):

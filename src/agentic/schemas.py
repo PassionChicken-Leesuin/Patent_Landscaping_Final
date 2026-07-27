@@ -6,7 +6,7 @@ JSON schema rejects additionalProperties. Imports only pydantic + stdlib.
 from __future__ import annotations
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
 IntentType = Literal[
     "definition", "taxonomy_subfields", "core_techniques", "applications",
@@ -63,22 +63,79 @@ class GapAnalysisOut(BaseModel):
 
 
 # ---------------- [3] corpus reading ----------------
+# Unified evidence vocabulary shared by research notes (EvidenceType) and the web<->pool
+# alignment, so the two are formally comparable rather than ad-hoc text.
+EvidenceDimension = Literal[
+    "definition", "task", "technique", "signal_term",
+    "confusable", "boundary", "cpc_code", "synonym",
+]
+AlignmentRelation = Literal["confirmed", "web_only", "pool_only", "conflict"]
+CriterionImplication = Literal["inclusion", "exclusion", "scope_boundary", "none"]
+
+
+class EvidenceAlignment(BaseModel):
+    """One auditable web<->pool comparison. Ties specific web-evidence note ids to specific
+    corpus-finding ids under a typed relation, so every inclusion/exclusion criterion can be
+    traced to a concrete comparison (see validator EXCL_FROM_ALIGN / ALIGN_RESOLVE)."""
+    id: str                              # "align:1", "align:2" — citable like corpus:/web:
+    dimension: EvidenceDimension
+    relation: AlignmentRelation
+    web_refs: list[str]                  # ["web:3", ...] research-note ids
+    pool_refs: list[str]                 # ["corpus:cluster:2", ...] corpus-finding ids
+    statement: str                       # one sentence describing the comparison
+    implies: CriterionImplication        # what criterion kind this comparison motivates
+
+
 class CorpusBatchDigestOut(BaseModel):
     clusters: list[str]
-    recurring_terms: list[str]
-    boundary_examples: list[str]     # "title — why it is borderline"
+    vocabulary: list[str]                # renamed from recurring_terms (unified naming)
+    boundary_examples: list[str]         # "title — why it is borderline"
+
+
+class CorpusReduceOut(BaseModel):
+    """Parse target for the corpus REDUCE call 1 (core digest, no alignment)."""
+    clusters: list[str]
+    vocabulary: list[str]
+    representative_examples: list[str]
+    boundary_examples: list[str]
+
+
+class AlignmentOut(BaseModel):
+    """Parse target for the corpus REDUCE call 2 (web<->pool alignment rows)."""
+    alignment: list[EvidenceAlignment]
 
 
 class CorpusDigestOut(BaseModel):
-    main_clusters: list[str]
-    vocabulary_profile: list[str]
-    representative_cases: list[str]
-    suspected_boundary_cases: list[str]
-    mismatch_with_web_evidence: list[str]
+    """Final corpus digest. New unified field names; old cached JSON still loads via aliases,
+    and legacy readers keep working via the compat @property shims below."""
+    model_config = ConfigDict(populate_by_name=True)
+    clusters: list[str] = Field(default_factory=list,
+                                validation_alias=AliasChoices("clusters", "main_clusters"))
+    vocabulary: list[str] = Field(default_factory=list,
+                                  validation_alias=AliasChoices("vocabulary", "vocabulary_profile"))
+    representative_examples: list[str] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("representative_examples", "representative_cases"))
+    boundary_examples: list[str] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("boundary_examples", "suspected_boundary_cases"))
+    alignment: list[EvidenceAlignment] = Field(default_factory=list)
+    # deprecated free-text contrast, superseded by `alignment`; kept so old JSON round-trips
+    mismatch_with_web_evidence: list[str] = Field(default_factory=list)
+
+    # backward-compat attribute access for un-migrated readers
+    @property
+    def main_clusters(self) -> list[str]: return self.clusters
+    @property
+    def vocabulary_profile(self) -> list[str]: return self.vocabulary
+    @property
+    def representative_cases(self) -> list[str]: return self.representative_examples
+    @property
+    def suspected_boundary_cases(self) -> list[str]: return self.boundary_examples
 
 
 # ---------------- [4] technology-axis synthesis + criteria ----------------
-SourceType = Literal["user_query", "owner_doc", "web", "corpus", "hitl"]
+SourceType = Literal["user_query", "owner_doc", "web", "corpus", "alignment", "hitl"]
 
 
 class EvidenceSourceRef(BaseModel):

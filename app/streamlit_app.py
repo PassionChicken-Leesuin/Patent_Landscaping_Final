@@ -48,6 +48,95 @@ STATUS_LABEL = {
 
 
 # ================================================================ helpers
+@st.cache_data(ttl=86400, show_spinner=False)
+def _url_reachable(url: str) -> str:
+    """Best-effort liveness check so we never present a link that 404s.
+    Returns 'ok' (status < 400), 'dead' (>= 400 / connection error), or 'unknown' (check
+    itself failed, e.g. no network). Cached 1 day per URL. HEAD first, GET fallback."""
+    ua = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
+    try:
+        import requests
+    except Exception:
+        return "unknown"
+    try:
+        try:
+            r = requests.head(url, allow_redirects=True, timeout=6, headers=ua)
+            if r.status_code >= 400 or r.status_code == 405:   # some hosts reject HEAD
+                r = requests.get(url, allow_redirects=True, timeout=8, headers=ua, stream=True)
+        except requests.RequestException:
+            r = requests.get(url, allow_redirects=True, timeout=8, headers=ua, stream=True)
+        return "ok" if r.status_code < 400 else "dead"
+    except requests.RequestException:
+        return "dead"
+    except Exception:
+        return "unknown"
+
+
+def _render_research_sources(ws: Path):
+    """Verified, clickable research sources — only pages actually fetched (never
+    hallucinated), with dead links hidden so the user never clicks into a 404."""
+    srcs = artifacts.research_sources(ws)
+    if not srcs:
+        st.caption("수집된 외부 자료가 없습니다 (도메인 질의·특허 풀 기반으로 기준서를 합성).")
+        return
+    st.markdown(f"**🔗 수집 자료 {len(srcs)}건** — 실제로 페치·인용된 출처만 (지어낸 링크 없음)")
+    check = st.checkbox("링크 접속 확인 후 표시 (404 자동 숨김)", value=True, key="chk_src_live")
+    shown = dead = 0
+    for s in srcs:
+        status = _url_reachable(s["url"]) if check else "ok"
+        if status == "dead":
+            dead += 1
+            continue
+        meta = f"— 근거 노트 {s['n_notes']}건" + (f" · {s['source']}" if s.get("source") else "")
+        warn = " ⚠︎(접속 확인 안 됨)" if status == "unknown" else ""
+        st.markdown(f"- [{s['title']}]({s['url']}) {meta}{warn}")
+        shown += 1
+    if dead:
+        st.caption(f"접속 불가 {dead}건은 숨겼습니다 (404 방지).")
+    if check and shown == 0 and dead:
+        st.info("수집 시점엔 유효했으나 현재 모두 접속 불가로 확인됩니다.")
+
+
+def _render_alignment(ws: Path):
+    """Web<->pool alignment audit table: how external evidence was compared against the actual
+    pool, and which comparisons drove exclusions (the precision lever). Fully traceable —
+    web_refs link to real sources, pool_refs cite corpus findings."""
+    align = artifacts.corpus_alignment(ws)
+    if not align:
+        return
+    st.markdown("---")
+    from collections import Counter
+    rel = Counter(a.get("relation") for a in align)
+    st.markdown(f"**🔗↔ 웹↔풀 정합 정렬 {len(align)}행** — 웹 근거와 실제 특허 풀을 대비한 감사 표")
+    st.caption(f"confirmed {rel.get('confirmed',0)} · web_only {rel.get('web_only',0)} · "
+               f"pool_only {rel.get('pool_only',0)} · conflict {rel.get('conflict',0)}  "
+               f"— pool_only/conflict + implies=exclusion 이 look-alike 제외를 강제합니다.")
+    urlmap = artifacts.web_ref_urls(ws)
+    icon = {"confirmed": "🟢", "web_only": "🔵", "pool_only": "🟠", "conflict": "🔴"}
+    # overview table (sortable)
+    st.dataframe(pd.DataFrame([{
+        "id": a.get("id"), "dimension": a.get("dimension"),
+        "relation": a.get("relation"), "implies": a.get("implies"),
+        "web_refs": " ".join(a.get("web_refs", [])),
+        "pool_refs": " ".join(a.get("pool_refs", [])),
+        "statement": a.get("statement", ""),
+    } for a in align], columns=["id", "dimension", "relation", "implies",
+                                "web_refs", "pool_refs", "statement"]), width="stretch")
+    # exclusion-driving rows in detail, with clickable web sources
+    excl = [a for a in align if a.get("relation") in ("pool_only", "conflict")
+            and a.get("implies") == "exclusion"]
+    if excl:
+        st.markdown(f"**⛔ 제외를 유발한 정렬 {len(excl)}행 (precision 레버 — 기준서 E가 이걸 인용)**")
+        for a in excl:
+            webs = " · ".join(f"[{w}]({urlmap[w]})" if urlmap.get(w) else w
+                              for w in a.get("web_refs", [])) or "(웹 근거 없음)"
+            pools = " · ".join(a.get("pool_refs", [])) or "(풀 근거 없음)"
+            st.markdown(f"- {icon.get(a.get('relation'),'')} **`{a.get('id')}`** "
+                        f"({a.get('relation')}) — {a.get('statement','')}  \n"
+                        f"  <small>웹: {webs} · 풀: {pools}</small>", unsafe_allow_html=True)
+
+
 @st.cache_data(show_spinner="파일을 읽는 중...")
 def _read_upload(name: str, data: bytes) -> pd.DataFrame:
     return pool_convert.read_uploaded(name, data)
@@ -526,6 +615,9 @@ def render_artifact_tabs(run_dir: Path, ws: Path | None):
             st.markdown("---")
 
     with tabs[5]:
+        _render_research_sources(ws)
+        _render_alignment(ws)
+        st.markdown("---")
         notes = artifacts.research_notes(ws)
         if notes.empty:
             st.info("리서치 노트가 아직 없습니다.")

@@ -84,6 +84,42 @@ def provenance_repairs(ws: Path) -> list[dict]:
     return _read_jsonl(ws / "provenance_repairs.jsonl")
 
 
+def research_sources(ws: Path) -> list[dict]:
+    """Verified external sources ACTUALLY fetched during research (research/pages/*.json).
+
+    A page file is written only after the URL was retrieved and its text acquired, so every
+    entry here is a real URL that was reachable at collection time — never an LLM-hallucinated
+    citation. Joined with notes.jsonl to show how many evidence notes each source produced."""
+    pdir = ws / "research" / "pages"
+    if not pdir.exists():
+        return []
+    from collections import Counter
+    ncount = Counter(n.get("source_url") for n in _read_jsonl(ws / "research" / "notes.jsonl"))
+    out = []
+    for p in sorted(pdir.glob("*.json")):
+        d = _read_json(p) or {}
+        url = d.get("url")
+        if not url:
+            continue
+        out.append({"url": url, "title": (d.get("title") or url).strip(),
+                    "source": d.get("source", ""), "n_notes": int(ncount.get(url, 0))})
+    out.sort(key=lambda r: (r["n_notes"], r["title"]), reverse=True)
+    return out
+
+
+def corpus_alignment(ws: Path) -> list[dict]:
+    """Structured web<->pool alignment rows from the corpus digest — the auditable comparison
+    that grounds each inclusion/exclusion criterion (see EvidenceAlignment / ALIGN_COVERAGE)."""
+    d = _read_json(ws / "corpus_digest.json") or {}
+    return d.get("alignment", []) or []
+
+
+def web_ref_urls(ws: Path) -> dict[str, str]:
+    """web:n -> source_url (research-notes file order), so alignment web_refs can link out."""
+    notes = _read_jsonl(ws / "research" / "notes.jsonl")
+    return {f"web:{i}": str(n.get("source_url", "")).strip() for i, n in enumerate(notes, 1)}
+
+
 def research_notes(ws: Path) -> pd.DataFrame:
     notes = _read_jsonl(ws / "research" / "notes.jsonl")
     if not notes:

@@ -79,6 +79,22 @@ def corpus_reference_ids(digest: CorpusDigestOut) -> dict[str, str]:
     return out
 
 
+def web_reference_ids(ws: Workspace) -> dict[str, str]:
+    """Stable citable ids web:1, web:2, ... for research notes (file order) -> claim text."""
+    return {f"web:{i}": str(n.get("claim", "")).strip()
+            for i, n in enumerate(ws.read_jsonl(ws.notes_jsonl), 1)}
+
+
+def alignment_reference_ids(digest: CorpusDigestOut) -> dict[str, str]:
+    """Citable ids for the web<->pool alignment rows: align:n -> statement."""
+    return {a.id: a.statement for a in (getattr(digest, "alignment", None) or []) if a.id}
+
+
+def _all_reference_ids(ws: Workspace, digest: CorpusDigestOut) -> dict[str, str]:
+    return {**corpus_reference_ids(digest), **web_reference_ids(ws),
+            **alignment_reference_ids(digest)}
+
+
 def allowed_source_references(ws: Workspace, digest: CorpusDigestOut) -> set[str]:
     refs = {"query.json"}
     refs |= {str(n.get("source_url", "")).strip() for n in ws.read_jsonl(ws.notes_jsonl)
@@ -86,18 +102,18 @@ def allowed_source_references(ws: Workspace, digest: CorpusDigestOut) -> set[str
     if ws.owner_docs_json.exists():
         refs |= {f"local://{d.get('name')}" for d in ws.read_json(ws.owner_docs_json).get("docs", [])
                  if d.get("name")}
-    ids = corpus_reference_ids(digest)
+    ids = _all_reference_ids(ws, digest)          # corpus:/web:/align: ids
     refs |= set(ids)
     # legacy 'corpus: <full text>' references stay valid (cached artifacts, mocks)
-    refs |= {f"corpus: {text}" for text in ids.values()}
+    refs |= {f"corpus: {text}" for text in corpus_reference_ids(digest).values()}
     return refs
 
 
 def render_allowed_refs(ws: Workspace, digest: CorpusDigestOut) -> str:
     """Prompt listing: stable ids first (with display text), then plain refs."""
-    ids = corpus_reference_ids(digest)
+    ids = _all_reference_ids(ws, digest)
     plain = sorted(allowed_source_references(ws, digest)
-                   - set(ids) - {f"corpus: {t}" for t in ids.values()})
+                   - set(ids) - {f"corpus: {t}" for t in corpus_reference_ids(digest).values()})
     lines = [f"- {ref}" for ref in plain]
     lines += [f"- {rid} — \"{text}\"" for rid, text in sorted(ids.items())]
     return "\n".join(lines)
@@ -120,7 +136,9 @@ def _type_candidates(source_type: str, allowed_refs: set[str]) -> list[str]:
     if source_type == "owner_doc":
         return [r for r in allowed_refs if r.startswith("local://")]
     if source_type == "web":
-        return [r for r in allowed_refs if r.startswith(("http://", "https://"))]
+        return [r for r in allowed_refs if r.startswith(("http://", "https://", "web:"))]
+    if source_type == "alignment":
+        return [r for r in allowed_refs if r.startswith("align:")]
     if source_type == "user_query":
         return [r for r in allowed_refs if r == "query.json"]
     return []

@@ -42,11 +42,16 @@ OWNER_DOC_FULLTEXT_MAX_CHARS = 8000
 # ---- corpus reading (the judge pool is actually read, in batches) ----
 CORPUS_BATCH_SIZE = 50           # patents (title+abstract) per map call
 CORPUS_MAX_BATCHES = 200         # safety cap (200*50 = 10k patents)
-CORPUS_ABSTRACT_CHARS = 600      # per-patent abstract truncation in corpus reading
+# Caps sized from measured corpora (KISTA 241,818 + Bergeaud 6 domains): title max=600;
+# abstract p99.9 <= 4934 across all corpora (Bergeaud blockchain/hydrogen run longest).
+# 5000 covers every corpus's p99.9 and truncates only genuine malformed outliers (>5k chars).
+CORPUS_TITLE_CHARS = 600         # per-patent title truncation in corpus reading (= observed max)
+CORPUS_ABSTRACT_CHARS = 5000     # per-patent abstract truncation (covers all-corpora p99.9)
 
 # ---- case-mapping-based criteria authoring (front-half) ----
 DIAGNOSE_TITLE_SAMPLE = 40        # pool titles shown to the alignment-diagnosis LLM
 DIAGNOSE_TOP_ASSIGNEES = 20       # assignees profiled
+CASEMAP_TEXT_CHARS = 6000         # per-candidate text (title+abstract concat) in case-mapping reads
 CASEMAP_SAMPLE_PER_CATEGORY = 110 # candidate patents mapped per category
 CASEMAP_CROSS_PRIORITY = 60       # cross-matched (exclusion x tier) candidates prioritized
 CASEMAP_REVISE_ROUNDS = 2         # self-correction rounds with no change -> settle

@@ -14,6 +14,7 @@ from pydantic import BaseModel
 from src.mas.llm import StructuredLLM
 from src.agentic.schemas import (
     AxisSynthesisOut, BoundaryProbeOut, BoundaryVerdict, CorpusBatchDigestOut, CorpusDigestOut,
+    CorpusReduceOut, AlignmentOut, EvidenceAlignment,
     CriteriaCritiqueOut, CriteriaDocOut, CriterionOut, EvidenceNote, EvidenceNotesOut,
     EvidenceSourceRef, GapAnalysisOut, HITLQuestion, INTENT_TYPES, JudgeAuditOut, JudgmentOut,
     OwnerDocumentAssessmentOut, QueryScopeOut, ScopeDecisionOut, ScopeQuestion,
@@ -71,18 +72,30 @@ class MockAgentLLM(StructuredLLM):
     def _CorpusBatchDigestOut(self, system, user):
         return CorpusBatchDigestOut(
             clusters=["high-pressure tanks", "metal hydrides", "adsorption materials"],
-            recurring_terms=["hydrogen", "storage", "hydride", "tank", "adsorption"],
+            vocabulary=["hydrogen", "storage", "hydride", "tank", "adsorption"],
             boundary_examples=["Fuel cell stack — mentions hydrogen but converts it rather than stores it"])
 
-    def _CorpusDigestOut(self, system, user):
+    def _CorpusReduceOut(self, system, user):
+        return CorpusReduceOut(
+            clusters=["compressed-gas tanks", "metal hydrides", "sorbent materials"],
+            vocabulary=["hydrogen storage", "hydride", "tank", "adsorbent", "desorption"],
+            representative_examples=["Metal hydride hydrogen storage vessel"],
+            boundary_examples=[
+                "Fuel-cell patents mention hydrogen supply but perform conversion, not storage (e.g. 'Fuel cell stack')."])
+
+    def _AlignmentOut(self, system, user):
+        return AlignmentOut(alignment=[
+            EvidenceAlignment(id="", dimension="confusable", relation="pool_only",
+                              web_refs=[], pool_refs=["corpus:boundary:1"],
+                              statement="Fuel-cell patents appear in the pool but the web evidence never frames them as storage.",
+                              implies="exclusion")])
+
+    def _CorpusDigestOut(self, system, user):  # legacy direct callers
         return CorpusDigestOut(
-            main_clusters=["compressed-gas tanks", "metal hydrides", "sorbent materials"],
-            vocabulary_profile=["hydrogen storage", "hydride", "tank", "adsorbent", "desorption"],
-            representative_cases=["Metal hydride hydrogen storage vessel"],
-            suspected_boundary_cases=[
-                "Fuel-cell patents mention hydrogen supply but perform conversion, not storage (e.g. 'Fuel cell stack')."],
-            mismatch_with_web_evidence=[
-                "The pool contains many vessel-engineering patents while web evidence emphasizes materials research."])
+            clusters=["compressed-gas tanks", "metal hydrides", "sorbent materials"],
+            vocabulary=["hydrogen storage", "hydride", "tank", "adsorbent", "desorption"],
+            representative_examples=["Metal hydride hydrogen storage vessel"],
+            boundary_examples=["Fuel-cell patents mention hydrogen supply but perform conversion, not storage."])
 
     # ------------------------------------------------------------- [4a] axes
     def _AxisSynthesisOut(self, system, user):
