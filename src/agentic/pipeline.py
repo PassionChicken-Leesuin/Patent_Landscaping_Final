@@ -7,6 +7,8 @@ are imported.
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 
 from src import config as C
@@ -162,7 +164,19 @@ def build_criteria(query: str, pool_df: pd.DataFrame, *, mock: bool = False,
         scope = QueryScopeOut(**Workspace.read_json(ws.query_json)["scope"])
         print(f"[1] scoping: reusing workspace '{ws.slug}'")
     else:
-        scope = scope_query(llm, query, usage)
+        # Anchor scoping on the owner scope document so the canonical name/scope is NOT
+        # broadened or drifted by query-only stochasticity (root cause of the GOCS regression:
+        # "satellite GNSS…" silently became "satellite…"). Owner doc is authoritative for scope.
+        owner_context = ""
+        if local_docs:
+            parts = []
+            for p in local_docs:
+                try:
+                    parts.append(Path(p).read_text(encoding="utf-8", errors="replace"))
+                except Exception:
+                    pass
+            owner_context = "\n\n".join(parts)
+        scope = scope_query(llm, query, usage, owner_context=owner_context)
         slug = ("mock-" if mock else "") + slugify(scope.canonical_name_en) \
                + (f"-{variant}" if variant else "")
         ws = Workspace(slug).ensure()

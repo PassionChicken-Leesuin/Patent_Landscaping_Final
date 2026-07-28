@@ -36,7 +36,9 @@
 | GOCS query-only (naive) | 0.123 | 0.153 | 0.136 | 0.053 | 143 |
 | GOCS owner-doc (구코드, full) | 0.272 | 0.504 | 0.353 | 0.277 | 177 |
 | GOCS owner-doc (#1 신코드, full) | 0.199 | 0.557 | 0.294 | 0.252 | 293 |
-| **MPUART owner-doc (full)** | 0.791 | 0.766 | **0.778** | **0.752** | 19 |
+| MPUART owner-doc 구코드 (full) | 0.791 | 0.766 | 0.778 | 0.752 | 19 |
+| MPUART 앵커링(과협소, full) | 1.000 | 0.489 | 0.657 | 0.581 | 0 |
+| **MPUART refined앵커링+#1 (full)** | 0.779 | 0.787 | **0.783** | **0.757** | 21 |
 
 핵심 정리(정직):
 - **owner-doc ≫ query-only** (스코프 주입이 최대 레버; GOCS F1 0.136→0.35대).
@@ -50,6 +52,7 @@
 3. judge operating point / stance 보정 (라벨·dev 없이).
 4. corpus/casemap 대표성(10k cap·셔플) 잔여 점검.
 5. **[신규 발견] --force가 판정 audit 미삭제 → 재판정 안 됨** (eval_kista는 수정함; run_mas/eval_agentic도 점검 필요).
+6. **[완료] 스코프 앵커링 (drift 방지)** — scoping이 owner-doc보다 먼저 돌아 canonical/scope가 확률적으로 broad화(GOCS: GNSS 탈락→FP급증)되던 문제. `scope_query`가 owner-doc 원문을 받아 앵커링. **양날 발견**: 응용맥락 강조 owner-doc은 과협소화(MPUART 0.778→0.657, marine 좁힘). **refinement**: canonical은 core-tech 수준 유지·비필수 응용맥락 배제 → GOCS는 GNSS 유지, MPUART는 core AR/VR/MR 복귀(F1 0.783, recall 0.79). Path import·슬러그 80자 상한 버그fix 동반.
 
 ## 개선 #1 설계 (웹↔풀 Evidence Alignment)
 - 신규 `EvidenceAlignment{id(align:n), dimension(EvidenceDimension 공유), relation(confirmed/web_only/pool_only/conflict), web_refs[web:n], pool_refs[corpus:kind:n], statement, implies(inclusion/exclusion/scope_boundary/none)}`.

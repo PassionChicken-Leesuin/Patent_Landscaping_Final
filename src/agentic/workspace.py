@@ -15,7 +15,7 @@ from src.agentic import config as AC
 
 def slugify(name: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-    return s or "domain"
+    return (s[:80].rstrip("-") or "domain")   # cap length -> avoid Windows path-length limits
 
 
 def url_hash(url: str) -> str:

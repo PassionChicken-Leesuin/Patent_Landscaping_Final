@@ -22,8 +22,26 @@ _SYSTEM = (
     "Output JSON only."
 )
 
+_OWNER_ANCHOR = (
+    "\n\nIMPORTANT — an OWNER SCOPE DOCUMENT is provided below. It is AUTHORITATIVE for this "
+    "domain's scope. Anchor initial_task_hypotheses and the in-/out-of-scope on it, and "
+    "PRESERVE its specific CORE-TECHNOLOGY terms (including acronyms such as GNSS, AR/VR) — do "
+    "NOT broaden, generalize, or drop the core technology from the user query.\n"
+    "BUT keep canonical_name_en at the CORE-TECHNOLOGY level (the technology the invention IS). "
+    "Do NOT append an application/industry CONTEXT (e.g. 'for marine/offshore use', 'for "
+    "automotive') to the canonical name UNLESS the owner document states that context is a "
+    "REQUIRED element of every in-scope patent. When the owner marks a context as NON-required "
+    "('not a hard requirement', 'application context', 'including but not limited to'), treat it "
+    "as OPTIONAL — never fold it into the canonical name or as a scope restriction."
+)
 
-def scope_query(llm: StructuredLLM, query: str, usage: Usage) -> QueryScopeOut:
-    out, pt, ct = llm.parse(_SYSTEM, f"User query: {query}", QueryScopeOut)
+
+def scope_query(llm: StructuredLLM, query: str, usage: Usage,
+                owner_context: str = "") -> QueryScopeOut:
+    system = _SYSTEM + (_OWNER_ANCHOR if owner_context.strip() else "")
+    user = f"User query: {query}"
+    if owner_context.strip():
+        user += f"\n\nOWNER SCOPE DOCUMENT (authoritative):\n{owner_context.strip()[:4000]}"
+    out, pt, ct = llm.parse(system, user, QueryScopeOut)
     usage.add(pt, ct)
     return out
