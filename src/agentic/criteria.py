@@ -253,6 +253,17 @@ def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeO
         why_needed=q.why_it_matters,
         options=q.options,
     ) for q in doc.open_questions]
+    # enrich_open_questions (run just before, validator wiring) wrote a decision card per
+    # question keyed by question_id(asked). Embed it so the UI renders the SAME card (with
+    # example patents) as the upfront decisions — the HITL question id (q.id) differs from
+    # the card id, so a plain id-join would fail and drop to the no-examples fallback.
+    from src.agentic.hitl import question_id as _question_id
+    _cards = {}
+    if ws.decisions_json.exists():
+        _cards = {c.get("id"): c
+                  for c in Workspace.read_json(ws.decisions_json).get("decisions", [])}
+    for hq in questions:
+        hq.card = _cards.get(_question_id(hq.question))
     # Stable-identity guard: the drafter re-raises the same boundary in new words each
     # round, so the text-hash id drifts and HITL cannot match it to the answer already
     # given. Semantically settle new questions against THIS run's human rulings first

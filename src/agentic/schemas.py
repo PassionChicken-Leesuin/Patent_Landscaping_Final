@@ -249,6 +249,10 @@ class HITLQuestion(BaseModel):
     question: str                    # natural-language question to the human
     why_needed: str
     options: list[str]               # suggested answers ([] = free-form)
+    # Self-contained decision card (stake / include·exclude argument+examples / recommendation
+    # / measured impact). Carried in the question payload so the UI ALWAYS renders the unified
+    # card with example patents, without depending on a fragile decisions.json id-join.
+    card: Optional[dict] = None
 
 
 IssueCategory = Literal["testability", "coverage", "provenance", "consistency",

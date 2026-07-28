@@ -89,7 +89,10 @@ def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[HITLQuestion]:
         why = (f"영향: 표본 {d.impact_sample_n}건 중 {d.impact_flips}건 판정이 갈림. "
                f"[포함] {d.include_argument} [제외] {d.exclude_argument} "
                f"[권고] {d.recommendation}")
-        out.append(HITLQuestion(id=d.id, question=d.stake, why_needed=why, options=d.options))
+        # embed the full card so the UI renders the unified decision card (with example
+        # patents) directly from the question, independent of the decisions.json id-join
+        out.append(HITLQuestion(id=d.id, question=d.stake, why_needed=why,
+                                options=d.options, card=d.model_dump()))
     return out
 
 

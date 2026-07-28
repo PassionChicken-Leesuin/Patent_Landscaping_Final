@@ -332,7 +332,7 @@ def render_hitl(run_dir: Path):
     with st.form("hitl_form"):
         answers: dict[str, str] = {}
         for q in qp.get("questions", []):
-            card = cards.get(q["id"])
+            card = q.get("card") or cards.get(q["id"])   # prefer the self-contained card
             if card:
                 st.markdown(f"**🧭 {card['stake']}**")
                 cc1, cc2 = st.columns(2)
