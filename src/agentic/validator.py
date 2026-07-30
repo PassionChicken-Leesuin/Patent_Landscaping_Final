@@ -453,6 +453,7 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
     # judging a pool sample under its broad vs narrow rule and keep only those that flip a
     # real number of patents (ranked by measured impact). Then ask the human BEFORE spending
     # the critique budget (answers are authoritative and baked into a revised draft).
+    carded: list = []
     if doc.open_questions:
         if not resuming and pool_df is not None and probe_pool is not None and len(pool_df):
             ranked = probe_boundaries(doc.open_questions, pool_df, probe_pool,
@@ -463,18 +464,18 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             print(f"  [criteria] probed {len(doc.open_questions)} candidate boundaries "
                   f"-> {len(kept)} move real patents")
             doc.open_questions = kept
-            # Enrich these scope questions into decision cards (stake/포함·제외 논리+예시/영향/
-            # 권고, Korean) so the UI shows them with the SAME card as the upfront decisions.
-            from src.agentic.decisions import enrich_open_questions
-            kept_ids = {q.id for q in kept}
-            enrich_open_questions(ws, llm, [(q, f, n) for q, f, n in ranked if q.id in kept_ids],
-                                  usage)
+            # Build the decision cards (stake/포함·제외 논리+예시/영향/권고, Korean) and carry
+            # them ON the questions — same card the upfront decisions show.
+            from src.agentic.decisions import carded_questions
+            carded = carded_questions(ws, llm,
+                                      [(q, f, n) for q, (_, f, n) in zip(kept, ranked)], usage)
         if doc.open_questions:
             # persist BEFORE asking so a batch-mode stop resumes on the same questions
             ws.write_json(ws.criteria_pending_json, doc.model_dump())
             print(f"  [criteria] asking human {len(doc.open_questions)} scope question(s)")
             doc, qa = resolve_open_questions(ws, llm, scope, digest, axes, evidence_summary,
-                                             doc, hitl, usage, version=ver)
+                                             doc, hitl, usage, version=ver,
+                                             questions=carded)
             human_qa_all += qa
             ver = 2
             ws.criteria_pending_json.unlink(missing_ok=True)   # answered -> clear

@@ -67,6 +67,12 @@ class Workspace:
     @property
     def decisions_json(self) -> Path: return self.root / "decisions.json"
     @property
+    def decision_cards_jsonl(self) -> Path:
+        """Audit record of EVERY decision card shown to the owner, from any stage.
+        Kept apart from decisions.json, which is [4c]'s own ask-list: a card archived
+        into that file would be re-asked as an upfront decision on the next resume."""
+        return self.root / "decision_cards.jsonl"
+    @property
     def axis_synthesis_json(self) -> Path: return self.root / "axis_synthesis.json"
     @property
     def axis_synthesis_md(self) -> Path: return self.root / "axis_synthesis.md"

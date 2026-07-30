@@ -242,28 +242,21 @@ def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeO
                            digest: CorpusDigestOut, axis_synthesis: AxisSynthesisOut,
                            evidence_summary: str,
                            doc: CriteriaDocOut, hitl: HITL, usage: Usage,
-                           version: int) -> tuple[CriteriaDocOut, list[dict]]:
+                           version: int,
+                           questions: list[CardedHITLQuestion] | None = None
+                           ) -> tuple[CriteriaDocOut, list[dict]]:
     """Ask the human the criteria author's own scope questions, then fold the answers
-    into a revised document as authoritative decisions. Returns (doc, human_qa)."""
+    into a revised document as authoritative decisions. Returns (doc, human_qa).
+
+    `questions` carries the pre-built decision cards from the boundary probe. Without
+    them (resume, or no pool to measure against) the questions still go out, uncarded."""
     if not doc.open_questions:
         return doc, []
-    questions = [CardedHITLQuestion(
-        id=q.id,
-        question=f"{q.question} (현재 가정: {q.tentative_default})",
-        why_needed=q.why_it_matters,
-        options=q.options,
-    ) for q in doc.open_questions]
-    # enrich_open_questions (run just before, validator wiring) wrote a decision card per
-    # question keyed by question_id(asked). Embed it so the UI renders the SAME card (with
-    # example patents) as the upfront decisions — the HITL question id (q.id) differs from
-    # the card id, so a plain id-join would fail and drop to the no-examples fallback.
-    from src.agentic.hitl import question_id as _question_id
-    _cards = {}
-    if ws.decisions_json.exists():
-        _cards = {c.get("id"): c
-                  for c in Workspace.read_json(ws.decisions_json).get("decisions", [])}
-    for hq in questions:
-        hq.card = _cards.get(_question_id(hq.question))
+    if not questions:
+        from src.agentic.decisions import asked_text
+        questions = [CardedHITLQuestion(
+            id=q.id, question=asked_text(q), why_needed=q.why_it_matters,
+            options=q.options) for q in doc.open_questions]
     # Stable-identity guard: the drafter re-raises the same boundary in new words each
     # round, so the text-hash id drifts and HITL cannot match it to the answer already
     # given. Semantically settle new questions against THIS run's human rulings first

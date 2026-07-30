@@ -80,9 +80,11 @@ class DecisionCardPayload(unittest.TestCase):
         self.assertIsNotNone(qs[0].card)
         self.assertEqual(qs[0].card["impact_flips"], 9)
         self.assertEqual(qs[0].card["exclude_examples"], ["US3"])
-        # the card is also archived for audit
-        saved = json.loads(ws.decisions_json.read_text(encoding="utf-8"))
-        self.assertEqual(len(saved["decisions"]), 1)
+        # archived for audit — in the card log, NOT in [4c]'s ask-list
+        saved = [json.loads(l) for l in
+                 ws.decision_cards_jsonl.read_text(encoding="utf-8").splitlines() if l]
+        self.assertEqual(len(saved), 1)
+        self.assertFalse(ws.decisions_json.exists())
 
     def test_card_id_matches_the_asked_text(self):
         """A drifting id is what broke the UI join before the card was embedded."""
@@ -110,6 +112,17 @@ class DecisionCardPayload(unittest.TestCase):
         self.assertIn("ScopeQuestionsOut", llm.calls)     # restated as a testable boundary
         # unmeasured (no pool given) is reported as such, never as "0건이 갈림"
         self.assertEqual(qs[0].card["impact_sample_n"], 0)
+
+    def test_criteria_cards_do_not_become_upfront_decisions(self):
+        """decisions.json is [4c]'s ask-list, reloaded verbatim on every resume. A card
+        from a later stage archived there came back as an upfront decision — and under a
+        different id (hashed from `stake`, not the asked text), so the answer already
+        given no longer matched and the owner was asked the same boundary twice."""
+        ws = _ws()
+        carded_questions(ws, _FakeLLM(), [(_sq(), 9, 60)], _FakeUsage())
+        self.assertFalse(ws.decisions_json.exists(),
+                         "criteria-stage card leaked into [4c]'s ask-list")
+        self.assertTrue(ws.decision_cards_jsonl.exists())
 
     def test_card_failure_never_blocks_the_question(self):
         """Unanswered is worse than uncarded: the loop must still ask."""

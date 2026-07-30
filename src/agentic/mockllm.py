@@ -248,6 +248,17 @@ class MockAgentLLM(StructuredLLM):
                     verdicts.append(BoundaryVerdict(boundary_id=bid, broad=v, narrow=v))
         return BoundaryProbeOut(verdicts=verdicts)
 
+    # --------------------------------------- [4b-5] validator scope issue -> boundary
+    def _ScopeQuestionsOut(self, system, user):
+        from src.agentic.schemas import ScopeQuestionsOut
+        return ScopeQuestionsOut(questions=[ScopeQuestion(
+            id="V1",
+            question="검증기가 지적한 인접 기술을 도메인에 포함할까요?",
+            why_it_matters="제외 근거가 기준서에서 충분히 뒷받침되지 않았습니다.",
+            options=["포함", "제외"], tentative_default="제외",
+            broad_rule="Include adjacent handling technologies as well.",
+            narrow_rule="Include only the core technology itself.")])
+
     # ------------------------------------------------------------- [3] closed loop
     def _BoundaryFeedbackOut(self, system, user):
         from src.agentic.schemas import BoundaryFeedbackOut

@@ -151,34 +151,15 @@ def _build_card(ws: Workspace, llm: StructuredLLM, q: ScopeQuestion, flip: int, 
         broad_rule=q.broad_rule, narrow_rule=q.narrow_rule)
 
 
-def _merge_decisions(ws: Workspace, cards: list[DecisionQuestion]) -> None:
-    """Keep decisions.json the archival record of every card the owner was shown."""
-    existing = []
-    if ws.decisions_json.exists():
-        existing = Workspace.read_json(ws.decisions_json).get("decisions", [])
-    seen = {d["id"] for d in existing}
+def _archive_cards(ws: Workspace, cards: list[DecisionQuestion]) -> None:
+    """Append to the audit record of cards shown to the owner.
+
+    Deliberately NOT decisions.json: that file is [4c]'s ask-list, reloaded verbatim on
+    every resume, so a criteria-stage card written there comes back as an upfront
+    decision and the owner is asked the same boundary twice under two different ids.
+    """
     for c in cards:
-        if c.id not in seen:
-            existing.append(c.model_dump())
-            seen.add(c.id)
-    ws.write_json(ws.decisions_json, {"decisions": existing})
-
-
-def enrich_open_questions(ws: Workspace, llm: StructuredLLM,
-                          ranked: list[tuple[ScopeQuestion, int, int]], usage: Usage) -> None:
-    """Enrich the criteria loop's scope questions into decision cards and merge them into
-    decisions.json, so the UI renders them with the SAME card as the upfront decisions.
-    The card id matches the HITL question id (hash of the exact asked text)."""
-    if not ranked:
-        return
-    ex_block = _example_block(ws)
-    seen = set()
-    if ws.decisions_json.exists():
-        seen = {d["id"] for d in Workspace.read_json(ws.decisions_json).get("decisions", [])}
-    cards = [c for c in (_build_card(ws, llm, q, flip, n, usage, ex_block)
-                         for q, flip, n in ranked
-                         if question_id(asked_text(q)) not in seen) if c]
-    _merge_decisions(ws, cards)
+        ws.append_jsonl(ws.decision_cards_jsonl, c.model_dump())
 
 
 def carded_questions(ws: Workspace, llm: StructuredLLM,
@@ -202,7 +183,7 @@ def carded_questions(ws: Workspace, llm: StructuredLLM,
             id=f"{id_prefix}{q.id}", question=asked_text(q),
             why_needed=q.why_it_matters, options=q.options,
             card=card.model_dump() if card else None))
-    _merge_decisions(ws, cards)
+    _archive_cards(ws, cards)
     return out
 
 
