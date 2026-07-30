@@ -12,8 +12,8 @@ import pandas as pd
 
 from src.agentic.boundary_probe import probe_boundaries
 from src.agentic.hitl import HITL, question_id
-from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, DecisionEnrichOut,
-                                 DecisionQuestion, DecisionQuestionsOut, HITLQuestion,
+from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, CardedHITLQuestion,
+                                 DecisionEnrichOut, DecisionQuestion, DecisionQuestionsOut,
                                  ScopeQuestion)
 from src.agentic.workspace import Workspace
 from src.mas.llm import StructuredLLM, Usage
@@ -81,9 +81,10 @@ def measure_decisions(decisions: list[DecisionQuestion], pool_df: pd.DataFrame,
     return decisions
 
 
-def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[HITLQuestion]:
+def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[CardedHITLQuestion]:
     """Present the rich card through the standard answer channel (batch/interactive).
-    The full card is in decisions.json; the UI joins by id."""
+    The card rides along in the question payload (decisions.json keeps the archival
+    copy), so the UI never depends on an id-join to render example patents."""
     out = []
     for d in decisions:
         why = (f"영향: 표본 {d.impact_sample_n}건 중 {d.impact_flips}건 판정이 갈림. "
@@ -91,8 +92,8 @@ def as_hitl_questions(decisions: list[DecisionQuestion]) -> list[HITLQuestion]:
                f"[권고] {d.recommendation}")
         # embed the full card so the UI renders the unified decision card (with example
         # patents) directly from the question, independent of the decisions.json id-join
-        out.append(HITLQuestion(id=d.id, question=d.stake, why_needed=why,
-                                options=d.options, card=d.model_dump()))
+        out.append(CardedHITLQuestion(id=d.id, question=d.stake, why_needed=why,
+                                      options=d.options, card=d.model_dump()))
     return out
 
 

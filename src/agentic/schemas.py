@@ -249,9 +249,19 @@ class HITLQuestion(BaseModel):
     question: str                    # natural-language question to the human
     why_needed: str
     options: list[str]               # suggested answers ([] = free-form)
-    # Self-contained decision card (stake / include·exclude argument+examples / recommendation
-    # / measured impact). Carried in the question payload so the UI ALWAYS renders the unified
-    # card with example patents, without depending on a fragile decisions.json id-join.
+
+
+class CardedHITLQuestion(HITLQuestion):
+    """A question OUR OWN code raises, carrying the self-contained decision card
+    (stake / include·exclude argument + example patents / recommendation / measured
+    impact) so the UI always renders the unified card without depending on a fragile
+    decisions.json id-join.
+
+    The card lives here and NOT on HITLQuestion because HITLQuestion is embedded in
+    LLM response schemas (CriteriaCritiqueOut, JudgeAuditOut), and strict JSON-schema
+    parsing rejects free-form dicts — see this module's docstring. The LLM never
+    produces a card; only decisions.as_hitl_questions and criteria.resolve_open_questions
+    attach one."""
     card: Optional[dict] = None
 
 

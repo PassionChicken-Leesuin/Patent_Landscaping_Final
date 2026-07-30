@@ -12,9 +12,9 @@ import json
 from src.mas.llm import StructuredLLM, Usage
 from src.agentic import config as AC
 from src.agentic.hitl import HITL
-from src.agentic.schemas import (AxisSynthesisOut, CriteriaCritiqueOut, CriteriaDocOut,
-                                 CorpusDigestOut, CriteriaPatchOut, CritiqueIssue,
-                                 HITLQuestion, QueryScopeOut)
+from src.agentic.schemas import (AxisSynthesisOut, CardedHITLQuestion, CriteriaCritiqueOut,
+                                 CriteriaDocOut, CorpusDigestOut, CriteriaPatchOut,
+                                 CritiqueIssue, QueryScopeOut)
 from src.agentic.workspace import Workspace
 
 _LANDSCAPING_CLAUSE = (
@@ -247,7 +247,7 @@ def resolve_open_questions(ws: Workspace, llm: StructuredLLM, scope: QueryScopeO
     into a revised document as authoritative decisions. Returns (doc, human_qa)."""
     if not doc.open_questions:
         return doc, []
-    questions = [HITLQuestion(
+    questions = [CardedHITLQuestion(
         id=q.id,
         question=f"{q.question} (현재 가정: {q.tentative_default})",
         why_needed=q.why_it_matters,
