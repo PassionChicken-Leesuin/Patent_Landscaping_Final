@@ -212,18 +212,9 @@ def render_setup():
                                         "과제 배경 등을 자유롭게 서술")
         refs = st.file_uploader("참고자료 업로드 (선택, pdf/txt/md — 근거 노트로 반영)",
                                 type=["pdf", "txt", "md"], accept_multiple_files=True)
-        st.caption("⚠️ 도메인 출제문·소유자 정의 문서는 **반드시 여기에 업로드**하세요. "
-                   "짧은 문서(≤8KB)는 기준서 작성의 최상위 범위 근거로 원문 주입됩니다.")
-        allow_flagged = st.checkbox(
-            "유출 차단에 걸려도 참고자료 강행 주입 (--local-doc-allow-flagged)",
-            value=False,
-            help="벤치마크 누출 스캔이 소유자 문서를 오탐하면 실행이 중단됩니다(fail-loud). "
-                 "문서를 검토했고 안전하다고 확신할 때만 체크하세요.")
 
     with col2:
         st.subheader("3) 실행 옵션")
-        mock = st.checkbox("mock 모드 (API 호출 없는 데모/점검)", value=False)
-        workers = st.slider("판정 병렬 워커 수", 5, 60, 40, step=5)
         limit = st.number_input("판정 건수 제한 (0 = 전체)", min_value=0, value=0,
                                 step=100)
         bloop = st.checkbox("경계 피드백 루프 (판정 후 애매 구간 재질문·재판정)",
@@ -240,7 +231,7 @@ def render_setup():
 
     if start:
         run_dir = runner.create_run(
-            query.strip(), len(pool_df), mock=mock, workers=int(workers),
+            query.strip(), len(pool_df),
             limit=int(limit) or None, boundary_loop=bool(bloop),
             source_name=up.name, source_format=fmt or "unknown", id_col=id_col)
         # save the original file + converted pool
@@ -261,7 +252,6 @@ def render_setup():
             docs.append(str(p))
         m["local_docs"] = docs
         m["description"] = desc.strip()
-        m["allow_flagged"] = bool(allow_flagged)
         runner.save_manifest(run_dir, m)
         runner.launch(run_dir)
         _go(run_dir)
@@ -695,7 +685,6 @@ def render_run(run_dir: Path):
     st.header(f"『{m.get('query','')}』")
     meta = (f"run `{m.get('run_id')}` · 풀 {m.get('pool_rows', 0):,}건"
             + (f" · 제한 {m['limit']:,}건" if m.get("limit") else "")
-            + (" · **MOCK 모드**" if m.get("mock") else "")
             + (f" · 참고자료 {len(m.get('local_docs', []))}건" if m.get("local_docs") else ""))
     st.caption(meta)
 

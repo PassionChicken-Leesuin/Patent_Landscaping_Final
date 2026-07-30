@@ -30,6 +30,9 @@ UI_DIR = ROOT / "DataSet" / "agentic_ui"
 AGENTIC_DIR = ROOT / "DataSet" / "agentic"
 IS_WINDOWS = os.name == "nt"
 
+# Judge parallelism is a fixed operating parameter of the system, not a user choice.
+JUDGE_WORKERS = 40
+
 STAGES = [
     ("[1] scoping", "① 질의 스코핑"),
     ("[2] research", "② 웹 자료수집"),
@@ -72,7 +75,7 @@ def list_runs() -> list[Path]:
     return sorted(runs, key=lambda p: p.name, reverse=True)
 
 
-def create_run(query: str, pool_csv_rows: int, *, mock: bool, workers: int,
+def create_run(query: str, pool_csv_rows: int, *,
                limit: int | None, boundary_loop: bool, source_name: str,
                source_format: str, id_col: str) -> Path:
     run_id = time.strftime("%Y%m%d-%H%M%S")
@@ -83,8 +86,6 @@ def create_run(query: str, pool_csv_rows: int, *, mock: bool, workers: int,
         "created": time.strftime("%Y-%m-%d %H:%M:%S"),
         "query": query,
         "variant": f"ui{run_id.replace('-', '')}",
-        "mock": mock,
-        "workers": workers,
         "limit": limit,
         "boundary_loop": boundary_loop,
         "pool_rows": pool_csv_rows,
@@ -105,10 +106,8 @@ def build_command(run_dir: Path, m: dict) -> list[str]:
             "--input", str(run_dir / "pool.csv"),
             "--hitl", "batch",
             "--resume",
-            "--workers", str(m.get("workers", 40)),
+            "--workers", str(JUDGE_WORKERS),
             "--variant", m["variant"]]
-    if m.get("mock"):
-        args.append("--mock")
     if m.get("limit"):
         args += ["--limit", str(m["limit"])]
     if m.get("boundary_loop"):
@@ -239,7 +238,7 @@ def current_stage(run_dir: Path) -> int:
 # ------------------------------------------------------------------ workspace
 def find_workspace(run_dir: Path) -> Path | None:
     """The pipeline names its workspace from the LLM-scoped canonical name; find it
-    by matching query/variant/mock in each workspace's query.json."""
+    by matching query/variant in each workspace's query.json."""
     m = load_manifest(run_dir)
     if m.get("workspace"):
         ws = AGENTIC_DIR / m["workspace"]
@@ -253,8 +252,7 @@ def find_workspace(run_dir: Path) -> Path | None:
         except (json.JSONDecodeError, OSError):
             continue
         if (d.get("query_original") == m.get("query")
-                and str(d.get("variant", "")) == m.get("variant")
-                and bool(d.get("mock")) == bool(m.get("mock"))):
+                and str(d.get("variant", "")) == m.get("variant")):
             m["workspace"] = qj.parent.name
             save_manifest(run_dir, m)
             return qj.parent
