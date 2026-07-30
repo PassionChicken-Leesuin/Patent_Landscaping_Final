@@ -33,21 +33,21 @@ IS_WINDOWS = os.name == "nt"
 # Judge parallelism is a fixed operating parameter of the system, not a user choice.
 JUDGE_WORKERS = 40
 
+# (log markers, display label) — the reported 11-stage view of the pipeline.
+# A stage lights up on ANY of its markers, so a stage that spans two internal steps
+# (② 자료수집+충분성 평가, ③ 통독+정합 진단, ⑩ 감사+경계 피드백) stays lit across both.
 STAGES = [
-    ("[1] scoping", "① 질의 스코핑"),
-    ("[2] research", "② 웹 자료수집"),
-    ("[2b] local docs", "②b 사용자 자료 반영"),
-    ("[3] corpus", "③ 특허 풀 통독"),
-    ("[3.5] alignment diagnosis", "③⁺ 정합 진단"),
-    ("technology-axis synthesis", "④a 기술축 합성"),
-    ("[4a+] design plan", "④a⁺ 설계안(Tier)"),
-    ("[4b-map] category case-mapping", "④b 사례 매핑·자기수정"),
-    ("[4c] scope decisions", "④c 범위 결정(HITL)"),
-    ("criteria drafting + validator loop", "④⑤ 기준서 작성·검증(HITL)"),
-    ("[6] judge", "⑥ 특허 판정"),
-    ("[7] judgment validator", "⑦ 판정 감사"),
-    ("[3-loop]", "⑧ 경계 피드백 루프"),
-    ("ranked CSV", "완료: 랭킹 산출"),
+    (("[1] scoping",), "① 질의 스코핑"),
+    (("[2b] local docs", "[2] research"), "② 도메인 자료 수집 및 충분성 평가"),
+    (("[3] corpus", "[3.5] alignment diagnosis"), "③ 특허 풀 분석"),
+    (("technology-axis synthesis",), "④ 도메인 앵커 및 기술축 생성"),
+    (("[4a+] design plan",), "⑤ T1·T2·E 후보 구조 설계"),
+    (("[4b-map] category case-mapping",), "⑥ 사례 매핑 및 자기수정"),
+    (("[4c] scope decisions",), "⑦ Human-in-the-Loop 기반 경계 결정"),
+    (("criteria drafting + validator loop",), "⑧ 기준서 작성 및 검증"),
+    (("[6] judge",), "⑨ 개별 특허 판정"),
+    (("[7] judgment validator", "[3-loop]"), "⑩ 판정 감사 및 경계 피드백"),
+    (("ranked CSV",), "⑪ 최종 분석 모집단 및 관련도 순위 산출"),
 ]
 
 
@@ -229,8 +229,8 @@ def current_stage(run_dir: Path) -> int:
     """Index into STAGES of the furthest stage marker seen in the log (-1 = none)."""
     text = read_log(run_dir, tail_chars=200000)
     idx = -1
-    for i, (marker, _label) in enumerate(STAGES):
-        if marker in text:
+    for i, (markers, _label) in enumerate(STAGES):
+        if any(mk in text for mk in markers):
             idx = max(idx, i)
     return idx
 

@@ -151,8 +151,9 @@ def _go(run_dir: Path | None):
 # ================================================================ sidebar
 with st.sidebar:
     st.title("🛰️ MAS 특허 선별")
-    st.caption("질의 → 정합 진단 → 설계안 → 사례 매핑(자기수정) → "
-               "범위 결정(HITL) → 기준서 → 전수 판정")
+    st.caption("질의 스코핑 → 도메인 자료 수집 → 특허 풀 분석 → 기술축 생성 → "
+               "후보 구조 설계 → 사례 매핑 → 경계 결정(HITL) → 기준서 → "
+               "개별 판정 → 판정 감사 → 분석 모집단 산출")
     if st.button("➕ 새 실행 만들기", width="stretch"):
         _go(None)
     runs = runner.list_runs()
@@ -258,6 +259,19 @@ def render_setup():
 
 
 # ================================================================ run page
+def _log_panel(run_dir: Path, title: str, *, expanded: bool,
+               stage_idx: int | None = None, running: bool = True):
+    """Raw pipeline log with a Korean stage badge. The log itself stays verbatim —
+    it is the audit trail — so the badge is what ties its internal markers to the
+    reported stage view."""
+    with st.expander(title, expanded=expanded):
+        idx = runner.current_stage(run_dir) if stage_idx is None else stage_idx
+        if idx >= 0:
+            st.caption(f"{'현재' if running else '최종'} 단계: "
+                       f"**{runner.STAGES[idx][1]}**")
+        st.code(runner.read_log(run_dir) or "(로그 없음)", language="text")
+
+
 @st.fragment(run_every=2.0)
 def live_panel(run_dir: Path):
     status = runner.get_status(run_dir)
@@ -286,10 +300,10 @@ def live_panel(run_dir: Path):
         judged = artifacts.judge_progress(ws)
         if judged and total:
             st.progress(min(1.0, judged / total),
-                        text=f"⑥ 판정 진행: {judged:,} / {total:,}건")
+                        text=f"⑨ 판정 진행: {judged:,} / {total:,}건")
 
-    with st.expander("실시간 로그", expanded=(status in ("running", "error"))):
-        st.code(runner.read_log(run_dir) or "(로그 없음)", language="text")
+    _log_panel(run_dir, "실시간 로그", expanded=(status in ("running", "error")),
+               stage_idx=stage_idx)
 
 
 def render_hitl(run_dir: Path):
@@ -302,8 +316,8 @@ def render_hitl(run_dir: Path):
             runner.launch(run_dir)
             st.rerun()
         return
-    stage = {"criteria": "기준서 작성", "judge": "판정 감사",
-             "boundary-loop": "경계 루프"}.get(qp.get("stage", ""), qp.get("stage", ""))
+    stage = {"criteria": "⑧ 기준서 작성 및 검증", "judge": "⑩ 판정 감사",
+             "boundary-loop": "⑩ 경계 피드백"}.get(qp.get("stage", ""), qp.get("stage", ""))
     if qp.get("context"):
         st.caption(f"단계: {stage} · 맥락: {qp['context']}")
     # Rich decision cards: join pending questions to decisions.json by id.
@@ -712,8 +726,7 @@ def render_run(run_dir: Path):
         icon, desc = STATUS_LABEL[status]
         st.markdown(f"### {icon}")
         st.caption(desc)
-        with st.expander("전체 로그", expanded=(status == "error")):
-            st.code(runner.read_log(run_dir) or "(로그 없음)", language="text")
+        _log_panel(run_dir, "전체 로그", expanded=(status == "error"), running=False)
 
     if status == "done" and ws is not None:
         render_results(run_dir, ws)
