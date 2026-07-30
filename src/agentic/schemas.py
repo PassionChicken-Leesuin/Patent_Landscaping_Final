@@ -223,6 +223,13 @@ class BoundaryProbeOut(BaseModel):
     verdicts: list[BoundaryVerdict]
 
 
+class ScopeQuestionsOut(BaseModel):
+    """Scope issues the validator raised, restated as testable broad/narrow boundaries
+    so they can be measured on the pool and shown as decision cards — the same shape
+    the criteria author's own open questions take."""
+    questions: list[ScopeQuestion]
+
+
 class BoundaryFeedbackOut(BaseModel):
     """New scope questions inferred from the patents the judge was UNSURE about
     (boundary/abstain/low decision confidence). Closes the loop: the pool's hard cases surface

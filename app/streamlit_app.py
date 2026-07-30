@@ -353,8 +353,11 @@ def render_hitl(run_dir: Path):
                         st.markdown("**예시 특허 (제외):**")
                         _example_patents(card["exclude_examples"])
                 flips, n = card.get("impact_flips", 0), card.get("impact_sample_n", 0)
-                st.progress(min(1.0, flips / n) if n else 0.0,
-                            text=f"영향 규모: 표본 {n}건 중 {flips}건 판정이 갈림")
+                if n:
+                    st.progress(min(1.0, flips / n),
+                                text=f"영향 규모: 표본 {n}건 중 {flips}건 판정이 갈림")
+                else:
+                    st.caption("영향 규모: 미측정 (풀 표본 판정을 수행하지 못한 경계)")
                 st.info(f"💡 권고: {card.get('recommendation', '')}")
             else:
                 st.markdown(f"**{q['id']}. {q['question']}**")

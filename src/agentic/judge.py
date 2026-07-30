@@ -514,9 +514,19 @@ def boundary_feedback_round(ws: Workspace, doc: CriteriaDocOut, llm: StructuredL
         return []
 
     # namespace the ids: answers.json is shared with the criteria stage, so a bare
-    # "Q1" here would silently reuse the criteria answer for a DIFFERENT question
-    hqs = [HITLQuestion(id=f"BL-{q.id}", question=f"{q.question} (현재 가정: {q.tentative_default})",
-                        why_needed=q.why_it_matters, options=q.options) for q in kept]
+    # "Q1" here would silently reuse the criteria answer for a DIFFERENT question.
+    # These boundaries are already measured, so they carry the same decision card the
+    # owner saw upfront rather than a bare question.
+    from src.agentic.decisions import carded_questions
+    # measured_questions() preserves order and ids, so zip re-attaches each question to
+    # its own flip count
+    hqs = carded_questions(ws, llm,
+                           [(q, f, n) for q, (_, f, n) in zip(kept, ranked)],
+                           usage, id_prefix="BL-")
+    if not hqs:                                  # card generation unavailable -> still ask
+        hqs = [HITLQuestion(id=f"BL-{q.id}",
+                            question=f"{q.question} (현재 가정: {q.tentative_default})",
+                            why_needed=q.why_it_matters, options=q.options) for q in kept]
 
     # A boundary the owner already ruled on (any wording) is NOT re-asked: the
     # ruling is reapplied as a binding amendment (요청: 재질문 대신 판결 재적용)

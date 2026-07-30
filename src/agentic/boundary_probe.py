@@ -50,9 +50,16 @@ _PK = ("record_id", "verdicts")
 
 def probe_boundaries(questions: list[ScopeQuestion], pool_df: pd.DataFrame,
                      pool: KeyPool, domain: str, audit_path,
-                     workers: int = 40) -> list[tuple[ScopeQuestion, int, int]]:
+                     workers: int = 40, min_flip_rate: float | None = None,
+                     max_questions: int | None = None
+                     ) -> list[tuple[ScopeQuestion, int, int]]:
     """Return [(question, flip_count, sample_n), ...] sorted by flip_count desc,
-    filtered to boundaries whose flip rate >= BOUNDARY_MIN_FLIP_RATE."""
+    filtered to boundaries whose flip rate >= BOUNDARY_MIN_FLIP_RATE.
+
+    The thresholds are overridable because they exist to SELECT which candidate
+    boundaries deserve the owner's attention. When the boundary is already known to
+    need an answer (the validator is blocking on it), pass min_flip_rate=0 to measure
+    impact without dropping the question."""
     if not questions:
         return []
     n = min(AC.BOUNDARY_PROBE_SAMPLE, len(pool_df))
@@ -74,13 +81,15 @@ def probe_boundaries(questions: list[ScopeQuestion], pool_df: pd.DataFrame,
             if v.get("boundary_id") in flips and v.get("broad") != v.get("narrow"):
                 flips[v["boundary_id"]] += 1
 
+    rate = AC.BOUNDARY_MIN_FLIP_RATE if min_flip_rate is None else min_flip_rate
+    cap = AC.BOUNDARY_MAX_QUESTIONS if max_questions is None else max_questions
     ranked = []
     for q in questions:
         f = flips.get(q.id, 0)
-        if f >= AC.BOUNDARY_MIN_FLIP_RATE * n:
+        if f >= rate * n:
             ranked.append((q, f, n))
     ranked.sort(key=lambda t: t[1], reverse=True)
-    return ranked[:AC.BOUNDARY_MAX_QUESTIONS]
+    return ranked[:cap]
 
 
 def measured_questions(ranked: list[tuple[ScopeQuestion, int, int]]) -> list[ScopeQuestion]:

@@ -554,9 +554,19 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
         # scope decisions belong to the owner; rewriting cannot settle them
         scope_issues = [i for i in criticals if i.category == "scope_decision"]
         if scope_issues or (critique.action == "ask_human" and critique.human_questions):
-            questions = critique.human_questions or [HITLQuestion(
-                id=i.issue_code, question=f"{i.problem} 어떻게 처리할까요? ({i.suggestion})",
-                why_needed=i.problem, options=[]) for i in scope_issues]
+            # Same treatment as the author's own scope questions: restate as a testable
+            # boundary, measure it on the pool, and show a decision card. Without this the
+            # owner sees a bare critique sentence with no examples and no measured impact.
+            from src.agentic.decisions import cards_for_raw_questions
+            raw = ([(q.question, q.why_needed) for q in critique.human_questions]
+                   if critique.human_questions
+                   else [(i.problem, i.suggestion) for i in scope_issues])
+            questions = cards_for_raw_questions(ws, llm, raw, doc, pool_df, probe_pool,
+                                                scope.canonical_name_en, usage)
+            if not questions:                       # card generation unavailable -> still ask
+                questions = critique.human_questions or [HITLQuestion(
+                    id=i.issue_code, question=f"{i.problem} 어떻게 처리할까요? ({i.suggestion})",
+                    why_needed=i.problem, options=[]) for i in scope_issues]
             # Stable-identity guard: a validator re-flagging the same boundary in new
             # words must not re-ask a boundary the owner already decided this run.
             from src.agentic.judge import _prior_rulings, settle_against_prior

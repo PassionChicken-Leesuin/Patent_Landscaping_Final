@@ -14,7 +14,7 @@ from src.agentic.boundary_probe import probe_boundaries
 from src.agentic.hitl import HITL, question_id
 from src.agentic.schemas import (CaseMapCategoryOut, CaseMapSummaryOut, CardedHITLQuestion,
                                  DecisionEnrichOut, DecisionQuestion, DecisionQuestionsOut,
-                                 ScopeQuestion)
+                                 ScopeQuestion, ScopeQuestionsOut)
 from src.agentic.workspace import Workspace
 from src.mas.llm import StructuredLLM, Usage
 from src.mas.runner import KeyPool
@@ -121,6 +121,49 @@ def _boundary_examples(ws: Workspace) -> list[tuple[str, str]]:
     return out[:60]
 
 
+def _example_block(ws: Workspace) -> str:
+    ex = _boundary_examples(ws)
+    return "\n".join(f"[{pid}] {gist}" for pid, gist in ex if pid) or "(none)"
+
+
+def asked_text(q: ScopeQuestion) -> str:
+    """The exact wording a scope question is asked in — the one place that decides it,
+    so card ids and HITL question ids cannot drift apart."""
+    return f"{q.question} (현재 가정: {q.tentative_default})"
+
+
+def _build_card(ws: Workspace, llm: StructuredLLM, q: ScopeQuestion, flip: int, n: int,
+                usage: Usage, ex_block: str) -> DecisionQuestion | None:
+    """One scope question -> one decision card (stake / 포함·제외 논리 + 예시특허 / 권고)."""
+    user = (f"QUESTION: {q.question}\nBROAD RULE (include): {q.broad_rule}\n"
+            f"NARROW RULE (include): {q.narrow_rule}\n\nBOUNDARY EXAMPLE PATENTS:\n{ex_block}")
+    try:
+        out, pt, ct = llm.parse(_ENRICH_SYSTEM, user, DecisionEnrichOut)
+        usage.add(pt, ct)
+    except Exception:
+        return None
+    return DecisionQuestion(
+        id=question_id(asked_text(q)), stake=out.stake,
+        include_argument=out.include_argument, include_examples=out.include_examples,
+        exclude_argument=out.exclude_argument, exclude_examples=out.exclude_examples,
+        impact_flips=flip, impact_sample_n=n, recommendation=out.recommendation,
+        options=q.options, tentative_default=q.tentative_default,
+        broad_rule=q.broad_rule, narrow_rule=q.narrow_rule)
+
+
+def _merge_decisions(ws: Workspace, cards: list[DecisionQuestion]) -> None:
+    """Keep decisions.json the archival record of every card the owner was shown."""
+    existing = []
+    if ws.decisions_json.exists():
+        existing = Workspace.read_json(ws.decisions_json).get("decisions", [])
+    seen = {d["id"] for d in existing}
+    for c in cards:
+        if c.id not in seen:
+            existing.append(c.model_dump())
+            seen.add(c.id)
+    ws.write_json(ws.decisions_json, {"decisions": existing})
+
+
 def enrich_open_questions(ws: Workspace, llm: StructuredLLM,
                           ranked: list[tuple[ScopeQuestion, int, int]], usage: Usage) -> None:
     """Enrich the criteria loop's scope questions into decision cards and merge them into
@@ -128,34 +171,91 @@ def enrich_open_questions(ws: Workspace, llm: StructuredLLM,
     The card id matches the HITL question id (hash of the exact asked text)."""
     if not ranked:
         return
-    ex = _boundary_examples(ws)
-    ex_block = "\n".join(f"[{pid}] {gist}" for pid, gist in ex if pid) or "(none)"
-    existing = []
+    ex_block = _example_block(ws)
+    seen = set()
     if ws.decisions_json.exists():
-        existing = Workspace.read_json(ws.decisions_json).get("decisions", [])
-    seen = {d["id"] for d in existing}
+        seen = {d["id"] for d in Workspace.read_json(ws.decisions_json).get("decisions", [])}
+    cards = [c for c in (_build_card(ws, llm, q, flip, n, usage, ex_block)
+                         for q, flip, n in ranked
+                         if question_id(asked_text(q)) not in seen) if c]
+    _merge_decisions(ws, cards)
+
+
+def carded_questions(ws: Workspace, llm: StructuredLLM,
+                     ranked: list[tuple[ScopeQuestion, int, int]], usage: Usage,
+                     id_prefix: str = "") -> list[CardedHITLQuestion]:
+    """Measured scope questions -> HITL questions that CARRY their decision card.
+
+    Every human scope decision goes through this, so the owner always sees the same
+    card (쟁점 / 포함·제외 논리 + 예시 특허 / 영향 / 권고) instead of a bare sentence.
+    A question whose card cannot be built still goes out — unanswered is worse than
+    uncarded — it just falls back to the plain rendering."""
+    if not ranked:
+        return []
+    ex_block = _example_block(ws)
+    out, cards = [], []
     for q, flip, n in ranked:
-        asked = f"{q.question} (현재 가정: {q.tentative_default})"   # matches resolve_open_questions
-        qid = question_id(asked)
-        if qid in seen:
-            continue
-        user = (f"QUESTION: {q.question}\nBROAD RULE (include): {q.broad_rule}\n"
-                f"NARROW RULE (include): {q.narrow_rule}\n\nBOUNDARY EXAMPLE PATENTS:\n{ex_block}")
-        try:
-            out, pt, ct = llm.parse(_ENRICH_SYSTEM, user, DecisionEnrichOut)
-            usage.add(pt, ct)
-        except Exception:
-            continue
-        card = DecisionQuestion(
-            id=qid, stake=out.stake, include_argument=out.include_argument,
-            include_examples=out.include_examples, exclude_argument=out.exclude_argument,
-            exclude_examples=out.exclude_examples, impact_flips=flip, impact_sample_n=n,
-            recommendation=out.recommendation, options=q.options,
-            tentative_default=q.tentative_default, broad_rule=q.broad_rule,
-            narrow_rule=q.narrow_rule)
-        existing.append(card.model_dump())
-        seen.add(qid)
-    ws.write_json(ws.decisions_json, {"decisions": existing})
+        card = _build_card(ws, llm, q, flip, n, usage, ex_block)
+        if card:
+            cards.append(card)
+        out.append(CardedHITLQuestion(
+            id=f"{id_prefix}{q.id}", question=asked_text(q),
+            why_needed=q.why_it_matters, options=q.options,
+            card=card.model_dump() if card else None))
+    _merge_decisions(ws, cards)
+    return out
+
+
+_AS_BOUNDARY_SYSTEM = """
+The criteria validator raised scope questions that only the domain owner can settle.
+Restate each one as ONE testable scope boundary, preserving the order given. Per question:
+- question: 도메인 소유자에게 묻는 결정 질문 (KOREAN, 한 문장, 무엇을 포함/제외할지 묻는 형태)
+- why_it_matters: 이 결정이 판정 결과에 어떤 차이를 만드는지 (KOREAN)
+- options: 구체적 선택지 (예: ["포함", "제외"])
+- tentative_default: 답이 없을 때 유지할 현재 가정 (KOREAN)
+- broad_rule / narrow_rule: ENGLISH, one sentence each, stating what an individual patent
+  must claim to be INCLUDED under the broad and the narrow reading. They must be applicable
+  to a single patent's title+abstract with no further context — they are executed against a
+  pool sample to measure how many judgments actually flip.
+Output JSON only.
+"""
+
+
+def cards_for_raw_questions(ws: Workspace, llm: StructuredLLM,
+                            raw: list[tuple[str, str]], doc, pool_df, probe_pool,
+                            domain: str, usage: Usage) -> list[CardedHITLQuestion]:
+    """Validator-raised scope questions -> measured, carded HITL questions.
+
+    A boundary the validator blocks on is the same kind of decision the criteria author
+    raises, so it earns the same treatment: restate it as broad/narrow rules, MEASURE it
+    on a pool sample, and render it as a decision card. The measurement threshold is
+    dropped to 0 here — unlike candidate boundaries, these questions are not being
+    selected, they are already known to need an answer.
+
+    Returns [] on any failure so the caller can fall back to plain questions."""
+    if not raw:
+        return []
+    try:
+        ctx = "\n".join(f"- {q}\n  (근거/제안: {why})" for q, why in raw)
+        user = (f"DOMAIN: {getattr(doc, 'domain_name', domain)}\n"
+                f"DEFINITION: {getattr(doc, 'domain_definition', '')}\n\n"
+                f"SCOPE QUESTIONS RAISED:\n{ctx}")
+        out, pt, ct = llm.parse(_AS_BOUNDARY_SYSTEM, user, ScopeQuestionsOut)
+        usage.add(pt, ct)
+        qs = out.questions[:len(raw)]
+        if not qs:
+            return []
+        ranked = [(q, 0, 0) for q in qs]
+        if pool_df is not None and probe_pool is not None and len(pool_df):
+            measured = probe_boundaries(qs, pool_df, probe_pool, domain,
+                                        ws.boundary_probe_jsonl,
+                                        min_flip_rate=0.0, max_questions=len(qs))
+            if measured:
+                ranked = measured
+        return carded_questions(ws, llm, ranked, usage)
+    except Exception as e:                     # never block the loop on card generation
+        print(f"  !! [decisions] 검증기 범위질문 카드 생성 실패 ({e}) — 기본 질문으로 진행")
+        return []
 
 
 def run_decisions(ws: Workspace, llm: StructuredLLM, cats: list[CaseMapCategoryOut],
