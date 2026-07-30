@@ -295,6 +295,15 @@ class IssueLedger:
         return {code for code, rec in self.data["issues"].items()
                 if rec.get("status") == "open"}
 
+    def rounds_spent(self) -> int:
+        """Critique rounds already spent on this document, ACROSS relaunches.
+
+        The loop counter restarts at 1 whenever batch HITL exits the process for an
+        answer, so a per-process budget can never be exhausted in the UI: the criteria
+        loop would keep asking forever instead of blocking with a report."""
+        return max((rec.get("rounds_open", 0) for rec in self.data["issues"].values()),
+                   default=0)
+
     def update(self, rnd: int, version: int, critique: CriteriaCritiqueOut) -> None:
         seen: set[str] = set()
         for issue in critique.issues:
@@ -433,9 +442,15 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
     revise | collect_more | ask_human} loop."""
     evidence_summary = R.notes_summary_by_type(ws)
     allowed_refs = allowed_source_references(ws, digest)
-    # Research-run isolation: only answers collected during THIS criteria loop
-    # enter later drafts. No user ruling from another run is seeded here.
-    human_qa_all: list[dict] = []
+    # Run isolation: only THIS workspace's answers enter later drafts — no ruling from
+    # another run is ever seeded. Within the run they must persist across relaunches:
+    # batch HITL exits the process on every question, so starting empty made each resume
+    # redraft as if the owner had never answered, and the drafter re-raised the boundary
+    # it had just been told about — an ask loop that never converged in the UI.
+    from src.agentic.judge import _prior_rulings
+    human_qa_all: list[dict] = _prior_rulings(ws)
+    if human_qa_all:
+        print(f"  [criteria] 이 실행의 기존 판결 {len(human_qa_all)}건을 초안에 반영")
     ver = 1                                              # next unused criteria version
 
     # Batch-HITL resume: if a pending draft was persisted and answers are now available,
@@ -488,7 +503,15 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
     last_was_patch = False
     stop_reason = "criteria loop budget exhausted"
 
-    for rnd in range(1, AC.CRITERIA_MAX_ITERS + 1):
+    # The budget covers the DOCUMENT, not this process: relaunches for HITL answers
+    # continue the same loop rather than restarting it with a fresh budget.
+    spent = ledger.rounds_spent()
+    if spent:
+        print(f"  [criteria] 이 기준서에 이미 {spent}라운드 소진 "
+              f"(예산 {AC.CRITERIA_MAX_ITERS})")
+    budget = max(1, AC.CRITERIA_MAX_ITERS - spent)
+
+    for rnd in range(1, budget + 1):
         critique = critique_criteria(llm, doc, scope, digest, axes, evidence_summary, usage,
                                      allowed_refs=allowed_refs,
                                      ledger_block=ledger.prompt_block(),
@@ -534,7 +557,7 @@ def criteria_loop(ws: Workspace, llm: StructuredLLM, client: SearchClient,
             save_final(ws, doc)
             return doc
 
-        if rnd == AC.CRITERIA_MAX_ITERS:
+        if rnd == budget:
             break
 
         # Convergence guard: a round that resolves NO open ledger critical is churn,
